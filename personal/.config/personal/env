@@ -1,0 +1,42 @@
+#!/usr/bin/env zsh
+
+# Super cool keyboard stuffs.
+# Required for x applications
+setxkbmap -option caps:ctrl_modifier
+
+export STOW_FOLDERS="bin,nvim,tmux,xmonad,work,personal,xmobar,zsh,xkb"
+
+increaseWatchers() {
+    sudo sysctl fs.inotify.max_user_watches=65536
+    sudo sysctl -p
+}
+
+die () {
+    echo >&2 "$@"
+    exit 1
+}
+
+addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
+commitDotFiles() {
+    pushd $DOTFILES
+    pushd personal
+    git add .
+    git commit -m "automagic messaging from me in the past.  Have you checked up your butthole?"
+    git push origin master
+    popd
+    git add .
+    git commit -m "automagic messaging from me in the past.  Have you checked up your butthole?"
+    git push origin master
+    popd
+}

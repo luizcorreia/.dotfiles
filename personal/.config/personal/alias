@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+alias vim="$VIM"
+alias work="cd ~/work"
+
+alias pjson="python -mjson.tool"
+alias killBT="rfkill block bluetooth"
+alias unKillBT="rfkill unblock bluetooth"
+alias cclip="xclip -selection clipboard"
+alias pclip="xclip -selection clipboard"
+alias timeplus="~/dotfiles/apps/time_plus_30"
+alias echotime="~/dotfiles/apps/echo_time"
+alias livestream_screenkey="screenkey -s large --scr 2 -p bottom --geometry 1210x300+712+810";
+alias yt_screenkey="screenkey -s large --scr 1 -p bottom --geometry 510x300+1412+850";
+alias lua=/usr/local/bin/lua
+alias vi=/usr/bin/nvim
+# Taskwarrior GTD alias
+alias in='task add +in'
+tickle () {
+    deadline=$1
+    shift
+    in +tickle wait:$deadline $@
+}
+alias tick=tickle
+alias think='tickle +1d'

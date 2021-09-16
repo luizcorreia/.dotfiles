@@ -1,0 +1,43 @@
+-- http://projects.haskell.org/xmobar/
+-- I use Font Awesome 5 fonts in this config for unicode "icons".  On Arch Linux,
+-- install this package from the AUR to get these fonts: otf-font-awesome-5-free
+
+Config { font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
+                           , "xft:Font Awesome 5 Free Solid:pixelsize=20"
+                           , "xft:Font Awesome 5 Brands:pixelsize=16"
+                           ]
+       , bgColor = "#282828"
+       , fgColor = "#ebdbb2"
+       , position = Static { xpos = 2160 , ypos = 0, width = 3840, height = 48 }
+       , lowerOnStart = False
+       , hideOnStart = False
+       , allDesktops = True
+       , persistent = True
+       , iconRoot = "/home/luizcorreia/.config/xmonad/xpm/"  -- default: "."
+       , commands = [
+                      Run Weather "SNDV" ["-t","<tempF>F <skyCondition>","-L","64","-H","77","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000
+                    -- Time and date
+                    , Run Date "<fc=#83a598><fn=2>\xf017 </fn></fc>%b %d %Y - (%H:%M) " "date" 50
+                      -- Network up and down
+                    , Run Network "enp43s0f3u2" ["-t", "<fc=#83a598><fn=2>\xf0ab </fn></fc><rx>kb  <fc=#83a598><fn=2>\xf0aa </fn></fc><tx>kb"] 20
+                      -- Cpu usage in percent
+                    , Run Cpu ["-t", "<fc=#83a598><fn=2>\xf108 </fn></fc>cpu: (<total>%)","-H","50","--high","red"] 20
+                      -- Ram used number and percent
+                    , Run Memory ["-t", "<fc=#83a598><fn=2>\xf233 </fn></fc>mem: <used>M (<usedratio>%)"] 20
+                      -- Disk space free
+                    , Run DiskU [("/", "<fc=#83a598><fn=2>\xf0c7 </fn></fc>hdd: <free> free")] [] 60
+                      -- Runs custom script to check for pacman updates.
+                      -- This script is in my dotfiles repo in .local/bin.
+                    , Run Com "pacupdate" [] "pacupdate" 36000
+                      -- Runs a standard shell command 'uname -r' to get kernel versionS
+                    , Run Com "uname" ["-r"] "" 3600
+                      -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
+                    , Run Com "/home/luizcorreia/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 24
+                      -- The workspaces are 'clickable' in my configs.
+                    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <fc=#83a598><icon=haskell_20.xpm/></fc>   %UnsafeStdinReader% }{  %SNDV%    %cpu%    %memory%    %disku%    %enp43s0f3u2%    <fc=#83a598><fn=2> </fn></fc><action=`alacritty -e sudo pacman -Syu`>%pacupdate%</action>   %date% %trayerpad%"
+       }

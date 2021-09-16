@@ -1,0 +1,69 @@
+
+Xft.lcdfilter                : lcddefault
+Xft.hintstyle                : hintslight
+Xft.hinting                  : 1
+Xft.autohint                 : 1
+Xft.antialias                : 1
+Xft.dpi                      : 192
+Xft.rgba                     : rgb
+
+Xcursor.theme                : Pop
+
+XTerm*renderFont: true
+XTerm*faceName: xft:MesloLGS NF-11
+XTerm*faceSize: 11
+XTerm*utf8: 2
+XTerm*locale: true
+
+XTerm.vt100.translations: #override \n\
+  Ctrl <Key> j: smaller-vt-font() \n\
+  Ctrl <Key> k: larger-vt-font()
+
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+XTerm*loginshell: true
+
+! I like a LOT of scrollback...
+XTerm*savelines: 16384
+
+! double-click to select whole URLs :D
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+!urxvt*depth: 32
+!urxvt*background: rgba:0000/0000/0200/c800
+URxvt.transparent:   true
+URxvt.shading:       20
+URxvt*imLocale: en_US.UTF-8
+URxvt*termName: rxvt-unicode-256color
+URxvt*buffered: false
+URxvt.intensityStyles: false
+!URxvt.font: xft:Mononoki Nerd Font:size=12, \
+!            xft:JoyPixels:size=12, \
+!            xft:Monospace:style=Medium:size=12
+URxvt.saveLines: 2000
+URxvt.scrollBar: false
+URxvt.cursorColor: white
+
+URxvt.font                   : xft:MesloLGS NF-11
+URxvt.buffered               : true
+URxvt.iso14755               : false
+URxvt.perl-ext-common        : default,tabbedex,clipboard,resize-font
+URxvt.tabbed.tabbar-fg       : 8
+URxvt.tabbed.tabbar-bg       : 0
+URxvt.tabbed.tab-fg          : 15
+URxvt.tabbed.tab-bg          : 0
+URxvt.tabbed.autohide        : true
+URXvt.tabbed.reopen-on-close : yes
+URxvt.perl-ext               : default,url-select
+URxvt.keysym.C-i             : perl:url-select:select_next
+URxvt.url-select.launcher    : /usr/bin/firefox
+URxvt.url-select.underline   : true
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+!URxvt.colorUL                : #78A4FF
+
+! FOR ALL OTHER PROGRAMS USE XRESOURCES
+! This includes xterm and urxvt
+
+#include "/home/luizcorreia/.colors/gruvbox-dark"

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+#addToPathFront $DENO_INSTALL
+#addToPath /home/theprimeagen/personal/lua-language-server/bin/Linux
+addToPath /usr/local/go/bin
+addToPath $GOPATH/bin
+addToPath $HOME/work/wrapper
+addToPath $HOME/.yarn/bin
+addToPath /usr/lib/llvm-8/bin
+addToPath $HOME/.cargo/bin
+addToPath $HOME/.rustup
+
+# ccache
+addToPathFront /usr/lib/ccache
