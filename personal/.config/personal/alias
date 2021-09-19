@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 alias vim="$VIM"
 alias work="cd ~/work"
+alias python=python3
+alias curl='noglob curl'
 
 alias pjson="python -mjson.tool"
 alias killBT="rfkill block bluetooth"

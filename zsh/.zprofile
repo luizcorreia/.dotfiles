@@ -1,5 +1,6 @@
 export XDG_CONFIG_HOME=$HOME/.config
 VIM="nvim"
+EDITOR="nvim"
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$(yarn global bin):$HOME/bin:$HOME/.local/bin:$PATH

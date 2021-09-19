@@ -16,6 +16,7 @@ import XMonad.Actions.WindowGo (runOrRaise)
 import XMonad.Actions.WithAll (sinkAll, killAll)
 import qualified XMonad.Actions.Search as S
 import XMonad.Actions.Minimize
+import XMonad.Actions.UpdatePointer
 
     -- Data
 import Data.Char (isSpace, toUpper)
@@ -35,6 +36,8 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.WorkspaceHistory
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.FadeInactive
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
 
     -- Layouts
 import XMonad.Layout.Accordion
@@ -44,7 +47,6 @@ import XMonad.Layout.Spiral
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
-import XMonad.Layout.IndependentScreens
 
     -- Layouts modifiers
 import XMonad.Layout.LayoutModifier
@@ -70,6 +72,10 @@ import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run (runProcessWithInput, safeSpawn, spawnPipe)
 import XMonad.Util.SpawnOnce
+import XMonad.Util.ClickableWorkspaces
+import XMonad.Util.Loggers.NamedScratchpad
+import XMonad.Util.WorkspaceCompare
+import XMonad.Util.NamedWindows (getName)
 
 
 myFont :: String
@@ -81,12 +87,16 @@ myModMask = mod4Mask        -- Sets modkey to super/windows key
 myTerminal :: String
 myTerminal = "alacritty"    -- Sets default terminal
 
+myAltTerminal :: String
+myAltTerminal = "/usr/bin/urxvt"
+
 myBrowser :: String
-myBrowser = "firefox"  -- Sets qutebrowser as browser
+-- myBrowser = "firefox"  -- Sets qutebrowser as browser
+myBrowser = "brave"  -- Sets qutebrowser as browser
 
 
 myEditor :: String
-myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor
+myEditor = myTerminal ++ " -e nvim "    -- Sets nvim as editor
 
 myBorderWidth :: Dimension
 myBorderWidth = 2           -- Sets border width for windows
@@ -109,26 +119,25 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 myStartupHook :: X ()
 myStartupHook = do
-    spawnOnce "exec ~/bin/eww daemon"
-    spawn "xsetroot -cursor_name left_ptr"
-    spawn "exec ~/bin/lock.sh"
     spawnOnce "lxsession &"
     spawnOnce "picom --experimental-backends &"
-    -- spawnOnce "greenclip daemon"
-    spawnOnce "dunst"
     spawnOnce "nm-applet &"
     spawnOnce "volumeicon &"
     -- spawnOnce "conky -c $HOME/.config/conky/doomone-xmonad.conkyrc"
-    spawnOnce "trayer --edge top --align right --distance 12 --distancefrom top --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 24 &"
+    spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 24 &"
+    -- spawnOnce "exec ~/bin/eww daemon"
+    spawn "xsetroot -cursor_name left_ptr"
+    spawn "exec ~/bin/lock.sh"
+    -- spawnOnce "greenclip daemon"
+    spawnOnce "dunst"
     -- spawnOnce "urxvtd -q -o -f &"      -- urxvt daemon for better performance
-    -- spawnOnce "~/.fehbg &"  -- set last saved feh wallpaper
-    -- spawnOnce "feh --randomize --bg-fill ~/wallpapers/*"  -- feh set random wallpaper
-    spawnOnce "nitrogen --restore &"   -- if you prefer nitrogen to feh
+    spawnOnce "nitrogen --restore"   -- if you prefer nitrogen to feh
     spawnOnce "discord"
+    spawnOnce "discord-ptb"
     spawnOnce "slack"
     spawnOnce "thunderbird"
     setWMName "LG3D"
-
+    <+> nspTrackStartup myScratchPads
 
 
 myColorizer :: Window -> Bool -> X (String, String)
@@ -185,6 +194,8 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "pavucontrol" spawnPavucontrol findPavucontrol managePavucontrol
                 ]
   where
+    role = stringProperty "WM_WINDOW_ROLE"
+
     spawnPavucontrol  = "pavucontrol"
     findPavucontrol   = className =? "Pavucontrol"
     managePavucontrol = customFloating $ W.RationalRect l t w h
@@ -193,6 +204,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.4
                  t = 0.75 -h
                  l = 0.70 -w
+
     spawnTasks  = myTerminal ++ " -t tasks -e tmux_start"
     findTasks   = title =? "tasks"
     manageTasks = customFloating $ W.RationalRect l t w h
@@ -201,6 +213,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
+
     spawnTaskwarrior  = myTerminal ++ " -t taskwarrior -e tasksh"
     findTaskwarrior   = title =? "taskwarrior"
     manageTaskwarrior = customFloating $ W.RationalRect l t w h
@@ -209,6 +222,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.4
                  t = 0.75 -h
                  l = 0.70 -w
+
     spawnJoplin  = myTerminal ++ " -t joplin -e joplin"
     findJoplin   = title =? "joplin"
     manageJoplin = customFloating $ W.RationalRect l t w h
@@ -217,7 +231,8 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
-    spawnTerm  = myTerminal ++ " -t scratchpad"
+
+    spawnTerm  = myTerminal ++ " -t scratchpad -e tmux a -t luizcorreia"
     findTerm   = title =? "scratchpad"
     manageTerm = customFloating $ W.RationalRect l t w h
                where
@@ -225,6 +240,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
+
     spawnMocp  = myTerminal ++ " -t mocp -e mocp"
     findMocp   = title =? "mocp"
     manageMocp = customFloating $ W.RationalRect l t w h
@@ -233,6 +249,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
+
     spawnCalc  = "qalculate-gtk"
     findCalc   = className =? "Qalculate-gtk"
     manageCalc = customFloating $ W.RationalRect l t w h
@@ -372,37 +389,46 @@ myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces myIndexWorkspaces -- 
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
     where i = fromJust $ M.lookup ws myWorkspaceIndices
 
+data LibNotifyUrgencyHook = LibNotifyUrgencyHook deriving (Read, Show)
+
+instance UrgencyHook LibNotifyUrgencyHook where
+    urgencyHook LibNotifyUrgencyHook w = do
+        name     <- getName w
+        Just idx <- fmap (W.findTag w) $ gets windowset
+
+        safeSpawn "notify-send" [show name, "workspace " ++ idx]
 
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
-myManageHook = composeAll
+myManageHook = (composeAll . concat $
      -- 'doFloat' forces a window to float.  Useful for dialog boxes and such.
      -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
      -- I'm doing it this way because otherwise I would have to write out the full
      -- name of my workspaces and the names would be very long if using clickable workspaces.
-     [ className =? "confirm"         --> doFloat
-     , className =? "file_progress"   --> doFloat
-     , className =? "dialog"          --> doFloat
-     , className =? "download"        --> doFloat
-     , className =? "error"           --> doFloat
-     , className =? "Gimp"            --> doFloat
-     , className =? "notification"    --> doFloat
-     , className =? "pinentry-gtk-2"  --> doFloat
-     , className =? "splash"          --> doFloat
-     , className =? "toolbar"         --> doFloat
-     , className =? "Yad"             --> doCenterFloat
-     , title =? "Oracle VM VirtualBox Manager"  --> doFloat
-     , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 0 )
-     , className =? "brave-browser"   --> doShift ( myWorkspaces !! 0 )
-     , className =? "qutebrowser"     --> doShift ( myWorkspaces !! 9 )
-     , className =? "mpv"             --> doShift ( myWorkspaces !! 7 )
-     , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
-     , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
-     , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
-     , isFullscreen -->  doFullFloat
-     , className =? "discord"         --> doShift ( myWorkspaces !! 2 )
-     , className =? "Slack"           --> doShift ( myWorkspaces !! 2 )
-     , className =? "Thunderbird"     --> doShift ( myWorkspaces !! 3 )
-     ] <+> namedScratchpadManageHook myScratchPads
+     [
+       [ className =? "confirm"         --> doFloat                            ]
+     , [ className =? "file_progress"   --> doFloat                            ]
+     , [ className =? "dialog"          --> doFloat                            ]
+     , [ className =? "download"        --> doFloat                            ]
+     , [ className =? "error"           --> doFloat                            ]
+     , [ className =? "Gimp"            --> doFloat                            ]
+     , [ className =? "notification"    --> doFloat                            ]
+     , [ className =? "pinentry-gtk-2"  --> doFloat                            ]
+     , [ className =? "splash"          --> doFloat                            ]
+     , [ className =? "toolbar"         --> doFloat                            ]
+     , [ className =? "Yad"             --> doCenterFloat                      ]
+     , [ title =? "Oracle VM VirtualBox Manager"  --> doFloat                  ]
+     , [ title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 0 )      ]
+     , [ className =? "brave-browser"   --> doShift ( myWorkspaces !! 0 )      ]
+     , [ className =? "qutebrowser"     --> doShift ( myWorkspaces !! 9 )      ]
+     , [ className =? "mpv"             --> doShift ( myWorkspaces !! 7 )      ]
+     , [ className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )      ]
+     , [ className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )  ]
+     , [ (className =? "firefox" <&&> resource =? "Dialog") --> doFloat        ] -- Float Firefox Dialog
+     , [ isFullscreen -->  doFullFloat                                         ]
+     , [ className =? "discord"         --> doShift ( myWorkspaces !! 2 )      ]
+     , [ className =? "Slack"           --> doShift ( myWorkspaces !! 2 )      ]
+     , [ className =? "Thunderbird"     --> doShift ( myWorkspaces !! 3 )      ]
+     ]) <+> namedScratchpadManageHook myScratchPads
 
 -- START_KEYS
 myKeys :: [(String, X ())]
@@ -455,8 +481,8 @@ myKeys =
     -- KB_GROUP Workspaces
         , ("M-.", nextScreen)  -- Switch focus to next monitor
         , ("M-,", prevScreen)  -- Switch focus to prev monitor
-        , ("M-S-<KP_Add>", shiftTo Next nonNSP >> moveTo Next nonNSP)       -- Shifts focused window to next ws
-        , ("M-S-<KP_Subtract>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to prev ws
+        -- , ("M-S-<KP_Add>", shiftTo Next nonNSP >> moveTo Next nonNSP)       -- Shifts focused window to next ws
+        -- , ("M-S-<KP_Subtract>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to prev ws
         , ("M-0", windows $ W.greedyView " ETC ")
         , ("M-S-0", windows $ W.shift " ETC ")
 
@@ -532,11 +558,6 @@ myKeys =
         , ("M-s s", namedScratchpadAction myScratchPads "tasks")
         , ("M-s p", namedScratchpadAction myScratchPads "pavucontrol")
 
-    -- KB_GROUP Set wallpaper
-    -- Set wallpaper with 'feh'. Type 'SUPER+F1' to launch sxiv in the wallpapers directory.
-    -- Then in sxiv, type 'C-x w' to set the wallpaper that you choose.
-        , ("M-<F1>", spawn "sxiv -r -q -t -o ~/wallpapers/*")
-
     -- KB_GROUP Controls for mocp music player (SUPER-u followed by a key)
         , ("M-u p", spawn "mocp --play")
         , ("M-u l", spawn "mocp --next")
@@ -559,18 +580,45 @@ myKeys =
         , ("<Print>", spawn "dmscrot")
         ]
     -- The following lines are needed for named scratchpads.
-          where nonNSP          = WSIs (return (\ws -> W.tag ws /= "NSP"))
-                nonEmptyNonNSP  = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "NSP"))
+          -- where nonNSP          = WSIs (return (\ws -> W.tag ws /= "NSP"))
+          --      nonEmptyNonNSP  = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "NSP"))
 -- END_KEYS
+--
+
+myPP :: PP
+myPP = xmobarPP
+              -- the following variables beginning with 'pp' are settings for xmobar.
+              { ppCurrent = xmobarColor "#e78a4e" "" . wrap "[" "]"         -- Current workspace
+              , ppVisible = xmobarColor "#e78a4e" "" . clickable              -- Visible but not current workspace
+              , ppHidden = xmobarColor "#ebdbb2" "" . clickable -- Hidden workspaces
+              , ppHiddenNoWindows = xmobarColor "#a9b665" ""  . clickable     -- Hidden workspaces (no windows)
+              , ppTitle = xmobarColor "#d3869b" "" . shorten 60               -- Title of active window
+              , ppSep =  "<fc=#b16286> | </fc>"                    -- Separator character
+              , ppUrgent = xmobarColor "#fb4934" "" . wrap "!" "!"            -- Urgent workspace
+              , ppExtras  = [windowCount]                                     -- # of windows current workspace
+              -- do not show NSP at end of workspace list
+              , ppSort = fmap (.filterOutWs[scratchpadWorkspaceTag]) $ ppSort def
+              , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
+              }
+
+
+xmobarRight :: StatusBarConfig
+xmobarRight    = statusBarProp "xmobar -x 0 ~/.config/xmobar/xmobarrc"
+                (clickablePP myPP)
+xmobarLeft :: StatusBarConfig
+xmobarLeft    = statusBarProp "xmobar -x 1 ~/.config/xmobar/xmobarrc1"
+                (clickablePP myPP)
+
+barSpawner :: ScreenId -> IO StatusBarConfig
+barSpawner 0 = pure $ xmobarRight
+barSpawner 1 = pure $ xmobarLeft
+barSpawner _ = mempty -- nothing on the rest of the screens
 
 main :: IO ()
 main = do
-    -- Launching three instances of xmobar on their monitors.
-    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc0"
-    xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/xmobarrc1"
-    -- xmproc2 <- spawnPipe "xmobar -x 2 $HOME/.config/xmobar/xmobarrc2"
     -- the xmonad, ya know...what the WM is named after.!
-    xmonad $ ewmh $ def
+    -- xmonad $ withSB (xmobarRight <> xmobarLeft) $ ewmh $ def
+    xmonad $ dynamicSBs barSpawner $ ewmh $ withUrgencyHook LibNotifyUrgencyHook $ def
         { manageHook         = myManageHook <+> manageDocks
         , handleEventHook    = handleEventHook def <+> docksEventHook
                                -- Uncomment this line to enable fullscreen support on things like YouTube/Netflix.
@@ -578,6 +626,7 @@ main = do
                                -- it adds a border around the window if screen does not have focus. So, my solution
                                -- is to use a keybinding to toggle fullscreen noborders instead.  (M-<Space>)
                                -- <+> fullscreenEventHook
+        , logHook = dynamicLogString myPP >>= xmonadPropLog
         , modMask            = myModMask
         , terminal           = myTerminal
         , startupHook        = myStartupHook
@@ -586,19 +635,4 @@ main = do
         , borderWidth        = myBorderWidth
         , normalBorderColor  = myNormColor
         , focusedBorderColor = myFocusColor
-        , logHook = dynamicLogWithPP $ filterOutWsPP[scratchpadWorkspaceTag] $ xmobarPP
-              -- the following variables beginning with 'pp' are settings for xmobar.
-              { ppOutput = \x -> hPutStrLn xmproc0 x                          -- xmobar on monitor 1
-                              >> hPutStrLn xmproc1 x                          -- xmobar on monitor 2
-                              -- >> hPutStrLn xmproc2 x                          -- xmobar on monitor 3
-              , ppCurrent = xmobarColor "#e78a4e" "" . wrap "[" "]"         -- Current workspace
-              , ppVisible = xmobarColor "#e78a4e" "" . clickable              -- Visible but not current workspace
-              , ppHidden = xmobarColor "#ebdbb2" "" . clickable -- Hidden workspaces
-              , ppHiddenNoWindows = xmobarColor "#a9b665" ""  . clickable     -- Hidden workspaces (no windows)
-              , ppTitle = xmobarColor "#d3869b" "" . shorten 60               -- Title of active window
-              , ppSep =  "<fc=#b16286> | </fc>"                    -- Separator character
-              , ppUrgent = xmobarColor "#fb4934" "" . wrap "!" "!"            -- Urgent workspace
-              , ppExtras  = [windowCount]                                     -- # of windows current workspace
-              , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
-              }
         } `additionalKeysP` myKeys
