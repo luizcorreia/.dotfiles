@@ -9,17 +9,14 @@ Config { font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=true
                            ]
        , bgColor = "#1d2021"
        , fgColor = "#ebdbb2"
-       , position = Static { xpos = 0 , ypos = 0, width = 2160, height = 48 }
-       , lowerOnStart = True
+       , position = Static { xpos = 2160 , ypos = 0, width = 3840, height = 48 }
+       , lowerOnStart = False
        , hideOnStart = False
        , allDesktops = True
        , persistent = True
        , iconRoot = "/home/luizcorreia/.config/xmonad/xpm/"  -- default: "."
        , commands = [
-                    -- Prints out the left side items such as workspaces, layout, etc.
-                    -- Run UnsafeStdinReader
                     Run UnsafeXMonadLog
-                    -- Run XMonadLog
                     -- Time and date
                     , Run Date "<fc=#83a598><fn=2>\xf017 </fn></fc>%b %d %Y - (%H:%M) " "date" 50
                       -- Network up and down
@@ -28,6 +25,8 @@ Config { font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=true
                     , Run Cpu ["-t", "<fc=#83a598><fn=2>\xf108 </fn></fc>cpu: (<total>%)","-H","50","--high","red"] 20
                       -- Ram used number and percent
                     , Run Memory ["-t", "<fc=#83a598><fn=2>\xf233 </fn></fc>mem: <used>M (<usedratio>%)"] 20
+                      -- Prints out the left side items such as workspaces, layout, etc.
+                    , Run UnsafeStdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"

@@ -9,6 +9,7 @@ addToPath $HOME/.yarn/bin
 addToPath /usr/lib/llvm-8/bin
 addToPath $HOME/.cargo/bin
 addToPath $HOME/.rustup
-
+addToPath $HOME/tools/lua-language-server/bin/Linux
+addToPath $HOME/.ebcli-virtual-env/executables
 # ccache
 addToPathFront /usr/lib/ccache

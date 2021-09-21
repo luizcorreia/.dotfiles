@@ -20,7 +20,7 @@ Plug 'ambv/black'
 
 " Plebvim lsp Plugins
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+" Plug 'hrsh7th/nvim-compe'
 " Plug 'nvim-lua/completion-nvim'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'simrat39/symbols-outline.nvim'
@@ -32,7 +32,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
 " Debugger Plugins
-Plug 'puremourning/vimspector'
+Plug 'puremourning/vimspector', { 'do': './install.py --tern-completer' }
 Plug 'szw/vim-maximizer'
 
 " Snippets
@@ -70,7 +70,7 @@ Plug 'sbdchd/neoformat'
 
 Plug 'ThePrimeagen/git-worktree.nvim'
 Plug 'ThePrimeagen/refactoring.nvim'
-Plug 'ThePrimeagen/vim-with-me.nvim'
+" Plug 'ThePrimeagen/vim-with-me.nvim'
 
 " should I try another status bar???
 Plug 'vimwiki/vimwiki'
@@ -87,11 +87,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Code commenter
 Plug 'preservim/nerdcommenter'
 "
-" Syntax highlighting
-Plug 'dense-analysis/ale'
 
-" NERDTree
-"Plug 'preservim/nerdtree'
 "
 " Statusbar
 Plug 'itchyny/lightline.vim'
@@ -107,6 +103,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
 "  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 " Plug 'hoob3rt/lualine.nvim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
@@ -119,24 +117,25 @@ let g:vimwiki_markdown_link_ext = 1
 
 let g:taskwiki_markdown_syntax = 'markdown'
 let g:markdown_folding = 1
-" Fix files automatically on save
-let g:ale_fixers = {}
-let g:ale_javascript_eslint_use_global = 1
-let g:ale_linters = {
-  \'javascript': ['eslint'],
-  \'vue': ['eslint', 'stylelint', 'tsserver'],
-\}
 
-let g:ale_fixers = {
-  \'javascript': ['prettier', 'eslint'],
-  \'vue': ['eslint', 'stylelint'],
-\}
-
-let g:ale_linters_explicit = 1
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
-let g:ale_fix_on_save = 1
+" let js_fixers = ['prettier', 'eslint']
+" " Fix files automatically on save
+" let g:ale_fixers = {
+"             \  '*': ['remove_trailing_lines', 'trim_whitespace'],
+"             \  'javascript': js_fixers,
+"             \  'javascript.jsx': js_fixers,
+"             \  'typescript': js_fixers,
+"             \  'typescriptreact': js_fixers,
+"             \  'css': ['prettier'],
+"             \  'json': ['prettier'],
+"             \ }
+"
+" let g:ale_javascript_eslint_use_global = 1
+" let g:ale_linters = {
+"             \ 'javascript': ['eslint'],
+"             \ 'vue': ['eslint', 'stylelint', 'tsserver'],
+"             \ }
+" let g:ale_javascript_eslint_executable='npx eslint'
 
 lua require("theprimeagen")
 lua require'nvim-treesitter.configs'.setup { indent = { enable = true }, highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}

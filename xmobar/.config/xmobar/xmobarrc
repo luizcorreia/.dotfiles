@@ -10,11 +10,11 @@ Config { font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=true
        , bgColor = "#282828"
        , fgColor = "#ebdbb2"
        , position = Static { xpos = 2160 , ypos = 0, width = 3840, height = 48 }
-       , lowerOnStart = False
+       , lowerOnStart = True
        , hideOnStart = False
        , pickBroadest     = False   -- choose widest display (multi-monitor)
        , allDesktops = True
-       , overrideRedirect = False
+       , overrideRedirect = True
        , verbose = True
        , persistent = True
        , iconRoot = "/home/luizcorreia/.config/xmonad/xpm/"  -- default: "."
