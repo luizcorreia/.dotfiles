@@ -1,8 +1,16 @@
+if !exists('g:lspconfig')
+  finish
+endif
+
+lua << EOF
 --vim.lsp.set_log_level("debug")
+EOF
+
+lua << EOF
 local nvim_lsp = require('lspconfig')
 local protocol = require'vim.lsp.protocol'
 
--- Use an on_attach function to only map the following keys
+-- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -108,7 +116,7 @@ nvim_lsp.diagnosticls.setup {
         }
       },
     },
-    filetypes  {
+    filetypes = {
       javascript = 'eslint',
       javascriptreact = 'eslint',
       typescript = 'eslint',
@@ -151,3 +159,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
   }
 )
+
+EOF

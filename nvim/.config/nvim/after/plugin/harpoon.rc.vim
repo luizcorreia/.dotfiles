@@ -1,10 +1,9 @@
-lua require("theprimeagen")
-
 " Terminal commands
 " ueoa is first through fourth finger left hand home row.
 " This just means I can crush, with opposite hand, the 4 terminal positions
 "
 " These functions are stored in harpoon.  A plugn that I am developing
+let mapleader = " " 
 nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
 nnoremap <C-e> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 

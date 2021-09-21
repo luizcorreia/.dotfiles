@@ -149,51 +149,6 @@ myStartupHook = do
     <+> nspTrackStartup myScratchPads
     <+> fixSupportedAtoms
 
-
-myColorizer :: Window -> Bool -> X (String, String)
-myColorizer = colorRangeFromClassName
-                  (0x28,0x2c,0x34) -- lowest inactive bg
-                  (0x28,0x2c,0x34) -- highest inactive bg
-                  (0xc7,0x92,0xea) -- active bg
-                  (0xc0,0xa7,0x9a) -- inactive fg
-                  (0x28,0x2c,0x34) -- active fg
-
--- gridSelect menu layout
-mygridConfig :: p -> GSConfig Window
-mygridConfig colorizer = (buildDefaultGSConfig myColorizer)
-    { gs_cellheight   = 40
-    , gs_cellwidth    = 200
-    , gs_cellpadding  = 6
-    , gs_originFractX = 0.5
-    , gs_originFractY = 0.5
-    , gs_font         = myFont
-    }
-
-spawnSelected' :: [(String, String)] -> X ()
-spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
-    where conf = def
-                   { gs_cellheight   = 40
-                   , gs_cellwidth    = 200
-                   , gs_cellpadding  = 6
-                   , gs_originFractX = 0.5
-                   , gs_originFractY = 0.5
-                   , gs_font         = myFont
-                   }
-
-myAppGrid = [ ("Audacity", "audacity")
-                 , ("Deadbeef", "deadbeef")
-                 , ("Emacs", "emacsclient -c -a emacs")
-                 , ("Firefox", "firefox")
-                 , ("Geany", "geany")
-                 , ("Geary", "geary")
-                 , ("Gimp", "gimp")
-                 , ("Kdenlive", "kdenlive")
-                 , ("LibreOffice Impress", "loimpress")
-                 , ("LibreOffice Writer", "lowriter")
-                 , ("OBS", "obs")
-                 , ("PCManFM", "pcmanfm")
-                 ]
-
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "mocp" spawnMocp findMocp manageMocp
@@ -507,11 +462,6 @@ myKeys =
         , ("C-M1-h", decScreenSpacing 4)         -- Decrease screen spacing
         , ("C-M1-l", incScreenSpacing 4)         -- Increase screen spacing
 
-    -- KB_GROUP Grid Select (CTR-g followed by a key)
-        , ("C-g g", spawnSelected' myAppGrid)                 -- grid select favorite apps
-        , ("C-g t", goToSelected $ mygridConfig myColorizer)  -- goto selected window
-        , ("C-g b", bringSelected $ mygridConfig myColorizer) -- bring selected window
-
     -- KB_GROUP Windows navigation
         , ("M-m", windows W.focusMaster)  -- Move focus to the master window
         , ("M-j", windows W.focusDown)    -- Move focus to the next window
@@ -604,7 +554,7 @@ myPP = xmobarPP
               , ppHiddenNoWindows = xmobarColor "#a9b665" ""  . clickable     -- Hidden workspaces (no windows)
               , ppTitle = xmobarColor "#d3869b" "" . shorten 60               -- Title of active window
               , ppSep =  "<fc=#b16286> | </fc>"                    -- Separator character
-              , ppUrgent = xmobarColor "#fb4934" "" . wrap "!" "!"            -- Urgent workspace
+              , ppUrgent = xmobarColor "#fb4934" "" . wrap "!" "!" . clickable    -- Urgent workspace
               , ppExtras  = [windowCount]                                     -- # of windows current workspace
               -- do not show NSP at end of workspace list
               , ppSort = fmap (.filterOutWs[scratchpadWorkspaceTag]) $ ppSort def
@@ -636,7 +586,7 @@ main = do
                                -- it adds a border around the window if screen does not have focus. So, my solution
                                -- is to use a keybinding to toggle fullscreen noborders instead.  (M-<Space>)
                                -- <+> fullscreenEventHook
-        , logHook = dynamicLogString myPP >>= xmonadPropLog
+        , logHook            = dynamicLogString myPP >>= xmonadPropLog
         , modMask            = myModMask
         , terminal           = myTerminal
         , startupHook        = myStartupHook
