@@ -1,7 +1,7 @@
   -- Base
 import XMonad
 import System.Directory
-import System.IO (hPutStrLn)
+-- import System.IO (hPutStrLn)
 import System.Exit (exitSuccess)
 import qualified XMonad.StackSet as W
 
@@ -14,29 +14,29 @@ import XMonad.Actions.Promote
 import XMonad.Actions.RotSlaves (rotSlavesDown, rotAllDown)
 import XMonad.Actions.WindowGo (runOrRaise)
 import XMonad.Actions.WithAll (sinkAll, killAll)
-import qualified XMonad.Actions.Search as S
+--import qualified XMonad.Actions.Search as S
 import XMonad.Actions.Minimize
-import XMonad.Actions.UpdatePointer
+--import XMonad.Actions.UpdatePointer
 
     -- Data
-import Data.Char (isSpace, toUpper)
+--import Data.Char (isSpace, toUpper)
 import Data.Maybe (fromJust)
 import Data.Monoid
-import Data.Maybe (isJust)
-import Data.Tree
+--import Data.Maybe (isJust)
+--import Data.Tree
 import qualified Data.Map as M
 
     -- Hooks
-import XMonad.Hooks.DynamicLog (filterOutWsPP, dynamicLogWithPP, wrap, xmobarPP, sjanssenPP, xmobarColor, shorten, PP(..))
+--import XMonad.Hooks.DynamicLog (filterOutWsPP, dynamicLogWithPP, wrap, xmobarPP, sjanssenPP, xmobarColor, shorten, PP(..))
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
 import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat)
-import XMonad.Hooks.ServerMode
+--import XMonad.Hooks.ServerMode
 import XMonad.Hooks.SetWMName
-import XMonad.Hooks.WorkspaceHistory
+--import XMonad.Hooks.WorkspaceHistory
 import XMonad.Hooks.UrgencyHook
-import XMonad.Hooks.FadeInactive
-import XMonad.Hooks.StatusBar
+--import XMonad.Hooks.FadeInactive
+import XMonad.Hooks.StatusBar (StatusBarConfig, statusBarProp, xmonadPropLog, dynamicSBs)
 import XMonad.Hooks.StatusBar.PP
 
     -- Layouts
@@ -67,10 +67,10 @@ import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts, ToggleLayout(T
 import qualified XMonad.Layout.MultiToggle as MT (Toggle(..))
 
    -- Utilities
-import XMonad.Util.Dmenu
+--import XMonad.Util.Dmenu
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.NamedScratchpad
-import XMonad.Util.Run (runProcessWithInput, safeSpawn, spawnPipe)
+import XMonad.Util.Run (safeSpawn)
 import XMonad.Util.SpawnOnce
 import XMonad.Util.ClickableWorkspaces
 import XMonad.Util.Loggers.NamedScratchpad

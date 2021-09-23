@@ -31,16 +31,32 @@ if has("nvim")
   Plug 'nvim-telescope/telescope-fzy-native.nvim'
 endif
 
- "Plug 'vimwiki/vimwiki'
- Plug 'tbabej/taskwiki'
- Plug 'plasticboy/vim-markdown'
- Plug 'gruvbox-community/gruvbox'
+"Plug 'vimwiki/vimwiki'
+"Plug 'tbabej/taskwiki'
+Plug 'gruvbox-community/gruvbox'
+ 
+ " Markdown
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+ " tabular plugin is used to format tables
+Plug 'godlygeek/tabular'
+" JSON front matter highlight plugin
+Plug 'elzr/vim-json'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
- Plug 'tpope/vim-fugitive'
- Plug 'tpope/vim-rhubarb'
+Plug 'mbbill/undotree'
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+
+Plug 'wfxr/minimap.vim'
+
 
 call plug#end()
 

@@ -17,7 +17,8 @@ set title
 set autoindent
 set background=dark
 set nobackup
-set hlsearch
+set nohlsearch
+set incsearch
 set showcmd
 set cmdheight=1
 set laststatus=2
@@ -32,7 +33,7 @@ set backupskip=/tmp/*,/private/tmp/*
 set updatetime=50
 
 " Don't pass messages to lins-completion-menul.
-set shortmess+=c
+"set shortmess+=c
 
 set colorcolumn=80
 
@@ -62,6 +63,16 @@ set ai "Auto indent
 set si "Smart indent
 set nowrap "No Wrap lines
 set backspace=start,eol,indent
+
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set signcolumn=yes
+set isfname+=@-@
+
+" Give more space for displaying messages.
+set cmdheight=1
 " Finding files - Search down into subfolders
 set path+=**
 set wildignore+=**/node_modules/*
@@ -106,12 +117,22 @@ endif
 " ---------------------------------------------------------------------
 " JavaScript
 au BufNewFile,BufRead *.es6 setf javascript
+
 " TypeScript
 au BufNewFile,BufRead *.tsx setf typescriptreact
+
 " Markdown
 au BufNewFile,BufRead *.md set filetype=markdown
+" Highlight the line the cursor is on
+autocmd FileType markdown set cursorline
+" Set spell check to British English
+autocmd FileType markdown setlocal spell spelllang=pt_br
+
 " Flow
 au BufNewFile,BufRead *.flow set filetype=javascript
+
+" Haskell
+au BufNewFile,BufRead *.hs setf haskell
 
 set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 
@@ -156,7 +177,19 @@ endif
 
 " Extras "{{{
 " ---------------------------------------------------------------------
+
 set exrc
+
+" markdown-preview do not close the preview tab when switching to other buffers
+let g:mkdp_auto_close = 0
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+augroup END
 "}}}
 
 " vim: set foldmethod=marker foldlevel=0:
