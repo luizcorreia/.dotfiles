@@ -6,6 +6,7 @@ set completeopt=menuone,noinsert,noselect
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+let g:completion_enable_snippet = 'vim-vsnip'
 let g:completion_confirm_key = ""
 let g:completion_chain_complete_list = {
         \ 'default' : {

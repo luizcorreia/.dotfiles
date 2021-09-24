@@ -49,7 +49,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[augroup END]]
   end
 
-  require'completion'.on_attach(client, bufnr)
+  -- require'completion'.on_attach(client, bufnr)
 
   --protocol.SymbolKind = { }
   protocol.CompletionItemKind = {
@@ -81,12 +81,20 @@ local on_attach = function(client, bufnr)
   }
 end
 
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 nvim_lsp.flow.setup {
-  on_attach = on_attach
+  on_attach = on_attach,
+  capabilities = capabilities, 
+  filetypes = { "javascript", "javascriptreact", "javascript.tsx" },
+  root_dir = nvim_lsp.util.root_pattern("package.json", ".git") or vim.loop.cwd();
 }
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
+  capabilities = capabilities, 
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
 }
 
@@ -97,7 +105,7 @@ nvim_lsp.diagnosticls.setup {
     linters = {
       eslint = {
         command = 'eslint_d',
-        rootPatterns = { '.git' },
+        rootPatterns = { '.git', 'package.json' },
         debounce = 100,
         args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
         sourceName = 'eslint_d',
