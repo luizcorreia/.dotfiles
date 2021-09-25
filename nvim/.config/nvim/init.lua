@@ -17,7 +17,7 @@ end
 g.mapleader = ","
 
 -- Bootstrap Paq when needed
-local fn = vim.fn
+-- local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/paqs/start/paq-nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({ "git", "clone", "--depth=1", "https://github.com/savq/paq-nvim.git", install_path })
@@ -25,35 +25,69 @@ end
 
 -- Plugins
 require("paq-nvim")({
-  "alvan/vim-closetag",
-  "b3nj5m1n/kommentary",
-  "folke/tokyonight.nvim",
-  "glepnir/lspsaga.nvim",
-  "hoob3rt/lualine.nvim",
-  "hrsh7th/nvim-compe",
-  "hrsh7th/vim-vsnip",
-  "norcalli/nvim-colorizer.lua",
-  "windwp/nvim-autopairs",
-  "kyazdani42/nvim-web-devicons",
-  "lewis6991/gitsigns.nvim",
-  "mhartington/formatter.nvim",
-  "neovim/nvim-lspconfig",
-  "nvim-lua/plenary.nvim",
-  "nvim-lua/popup.nvim",
-  "nvim-telescope/telescope.nvim",
-  "nvim-treesitter/nvim-treesitter",
-  "onsails/lspkind-nvim",
-  "p00f/nvim-ts-rainbow",
-  "phaazon/hop.nvim",
-  "rmagatti/auto-session",
-  "sainnhe/everforest",
-  "morhetz/gruvbox",
-  "savq/paq-nvim",
-  "tpope/vim-repeat",
-  "tpope/vim-surround",
-  "wellle/targets.vim",
-  "winston0410/cmd-parser.nvim",
-  "winston0410/range-highlight.nvim",
+    "savq/paq-nvim",
+    -- Git
+    'tpope/vim-fugitive',
+    'tpope/vim-rhubarb',
+    "lewis6991/gitsigns.nvim",
+
+    -- Easily Create Gists
+    'mattn/vim-gist',
+    'mattn/webapi-vim',
+
+    -- Intelisense
+    "glepnir/lspsaga.nvim",
+    "neovim/nvim-lspconfig",
+    "onsails/lspkind-nvim",
+    "windwp/nvim-autopairs",
+    "alvan/vim-closetag",
+    "mhartington/formatter.nvim",
+
+    -- Telescope
+    "nvim-lua/plenary.nvim",
+    "nvim-lua/popup.nvim",
+    "nvim-telescope/telescope.nvim",
+    -- Harpoon
+    "ThePrimeagen/harpoon",
+
+    -- Debugging
+    --
+    -- Autocomplete
+    "hrsh7th/vim-vsnip",
+    "hrsh7th/nvim-compe",
+
+    -- TreeSitter
+    "nvim-treesitter/nvim-treesitter",
+
+    -- Explorer
+    "norcalli/nvim-colorizer.lua",
+
+    -- Comments
+    "b3nj5m1n/kommentary",
+
+    -- Icons
+    "kyazdani42/nvim-web-devicons",
+
+    -- Colors
+    "folke/tokyonight.nvim",
+    "sainnhe/everforest",
+    "morhetz/gruvbox",
+
+    -- Status Line and Bufferline
+    "hoob3rt/lualine.nvim",
+
+    -- Extras
+    "p00f/nvim-ts-rainbow",
+    "phaazon/hop.nvim",
+    "rmagatti/auto-session",
+    "tpope/vim-repeat",
+    "tpope/vim-surround",
+    "wellle/targets.vim",
+    "winston0410/cmd-parser.nvim",
+    "winston0410/range-highlight.nvim",
+
+    -- Dashboard
+    'glepnir/dashboard-nvim',
 })
 
 require("nvim-autopairs").setup({})
@@ -132,7 +166,33 @@ require("lspconfig").cssls.setup({
 })
 require("lspconfig").tsserver.setup({})
 require("lspconfig").hls.setup({})
-require("lspconfig").sumneko_lua.setup({})
+
+local sumneko_root_path = '/home/luizcorreia/tools/lua-language-server'
+local sumneko_binary = sumneko_root_path .. "/bin/Linux/lua-language-server"
+require("lspconfig").sumneko_lua.setup({
+    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+                -- Setup your lua path
+                path = vim.split(package.path, ';'),
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'},
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = {
+                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                },
+            },
+        },
+    },
+})
 
 -- LSP Prevents inline buffer annotations
 vim.lsp.diagnostic.show_line_diagnostics()
@@ -172,11 +232,7 @@ local ts = require("nvim-treesitter.configs")
 ts.setup({ ensure_installed = "maintained", highlight = { enable = true } })
 
 -- Colourscheme config
---[[ vim.g.everforest_background = "hard"
-vim.g.everforest_enable_italic = 1
-vim.g.everforest_diagnostic_text_highlight = 1
-vim.g.everforest_diagnostic_virtual_text = "colored"
-vim.g.everforest_current_word = "bold" ]]
+--[[ vim.g.background = "dark" ]]
 
 -- Load the colorscheme
 cmd([[colorscheme gruvbox]]) -- Put your favorite colorscheme here
