@@ -1,4 +1,4 @@
-  -- Base
+-- Base
 import XMonad
 import System.Directory
 -- import System.IO (hPutStrLn)

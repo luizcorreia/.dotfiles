@@ -51,3 +51,4 @@ eslintify() {
 }
 
 
+setfont ter-p32b
