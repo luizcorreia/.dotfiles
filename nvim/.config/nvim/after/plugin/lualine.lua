@@ -15,7 +15,7 @@ require("lualine").setup({
     icons_enabled = true,
     theme = "gruvbox",
     component_separators = { " ", " " },
-    section_separators = { "", "" },
+    section_separators = { " ", "" },
     disabled_filetypes = {},
   },
   sections = {
@@ -58,6 +58,13 @@ require("lualine").setup({
     lualine_y = {},
     lualine_z = {},
   },
-  tabline = {},
+  tabline = {
+    lualine_a = {},
+    lualine_b = { "branch" },
+    lualine_c = { "filename", file_status = true, path = 1 },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
+  },
   extensions = { "fugitive", "nvim-tree" },
 })

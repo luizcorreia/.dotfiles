@@ -53,6 +53,7 @@ require("paq-nvim")({
 
   -- Icons
   "kyazdani42/nvim-web-devicons",
+  "ryanoasis/vim-devicons",
 
   -- Colors
   "folke/tokyonight.nvim",

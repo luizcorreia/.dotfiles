@@ -10,14 +10,22 @@ local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
 require("telescope").setup({
   defaults = {
+    file_sorter = require("telescope.sorters").get_fzy_sorter,
+    prompt_prefix = " >",
+    color_devicons = true,
     winblend = 20,
     sorting_strategy = "descending",
-    layout_strategy = "horizontal",
     mappings = {
       i = {
         ["<esc>"] = actions.close,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
       },
+    },
+  },
+  extensions = {
+    fzy_native = {
+      override_generic_sorter = false,
+      override_file_sorter = true,
     },
   },
   pickers = {
@@ -69,28 +77,15 @@ require("telescope").setup({
     },
   },
 })
+require("telescope").load_extension("git_worktree")
+require("telescope").load_extension("fzy_native")
 
-map(
-  "n",
-  "<leader>p",
-  '<cmd>lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))<cr>'
-)
+map("n", "<C-p>", '<cmd>lua require("telescope.builtin").git_files()<cr>')
+map("n", "<leader>pf", '<cmd>lua require("telescope.builtin").find_files()<cr>')
 map("n", "<leader>r", '<cmd>lua require("telescope.builtin").registers()<cr>')
-map(
-  "n",
-  "<leader>g",
-  '<cmd>lua require("telescope.builtin").live_grep(require("telescope.themes").get_dropdown({}))<cr>'
-)
-map("n", "<leader>b", '<cmd>lua require("telescope.builtin").buffers(require("telescope.themes").get_dropdown({}))<cr>')
+map("n", "<leader>g", '<cmd>lua require("telescope.builtin").live_grep()<cr>')
+map("n", "<leader>pb", '<cmd>lua require("telescope.builtin").buffers()<cr>')
 map("n", "<leader>j", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
-map(
-  "n",
-  "<leader>f",
-  '<cmd>lua require("telescope.builtin").file_browser(require("telescope.themes").get_dropdown({}))<cr>'
-)
+map("n", "<leader>f", '<cmd>lua require("telescope.builtin").file_browser()<cr>')
 map("n", "<leader>s", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>')
-map(
-  "n",
-  "<leader>i",
-  '<cmd>lua require("telescope.builtin").git_status(require("telescope.themes").get_dropdown({}))<cr>'
-)
+map("n", "<leader>i", '<cmd>lua require("telescope.builtin").git_status()<cr>')
