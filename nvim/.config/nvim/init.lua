@@ -1,9 +1,18 @@
 -- You will need to install language servers `npm i -g vscode-langservers-extracted` and `npm install -g typescript typescript-language-server`
 
 local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
-local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
+-- local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g -- a table to access global variables
 require("settings")
+-- Load the colorscheme
+cmd([[colorscheme gruvbox]]) -- Put your favorite colorscheme here
+
+g.netrw_banner = 0
+g.netrw_liststyle = 3
+g.netrw_browse_split = 4
+g.netrw_altv = 1
+g.netrw_winsize = 15
+-- g.netrw_sort_sequence = [\/]$,*
 
 require("range-highlight").setup({})
 require("nvim-treesitter.configs").setup({
@@ -21,9 +30,6 @@ ts.setup({ ensure_installed = "maintained", highlight = { enable = true } })
 -- Colourscheme config
 vim.g.background = "dark"
 
--- Load the colorscheme
-cmd([[colorscheme gruvbox]]) -- Put your favorite colorscheme here
-
 -- This little monkey has to go after termguicolors is set or gets upset
 require("colorizer").setup()
 
@@ -33,13 +39,21 @@ vim.api.nvim_exec(
   [[
 augroup markdownSpell
     autocmd!
-    autocmd FileType markdown,md,txt setlocal spell
-    autocmd BufRead,BufNewFile *.md,*.txt,*.markdown setlocal spell
+    autocmd FileType markdown,md,txt setlocal spell spelllang=pt_br
+    autocmd BufRead,BufNewFile *.md,*.txt,*.markdown setlocal spell spelllang=pt_br
 augroup END
 ]],
   false
 )
 
+vim.api.nvim_exec(
+  [[
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+]],
+  false
+)
 -- Hop
 require("hop").setup()
 

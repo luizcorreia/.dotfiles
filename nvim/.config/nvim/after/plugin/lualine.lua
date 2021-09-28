@@ -58,13 +58,6 @@ require("lualine").setup({
     lualine_y = {},
     lualine_z = {},
   },
-  tabline = {
-    lualine_a = {},
-    lualine_b = { "branch" },
-    lualine_c = { "filename", file_status = true, path = 1 },
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {},
-  },
+  tabline = {},
   extensions = { "fugitive", "nvim-tree" },
 })

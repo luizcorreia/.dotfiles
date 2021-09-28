@@ -6,6 +6,7 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+map("n", "<leader>c", "<cmd>lua require'luizcorreia.markdown'.ConvertFile()<cr>")
 -- Hop
 map("n", "<leader>h", "<cmd>lua require'hop'.hint_char2()<cr>")
 map("n", "<leader>l", "<cmd>lua require'hop'.hint_lines()<cr>")
