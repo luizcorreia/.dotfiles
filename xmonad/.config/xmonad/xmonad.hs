@@ -347,8 +347,8 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| wideAccordion
 
 myIndexWorkspaces = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-myExtraWorkspaces = [(xK_0, " ETC ")] -- list of (key, name)
-myWorkspaces = [" WWW ", " DEV ", " CHAT ", " MAIL ", " SYS ", " DOC ", " PLACE ", " LAB ", " MEDIA "] ++ (map snd myExtraWorkspaces)
+myExtraWorkspaces = [(xK_0, "ETC")] -- list of (key, name)
+myWorkspaces = ["WWW", "DEV", "CHAT", "MAIL", "SYS", "DOC", "PLACE", "LAB", "MEDIA"] ++ (map snd myExtraWorkspaces)
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces myIndexWorkspaces -- (,) == \x y -> (x,y)
 
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
@@ -448,8 +448,8 @@ myKeys =
         , ("M-,", prevScreen)  -- Switch focus to prev monitor
         -- , ("M-S-<KP_Add>", shiftTo Next nonNSP >> moveTo Next nonNSP)       -- Shifts focused window to next ws
         -- , ("M-S-<KP_Subtract>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to prev ws
-        , ("M-0", windows $ W.greedyView " ETC ")
-        , ("M-S-0", windows $ W.shift " ETC ")
+        , ("M-0", windows $ W.greedyView "ETC")
+        , ("M-S-0", windows $ W.shift "ETC")
 
     -- KB_GROUP Floating windows
         , ("M-f", sendMessage (T.Toggle "floats")) -- Toggles my 'floats' layout
@@ -548,10 +548,10 @@ myKeys =
 myPP :: PP
 myPP = xmobarPP
               -- the following variables beginning with 'pp' are settings for xmobar.
-              { ppCurrent = xmobarColor "#e78a4e" "" . wrap "[" "]"         -- Current workspace
-              , ppVisible = xmobarColor "#e78a4e" "" . clickable              -- Visible but not current workspace
-              , ppHidden = xmobarColor "#ebdbb2" "" . clickable -- Hidden workspaces
-              , ppHiddenNoWindows = xmobarColor "#a9b665" ""  . clickable     -- Hidden workspaces (no windows)
+              { ppCurrent = xmobarColor "#e78a4e" "" . wrap "[" "]" . clickable       -- Current workspace
+              , ppVisible = xmobarColor "#e78a4e" "" . wrap " " " " . clickable               -- Visible but not current workspace
+              , ppHidden = xmobarColor "#ebdbb2" "" . wrap " " " " . clickable -- Hidden workspaces
+              , ppHiddenNoWindows = xmobarColor "#a9b665" "" . wrap " " " " . clickable     -- Hidden workspaces (no windows)
               , ppTitle = xmobarColor "#d3869b" "" . shorten 60               -- Title of active window
               , ppSep =  "<fc=#b16286> | </fc>"                    -- Separator character
               , ppUrgent = xmobarColor "#fb4934" "" . wrap "!" "!" . clickable    -- Urgent workspace

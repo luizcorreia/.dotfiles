@@ -1,0 +1,37 @@
+/* XPM */
+static char *weather_mostly_sunny[] = {
+/* columns rows colors chars-per-pixel */
+"36 24 7 1 ",
+"  c None",
+". c #AD876E",
+"X c #DE935F",
+"o c #DF935F",
+"O c #6E7781",
+"+ c #6F7880",
+"@ c #707880",
+/* pixels */
+"         XX                         ",
+"         XX         @@@     @       ",
+"      X  X  X      @@@@@   @@@      ",
+"                 @@@    @@@   @     ",
+"       XXXXX    @@@      @     @    ",
+"   X  XXXXXXX  O+              @@   ",
+"      XX    XX  +@@          @@@    ",
+"  XX  XX    XX  .+@@@@@@@@@@@@@     ",
+"  XX  XX    XX X  +@@@@@@@@@@@      ",
+"      XX    XX                      ",
+"      XXXXXXXX                      ",
+"   X  XXXXXXX  X                    ",
+"                                    ",
+"                                    ",
+"      X  XX X                       ",
+"         XX                         ",
+"                                    ",
+"                                    ",
+"                                    ",
+"                                    ",
+"                                    ",
+"                                    ",
+"                                    ",
+"                                    "
+};

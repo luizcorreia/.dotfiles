@@ -9,7 +9,7 @@ Config { font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=true
                            ]
        , bgColor = "#1d2021"
        , fgColor = "#ebdbb2"
-       , position = Static { xpos = 2160 , ypos = 0, width = 3840, height = 48 }
+       , position = Static { xpos = 3840, ypos = 0, width = 3840, height = 48 }
        , lowerOnStart = False
        , hideOnStart = False
        , allDesktops = True

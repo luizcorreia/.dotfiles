@@ -2,19 +2,20 @@
 -- I use Font Awesome 5 fonts in this config for unicode "icons".  On Arch Linux,
 -- install this package from the AUR to get these fonts: otf-font-awesome-5-free
 
-Config { font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
+Config { -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=true:hinting=true"
+       additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
                            , "xft:Font Awesome 5 Free Solid:pixelsize=20"
                            , "xft:Font Awesome 5 Brands:pixelsize=24"
                            ]
+       , font        = "xft:Iosevka Nerd Font:pixelsize=16:style=Regular:antialias=true:hinting=true"
        , bgColor = "#1d2021"
        , fgColor = "#ebdbb2"
-       , position = Static { xpos = 0 , ypos = 0, width = 2160, height = 48 }
+       , position = Static { xpos = 0 , ypos = 0, width = 3840, height = 48 }
        , lowerOnStart = True
        , hideOnStart = False
        , allDesktops = True
        , persistent = True
-       , iconRoot = "/home/luizcorreia/.config/xmonad/xpm/"  -- default: "."
+       , iconRoot = "/home/luizcorreia/.config/xmobar/icons"  -- default: "."
        , commands = [
                     -- Prints out the left side items such as workspaces, layout, etc.
                     -- Run UnsafeStdinReader

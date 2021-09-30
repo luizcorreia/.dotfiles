@@ -2,14 +2,15 @@
 -- I use Font Awesome 5 fonts in this config for unicode "icons".  On Arch Linux,
 -- install this package from the AUR to get these fonts: otf-font-awesome-5-free
 
-Config { font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
+Config {  -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=true:hinting=true"
+        additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
                            , "xft:Font Awesome 5 Free Solid:pixelsize=20"
                            , "xft:Font Awesome 5 Brands:pixelsize=16"
                            ]
+       , font        = "xft:Iosevka Nerd Font:pixelsize=16:style=Regular:antialias=true:hinting=true"
        , bgColor = "#282828"
        , fgColor = "#ebdbb2"
-       , position = Static { xpos = 2160 , ypos = 0, width = 3840, height = 48 }
+       , position = Static { xpos = 3840 , ypos = 0, width = 3840, height = 48 }
        , lowerOnStart = True
        , hideOnStart = False
        , pickBroadest     = False   -- choose widest display (multi-monitor)
@@ -17,31 +18,108 @@ Config { font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=true
        , overrideRedirect = True
        , verbose = True
        , persistent = True
-       , iconRoot = "/home/luizcorreia/.config/xmonad/xpm/"  -- default: "."
+       , iconRoot = "/home/luizcorreia/.config/xmobar/icons"  -- default: "."
        , commands = [
                     -- Run UnsafeStdinReader
                     Run UnsafeXMonadLog
                     --  Run Weather "SNDV" ["-t","<tempF>F <skyCondition>","-L","64","-H","77","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000
                     -- Time and date
-                    , Run Date "<fc=#83a598><fn=2>\xf017 </fn></fc>%b %d %Y - (%H:%M) " "date" 50
-                      -- Network up and down
-                    , Run Network "bond0" ["-t", "<fc=#83a598><fn=2>\xf0ab </fn></fc><rx>kb  <fc=#83a598><fn=2>\xf0aa </fn></fc><tx>kb"] 20
                       -- Cpu usage in percent
-                    , Run Cpu ["-t", "<fc=#83a598><fn=2>\xf108 </fn></fc>cpu: (<total>%)","-H","50","--high","red"] 20
-                      -- Ram used number and percent
-                    , Run Memory ["-t", "<fc=#83a598><fn=2>\xf233 </fn></fc>mem: <used>M (<usedratio>%)"] 20
+                   , Run Cpu [ "--template" , "<ipat><total>%"
+                             , "--Low"      , "55"      -- units: %
+                             , "--High"     , "77"      -- units: %
+                             , "--low"      , "#b5bd68"
+                             , "--normal"   , "#de935f"
+                             , "--high"     , "#a54242"
+                             , "--ppad"              , "3"
+                             , "--width"             , "3"
+                             , "--maxtwidth"         , "4"
+                             , "--"
+                               , "--load-icon-pattern" , "<icon=cpu/cpu_%%.xpm/>"
+                             ] 10
+                   , Run MultiCoreTemp [ "--template" , "<maxipat><max>°C"
+                           , "--Low"      , "64"      -- units: °C
+                           , "--High"     , "73"      -- units: °C
+                           , "--low"      , "#b5bd68"
+                           , "--normal"   , "#de935f"
+                           , "--high"     , "#a54242"
+                           , "--ppad"      , "3"
+                           , "--width"     , "3"
+                           , "--maxtwidth" , "5"
+                           , "--"
+                             , "--max-icon-pattern" , "<icon=temperature/temperature_%%.xpm/>"
+                             , "--mintemp" , "20"
+                             , "--maxtemp" , "100"
+                           ] 50
+                   , Run Memory [ "--template" , "<usedipat><usedratio>%"
+                            , "--Low"      , "55"      -- units: %
+                            , "--High"     , "77"      -- units: %
+                            , "--low"      , "#b5bd68"
+                            , "--normal"   , "#de935f"
+                            , "--high"     , "#a54242"
+                            , "--ppad"      , "3"
+                            , "--width"     , "3"
+                            , "--maxtwidth" , "4"
+                            , "--"
+                              , "--used-icon-pattern" , "<icon=ram/ram_%%.xpm/>"
+                            ] 10
+                   , Run Network "bond0" [ "--template" , "<txipat><rxipat>"
+                            , "--Low"      , "10000"   -- units: B/s
+                            , "--High"     , "100000"  -- units: B/s
+                            , "--low"      , "#b5bd68"
+                            , "--normal"   , "#de935f"
+                            , "--high"     , "#a54242"
+                            , "--maxtwidth" , "0"
+                            , "--"
+                              , "--rx-icon-pattern" , "<icon=network/rx/network_rx_%%.xpm/>"
+                              , "--tx-icon-pattern" , "<icon=network/tx/network_tx_%%.xpm/>"
+                            ] 10
+                   , Run Kbd [ ("de" , "<fc=#cc6666>DE</fc>")
+                         , ("us" , "<fc=#b5bd68>US</fc>")
+                         ]
+
+                   , Run MPD [ "--template" , "<statei>"
+                         , "--maxtwidth" , "0"
+                         , "--"
+                           , "--host" , "127.0.0.1"
+                           , "-P" , "<icon=music/music_playing.xpm/>" -- playing
+                           , "-Z" , "<icon=music/music_paused.xpm/>"  -- paused
+                           , "-S" , "<icon=music/music_stopped.xpm/>" -- stopped
+                         ] 10
+
+                   , Run Mail [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/Inbox")
+                          ] "mail"
                       -- Disk space free
-                    , Run DiskU [("/", "<fc=#83a598><fn=2>\xf0c7 </fn></fc>hdd: <free> free")] [] 60
-                      -- Runs custom script to check for pacman updates.
-                      -- This script is in my dotfiles repo in .local/bin.
-                    , Run Com "pacupdate" [] "pacupdate" 36000
-                      -- Runs a standard shell command 'uname -r' to get kernel versionS
-                    , Run Com "uname" ["-r"] "" 3600
+                   , Run WeatherX "SNDV" [ (""                        , "<fc=#5e8d87>?</fc>")
+                         , ("clear"                   , "<icon=weather/weather_sunny.xpm/>")
+                         , ("mostly clear"            , "<icon=weather/weather_mostly_sunny.xpm/>")
+                         , ("sunny"                   , "<icon=weather/weather_sunny.xpm/>")
+                         , ("mostly sunny"            , "<icon=weather/weather_mostly_sunny.xpm/>")
+                         , ("partly sunny"            , "<icon=weather/weather_mostly_cloudy.xpm/>")
+                         , ("cloudy"                  , "<icon=weather/weather_cloudy.xpm/>")
+                         , ("mostly cloudy"           , "<icon=weather/weather_mostly_cloudy.xpm/>")
+                         , ("partly cloudy"           , "<icon=weather/weather_mostly_sunny.xpm/>")
+                         , ("fair"                    , "<icon=weather/weather_sunny.xpm/>")
+                         , ("overcast"                , "<icon=weather/weather_cloudy.xpm/>")
+                         , ("considerable cloudiness" , "<icon=weather/weather_cloudy.xpm/>")
+                         , ("obscured"                , "<icon=weather/weather_obscured.xpm/>")
+                         ] [ "--template", "<skyConditionS><tempC>°C <fc=#5f819d><rh></fc>% <fc=#81a2be><pressure></fc>hPa"
+                           , "--Low"      , "10"      -- units: %
+                           , "--High"     , "20"      -- units: %
+                           , "--low"      , "#81a2be"
+                           , "--normal"   , "#b5bd68"
+                           , "--high"     , "#de935f"
+                           , "--ppad"      , "3"
+                           , "--width"     , "3"
+                           , "--maxtwidth" , "18"
+                           ] 36000
+
+                   , Run Date "%a %d/%m/%y <icon=seperators/seperator.xpm/> %T" "date" 10
                       -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
                     , Run Com "/home/luizcorreia/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 24
                       -- The workspaces are 'clickable' in my configs.
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <fc=#83a598><icon=haskell_20.xpm/></fc>   %UnsafeXMonadLog% }{  %cpu%    %memory%    %disku%    %bond0%    <fc=#83a598><fn=2> </fn></fc><action=`alacritty -e sudo pacman -Syu`>%pacupdate%</action>   %date% %trayerpad%"
+       , template = "  <fc=#83a598><icon=haskell_20.xpm/></fc>   %UnsafeXMonadLog% }{<icon=seperators/seperator.xpm/> %cpu% <icon=seperators/seperator.xpm/> %multicoretemp% <icon=seperators/seperator.xpm/> %memory% <icon=seperators/seperator.xpm/> %bond0% <icon=seperators/seperator.xpm/> %kbd% <icon=seperators/seperator.xpm/>  %mail% <icon=seperators/seperator.xpm/> %mpd% <icon=seperators/seperator.xpm/> %EDMA% <icon=seperators/seperator.xpm/> %date% %trayerpad%"
        }

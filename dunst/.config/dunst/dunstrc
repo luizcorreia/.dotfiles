@@ -120,6 +120,8 @@
     # browser for opening urls in context menu
     browser = /usr/bin/firefox -new-tab
 
+    always_run_script = true
+
 [frame]
     width = 3
     color = "#dab997"
@@ -211,6 +213,14 @@
 #    urgency = critical
 [slack]
 appname = "Slack"
+summary = "*" 
+# this is the filter criterion applied to the message, see below
+urgency = critical # those attributes could be used to set details of the message in the script called below
+# format = "" # could be used to alter the popup text, see below
+script = dunst-urgent-notification # this is the script that is called, see below
+
+[discord]
+appname = "Discord"
 summary = "*" 
 # this is the filter criterion applied to the message, see below
 urgency = critical # those attributes could be used to set details of the message in the script called below
