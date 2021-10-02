@@ -7,7 +7,7 @@ Config { -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=t
                            , "xft:Font Awesome 5 Free Solid:pixelsize=20"
                            , "xft:Font Awesome 5 Brands:pixelsize=24"
                            ]
-       , font        = "xft:Iosevka Nerd Font:pixelsize=16:style=Regular:antialias=true:hinting=true"
+       , font        = "xft:Iosevka Nerd Font:pixelsize=20:style=Regular:antialias=true:hinting=true"
        , bgColor = "#1d2021"
        , fgColor = "#ebdbb2"
        , position = Static { xpos = 0 , ypos = 0, width = 3840, height = 48 }
@@ -32,5 +32,5 @@ Config { -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=t
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <icon=haskell_20.xpm/>   %UnsafeXMonadLog% }{ %cpu%    %memory%    %date% "
+       , template = " <icon=haskell_20.xpm/> %UnsafeXMonadLog% }{ %cpu%    %memory%    %date% "
        }

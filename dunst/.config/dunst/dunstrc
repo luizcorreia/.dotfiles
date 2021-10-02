@@ -6,6 +6,7 @@
 
     # Markup reference: <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>
     allow_markup = yes
+    markup = full
 
     # The format of the message. Possible variables are:
     #   %a  appname
@@ -14,9 +15,9 @@
     #   %i  iconname (including its path)
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
-    format = "<span font='11' foreground='#ffffff'>%s</span>\n\n%b"
-    # format = "<span font='11' weight='bold' foreground='#ffffff'>%s</span>\n%i\n%b"
-    # format = "<b>%s</b>\n%i\n%b"
+    #hformat = "<span font='11' foreground='#ffffff'>%s</span>\n\n%b"
+    format = "<span font='11' weight='bold' foreground='#ffffff'>%s</span>\n%i\n%b"
+#format = "<b>%s</b>\n%i\n%b"
 
     # Sort messages by urgency
     sort = yes
@@ -112,7 +113,7 @@
     # print a notification on startup
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = false
+    startup_notification = true
 
     # dmenu path
     dmenu = /usr/bin/dmenu -p dunst:
@@ -211,26 +212,31 @@
 #    appname = Pidgin
 #    summary = *says*
 #    urgency = critical
+[urgent_hints]
+summary = "*" 
+#format = "" # could be used to alter the popup text, see below
+script = /home/luizcorreia/.config/dunst/dunst-urgent-notification # this is the script that is called, see below
 [slack]
-appname = "Slack"
+appname = Slack
 summary = "*" 
 # this is the filter criterion applied to the message, see below
-urgency = critical # those attributes could be used to set details of the message in the script called below
+#urgency = critical # those attributes could be used to set details of the message in the script called below
 # format = "" # could be used to alter the popup text, see below
-script = dunst-urgent-notification # this is the script that is called, see below
+script = /home/luizcorreia/.config/dunst/dunst-urgent-notification # this is the script that is called, see below
 
 [discord]
-appname = "Discord"
+appname = Discord
 summary = "*" 
 # this is the filter criterion applied to the message, see below
-urgency = critical # those attributes could be used to set details of the message in the script called below
+#urgency = critical # those attributes could be used to set details of the message in the script called below
 # format = "" # could be used to alter the popup text, see below
-script = dunst-urgent-notification # this is the script that is called, see below
+script = /home/luizcorreia/.config/dunst/dunst-urgent-notification # this is the script that is called, see below
 
 [Thunderbird]
-appname = "Thunderbird"
+appname = Thunderbird
 summary = "*" 
 # this is the filter criterion applied to the message, see below
-urgency = critical # those attributes could be used to set details of the message in the script called below
+#urgency = critical # those attributes could be used to set details of the message in the script called below
 # format = "" # could be used to alter the popup text, see below
-script = dunst-urgent-notification # this is the script that is called, see below
+script = /home/luizcorreia/.config/dunst/dunst-urgent-notification # this is the script that is called, see below
+# vim: ft=cfg

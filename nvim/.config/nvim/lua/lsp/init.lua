@@ -88,6 +88,7 @@ require("lspconfig").yamlls.setup({
       },
       schemas = {
         'https://raw.githubusercontent.com/awslabs/goformation/v4.18.2/schema/cloudformation.schema.json: ["/template.yaml", "/template.yml"]',
+        'https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml: ["/openapi.yml", "/openapi.yaml"]',
       },
     },
   },

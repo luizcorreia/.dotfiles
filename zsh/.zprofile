@@ -1,3 +1,8 @@
+# autostart Sway on tty1 at login
+# [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] && exec awesome
+# 
+# # autostart X (i3-wm) on tty2 at login
+# [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty2" ] && exec startx
 export XDG_CONFIG_HOME=$HOME/.config
 VIM="nvim"
 EDITOR="nvim"

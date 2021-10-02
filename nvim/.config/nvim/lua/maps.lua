@@ -19,7 +19,7 @@ map("n", "<Leader>a", "<cmd>lua require'harpoon.mark'.add_file()<cr>")
 map("n", "<Leader>tu", "<cmd>lua require'harpoon.term'.gotoTerminal(1)()<cr>")
 map("n", "<Leader>te", "<cmd>lua require'harpoon.term'.gotoTerminal(2)()<cr>")
 
-map("n", "<Leader><CR>", "<cmd>so ~/.config/nvim/init.vim<cr>")
+map("n", "<Leader><CR>", "<cmd>so ~/.config/nvim/init.lua<cr>")
 
 -- Telescope
 map("n", "<C-p>", '<cmd>lua require("telescope.builtin").git_files()<cr>')

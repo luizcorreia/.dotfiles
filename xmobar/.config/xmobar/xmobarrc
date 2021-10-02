@@ -7,9 +7,9 @@ Config {  -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=
                            , "xft:Font Awesome 5 Free Solid:pixelsize=20"
                            , "xft:Font Awesome 5 Brands:pixelsize=16"
                            ]
-       , font        = "xft:Iosevka Nerd Font:pixelsize=16:style=Regular:antialias=true:hinting=true"
-       , bgColor = "#282828"
-       , fgColor = "#ebdbb2"
+       , font        = "xft:Iosevka Nerd Font:pixelsize=20:style=Regular:antialias=true:hinting=true"
+       , bgColor = "#282a2e"
+       , fgColor = "#c5c8c6"
        , position = Static { xpos = 3840 , ypos = 0, width = 3840, height = 48 }
        , lowerOnStart = True
        , hideOnStart = False
@@ -87,7 +87,7 @@ Config {  -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=
                            , "-S" , "<icon=music/music_stopped.xpm/>" -- stopped
                          ] 10
 
-                   , Run Mail [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/Inbox")
+                   , Run Mail [ ("<fc=#a54242>Mail </fc>" , "~/.mail/gmail/Inbox")
                           ] "mail"
                       -- Disk space free
                    , Run WeatherX "SNDV" [ (""                        , "<fc=#5e8d87>?</fc>")
@@ -121,5 +121,5 @@ Config {  -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "  <fc=#83a598><icon=haskell_20.xpm/></fc>   %UnsafeXMonadLog% }{<icon=seperators/seperator.xpm/> %cpu% <icon=seperators/seperator.xpm/> %multicoretemp% <icon=seperators/seperator.xpm/> %memory% <icon=seperators/seperator.xpm/> %bond0% <icon=seperators/seperator.xpm/> %kbd% <icon=seperators/seperator.xpm/>  %mail% <icon=seperators/seperator.xpm/> %mpd% <icon=seperators/seperator.xpm/> %EDMA% <icon=seperators/seperator.xpm/> %date% %trayerpad%"
+       , template = "  <fc=#83a598><icon=haskell_20.xpm/></fc> %UnsafeXMonadLog% }{<icon=seperators/seperator.xpm/> %cpu% <icon=seperators/seperator.xpm/> %multicoretemp% <icon=seperators/seperator.xpm/> %memory% <icon=seperators/seperator.xpm/> %bond0% <icon=seperators/seperator.xpm/> %kbd% <icon=seperators/seperator.xpm/>  %mail% <icon=seperators/seperator.xpm/> %mpd% <icon=seperators/seperator.xpm/> %SNDV% <icon=seperators/seperator.xpm/> %date% %trayerpad%"
        }

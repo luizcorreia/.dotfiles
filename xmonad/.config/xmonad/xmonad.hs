@@ -81,6 +81,9 @@ import XMonad.Util.NamedWindows (getName)
 myFont :: String
 myFont = "xft:SauceCodePro Nerd Font Mono:regular:size=12:antialias=true:hinting=true"
 
+myAltFont :: String
+myAltFont = "xft:Iosevka Nerd Font:size=60:style=Bold"
+
 myModMask :: KeyMask
 myModMask = mod4Mask        -- Sets modkey to super/windows key
 
@@ -91,9 +94,10 @@ myAltTerminal :: String
 myAltTerminal = "/usr/bin/urxvt"
 
 myBrowser :: String
--- myBrowser = "firefox"  -- Sets qutebrowser as browser
-myBrowser = "brave"  -- Sets qutebrowser as browser
+myBrowser = "opera"  -- Sets qutebrowser as browser
 
+myAltBrowser :: String
+myAltBrowser = "brave"  -- Sets qutebrowser as browser
 
 myEditor :: String
 myEditor = myTerminal ++ " -e nvim "    -- Sets nvim as editor
@@ -145,6 +149,7 @@ myStartupHook = do
     spawnOnce "discord-ptb"
     spawnOnce "slack"
     spawnOnce "thunderbird"
+    spawnOnce "joplin-desktop"
     setWMName "LG3D"
     <+> nspTrackStartup myScratchPads
     <+> fixSupportedAtoms
@@ -324,7 +329,7 @@ myTabTheme = def { fontName            = "xft:Mononoki Nerd Font:pixelsize=11:an
 -- Theme for showWName which prints current workspace when you change workspaces.
 myShowWNameTheme :: SWNConfig
 myShowWNameTheme = def
-    { swn_font              = "xft:Ubuntu Nerd Font:bold:size=60"
+    { swn_font              = myAltFont -- "xft:Ubuntu Nerd Font:bold:size=60"
     , swn_fade              = 1.0
     , swn_bgcolor           = "#1d2021"
     , swn_color             = "#ebdbb2"
@@ -383,8 +388,8 @@ myManageHook = (composeAll . concat $
      , [ className =? "Yad"             --> doCenterFloat                      ]
      , [ title =? "Oracle VM VirtualBox Manager"  --> doFloat                  ]
      , [ title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 0 )      ]
-     , [ className =? "brave-browser"   --> doShift ( myWorkspaces !! 0 )      ]
-     , [ className =? "qutebrowser"     --> doShift ( myWorkspaces !! 9 )      ]
+     , [ className =? "brave-browser"   --> doShift ( myWorkspaces !! 8 )      ]
+     , [ className =? "qutebrowser"     --> doShift ( myWorkspaces !! 8 )      ]
      , [ className =? "mpv"             --> doShift ( myWorkspaces !! 7 )      ]
      , [ className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )      ]
      , [ className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )  ]
@@ -545,16 +550,34 @@ myKeys =
 -- END_KEYS
 --
 
+myActiveTextColor :: String
+myActiveTextColor = "#a9b665" -- "#d3869b"
+
+myVisibleColor :: String
+myVisibleColor = "#a9b665" -- "#e78a4e"
+
+myCurrentColor :: String
+myCurrentColor = "#a9b665" -- "#e78a4e"
+
+myHiddenColor :: String
+myHiddenColor = "#ebdbb2"
+
+myHiddenNoWindowsColor :: String
+myHiddenNoWindowsColor = "#c5c8c6" -- "#a9b665"
+
+myUrgentColor :: String
+myUrgentColor = "#de935f" -- "#fb4934"
+
 myPP :: PP
 myPP = xmobarPP
               -- the following variables beginning with 'pp' are settings for xmobar.
-              { ppCurrent = xmobarColor "#e78a4e" "" . wrap "[" "]" . clickable       -- Current workspace
-              , ppVisible = xmobarColor "#e78a4e" "" . wrap " " " " . clickable               -- Visible but not current workspace
-              , ppHidden = xmobarColor "#ebdbb2" "" . wrap " " " " . clickable -- Hidden workspaces
-              , ppHiddenNoWindows = xmobarColor "#a9b665" "" . wrap " " " " . clickable     -- Hidden workspaces (no windows)
-              , ppTitle = xmobarColor "#d3869b" "" . shorten 60               -- Title of active window
+              { ppCurrent = xmobarColor myCurrentColor "" . wrap "[" "]" . clickable       -- Current workspace
+              , ppVisible = xmobarColor myVisibleColor "" . wrap " " " " . clickable               -- Visible but not current workspace
+              , ppHidden = xmobarColor myHiddenColor "" . wrap " " " " . clickable -- Hidden workspaces
+              , ppHiddenNoWindows = xmobarColor myHiddenNoWindowsColor "" . wrap " " " " . clickable     -- Hidden workspaces (no windows)
+              , ppTitle = xmobarColor myActiveTextColor "" . shorten 60               -- Title of active window
               , ppSep =  "<fc=#b16286> | </fc>"                    -- Separator character
-              , ppUrgent = xmobarColor "#fb4934" "" . wrap "!" "!" . clickable    -- Urgent workspace
+              , ppUrgent = xmobarColor myUrgentColor "" . wrap "!" "!" . clickable    -- Urgent workspace
               , ppExtras  = [windowCount]                                     -- # of windows current workspace
               -- do not show NSP at end of workspace list
               , ppSort = fmap (.filterOutWs[scratchpadWorkspaceTag]) $ ppSort def
@@ -578,7 +601,7 @@ main :: IO ()
 main = do
     -- the xmonad, ya know...what the WM is named after.!
     -- xmonad $ withSB (xmobarRight <> xmobarLeft) $ ewmh $ def
-    xmonad $ dynamicSBs barSpawner $ ewmh $ withUrgencyHook LibNotifyUrgencyHook $ def
+    xmonad $ dynamicSBs barSpawner $ withUrgencyHook LibNotifyUrgencyHook $ ewmh $ def
         { manageHook         = myManageHook <+> manageDocks
         , handleEventHook    = handleEventHook def <+> docksEventHook
                                -- Uncomment this line to enable fullscreen support on things like YouTube/Netflix.
