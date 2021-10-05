@@ -92,3 +92,6 @@ map("n", "<esc>", ":noh<cr><esc>", { silent = true })
 
 -- Toggle netrw
 map("n", "<Leader>e", ":Lexplore<CR>", { silent = true })
+
+-- Open split terminal
+map("n", "<Leader>t", ":split | resize 15 | term<CR>", { silent = true })

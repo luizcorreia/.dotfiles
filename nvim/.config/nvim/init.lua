@@ -54,6 +54,9 @@ augroup END
 ]],
   false
 )
+
+vim.api.nvim_exec([[autocmd TermOpen * setlocal nonumber norelativenumber]],false)
+
 -- Hop
 require("hop").setup()
 
