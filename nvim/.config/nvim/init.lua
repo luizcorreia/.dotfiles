@@ -8,10 +8,10 @@ require("settings")
 cmd([[colorscheme gruvbox]]) -- Put your favorite colorscheme here
 
 g.netrw_banner = 0
--- g.netrw_liststyle = 3
--- -- g.netrw_browse_split = 4
--- g.netrw_altv = 1
--- g.netrw_winsize = 15
+g.netrw_liststyle = 3
+g.netrw_browse_split = 4
+g.netrw_altv = 1
+g.netrw_winsize = 15
 -- g.netrw_sort_sequence = [\/]$,*
 
 require("range-highlight").setup({})
@@ -55,7 +55,7 @@ augroup END
   false
 )
 
-vim.api.nvim_exec([[autocmd TermOpen * setlocal nonumber norelativenumber]],false)
+vim.api.nvim_exec([[autocmd TermOpen * setlocal nonumber norelativenumber]], false)
 
 -- Hop
 require("hop").setup()

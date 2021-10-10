@@ -49,7 +49,7 @@ opt.modelines = 1
 
 opt.belloff = "all" -- Just turn the dang bell off
 
-opt.clipboard = "unnamedplus"
+-- opt.clipboard = "unnamedplus"
 
 opt.inccommand = "split"
 opt.swapfile = false -- Living on the edge

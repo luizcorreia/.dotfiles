@@ -95,3 +95,8 @@ map("n", "<Leader>e", ":Lexplore<CR>", { silent = true })
 
 -- Open split terminal
 map("n", "<Leader>t", ":split | resize 15 | term<CR>", { silent = true })
+
+map("x", "<Leader>p", '"_dP')
+map("n", "<Leader>y", '"+y')
+map("v", "<Leader>y", '"+y')
+map("n", "<Leader>Y", 'gg"+yG')
