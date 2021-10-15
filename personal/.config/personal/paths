@@ -13,3 +13,5 @@ addToPath $HOME/tools/lua-language-server/bin/Linux
 addToPath $HOME/.ebcli-virtual-env/executables
 # ccache
 addToPathFront /usr/lib/ccache
+addToPath /home/luizcorreia/.local/share/gem/ruby/3.0.0/bin
+addToPath $HOME/.rvm/bin

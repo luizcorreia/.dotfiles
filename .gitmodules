@@ -1,3 +1,6 @@
 [submodule ".dotfiles-personal"]
 	path = .dotfiles-personal
 	url = git@github.com:luizcorreia/.dotfiles-personal.git
+[submodule "kitty/.config/kitty/kitty-themes"]
+	path = kitty/.config/kitty/kitty-themes
+	url = https://github.com/dexpota/kitty-themes

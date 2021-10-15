@@ -199,3 +199,5 @@ autoload -Uz compinit
 compinit 
 # Completion for kitty 
 kitty + complete setup zsh | source /dev/stdin
+source $(dirname $(gem which colorls))/tab_complete.sh
+

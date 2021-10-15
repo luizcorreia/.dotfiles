@@ -4,6 +4,7 @@
 # Required for x applications
 setxkbmap -option caps:ctrl_modifier
 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export STOW_FOLDERS="bin,nvim,tmux,xmonad,work,personal,xmobar,zsh,xkb"
 
 increaseWatchers() {
