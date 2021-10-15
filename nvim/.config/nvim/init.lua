@@ -1,4 +1,33 @@
 -- You will need to install language servers `npm i -g vscode-langservers-extracted` and `npm install -g typescript typescript-language-server`
+require("impatient")
+
+-- Leader key -> "<space>"
+--
+-- In general, it's a good idea to set this early in your config, because otherwise
+-- if you have any mappings you set BEFORE doing this, they will be set to the OLD
+-- leader.
+vim.g.mapleader = " "
+
+-- I set some global variables to use as configuration throughout my config.
+-- These don't have any special meaning.
+vim.g.snippets = "luasnip"
+
+-- Setup globals that I expect to be always available.
+--  See `./lua/tj/globals/*.lua` for more information.
+require("lc.globals")
+
+-- Turn off builtin plugins I do not use.
+-- require("lc.disable_builtin")
+
+-- Force loading of astronauta first.
+vim.cmd([[runtime plugin/astronauta.vim]])
+
+-- Neovim builtin LSP configuration
+-- require("lc.lsp")
+
+-- Telescope BTW
+-- require("lc.telescope.setup")
+-- require("lc.telescope.mappings")
 
 local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 -- local fn = vim.fn -- to call Vim functions e.g. fn.bufnr()

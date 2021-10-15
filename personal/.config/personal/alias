@@ -24,3 +24,6 @@ tickle () {
 }
 alias tick=tickle
 alias think='tickle +1d'
+alias icat="kitty +kitten icat --align=left"
+alias theme-reset="kitty @ --to unix:/tmp/kitty set-colors --reset"
+alias theme="cd ~/.config/kitty/themes && fzf --preview 'head -n 40 {} && kitty @ --to unix:/tmp/kitty set-colors -a -c {}'; cd -"

@@ -194,3 +194,8 @@ alias tick=tickle
 alias think='tickle +1d'
 
 alias luamake=/home/luizcorreia/tools/lua-language-server/3rd/luamake/luamake
+
+autoload -Uz compinit 
+compinit 
+# Completion for kitty 
+kitty + complete setup zsh | source /dev/stdin

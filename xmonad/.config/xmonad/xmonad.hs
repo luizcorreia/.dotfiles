@@ -88,10 +88,10 @@ myModMask :: KeyMask
 myModMask = mod4Mask        -- Sets modkey to super/windows key
 
 myTerminal :: String
-myTerminal = "alacritty"    -- Sets default terminal
+myTerminal = "kitty"    -- Sets default terminal
 
 myAltTerminal :: String
-myAltTerminal = "/usr/bin/urxvt"
+myAltTerminal = "alacritty"
 
 myBrowser :: String
 myBrowser = "opera"  -- Sets qutebrowser as browser
@@ -100,7 +100,7 @@ myAltBrowser :: String
 myAltBrowser = "brave"  -- Sets qutebrowser as browser
 
 myEditor :: String
-myEditor = myTerminal ++ " -e nvim "    -- Sets nvim as editor
+myEditor = myTerminal ++ " nvim "    -- Sets nvim as editor
 
 myBorderWidth :: Dimension
 myBorderWidth = 2           -- Sets border width for windows
@@ -175,7 +175,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  t = 0.75 -h
                  l = 0.70 -w
 
-    spawnTasks  = myTerminal ++ " -t tasks -e tmux_start"
+    spawnTasks  = myTerminal ++ " --title tasks tmux_start"
     findTasks   = title =? "tasks"
     manageTasks = customFloating $ W.RationalRect l t w h
                where
@@ -184,7 +184,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  t = 0.95 -h
                  l = 0.95 -w
 
-    spawnTaskwarrior  = myTerminal ++ " -t taskwarrior -e tasksh"
+    spawnTaskwarrior  = myTerminal ++ " --title taskwarrior tasksh"
     findTaskwarrior   = title =? "taskwarrior"
     manageTaskwarrior = customFloating $ W.RationalRect l t w h
                where
@@ -193,7 +193,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  t = 0.75 -h
                  l = 0.70 -w
 
-    spawnJoplin  = myTerminal ++ " -t joplin -e joplin"
+    spawnJoplin  = myTerminal ++ " --title joplin joplin"
     findJoplin   = title =? "joplin"
     manageJoplin = customFloating $ W.RationalRect l t w h
                where
@@ -202,7 +202,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  t = 0.95 -h
                  l = 0.95 -w
 
-    spawnTerm  = myTerminal ++ " -t scratchpad -e tmux a -t luizcorreia"
+    spawnTerm  = myTerminal ++ " --title scratchpad zsh"
     findTerm   = title =? "scratchpad"
     manageTerm = customFloating $ W.RationalRect l t w h
                where
@@ -211,7 +211,7 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  t = 0.95 -h
                  l = 0.95 -w
 
-    spawnMocp  = myTerminal ++ " -t mocp -e mocp"
+    spawnMocp  = myTerminal ++ " --title mocp mocp"
     findMocp   = title =? "mocp"
     manageMocp = customFloating $ W.RationalRect l t w h
                where
@@ -432,7 +432,7 @@ myKeys =
         , ("M-<Return>", spawn (myTerminal))
         , ("M-<F2>", spawn "pcmanfm")
         , ("M-b", spawn (myBrowser))
-        , ("M-M1-h", spawn (myTerminal ++ " -e htop"))
+        , ("M-M1-h", spawn (myTerminal ++ " htop"))
         , ("M-y", spawn "youtube-watch.sh")
         , ("M-M1-j", spawn "joplin-desktop")
 
@@ -531,9 +531,9 @@ myKeys =
 
 
     -- KB_GROUP Multimedia Keys
-        , ("<XF86AudioPlay>", spawn (myTerminal ++ "playerctl play-pause"))
-        , ("<XF86AudioPrev>", spawn (myTerminal ++ "playerctl previous"))
-        , ("<XF86AudioNext>", spawn (myTerminal ++ "playerctl next"))
+        , ("<XF86AudioPlay>", spawn (myTerminal ++ " playerctl play-pause"))
+        , ("<XF86AudioPrev>", spawn (myTerminal ++ " playerctl previous"))
+        , ("<XF86AudioNext>", spawn (myTerminal ++ " playerctl next"))
         , ("<XF86AudioMute>", spawn "amixer set Master toggle")
         , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
         , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")

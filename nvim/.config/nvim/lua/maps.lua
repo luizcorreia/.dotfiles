@@ -23,16 +23,16 @@ map("n", "<Leader><CR>", "<cmd>so ~/.config/nvim/init.lua<cr>")
 
 -- Telescope
 map("n", "<C-p>", '<cmd>lua require("telescope.builtin").git_files()<cr>')
-map("n", "<leader>pf", '<cmd>lua require("telescope.builtin").find_files()<cr>')
-map("n", "<leader>r", '<cmd>lua require("telescope.builtin").registers()<cr>')
-map("n", "<leader>g", '<cmd>lua require("telescope.builtin").live_grep()<cr>')
-map("n", "<leader>pb", '<cmd>lua require("telescope.builtin").buffers()<cr>')
-map("n", "<leader>j", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
-map("n", "<leader>f", '<cmd>lua require("telescope.builtin").file_browser()<cr>')
+map("n", "<leader>ff", '<cmd>lua require("telescope.builtin").find_files()<cr>')
+map("n", "<leader>fr", '<cmd>lua require("telescope.builtin").registers()<cr>')
+map("n", "<leader>fg", '<cmd>lua require("telescope.builtin").live_grep()<cr>')
+map("n", "<leader>fb", '<cmd>lua require("telescope.builtin").buffers()<cr>')
+map("n", "<leader>fh", '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 map("n", "<leader>s", '<cmd>lua require("telescope.builtin").spell_suggest()<cr>')
 map("n", "<leader>i", '<cmd>lua require("telescope.builtin").git_status()<cr>')
-map("n", "<Leader>gw", "<code>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>")
-map("n", "<Leader>gm", "<code>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>")
+map("n", "<Leader>gw", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>")
+map("n", "<Leader>gm", "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>")
+map("n", "<Leader>fm", "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>")
 
 -- Open nvimrc file
 map("n", "<Leader>v", "<cmd>e $MYVIMRC<CR>")
@@ -89,9 +89,6 @@ map("i", ",/", "</<C-X><C-O>")
 
 --After searching, pressing escape stops the highlight
 map("n", "<esc>", ":noh<cr><esc>", { silent = true })
-
--- Toggle netrw
-map("n", "<Leader>e", ":Lexplore<CR>", { silent = true })
 
 -- Open split terminal
 map("n", "<Leader>t", ":split | resize 15 | term<CR>", { silent = true })
