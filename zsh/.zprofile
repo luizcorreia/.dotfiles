@@ -20,7 +20,8 @@ done
 export GIT_EDITOR=$VIM
 
 # Where should I put you?
-bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s "^f" "tmux-sessionizer^M"
+#bindkey -s "^i" "tmux neww tmux-cht.sh^M"
 
 catr() {
     tail -n "+$1" $3 | head -n "$(($2 - $1 + 1))"

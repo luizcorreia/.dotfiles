@@ -199,5 +199,8 @@ autoload -Uz compinit
 compinit 
 # Completion for kitty 
 kitty + complete setup zsh | source /dev/stdin
-source $(dirname $(gem which colorls))/tab_complete.sh
+#source $(dirname $(gem which colorls))/tab_complete.sh
 
+
+# Added by Amplify CLI binary installer
+export PATH="$HOME/.amplify/bin:$PATH"
