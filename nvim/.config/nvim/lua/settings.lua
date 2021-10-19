@@ -40,8 +40,8 @@ opt.softtabstop = 4
 opt.expandtab = true
 
 opt.breakindent = true
-opt.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
-opt.linebreak = true
+-- opt.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
+opt.linebreak = false
 
 opt.foldmethod = "marker"
 opt.foldlevel = 0
@@ -84,7 +84,7 @@ opt.encoding = "utf-8" -- Set default encoding to UTF-8
 opt.linebreak = true -- Stop words being broken on wrap
 opt.list = false -- Show some invisible characters
 opt.numberwidth = 5 -- Make the gutter wider by default
-opt.spelllang = "en"
+opt.spelllang = "en_us,pt_br"
 opt.termguicolors = true -- You will have bad experience for diagnostic messages when it's default 4000.
 opt.cc = "80"
 opt.backup = false
