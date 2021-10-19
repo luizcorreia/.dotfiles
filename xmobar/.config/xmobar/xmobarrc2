@@ -2,39 +2,68 @@
 -- I use Font Awesome 5 fonts in this config for unicode "icons".  On Arch Linux,
 -- install this package from the AUR to get these fonts: otf-font-awesome-5-free
 
-Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
-                           , "xft:Font Awesome 5 Free Solid:pixelsize=12"
-                           , "xft:Font Awesome 5 Brands:pixelsize=12"
-                           , "xft:DejaVu Sans:pixelsize=28"
+Config { font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=12:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=15:antialias=true:hinting=true"
+                           , "xft:Font Awesome 5 Free Solid:pixelsize=10"
+                           , "xft:Font Awesome 5 Brands:pixelsize=16"
                            ]
-       , bgColor = "#282c34"
-       , fgColor = "#ff6c6b"
-       , position = Static { xpos = 3840 , ypos = 0, width = 1920, height = 24 }
+       , bgColor = "#282828"
+       , fgColor = "#ebdbb2"
+       , position = Static { xpos = 0 , ypos = 0, width = 1920, height = 24 }
        , lowerOnStart = True
        , hideOnStart = False
+       , pickBroadest     = False   -- choose widest display (multi-monitor)
        , allDesktops = True
+       , overrideRedirect = True
+       , verbose = True
        , persistent = True
-       , iconRoot = "/home/dt/.xmonad/xpm/"  -- default: "."
+       , iconRoot = "/home/luizcorreia/.config/xmonad/xpm/"  -- default: "."
        , commands = [
+                    -- Run UnsafeStdinReader
+                    Run UnsafeXMonadLog
+                    --  Run Weather "SNDV" ["-t","<tempF>F <skyCondition>","-L","64","-H","77","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000
                     -- Time and date
-                      Run Date "<fn=2>\xf017</fn>  %b %d %Y - (%H:%M) " "date" 50
+                    , Run Date "<fc=#83a598><fn=1>\xf017 </fn></fc>%b %d %Y - (%H:%M) " "date" 50
                       -- Network up and down
-                    , Run Network "enp6s0" ["-t", "<fn=2>\xf0ab</fn>  <rx>kb  <fn=2>\xf0aa</fn>  <tx>kb"] 20
+                    , Run Network "wlp0s20f3" ["-t", "<fc=#83a598><fn=1>\xf0ab </fn></fc><rx>kb  <fc=#83a598><fn=1>\xf0aa </fn></fc><tx>kb"] 20
                       -- Cpu usage in percent
-                    , Run Cpu ["-t", "<fn=2>\xf108</fn>  cpu: (<total>%)","-H","50","--high","red"] 20
+                    , Run Cpu ["-t", "<fc=#83a598><fn=1>\xf108 </fn></fc> cpu: (<total>%)","-H","50","--high","red"] 20
                       -- Ram used number and percent
-                    , Run Memory ["-t", "<fn=2>\xf233</fn>  mem: <used>M (<usedratio>%)"] 20
+                    , Run Memory ["-t", "<fc=#83a598><fn=1>\xf233 </fn></fc> mem: <used>M (<usedratio>%)"] 20
                       -- Disk space free
-                    , Run DiskU [("/", "<fn=2>\xf0c7</fn>  hdd: <free> free")] [] 60
+                    , Run DiskU [("/", "<fc=#83a598><fn=1>\xf0c7 </fn></fc> hdd: <free> free")] [] 60
                       -- Runs custom script to check for pacman updates.
-                      -- This script is in my dotfiles repo in .local/bin.
-                    , Run Com "/home/dt/.local/bin/pacupdate" [] "pacupdate" 36000
-                      -- Runs a standard shell command 'uname -r' to get kernel version
+                      -- Runs a standard shell command 'uname -r' to get kernel versionS
                     , Run Com "uname" ["-r"] "" 3600
-                    , Run UnsafeStdinReader
+                      -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
+                    , Run Com "/home/luizcorreia/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 24
+                      -- The workspaces are 'clickable' in my configs.
+                      -- battery monitor
+                    , Run Battery
+                    [ "-L", "20"
+                    , "-H", "85"
+                    , "-l", "#ff0000"
+                    , "-n", "#fd971f"
+                    , "-h", "#3ae03a"
+                    , "--" 
+                    -- battery specific options
+                    -- discharging status
+                    , "-o"  , " <left>% (<timeleft>) <watts>W"
+                    -- AC "on" status
+                    , "-O"  , "<left>%<fc=#3ae03a><watts>W</fc>"
+                    -- charged status
+                    , "-i"  , "<fc=#3ae03a><watts></fc>"
+                    ,"--off-icon-pattern", "<fn=1>\xf1e6</fn>"
+                    , "--on-icon-pattern", "<fn=1>\xf1e6</fn>"
+                    , "-H"  , "16"
+                    , "-L"  , "10"
+                    , "-p"	, "#3ae03a" -- positive power (battery charging)
+                    , "-h"	, "#e03a3a" -- power higher than the -H threshold
+                    , "-m"	, "#fd971f" -- power lower than the -H threshold
+                    , "-l"	, "#a6e22e" -- power lower than the -L threshold
+                    ] 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <icon=haskell_20.xpm/>   <fc=#666666>|</fc> %UnsafeStdinReader% }{ <box type=Bottom width=2 mb=2 color=#51afef><fc=#51afef><fn=3></fn>  <action=`alacritty -e htop`>%uname%</action> </fc></box>    <box type=Bottom width=2 mb=2 color=#ecbe7b><fc=#ecbe7b><action=`alacritty -e htop`>%cpu%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#ff6c6b><fc=#ff6c6b><action=`alacritty -e htop`>%memory%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#a9a1e1><fc=#a9a1e1><action=`alacritty -e htop`>%disku%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#98be65><fc=#98be65><action=`alacritty -e sudo iftop`>%enp6s0%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#c678dd><fc=#c678dd><fn=2></fn>  <action=`alacritty -e sudo pacman -Syu`>%pacupdate%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#46d9ff><fc=#46d9ff><action=`emacsclient -c -a 'emacs' --eval '(doom/window-maximize-buffer(dt/year-calendar))'`>%date%</action></fc></box>    "
+       , template = " <fc=#83a598><icon=haskell_20.xpm/></fc>   %UnsafeXMonadLog% }{  %cpu%    %memory%    %disku%    %wlp0s20f3%    %date% %trayerpad%"
        }

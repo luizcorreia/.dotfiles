@@ -4,6 +4,7 @@ import System.Directory
 -- import System.IO (hPutStrLn)
 import System.Exit (exitSuccess)
 import qualified XMonad.StackSet as W
+import XMonad.Config.Xfce
 
     -- Actions.
 import XMonad.Actions.CopyWindow (kill1)
@@ -94,6 +95,10 @@ myAltTerminal :: String
 myAltTerminal = "/usr/bin/urxvt"
 
 myBrowser :: String
+<<<<<<< Updated upstream
+=======
+-- myBrowser = "firefox"  -- Sets qutebrowser as browser
+>>>>>>> Stashed changes
 myBrowser = "opera"  -- Sets qutebrowser as browser
 
 myAltBrowser :: String
@@ -137,7 +142,7 @@ myStartupHook = do
     spawnOnce "nm-applet &"
     spawnOnce "volumeicon &"
     -- spawnOnce "conky -c $HOME/.config/conky/doomone-xmonad.conkyrc"
-    spawnOnce "trayer --edge top --align right --distance 12 --distancefrom top --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 24 &"
+    spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
     -- spawnOnce "exec ~/bin/eww daemon"
     spawn "xsetroot -cursor_name left_ptr"
     spawn "exec ~/bin/lock.sh"
@@ -151,6 +156,7 @@ myStartupHook = do
     spawnOnce "thunderbird"
     spawnOnce "joplin-desktop"
     setWMName "LG3D"
+    <+> ewmhDesktopsStartup
     <+> nspTrackStartup myScratchPads
     <+> fixSupportedAtoms
 
@@ -248,7 +254,7 @@ tall     = renamed [Replace "tall"]
            $ addTabs shrinkText myTabTheme
            $ subLayout [] (smartBorders Simplest)
            $ limitWindows 12
-           $ mySpacing 8
+           $ mySpacing 4
            $ ResizableTall 1 (3/100) (1/2) []
 myMagnify  = renamed [Replace "magnify"]
            $ minimize
@@ -258,7 +264,7 @@ myMagnify  = renamed [Replace "magnify"]
            $ subLayout [] (smartBorders Simplest)
            $ magnifier
            $ limitWindows 12
-           $ mySpacing 8
+           $ mySpacing 4
            $ ResizableTall 1 (3/100) (1/2) []
 monocle  = renamed [Replace "monocle"]
            $ smartBorders
@@ -278,7 +284,7 @@ grid     = renamed [Replace "grid"]
            $ addTabs shrinkText myTabTheme
            $ subLayout [] (smartBorders Simplest)
            $ limitWindows 12
-           $ mySpacing 8
+           $ mySpacing 4
            $ mkToggle (single MIRROR)
            $ Grid (16/10)
 spirals  = renamed [Replace "spirals"]
@@ -586,7 +592,7 @@ myPP = xmobarPP
 
 
 xmobarRight :: StatusBarConfig
-xmobarRight    = statusBarProp "xmobar -x 0 ~/.config/xmobar/xmobarrc"
+xmobarRight    = statusBarProp "xmobar -x 0 ~/.config/xmobar/xmobarrc2"
                 (clickablePP myPP)
 xmobarLeft :: StatusBarConfig
 xmobarLeft    = statusBarProp "xmobar -x 1 ~/.config/xmobar/xmobarrc1"
@@ -594,14 +600,14 @@ xmobarLeft    = statusBarProp "xmobar -x 1 ~/.config/xmobar/xmobarrc1"
 
 barSpawner :: ScreenId -> IO StatusBarConfig
 barSpawner 0 = pure $ xmobarRight
-barSpawner 1 = pure $ xmobarLeft
+--barSpawner 1 = pure $ xmobarLeft
 barSpawner _ = mempty -- nothing on the rest of the screens
 
 main :: IO ()
 main = do
     -- the xmonad, ya know...what the WM is named after.!
     -- xmonad $ withSB (xmobarRight <> xmobarLeft) $ ewmh $ def
-    xmonad $ dynamicSBs barSpawner $ withUrgencyHook LibNotifyUrgencyHook $ ewmh $ def
+    xmonad $ dynamicSBs barSpawner $ ewmh $ withUrgencyHook LibNotifyUrgencyHook $ xfceConfig
         { manageHook         = myManageHook <+> manageDocks
         , handleEventHook    = handleEventHook def <+> docksEventHook
                                -- Uncomment this line to enable fullscreen support on things like YouTube/Netflix.
