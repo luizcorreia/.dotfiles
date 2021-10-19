@@ -97,3 +97,33 @@ map("x", "<Leader>p", '"_dP')
 map("n", "<Leader>y", '"+y')
 map("v", "<Leader>y", '"+y')
 map("n", "<Leader>Y", 'gg"+yG')
+
+-- Lsp
+map("n", "<leader>vd", ":lua vim.lsp.buf.definition()<CR>", { silent = true })
+map("n", "<leader>vi", ":lua vim.lsp.buf.implementation()<CR>", { silent = true })
+map("n", "<leader>vsh", ":lua vim.lsp.buf.signature_help()<CR>", { silent = true })
+map("n", "<leader>vrr", ":lua vim.lsp.buf.references()<CR>", { silent = true })
+map("n", "<leader>vrn", ":lua vim.lsp.buf.rename()<CR>", { silent = true })
+map("n", "<leader>vh", ":lua vim.lsp.buf.hover()<CR>", { silent = true })
+map("n", "<leader>vca", ":lua vim.lsp.buf.code_action()<CR>", { silent = true })
+map(
+  "n",
+  "<leader>vsd",
+  ":lua vim.lsp.diagnostic.show_line_diagnostics(); vim.lsp.util.show_line_diagnostics()<CR>",
+  { silent = true }
+)
+map("n", "<leader>vn", ":lua vim.lsp.diagnostic.goto_next()<CR>", { silent = true })
+map("n", "<leader>vll", ":call LspLocationList()<CR>", { silent = true })
+
+map("n", "<Leader>cf", ":Lspsaga lsp_finder<CR>", { silent = true })
+map("n", "<leader>ca", ":Lspsaga code_action<CR>", { silent = true })
+map("v", "<leader>ca", ":<C-U>Lspsaga range_code_action<CR>", { silent = true })
+map("n", "<leader>ch", ":Lspsaga hover_doc<CR>", { silent = true })
+map("n", "<leader>ck", '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', { silent = true })
+map("n", "<leader>cj", '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', { silent = true })
+map("n", "<leader>cs", ":Lspsaga signature_help<CR>", { silent = true })
+map("n", "<leader>ci", ":Lspsaga show_line_diagnostics<CR>", { silent = true })
+map("n", "<leader>cn", ":Lspsaga diagnostic_jump_next<CR>", { silent = true })
+map("n", "<leader>cp", ":Lspsaga diagnostic_jump_prev<CR>", { silent = true })
+map("n", "<leader>cr", ":Lspsaga rename<CR>", { silent = true })
+map("n", "<leader>cd", ":Lspsaga preview_definition<CR>", { silent = true })

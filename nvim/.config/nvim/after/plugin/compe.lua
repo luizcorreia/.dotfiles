@@ -51,6 +51,7 @@ cmp.setup({
     },
     { name = "spell" },
     { name = "luasnip" },
+    { name = "vsnip" },
   },
   formatting = {
     format = function(entry, vim_item)
