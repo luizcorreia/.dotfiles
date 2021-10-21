@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+buddy="$1"
+
+keys=$(curl "https://api.github.com/users/$buddy/keys" | jq -r '.[] | .key')
+
+printf "%s\n" "$keys" >> ~/.ssh/authorized_keys

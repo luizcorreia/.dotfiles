@@ -25,7 +25,7 @@ require("lualine").setup({
       { "diff", color_added = "#a7c080", color_modified = "#ffdf1b", color_removed = "#ff6666" },
     },
     lualine_c = {
-      "filename",
+      { "filename", path = 1 },
       { getWords },
     },
     lualine_x = {
