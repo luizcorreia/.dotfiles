@@ -98,6 +98,9 @@ myBrowser :: String
 <<<<<<< Updated upstream
 =======
 -- myBrowser = "firefox"  -- Sets qutebrowser as browser
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 myBrowser = "opera"  -- Sets qutebrowser as browser
 
