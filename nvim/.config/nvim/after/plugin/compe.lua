@@ -2,6 +2,7 @@
 local cmp = require("cmp")
 
 local lspkind = require("lspkind")
+lspkind.init()
 
 cmp.setup({
   snippet = {
@@ -28,8 +29,23 @@ cmp.setup({
     ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
     ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
   },
+  formatting = {
+    -- Youtube: How to set up nice formatting for your sources.
+    format = lspkind.cmp_format({
+      with_text = true,
+      menu = {
+        buffer = "[buf]",
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[api]",
+        path = "[path]",
+        luasnip = "[snip]",
+        gh_issues = "[issues]",
+      },
+    }),
+  },
   experimental = {
     ghost_text = true,
+    native_menu = false,
   },
   documentation = {
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
@@ -38,6 +54,7 @@ cmp.setup({
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "path" },
+    { name = "luasnip" },
     {
       name = "buffer",
       priority = 2,
@@ -50,25 +67,6 @@ cmp.setup({
       },
     },
     { name = "spell" },
-    { name = "luasnip" },
-    { name = "vsnip" },
-  },
-  formatting = {
-    format = function(entry, vim_item)
-      vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
-      vim_item.menu = ({
-        nvim_lsp = "ﲳ",
-        nvim_lua = "",
-        treesitter = "",
-        path = "ﱮ",
-        buffer = "﬘",
-        zsh = "",
-        vsnip = "",
-        spell = "暈",
-      })[entry.source.name]
-
-      return vim_item
-    end,
   },
 })
 

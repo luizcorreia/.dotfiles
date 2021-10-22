@@ -64,9 +64,15 @@ require("lspconfig").cssls.setup({
     },
   },
 })
-require("lspconfig").tsserver.setup({})
-require("lspconfig").hls.setup({})
+require("lspconfig").tsserver.setup({
+  capabilities = capabilities,
+})
+require("lspconfig").hls.setup({
+  capabilities = capabilities,
+})
+
 require("lspconfig").yamlls.setup({
+  capabilities = capabilities,
   settings = {
     yaml = {
       customTags = {
@@ -98,6 +104,7 @@ require("lspconfig").yamlls.setup({
 local sumneko_root_path = "/home/luizcorreia/tools/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/Linux/lua-language-server"
 require("lspconfig").sumneko_lua.setup({
+  capabilities = capabilities,
   cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
   settings = {
     Lua = {

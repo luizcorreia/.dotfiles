@@ -196,6 +196,28 @@ for_window [title="Picture-in-Picture"] floating enable, sticky enable, border n
 for_window [class="plasma.emojier"] floating enable, sticky enable, border none move absolute position center
 for_window [title="Screen Layout Editor"] floating enable, resize set 800 600, move absolute position center
 
+#for_window [class=""] floating enable
+#for_window [title=""] floating enable
+for_window [class="confirm"] floating enable
+for_window [class="file_progress"] floating enable
+for_window [class="dialog"] floating enable
+for_window [class="download"] floating enable
+for_window [class="error"] floating enable
+for_window [class="Gimp"] floating enable
+for_window [class="notification"] floating enable
+for_window [class="pinentry-gtk-2"] floating enable
+for_window [class="splash"] floating enable
+for_window [class="toolbar"] floating enable
+for_window [class="Yad"] floating enable, position center
+
+# Automatically putting clients on specific workspaces
+
+assign [class="discord"] $ws3
+assign [class="Slack"] $ws3
+assign [class="Thunderbird"] $ws4
+assign [class="brave-browser"] $ws11
+assign [class="mpv"] $ws13
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -253,16 +275,19 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:  "
-set $ws2 "2:  "
-set $ws3 "3:  "
-set $ws4 "4:  "
-set $ws5 "5:  "
-set $ws6 "6:  "
-set $ws7 "7:  "
-set $ws8 "8: ♫ "
-set $ws9 "9:  "
-set $ws10 "10:  "
+set $ws1 "1: 爵 "
+set $ws2 "2:   "
+set $ws3 "3:   "
+set $ws4 "4:   "
+set $ws5 "5:   "
+set $ws6 "6:   "
+set $ws7 "7:   "
+set $ws8 "8:   "
+set $ws9 "9:   "
+set $ws10 "10:   "
+set $ws11 "11:   "
+set $ws12 "12:   "
+set $ws13 "13:   "
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -275,6 +300,9 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+bindsym $alt+1 workspace number $ws11
+bindsym $alt+2 workspace number $ws12
+bindsym $alt+3 workspace number $ws13
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -287,6 +315,15 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+$alt+1 move container to workspace number $ws11
+bindsym $mod+$alt+2 move container to workspace number $ws12
+bindsym $mod+$alt+3 move container to workspace number $ws13
+
+# Automatically putting workspaces on specific screens
+workspace $ws11 output nonprimary
+workspace $ws12 output nonprimary
+workspace $ws13 output nonprimary
+
 
 bindsym $mod+Shift+s exec ~/.config/i3/i3-display-swap.sh
 # reload the configuration file
@@ -326,8 +363,9 @@ gaps inner 5
 gaps outer 5
 
 bindsym $mod+r mode "resize"
-focus_follows_mouse no
-workspace_auto_back_and_forth false
+focus_follows_mouse yes
+mouse_warping none
+workspace_auto_back_and_forth true
 show_marks yes
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -335,6 +373,19 @@ show_marks yes
 bar {
 	font pango:Mononoki Nerd Font 8
 	position top
+    output primary
+	tray_output primary
+	status_command /usr/share/bumblebee-status/bumblebee-status \
+        -m spotify network_traffic nvidiagpu cpu \
+		memory timetz caffeine \
+		-p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+        nic.exclude="enp37s0,enp43s0f3u2,lo" \
+		-t gruvbox-powerline
+}
+bar {
+	font pango:Mononoki Nerd Font 8
+	position top
+    output nonprimary
 	tray_output none
 	status_command /usr/share/bumblebee-status/bumblebee-status \
         -m spotify network_traffic nvidiagpu cpu \
