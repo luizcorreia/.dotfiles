@@ -3,6 +3,7 @@
 #addToPathFront $DENO_INSTALL
 #addToPath /home/theprimeagen/personal/lua-language-server/bin/Linux
 addToPath /usr/local/go/bin
+addToPath $HOME/go/bin
 addToPath $GOPATH/bin
 addToPath $HOME/work/wrapper
 addToPath $HOME/.yarn/bin

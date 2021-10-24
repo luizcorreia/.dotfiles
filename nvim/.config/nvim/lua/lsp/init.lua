@@ -64,6 +64,10 @@ require("lspconfig").cssls.setup({
     },
   },
 })
+
+require("lspconfig").gopls.setup({
+  capabilities = capabilities,
+})
 require("lspconfig").tsserver.setup({
   capabilities = capabilities,
 })

@@ -135,6 +135,15 @@ return require("packer").startup({
     use("mhinz/vim-rfc")
     use("ThePrimeagen/harpoon")
 
+    -- Refactoring
+    use({
+      "ThePrimeagen/refactoring.nvim",
+      requires = {
+        { "nvim-lua/plenary.nvim" },
+        { "nvim-treesitter/nvim-treesitter" },
+      },
+    })
+
     -- Debugging
     --
     -- Autocomplete
@@ -203,6 +212,8 @@ return require("packer").startup({
     use("folke/tokyonight.nvim")
     use("sainnhe/everforest")
     use("morhetz/gruvbox")
+    use("tanvirtin/monokai.nvim")
+    use("shaunsingh/nord.nvim")
 
     -- Status Line and Bufferline
     use("hoob3rt/lualine.nvim")

@@ -34,7 +34,8 @@ local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local g = vim.g -- a table to access global variables
 require("settings")
 -- Load the colorscheme
-cmd([[colorscheme gruvbox]]) -- Put your favorite colorscheme here
+-- cmd([[colorscheme gruvbox]]) -- Put your favorite colorscheme here
+cmd([[colorscheme monokai]]) -- Put your favorite colorscheme here
 
 g.netrw_banner = 0
 g.netrw_liststyle = 3
