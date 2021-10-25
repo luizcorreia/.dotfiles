@@ -202,23 +202,23 @@ set $exec_pavucontrol pavucontrol
 
 # Terminal
 for_window [title="^tscratchpad"] floating enable, resize set 1920 1080, move scratchpad
-exec_always --no-startup-id $terminal --title tscratchpad zsh
+exec --no-startup-id $terminal --title tscratchpad zsh
 
 # Pavucontrol
 for_window [class="Pavucontrol"] floating enable, resize set 1920 1080, move scratchpad
-exec_always --no-startup-id pavucontrol
+exec --no-startup-id pavucontrol
 
 # Tasks
 for_window [title="^tasks"] floating enable, resize set 3648 2052, move position center move scratchpad
-exec_always --no-startup-id $terminal --title tasks tmux_start
+exec --no-startup-id $terminal --title tasks tmux_start
 
 # Taskwarrior
 for_window [title="^taskwarrior"] floating enable, resize set 1920 1080, move scratchpad
-exec_always --no-startup-id $terminal --title taskwarrior tasksh
+exec --no-startup-id $terminal --title taskwarrior tasksh
 
 # Qalculate-gtk
 for_window [class="^Qalculate-gtk"] floating enable, resize set 1920 1080, move scratchpad
-exec_always --no-startup-id qalculate-gtk
+exec --no-startup-id qalculate-gtk
 
 # Bindind mode for scratchpads
 set $mode_launcher Launch: scratchpads
@@ -303,6 +303,9 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $alt+1 workspace $ws11
+bindsym $alt+2 workspace $ws12
+bindsym $alt+3 workspace $ws13
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -315,14 +318,14 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-bindsym $mod+$alt+1 move container to workspace number $ws11
-bindsym $mod+$alt+2 move container to workspace number $ws12
-bindsym $mod+$alt+3 move container to workspace number $ws13
+bindsym $alt+Shift+1 move container to workspace number $ws11
+bindsym $alt+Shift+2 move container to workspace number $ws12
+bindsym $alt+Shift+3 move container to workspace number $ws13
 
 # Automatically putting workspaces on specific screens
-#workspace $ws11 output nonprimary
-#workspace $ws12 output nonprimary
-#workspace $ws13 output nonprimary
+#workspace $ws11 output left
+#workspace $ws12 output left
+#workspace $ws13 output left
 
 # ===================================================================
 # Workspaces Assignment
@@ -388,13 +391,31 @@ exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/wallpaper-1_2048x1174.j
 # polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
+#bar
+#bar {
+#	font pango:Mononoki Nerd Font 8
+#	position top
+#    output nonprimary
+#	tray_output primary
+#	status_command /usr/share/bumblebee-status/bumblebee-status \
+#        -m spotify network_traffic nvidiagpu cpu \
+#		memory timetz caffeine \
+#		-p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+#        nic.exclude="enp37s0,enp43s0f3u2,lo" \
+#		-t nord-powerline
+#}
 # dunst notification-daemon
 exec --no-startup-id dunst
 
+exec --no-startup-id xrdb -merge -I $HOME ~/.Xresources
 exec --no-startup-id tmux new-session -s luizcorreia -d
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id volumeicon
 exec --no-startup-id pcmanfm -d
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
+exec --no-startup-id setxkbmap -layout us -variant intl
+exec --no-startup-id xsetroot -cursor_name left_ptr
+exec --no-startup-id xset r rate 250 50
+exec --no-startup-id xrandr --output DP-0 --primary
+exec --no-startup-id xrandr --output HDMI-0 --left-of DP-0
