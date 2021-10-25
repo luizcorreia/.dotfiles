@@ -8,4 +8,4 @@ vim.g.gruvbox_colors = { hint = "orange", error = "#ff0000" }
 vim.g.gruvbox_flat_style = "dark"
 vim.g.gruvbox_transparent = true
 -- Load the colorscheme
-vim.cmd([[colorscheme monokai]])
+vim.cmd([[colorscheme nord]])

@@ -20,11 +20,11 @@
 ; colors
 ;==========================================================
 [colors]
-foreground = ${xrdb:foreground:#222}
-background = ${xrdb:background:#222}
-primary = ${xrdb:color12:#222}
-secondary = ${xrdb:color8:#222}
-alert = ${xrdb:color1:#222}
+foreground = ${xrdb:foreground:#D8DEE9}
+background = ${xrdb:background:#2E3440}
+primary = ${xrdb:color12:#81A1C1}
+secondary = ${xrdb:color8:#4C566A}
+alert = ${xrdb:color1:#3B4252}
 
 
 ;==========================================================
@@ -33,7 +33,7 @@ alert = ${xrdb:color1:#222}
 [bar/base]
 dpi      = 192
 width = 100%
-height = 32
+height = 42
 offset-x = 0
 offset-y = 0
 fixed-center = false
@@ -73,7 +73,7 @@ tray-padding = 0
 [bar/bar2]
 dpi      = 192
 width = 100%
-height = 32
+height = 42
 offset-x = 0
 offset-y = 0
 fixed-center = false
@@ -101,7 +101,7 @@ font-3 = "FontAwesome:pixelsize=8;1"
 
 
 modules-left = i3
-modules-right  = mon2 previous playpause next paddinglite workspaces paddinglite date
+modules-right  = previous playpause next paddinglite workspaces paddinglite date
 ;modules-right = volume cpu temperature memory wired-network date powermenu
 
 wm-name = i3
@@ -325,3 +325,55 @@ bar-volume-empty-font = 2
 	label-urgent-padding    = 1
 
 	pin-workspaces = true
+
+    [module/previous]
+	type = custom/text
+
+	content = "   "
+	content-background = ${xrdb:color0}
+	content-foreground = ${xrdb:color21}
+	content-padding = 0
+
+	click-left = mpc prev
+
+[module/playpause]
+	type = custom/script
+
+	exec = sh ~/.config/polybar/playpause.sh
+
+	interval= .5
+
+	label = %output%
+	label-background = ${xrdb:color0}
+	label-foreground = ${xrdb:color21}
+	label-padding = 2
+
+	click-left = mpc toggle
+
+[module/next]
+	type = custom/text
+
+	content = "   "
+
+	content-background = ${xrdb:color0}
+	content-foreground = ${xrdb:color21}
+	content-padding = 0
+
+	click-left = mpc next
+
+[module/music]
+	type = internal/mpd
+
+	host = 127.0.0.1
+	port = 6600
+
+	interval = 2
+
+	format-online = <label-song>
+
+	label-song         = "%artist% - %title% "
+	label-song-padding = 0
+	label-song-background = ${xrdb:color0}
+	label-song-foreground = ${xrdb:color7}
+
+	format-online-prefix-padding = 0

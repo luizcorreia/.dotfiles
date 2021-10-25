@@ -1,7 +1,7 @@
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Don't show the dumb matching stuff.
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append("c")
 
 -- Complextras.nvim configuration
 vim.api.nvim_set_keymap(
@@ -18,22 +18,22 @@ vim.api.nvim_set_keymap(
   { noremap = true }
 )
 
-local lspkind = require "lspkind"
+local lspkind = require("lspkind")
 lspkind.init()
 
-local cmp = require "cmp"
+local cmp = require("cmp")
 
-cmp.setup {
+cmp.setup({
   mapping = {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.close(),
-    ["<c-y>"] = cmp.mapping.confirm {
+    ["<c-y>"] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
-    },
+    }),
 
-    ["<c-space>"] = cmp.mapping.complete(),
+    -- ["<c-space>"] = cmp.mapping.complete(),
 
     -- If you want tab completion :'(
     --  First you have to just promise to read `:help ins-completion`.
@@ -83,7 +83,7 @@ cmp.setup {
 
   formatting = {
     -- Youtube: How to set up nice formatting for your sources.
-    format = lspkind.cmp_format {
+    format = lspkind.cmp_format({
       with_text = true,
       menu = {
         buffer = "[buf]",
@@ -93,7 +93,7 @@ cmp.setup {
         luasnip = "[snip]",
         gh_issues = "[issues]",
       },
-    },
+    }),
   },
 
   experimental = {
@@ -103,7 +103,7 @@ cmp.setup {
     -- Let's play with this for a day or two
     ghost_text = true,
   },
-}
+})
 
 --[[
 " Setup buffer configuration (nvim-lua source only enables in Lua filetype).
@@ -118,9 +118,9 @@ autocmd FileType lua lua require'cmp'.setup.buffer {
 --]]
 
 -- Add vim-dadbod-completion in sql files
-vim.cmd [[
+vim.cmd([[
   augroup DadbodSql
     au!
     autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
   augroup END
-]]
+]])

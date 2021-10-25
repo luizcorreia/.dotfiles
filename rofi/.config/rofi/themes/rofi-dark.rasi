@@ -4,7 +4,7 @@
  */
 
 * {
-    font: "Cozette 10";
+    font: "Mononoki Nerd Font 10";
     background: #141c21;
     background-color: @background;
     foreground: #bdcfe3;
@@ -25,8 +25,8 @@
     border: 3;
     border-color: @selected-normal-background;
     padding: 2ch;
-    width: 490;
-    height: 290;
+    width: 980;
+    height: 580;
 }
 
 #mainbox {

@@ -10,9 +10,7 @@
 #
 # i3 configuration file (i3-gaps)
 #
-# Version: 2.24.0 - 2021/10/17
-# Maintainer: Brainf+ck
-# Website: https://github.com/brainfucksec/dotfiles
+# Website: https://github.com/luizcorreia/dotfiles
 #
 # =========================================================
 
@@ -149,6 +147,10 @@ bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
+bindsym $mod+e move container to output left
+bindsym $mod+w move container to output right
+bindsym $mod+Shift+e move workspace to output left
+bindsym $mod+Shift+w move workspace to output right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -188,7 +190,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec i3-msg exit
+bindsym $mod+Shift+q exec i3-msg exit
 
 # ===================================================================
 # Scratchpads
@@ -251,7 +253,8 @@ bindsym $mod+F7 exec --no-startup-id libreoffice
 bindsym $mod+y  exec --no-startup-id youtube-watch.sh
 
 bindsym $mod+p exec --no-startup-id "dmenu_run -nf '$base04' -nb '$base00' -sb '$base04' -sf '$base00' -fn 'Fantasque Sans Mono-13' -p '>'"
-bindsym $mod+d exec rofi -show run
+bindsym $mod+Shift+Return exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec rofi -dpi 192 -show run
 # urxvt -g = $float window geometry
 bindsym $mod+n exec --no-startup-id urxvt -g 95x15+20+60 -e ncmpcpp
 #bindsym $mod+x exec --no-startup-id ~/bin/lock
@@ -318,9 +321,9 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-bindsym $alt+Shift+1 move container to workspace number $ws11
-bindsym $alt+Shift+2 move container to workspace number $ws12
-bindsym $alt+Shift+3 move container to workspace number $ws13
+bindsym $alt+Shift+1 move container to workspace $ws11
+bindsym $alt+Shift+2 move container to workspace $ws12
+bindsym $alt+Shift+3 move container to workspace $ws13
 
 # Automatically putting workspaces on specific screens
 #workspace $ws11 output left
@@ -406,6 +409,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 #}
 # dunst notification-daemon
 exec --no-startup-id dunst
+exec --no-startup-id nm-applet
 
 exec --no-startup-id xrdb -merge -I $HOME ~/.Xresources
 exec --no-startup-id tmux new-session -s luizcorreia -d
@@ -419,3 +423,30 @@ exec --no-startup-id xsetroot -cursor_name left_ptr
 exec --no-startup-id xset r rate 250 50
 exec --no-startup-id xrandr --output DP-0 --primary
 exec --no-startup-id xrandr --output HDMI-0 --left-of DP-0
+
+exec --no-startup-id discord
+exec --no-startup-id discord-ptb
+exec --no-startup-id slack
+exec --no-startup-id thunderbird
+
+## Base16ish Breeze dark
+# Author: rtxx
+#
+# You can use these variables anywhere in the i3 configuration file.
+
+set $base00 #31363b
+set $base01 #4d4d4d
+set $base02 #3daee9
+set $base03 #7f8c8d
+set $base04 #eff0f1
+set $base05 #fcfcfc
+set $base06 #fcfcfc
+set $base07 #fcfcfc
+set $base08 #da4453
+set $base09 #3daee9
+set $base0A #fdbc4b
+set $base0B #27ae60
+set $base0C #3daee9
+set $base0D #3daee9
+set $base0E #f47750
+set $base0F #3daee9

@@ -222,7 +222,6 @@ return require("packer").startup({
     use("p00f/nvim-ts-rainbow")
     use("phaazon/hop.nvim")
     use("rmagatti/auto-session")
-    use("tpope/vim-repeat")
     use("tpope/vim-surround")
     use("wellle/targets.vim")
     use("winston0410/cmd-parser.nvim")
@@ -282,6 +281,9 @@ return require("packer").startup({
     use({ "iamcco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" })
     use("vim-pandoc/vim-pandoc-syntax")
     use("elzr/vim-json")
+
+    -- Wakatime
+    use("wakatime/vim-wakatime")
   end,
   config = {
     display = {

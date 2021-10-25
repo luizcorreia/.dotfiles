@@ -17,10 +17,10 @@ vim.g.snippets = "luasnip"
 require("lc.globals")
 
 -- Turn off builtin plugins I do not use.
--- require("lc.disable_builtin")
+require("lc.disable_builtin")
 
 -- Force loading of astronauta first.
-vim.cmd([[runtime plugin/astronauta.vim]])
+--vim.cmd([[runtime plugin/astronauta.vim]])
 
 -- Neovim builtin LSP configuration
 -- require("lc.lsp")
@@ -35,7 +35,7 @@ local g = vim.g -- a table to access global variables
 require("settings")
 -- Load the colorscheme
 -- cmd([[colorscheme gruvbox]]) -- Put your favorite colorscheme here
-cmd([[colorscheme monokai]]) -- Put your favorite colorscheme here
+cmd([[colorscheme nord]]) -- Put your favorite colorscheme here
 
 g.netrw_banner = 0
 g.netrw_liststyle = 3
@@ -145,3 +145,4 @@ augroup END
 -- source remaining config
 require("maps")
 require("lsp")
+require("lc.plugins")
