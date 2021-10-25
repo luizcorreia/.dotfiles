@@ -30,50 +30,9 @@ alert = ${xrdb:color1:#222}
 ;==========================================================
 ; bar settings
 ;==========================================================
-[bar/base]
-dpi      = 192
-width = 100%
-height = 32
-offset-x = 0
-offset-y = 0
-fixed-center = false
-;monitor = DP-0
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-underline-size = 4
-;underline-color = ${colors.primary}
-
-border-size = 3
-border-color = #4a697d
-
-padding-left = 2
-padding-right = 1
-
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = "Mononoki Nerd Font:pixelsize=7;1"
-font-1 = "Iosevka Nerd Font:pixelsize=10;1"
-font-2 = "Material Icons:pixelsize=10;2"
-font-3 = "FontAwesome:pixelsize=8;1"
-modules-left = i3
-modules-right = volume cpu temperature memory wired-network date powermenu
-
-wm-name = i3
-
-locale = en_US.UTF-8
-
-tray-position = right
-tray-detached = false
-tray-background = ${colors.background}
-tray-padding = 0
-
 [bar/bar2]
-dpi      = 192
 width = 100%
-height = 32
+height = 48
 offset-x = 0
 offset-y = 0
 fixed-center = false
@@ -94,15 +53,13 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Mononoki Nerd Font:pixelsize=7;1"
-font-1 = "Iosevka Nerd Font:pixelsize=10;1"
-font-2 = "Material Icons:pixelsize=10;2"
-font-3 = "FontAwesome:pixelsize=8;1"
-
+font-0 = "Ohsnap:pixelsize=16;1"
+font-1 = "Iosevka Nerd Font:pixelsize=16;1"
+font-2 = "Material Icons:pixelsize=14;2"
+font-3 = "FontAwesome:pixelsize=10;1"
 
 modules-left = i3
-modules-right  = mon2 previous playpause next paddinglite workspaces paddinglite date
-;modules-right = volume cpu temperature memory wired-network date powermenu
+modules-right = volume cpu temperature memory wired-network date powermenu
 
 wm-name = i3
 
@@ -181,7 +138,7 @@ label-warn-foreground = ${colors.alert}
 
 [module/wired-network]
 type = internal/network
-interface = bond0
+interface = eno1
 interval = 3.0
 
 format-connected = <label-connected>
@@ -258,70 +215,3 @@ bar-volume-fill-font = 1
 bar-volume-empty = ━
 bar-volume-empty-font = 2
 
-[module/workspaces]
-
-	type            = internal/i3
-	format          = <label-state> <label-mode>
-	index-sort      = true
-	wrapping-scroll = false
-	strip-wsnumbers = true
-
-	label-mode-background = ${xrdb:color18}
-	label-mode-foreground = ${xrdb:color7}
-	label-mode-padding    = 1
-
-	label-focused            = +
-	label-focused-background = ${xrdb:color18}
-	label-focused-foreground = ${xrdb:color3}
-	label-focused-padding    = 1
-
-	label-unfocused            = -
-	label-unfocused-background = ${xrdb:color18}
-	label-unfocused-foreground = ${xrdb:color8}
-	label-unfocused-padding    = 1
-
-	label-visible            = -
-	label-visible-background = ${xrdb:color18}
-	label-visible-foreground = ${xrdb:color7}
-	label-visible-padding    = 1
-
-	label-urgent            = -
-	label-urgent-background = ${xrdb:color18}
-	label-urgent-foreground = ${xrdb:color1}
-	label-urgent-padding    = 1
-
-	pin-workspaces = true
-
-    [module/mon2]
-
-	type            = internal/i3
-	format          = <label-state><label-mode>
-	index-sort      = true
-	wrapping-scroll = false
-	strip-wsnumbers = true
-
-	label-mode-background = #000f0f0f
-	label-mode-foreground = ${xrdb:color7}
-	label-mode-padding    = 1
-
-	label-focused            = %name%
-	label-focused-background = #000f0f0f
-	label-focused-foreground = ${xrdb:color2}
-	label-focused-padding    = 1
-
-	label-unfocused            = %name%
-	label-unfocused-background = #000f0f0f
-	label-unfocused-foreground = ${xrdb:color7}
-	label-unfocused-padding    = 1
-
-	label-visible            = %name%
-	label-visible-background = #000f0f0f
-	label-visible-foreground = ${xrdb:color7}
-	label-visible-padding    = 1
-
-	label-urgent            = •
-	label-urgent-background = ${xrdb:color7}
-	label-urgent-foreground = ${xrdb:color1}
-	label-urgent-padding    = 1
-
-	pin-workspaces = true

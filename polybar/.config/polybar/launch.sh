@@ -7,5 +7,15 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch polybar
-polybar mybar &
+polybar base &
+polybar bar2 &
 
+sleep .5
+
+if ! pgrep -x polybar; then
+	polybar base &
+else
+	pkill -USR1 polybar
+fi
+
+echo "Bars launched..."
