@@ -10,7 +10,7 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 polybar base &
 polybar bar2 &
 
-sleep .5
+sleep 1
 
 if ! pgrep -x polybar; then
 	polybar base &

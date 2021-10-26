@@ -101,17 +101,17 @@ font-3 = "FontAwesome:pixelsize=8;1"
 
 
 modules-left = i3
-modules-right  = previous playpause next paddinglite workspaces paddinglite date
+modules-right  = music previous playpause next paddinglite date
 ;modules-right = volume cpu temperature memory wired-network date powermenu
 
 wm-name = i3
 
 locale = en_US.UTF-8
 
-tray-position = right
-tray-detached = false
-tray-background = ${colors.background}
-tray-padding = 0
+#tray-position = right
+#tray-detached = false
+#tray-background = ${colors.background}
+#tray-padding = 0
 
 
 ;==========================================================
@@ -329,7 +329,7 @@ bar-volume-empty-font = 2
     [module/previous]
 	type = custom/text
 
-	content = "   "
+	content = "  "
 	content-background = ${xrdb:color0}
 	content-foreground = ${xrdb:color21}
 	content-padding = 0
@@ -353,7 +353,7 @@ bar-volume-empty-font = 2
 [module/next]
 	type = custom/text
 
-	content = "   "
+	content = "  "
 
 	content-background = ${xrdb:color0}
 	content-foreground = ${xrdb:color21}

@@ -14,6 +14,7 @@ local is_wsl = (function()
   return not not string.find(output[1] or "", "WSL")
 end)()
 
+
 return require("packer").startup({
   function(use)
     local local_use = function(first, second, opts)
@@ -46,21 +47,34 @@ return require("packer").startup({
     end
     -- Permite que o packer gerencie a si mesmo
     use("wbthomason/packer.nvim")
+local config = function(name)
+  return string.format("require('plugins.%s')", name)
+end
+
+local use_with_config = function(path, name)
+  use({ path, config = config(name) })
+end
     use("lewis6991/impatient.nvim")
+
+    -- basic
+    use("tpope/vim-repeat")
+    use("tpope/vim-surround")
+    use("tpope/vim-unimpaired")
+    use("tpope/vim-commentary")
     -- Git
-    use("tpope/vim-fugitive")
-    use("tpope/vim-rhubarb")
-    use("lewis6991/gitsigns.nvim")
-    -- Git worktree utility6
-    use("ThePrimeagen/git-worktree.nvim")
-    -- GIT:
-    use("TimUntersberger/neogit")
+    use({
+      { "lewis6991/gitsigns.nvim", config = config("gitsigns") },
+      { "tpope/vim-fugitive", requires = "tpope/vim-rhubarb" },
+    })
+    -- Git worktree utility
+    use_with_config("ThePrimeagen/git-worktree.nvim", "git-worktree")
+    use_with_config("TimUntersberger/neogit", "git")
 
     -- Github integration
     if vim.fn.executable("gh") == 1 then
-      use("pwntester/octo.nvim")
+      use_with_config("pwntester/octo.nvim", "cmp_gh_source")
     end
-    use("ruifm/gitlinker.nvim")
+    use_with_config("ruifm/gitlinker.nvim", "gitlinker")
 
     -- Sweet message committer
     use("rhysd/committia.vim")
@@ -70,6 +84,7 @@ return require("packer").startup({
     use({
       "rhysd/git-messenger.vim",
       keys = "<Plug>(git-messenger)",
+      config = config("gitmessenger"),
     })
 
     -- Easily Create Gists
@@ -91,16 +106,16 @@ return require("packer").startup({
         })
       end,
     })
+    use("jose-elias-alvarez/null-ls.nvim")
 
-    use("rcarriga/nvim-notify")
+    use_with_config("rcarriga/nvim-notify", "notify")
 
     -- Intelisense
-    use("glepnir/lspsaga.nvim")
-    use("windwp/nvim-autopairs")
+    use_with_config("windwp/nvim-autopairs", "autopairs")
     use("alvan/vim-closetag")
     use("mhartington/formatter.nvim")
     use("folke/lsp-colors.nvim")
-    use("jose-elias-alvarez/nvim-lsp-ts-utils") -- improve typescript experience
+    --use("jose-elias-alvarez/nvim-lsp-ts-utils") -- improve typescript experience
     use({
       "antoinemadec/FixCursorHold.nvim",
       run = function()
@@ -122,9 +137,10 @@ return require("packer").startup({
     use({
       "nvim-telescope/telescope.nvim",
       requires = { {
-        "nvim-telescope/telescope-fzy-native.nvim",
+          "nvim-telescope/telescope-fzf-native.nvim",
         run = "make",
       } },
+      config = config("telescope"),
     })
     use("tami5/sql.nvim")
     use("nvim-telescope/telescope-frecency.nvim")
@@ -133,7 +149,7 @@ return require("packer").startup({
     use("nvim-telescope/telescope-media-files.nvim")
     -- Harpoon
     use("mhinz/vim-rfc")
-    use("ThePrimeagen/harpoon")
+    use_with_config("ThePrimeagen/harpoon", "harpoon")
 
     -- Refactoring
     use({
@@ -142,21 +158,27 @@ return require("packer").startup({
         { "nvim-lua/plenary.nvim" },
         { "nvim-treesitter/nvim-treesitter" },
       },
+      config = config("refactoring"),
     })
 
     -- Debugging
     --
     -- Autocomplete
-    use("L3MON4D3/LuaSnip")
+    use_with_config("L3MON4D3/LuaSnip", "luasnip")
     -- use("hrsh7th/vim-vsnip")
 
     -- Completion
-    use("hrsh7th/nvim-cmp")
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-nvim-lua")
-    use("hrsh7th/cmp-nvim-lsp")
-    use("saadparwaiz1/cmp_luasnip")
+    use({
+      "hrsh7th/nvim-cmp", -- completion
+      requires = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "saadparwaiz1/cmp_luasnip",
+      },
+      config = config("cmp"),
+    })
 
     -- Completion stuff
     -- local_use "rofl.nvim"
@@ -168,11 +190,20 @@ return require("packer").startup({
     use("jbyuki/one-small-step-for-vimkind")
 
     -- TreeSitter
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    use({
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+      config = config("treesitter"),
+    })
     use("nvim-treesitter/playground")
     use("vigoux/architext.nvim")
+    use({
+      "RRethy/nvim-treesitter-textsubjects", -- adds smart text objects
+      ft = { "lua", "typescript", "typescriptreact" },
+    })
+    use({ "windwp/nvim-ts-autotag", ft = { "typescript", "typescriptreact" } }) -- automatically close jsx tags
+    use({ "JoosepAlviste/nvim-ts-context-commentstring", ft = { "typescript", "typescriptreact" } }) -- makes jsx comments actually work
 
-    use("JoosepAlviste/nvim-ts-context-commentstring")
     use({
       "mfussenegger/nvim-ts-hint-textobject",
       config = function()
@@ -216,7 +247,7 @@ return require("packer").startup({
     use("shaunsingh/nord.nvim")
 
     -- Status Line and Bufferline
-    use("hoob3rt/lualine.nvim")
+    use_with_config("hoob3rt/lualine.nvim", "lualine")
 
     -- Extras
     use("p00f/nvim-ts-rainbow")
@@ -272,13 +303,20 @@ return require("packer").startup({
     --   FOCUSING:
     local use_folke = true
     if use_folke then
-      use("folke/zen-mode.nvim")
+      use_with_config("folke/zen-mode.nvim", "zen")
       use("folke/twilight.nvim")
     end
 
     -- Markdown
     use("plasticboy/vim-markdown")
-    use({ "iamcco/markdown-preview.nvim", ft = "markdown", run = "cd app && yarn install" })
+    use({
+      "iamcco/markdown-preview.nvim", -- preview markdown output in browser
+      opt = true,
+      ft = { "markdown" },
+      config = "vim.cmd[[doautocmd BufEnter]]",
+      run = "cd app && yarn install",
+      cmd = "MarkdownPreview",
+    })
     use("vim-pandoc/vim-pandoc-syntax")
     use("elzr/vim-json")
 

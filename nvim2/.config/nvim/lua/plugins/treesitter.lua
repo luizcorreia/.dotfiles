@@ -145,6 +145,11 @@ local _ = require("nvim-treesitter.configs").setup({
     },
   },
 
+  autopairs = { enable = true },
+  autotag = {
+    enable = true,
+  },
+
   playground = {
     enable = true,
     updatetime = 25,

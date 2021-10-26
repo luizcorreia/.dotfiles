@@ -1,4 +1,13 @@
-local protocol = require("vim.lsp.protocol")
+local u = require("utils")
+local sumneko = require("lsp.sumneko")
+local null_ls = require("lsp.null-ls")
+local tsserver = require("lsp.tsserver")
+local gopls = require("lsp.gopls")
+local diagnosticls = require("lsp.diagnosticls")
+local yamlls = require("lsp.yamlls")
+
+local lsp = vim.lsp
+local protocol = lsp.protocol
 -- lspkind Icon setup
 require("lspkind").init({})
 -- gitsigns setup
@@ -34,7 +43,65 @@ protocol.CompletionItemKind = {
   " TypeParameter", -- TypeParameter
 }
 
--- LSP this is needed for LSP completions in CSS along with the snippets plugin
+-- LSP Prevents inline buffer annotations
+-- lsp.diagnostic.show_line_diagnostics()
+-- lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
+--   underline = true,
+--   signs = true,
+--   -- This sets the spacing and the prefix, obviously.
+--   virtual_text = {
+--     spacing = 4,
+--     prefix = "",
+--   },
+-- })
+lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    signs = true,
+    virtual_text = false,
+})
+
+local border_opts = { border = "single", focusable = false }
+
+lsp.handlers["textDocument/signatureHelp"] = lsp.with(lsp.handlers.signature_help, border_opts)
+lsp.handlers["textDocument/hover"] = lsp.with(lsp.handlers.hover, border_opts)
+
+global.lsp = {
+    border_opts = border_opts,
+}
+
+local on_attach = function(client, bufnr)
+    -- commands
+    u.lua_command("LspFormatting", "vim.lsp.buf.formatting()")
+    u.lua_command("LspHover", "vim.lsp.buf.hover()")
+    u.lua_command("LspRename", "vim.lsp.buf.rename()")
+    u.lua_command("LspDiagPrev", "vim.lsp.diagnostic.goto_prev({ float = global.lsp.border_opts })")
+    u.lua_command("LspDiagNext", "vim.lsp.diagnostic.goto_next({ float = global.lsp.border_opts })")
+    u.lua_command("LspDiagLine", "vim.lsp.diagnostic.show_line_diagnostics(global.lsp.border_opts)")
+    u.lua_command("LspSignatureHelp", "vim.lsp.buf.signature_help()")
+    u.lua_command("LspTypeDef", "vim.lsp.buf.type_definition()")
+
+    -- bindings
+    u.buf_map("n", "gi", ":LspRename<CR>", nil, bufnr)
+    u.buf_map("n", "gy", ":LspTypeDef<CR>", nil, bufnr)
+    u.buf_map("n", "K", ":LspHover<CR>", nil, bufnr)
+    u.buf_map("n", "[a", ":LspDiagPrev<CR>", nil, bufnr)
+    u.buf_map("n", "]a", ":LspDiagNext<CR>", nil, bufnr)
+    u.buf_map("n", "<Leader>a", ":LspDiagLine<CR>", nil, bufnr)
+    u.buf_map("i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>", nil, bufnr)
+
+    -- telescope
+    u.buf_map("n", "gr", ":LspRef<CR>", nil, bufnr)
+    u.buf_map("n", "gd", ":LspDef<CR>", nil, bufnr)
+    u.buf_map("n", "ga", ":LspAct<CR>", nil, bufnr)
+    u.buf_map("n", "gT", ":LspTypeDef<CR>", nil, bufnr)
+
+    if client.resolved_capabilities.document_formatting then
+        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+    end
+
+    require("illuminate").on_attach(client)
+end
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -45,163 +112,9 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     "additionalTextEdits",
   },
 }
-
--- LSP Server config
-require("lspconfig").cssls.setup({
-  cmd = { "vscode-css-language-server --stdio" },
-  capabilities = capabilities,
-  settings = {
-    scss = {
-      lint = {
-        idSelector = "warning",
-        zeroUnits = "warning",
-        duplicateProperties = "warning",
-      },
-      completion = {
-        completePropertyWithSemicolon = true,
-        triggerPropertyValueCompletion = true,
-      },
-    },
-  },
-})
-
-require("lspconfig").gopls.setup({
-  capabilities = capabilities,
-})
-require("lspconfig").tsserver.setup({
-  capabilities = capabilities,
-})
-require("lspconfig").hls.setup({
-  capabilities = capabilities,
-})
-
-require("lspconfig").yamlls.setup({
-  capabilities = capabilities,
-  settings = {
-    yaml = {
-      customTags = {
-        "!Equals sequence",
-        "!FindInMap sequence",
-        "!GetAtt scalar",
-        "!GetAZs scalar",
-        "!ImportValue scalar",
-        "!Join sequence scalar",
-        "!Ref scalar",
-        "!Select sequence",
-        "!Split sequence",
-        "!Sub scalar",
-        "!And sequence",
-        "!Not sequence",
-        "!Equals sequence",
-        "!Sub sequence",
-        "!ImportValue scalar",
-        "!If sequence",
-      },
-      schemas = {
-        'https://raw.githubusercontent.com/awslabs/goformation/v4.18.2/schema/cloudformation.schema.json: ["/template.yaml", "/template.yml"]',
-        'https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml: ["/openapi.yml", "/openapi.yaml"]',
-      },
-    },
-  },
-})
-
-local sumneko_root_path = "/home/luizcorreia/tools/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/Linux/lua-language-server"
-require("lspconfig").sumneko_lua.setup({
-  capabilities = capabilities,
-  cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = "LuaJIT",
-        -- Setup your lua path
-        path = vim.split(package.path, ";"),
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-        },
-      },
-    },
-  },
-})
-
-require("lspconfig").diagnosticls.setup({
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "json",
-    "typescript",
-    "typescriptreact",
-    "css",
-    "less",
-    "scss",
-    "yaml",
-  },
-  init_options = {
-    linters = {
-      eslint = {
-        command = "eslint_d",
-        rootPatterns = { ".git", ".eslintrc" },
-        debounce = 100,
-        args = { "--stdin", "--stdin-filename", "%filepath", "--format", "json" },
-        sourceName = "eslint_d",
-        parseJson = {
-          errorsRoot = "[0].messages",
-          line = "line",
-          column = "column",
-          endline = "endline",
-          endColumn = "endColumn",
-          message = " [eslint] ${message} [${ruleId}]",
-          security = "severity",
-        },
-        securities = {
-          [2] = "error",
-          [1] = "warning",
-        },
-      },
-    },
-    filetypes = {
-      javascript = "eslint",
-      javascriptreact = "eslint",
-      typescript = "eslint",
-      typescriptreact = "eslint",
-    },
-    formatters = {
-      eslint_d = {
-        command = "eslint_d",
-        args = { "--stdin", "--stdin-filename", "%filename", "--fix-to-stdout" },
-        rootPatterns = {},
-      },
-      prettier = {
-        command = "prettier",
-        args = { "--stdin-filepath", "%filename" },
-      },
-    },
-    formatFiletypes = {
-      css = "prettier",
-      javascript = "eslint_d",
-      javascriptreact = "eslint_d",
-      json = "prettier",
-      scss = "prettier",
-      less = "prettier",
-      typescript = "eslint_d",
-      typescriptreact = "eslint_d",
-      markdown = "prettier",
-    },
-  },
-})
-
 -- LSP Prevents inline buffer annotations
-vim.lsp.diagnostic.show_line_diagnostics()
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+lsp.diagnostic.show_line_diagnostics()
+lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
   underline = true,
   -- This sets the spacing and the prefix, obviously.
   virtual_text = {
@@ -210,16 +123,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   },
 })
 
--- LSP Saga config & keys https://github.com/glepnir/lspsaga.nvim
-local saga = require("lspsaga")
-saga.init_lsp_saga({
-  code_action_icon = " ",
-  definition_preview_icon = "  ",
-  dianostic_header_icon = "   ",
-  error_sign = " ",
-  finder_definition_icon = "  ",
-  finder_reference_icon = "  ",
-  hint_sign = "⚡",
-  infor_sign = "",
-  warn_sign = "",
-})
+
+tsserver.setup(on_attach, capabilities)
+sumneko.setup(on_attach, capabilities)
+null_ls.setup(on_attach)
+gopls.setup(on_attach, capabilities)
+diagnosticls.setup(on_attach, capabilities)
+yamlls.setup(on_attach, capabilities)
