@@ -37,7 +37,8 @@ height = 42
 offset-x = 0
 offset-y = 0
 fixed-center = false
-;monitor = DP-0
+;monitor = ${env:MONITOR:HDMI-1}
+monitor = HDMI-1
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -70,14 +71,12 @@ tray-detached = false
 tray-background = ${colors.background}
 tray-padding = 0
 
-[bar/bar2]
-dpi      = 192
+[bar/note]
 width = 100%
-height = 42
+height = 28}
 offset-x = 0
 offset-y = 0
 fixed-center = false
-monitor = HDMI-0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -94,24 +93,25 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Mononoki Nerd Font:pixelsize=7;1"
+font-0 = "Mononoki Nerd Font:pixelsize=10;1"
 font-1 = "Iosevka Nerd Font:pixelsize=10;1"
 font-2 = "Material Icons:pixelsize=10;2"
 font-3 = "FontAwesome:pixelsize=8;1"
 
 
 modules-left = i3
-modules-right  = music previous playpause next paddinglite date
-;modules-right = volume cpu temperature memory wired-network date powermenu
+modules-right  = music previous playpause next paddinglite volume cpu temperature memory wired-network date powermenu 
 
 wm-name = i3
 
 locale = en_US.UTF-8
 
-#tray-position = right
-#tray-detached = false
-#tray-background = ${colors.background}
-#tray-padding = 0
+tray-position = right
+tray-detached = false
+tray-background = ${colors.background}
+tray-padding = 0
+
+
 
 
 ;==========================================================
