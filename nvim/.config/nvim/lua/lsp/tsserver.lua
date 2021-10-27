@@ -9,7 +9,7 @@ local ts_utils_settings = {
     eslint_enable_diagnostics = true,
     eslint_opts = {
         condition = function(utils)
-            return utils.root_has_file(".eslintrc.js")
+            return utils.root_has_file(".eslintrc.js") or utils.root_has_file(".eslintrc")
         end,
         diagnostics_format = "#{m} [#{c}]",
     },
