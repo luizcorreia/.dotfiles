@@ -1,336 +1,68 @@
-sw_volume: 100
+sw_volume: 94
 audio_device_state:1:My ALSA Device
 audio_device_state:1:My HTTP Stream
 audio_device_state:1:pulse audio
 audio_device_state:1:my_fifo
 state: pause
-current: 225
-time: 306.117000
+current: 4
+time: 74.935000
 random: 0
 repeat: 0
 single: 0
 consume: 0
-crossfade: 5
+crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/1-01 Mercadoramama.mp3
-1:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/2-02 Aos Garotos de Aluguel.mp3
-2:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/3-03 Boa Pessoa.mp3
-3:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/4-04 A Balada da Bailarina Torta.mp3
-4:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/5-05 Oxigênio.mp3
-5:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/6-06 Ótima.mp3
-6:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/7-07 Canção Pra Não Voltar.mp3
-7:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/8-08 Solitária.mp3
-8:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/9-09 Nunca.mp3
-9:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/10-10 Se Eu Corro.mp3
-10:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/11-11 Oração.mp3
-11:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/12-12 Cantiga De Dar Tchau.mp3
-12:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/1-01 Mercadoramama.mp3
-13:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/2-02 Aos Garotos de Aluguel.mp3
-14:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/3-03 Boa Pessoa.mp3
-15:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/4-04 A Balada da Bailarina Torta.mp3
-16:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/5-05 Oxigênio.mp3
-17:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/6-06 Ótima.mp3
-18:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/7-07 Canção Pra Não Voltar.mp3
-19:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/8-08 Solitária.mp3
-20:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/9-09 Nunca.mp3
-21:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/10-10 Se Eu Corro.mp3
-22:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/11-11 Oração.mp3
-23:a_banda_mais_bonita_da_cidade/a_banda_mais_bonita_da_cidade_ok/A Banda Mais Bonita da Cidade/12-12 Cantiga De Dar Tchau.mp3
-24:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/01 - Eu quero ver você dizer que eu sou ruim.mp3
-25:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/02 - O tempo e o vento.mp3
-26:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/03 - Forró de Olinda.mp3
-27:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/04 - Forró Calangueado.mp3
-28:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/05 - Vou pra Campinas.mp3
-29:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/06 - Baião, Vem morena, Canto da ema.mp3
-30:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/07 - O xote das meninas.mp3
-31:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/08 - Essa menina.mp3
-32:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/09 - Arrepiando.mp3
-33:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/10 - Rima com rima.mp3
-34:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/11 - Petrolina Juazeiro.mp3
-35:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/12 - Cantiga do sapo.mp3
-36:Alceu Valenca/Alceu Valença - 1998 - Forró de todos os tempos (Forró em vinil)/13 - Coco do rala coco.mp3
-37:Alceu Valenca/Marco Zero Ao Vivo/01 Voltei Recife 1.mp3
-38:Alceu Valenca/Marco Zero Ao Vivo/02 Vampira 1.mp3
-39:Alceu Valenca/Marco Zero Ao Vivo/03 Caia Por Cima de Mim 1.mp3
-40:Alceu Valenca/Marco Zero Ao Vivo/04 Me Segura Sena¦âo Eu Caio 1.mp3
-41:Alceu Valenca/Marco Zero Ao Vivo/05 Embolada do Tempo 1.mp3
-42:Alceu Valenca/Marco Zero Ao Vivo/06 Dona de 7 Colinas 1.mp3
-43:Alceu Valenca/Marco Zero Ao Vivo/07 Nas Asas de Um Passarinho 1.mp3
-44:Alceu Valenca/Marco Zero Ao Vivo/08 Beijando a Flora 1.mp3
-45:Alceu Valenca/Marco Zero Ao Vivo/09 Pirata Jose¦ü 1.mp3
-46:Alceu Valenca/Marco Zero Ao Vivo/10 Carnaval na Marim 1.mp3
-47:Alceu Valenca/Marco Zero Ao Vivo/11 Vassourinha Aqua¦ütica 1.mp3
-48:Alceu Valenca/Marco Zero Ao Vivo/12 Cirandas-Luar de Prata-Ciranda da Alianc¦ºa 1.mp3
-49:Alceu Valenca/Marco Zero Ao Vivo/13 Maracatu 1.mp3
-50:Alceu Valenca/Marco Zero Ao Vivo/14 Bom Demais 1.mp3
-51:Benito de Paula/20 Sucessos/01 - 01.mp3
-52:Benito de Paula/20 Sucessos/02 - 02.mp3
-53:Benito de Paula/20 Sucessos/03 - 03.mp3
-54:Benito de Paula/20 Sucessos/04 - 04.mp3
-55:Benito de Paula/20 Sucessos/05 - 05.mp3
-56:Benito de Paula/20 Sucessos/06 - 06.mp3
-57:Benito de Paula/20 Sucessos/07 - 07.mp3
-58:Benito de Paula/20 Sucessos/08 - 08.mp3
-59:Benito de Paula/20 Sucessos/09 - 09.mp3
-60:Benito de Paula/20 Sucessos/10 - 10.mp3
-61:Benito de Paula/20 Sucessos/11 - 11.mp3
-62:Benito de Paula/20 Sucessos/12 - 12.mp3
-63:Benito de Paula/20 Sucessos/13 - 13.mp3
-64:Benito de Paula/20 Sucessos/14 - 14.mp3
-65:Benito de Paula/20 Sucessos/15 - 15.mp3
-66:Benito de Paula/20 Sucessos/16 - 16.mp3
-67:Benito de Paula/20 Sucessos/17 - 17.mp3
-68:Benito de Paula/20 Sucessos/18 - 18.mp3
-69:Benito de Paula/20 Sucessos/19 - 19.mp3
-70:Benito de Paula/20 Sucessos/20 - 20.mp3
-71:Benito de Paula/Eu sou o samba/01 - Trilha 01.mp3
-72:Benito de Paula/Eu sou o samba/02 - Trilha 02.mp3
-73:Benito de Paula/Eu sou o samba/03 - Trilha 03.mp3
-74:Benito de Paula/Eu sou o samba/04 - Trilha 04.mp3
-75:Benito de Paula/Eu sou o samba/05 - Trilha 05.mp3
-76:Benito de Paula/Eu sou o samba/06 - Trilha 06.mp3
-77:Benito de Paula/Eu sou o samba/07 - Trilha 07.mp3
-78:Benito de Paula/Eu sou o samba/08 - Trilha 08.mp3
-79:Benito de Paula/Eu sou o samba/09 - Trilha 09.mp3
-80:Benito de Paula/Eu sou o samba/10 - Trilha 10.mp3
-81:Benito de Paula/Eu sou o samba/11 - Trilha 11.mp3
-82:Benito de Paula/Eu sou o samba/12 - Trilha 12.mp3
-83:Benito de Paula/Eu sou o samba/13 - Trilha 13.mp3
-84:Benito de Paula/Eu sou o samba/14 - Trilha 14.mp3
-85:Criolo/No na Orelha/01-Bogota.mp3
-86:Criolo/No na Orelha/02-Subirusdoistiozin.mp3
-87:Criolo/No na Orelha/03-Nao Existe Amor em SP.mp3
-88:Criolo/No na Orelha/04-Mario.mp3
-89:Criolo/No na Orelha/05-Fregues da Meia Noite.mp3
-90:Criolo/No na Orelha/06-Grajauex.mp3
-91:Criolo/No na Orelha/07-Samba Sambei.mp3
-92:Criolo/No na Orelha/08-Sucrilhos.mp3
-93:Criolo/No na Orelha/09-Lion Man.mp3
-94:Criolo/No na Orelha/10-Linha de Frente.mp3
-95:Forro Dominguinhos/track 1.mp3
-96:Forro Dominguinhos/track 2.mp3
-97:Forro Dominguinhos/track 3.mp3
-98:Forro Dominguinhos/track 4.mp3
-99:Forro Dominguinhos/track 5.mp3
-100:Forro Dominguinhos/track 6.mp3
-101:Forro Dominguinhos/track 7.mp3
-102:Forro Dominguinhos/track 8.mp3
-103:Forro Dominguinhos/track 9.mp3
-104:Forro Dominguinhos/track 10.mp3
-105:Forro Dominguinhos/track 11.mp3
-106:Forro Dominguinhos/track 12.mp3
-107:Forro Dominguinhos/track 13.mp3
-108:Forro Dominguinhos/track 14.mp3
-109:Forro Dominguinhos/track 15.mp3
-110:Forro Dominguinhos/track 16.mp3
-111:João Bosco/Acústico MTV/01.Odilê Odilá - Zona De Fronteira.mp3
-112:João Bosco/Acústico MTV/02.Holofotes.mp3
-113:João Bosco/Acústico MTV/03.Papel Machê.mp3
-114:João Bosco/Acústico MTV/04.Granito - Jade.mp3
-115:João Bosco/Acústico MTV/05.Quilombo - Tiro De Misericórida - Escadas Da Penha.mp3
-116:João Bosco/Acústico MTV/06.Memória Da Pele.mp3
-117:João Bosco/Acústico MTV/07.E Então Que Quereis... - Corsário.mp3
-118:João Bosco/Acústico MTV/08.Eleanor Rigby - Fita Amarela - Trem Bala.mp3
-119:Lenine/2009 - Labiata/01. Martelo Bigorna.mp3
-120:Lenine/2009 - Labiata/02. Magra.mp3
-121:Lenine/2009 - Labiata/03. Samba e Leveza.mp3
-122:Lenine/2009 - Labiata/04. A Mancha.mp3
-123:Lenine/2009 - Labiata/05. Lá Vem a Cidade.mp3
-124:Lenine/2009 - Labiata/06. O Céu É Muito.mp3
-125:Lenine/2009 - Labiata/07. É Fogo.mp3
-126:Lenine/2009 - Labiata/08. É o que Me Interessa.mp3
-127:Lenine/2009 - Labiata/09. Ciranda Praieira.mp3
-128:Lenine/2009 - Labiata/10. Excesso Exceto.mp3
-129:Lenine/2009 - Labiata/11. Continuação.mp3
-130:Lenine/Acústico MTV/01 O Atirador.mp3
-131:Lenine/Acústico MTV/02 Hoje Eu Quero Sair Só.mp3
-132:Lenine/Acústico MTV/03 A Rede.mp3
-133:Lenine/Acústico MTV/04 Paciência.mp3
-134:Lenine/Acústico MTV/05 O Último Por-do-Sol.mp3
-135:Lenine/Acústico MTV/06 O Homem dos Olhos de Raio X.mp3
-136:Lenine/Acústico MTV/07 Lá e Cá.mp3
-137:Lenine/Acústico MTV/08 A Medida da Paixão (Richard Boná).mp3
-138:Lenine/Acústico MTV/09 Tudo por Acaso.mp3
-139:Lenine/Acústico MTV/10 Miedo (Julieta Venegas).mp3
-140:Lenine/Acústico MTV/11 Santana.mp3
-141:Lenine/Acústico MTV/12 A Ponte (Gogh).mp3
-142:Lenine/Acústico MTV/13 Dois Olhos Negros (Igor Cavalera).mp3
-143:Lenine/Acústico MTV/14 Jack Soul Brasileiro.mp3
-144:Milton Nascimento/Clube da Esquina/01 Tudo que você podia ser.mp3
-145:Milton Nascimento/Clube da Esquina/02 Cais.mp3
-146:Milton Nascimento/Clube da Esquina/03 O trem azul.mp3
-147:Milton Nascimento/Clube da Esquina/04 Saídas e Bandeiras nº 1.mp3
-148:Milton Nascimento/Clube da Esquina/05 Nuvem cigana.mp3
-149:Milton Nascimento/Clube da Esquina/06 Cravo e canela.mp3
-150:Milton Nascimento/Clube da Esquina/07 Dos cruces.mp3
-151:Milton Nascimento/Clube da Esquina/08 Um girassol da cor de seu cabelo.mp3
-152:Milton Nascimento/Clube da Esquina/09 San Vicente.mp3
-153:Milton Nascimento/Clube da Esquina/10 Estrelas.mp3
-154:Milton Nascimento/Clube da Esquina/11 Clube da Esquina nº 2.mp3
-155:Milton Nascimento/Clube da Esquina/12 Paisagem da janela.mp3
-156:Milton Nascimento/Clube da Esquina/13 Me deixa em paz.mp3
-157:Milton Nascimento/Clube da Esquina/14 Os povos.mp3
-158:Milton Nascimento/Clube da Esquina/15 Saídas e Bandeiras nº 2.mp3
-159:Milton Nascimento/Clube da Esquina/16 Um gôsto de Sol.mp3
-160:Milton Nascimento/Clube da Esquina/17 Pelo amor de Deus.mp3
-161:Milton Nascimento/Clube da Esquina/18 Lilia.mp3
-162:Milton Nascimento/Clube da Esquina/19 Trem de doido.mp3
-163:Milton Nascimento/Clube da Esquina/20 Nada será como antes.mp3
-164:Milton Nascimento/Clube da Esquina/21 Ao que vai nascer.mp3
-165:Nenhum de Nós/2009 - A Céu Aberto/01 - Nenhum de Nós - Dança do Tempo.mp3
-166:Nenhum de Nós/2009 - A Céu Aberto/02 - Nenhum de Nós - Camila Camila.mp3
-167:Nenhum de Nós/2009 - A Céu Aberto/03 - Nenhum de Nós - Você Vai Lembrar de Mim.mp3
-168:Nenhum de Nós/2009 - A Céu Aberto/04 - Nenhum de Nós - Santa Felicidade.mp3
-169:Nenhum de Nós/2009 - A Céu Aberto/05 - Nenhum de Nós - Amanha ou Depois.mp3
-170:Nenhum de Nós/2009 - A Céu Aberto/06 - Nenhum de Nós - Julho de 83.mp3
-171:Nenhum de Nós/2009 - A Céu Aberto/07 - Nenhum de Nós - Obsessao.mp3
-172:Nenhum de Nós/2009 - A Céu Aberto/08 - Nenhum de Nós - Eu Nao Entendo.mp3
-173:Nenhum de Nós/2009 - A Céu Aberto/09 - Nenhum de Nós - Diga a Ela.mp3
-174:Nenhum de Nós/2009 - A Céu Aberto/10 - Nenhum de Nós - Sobre o Tempo.mp3
-175:Nenhum de Nós/2009 - A Céu Aberto/11 - Nenhum de Nós - Paraíso.mp3
-176:Nenhum de Nós/2009 - A Céu Aberto/12 - Nenhum de Nós - Da Janela.mp3
-177:Nenhum de Nós/2009 - A Céu Aberto/13 - Nenhum de Nós - Extraño.mp3
-178:Nenhum de Nós/2009 - A Céu Aberto/14 - Nenhum de Nós - Desejo.mp3
-179:Nenhum de Nós/2009 - A Céu Aberto/15 - Nenhum de Nós - Igual a Ti.mp3
-180:Nenhum de Nós/2009 - A Céu Aberto/16 - Nenhum de Nós - Vou Deixar que Você se Vá.mp3
-181:Nenhum de Nós/2009 - A Céu Aberto/17 - Nenhum de Nós - Paz e Amor.mp3
-182:Nenhum de Nós/2009 - A Céu Aberto/18 - Nenhum de Nós - O Astronauta de Mármore.mp3
-183:Nenhum de Nós/2009 - A Céu Aberto/19 - Nenhum de Nós - Santa Felicidade (Faixa Bônus).mp3
-184:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/01 - Corrente.mp3
-185:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/02 - Água e Fogo.mp3
-186:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/03 - Último Beijo.mp3
-187:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/04 - Primavera no Coração.mp3
-188:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/05 - Outono Outubro.mp3
-189:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/06 - Pequena.mp3
-190:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/07 - Mistério Profundo.mp3
-191:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/08 - Exatamente Igual.mp3
-192:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/09 - Melhor e Diferente.mp3
-193:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/10 - Início Fim.mp3
-194:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/11 - Um Pouquinho.mp3
-195:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/12 - Tu Vicio.mp3
-196:Nenhum de Nós/Nenhum de Nós - Contos de Água e Fogo (2011)/13 - 3000 Léguas.mp3
-197:Nenhum de Nós/Pequeno Universo/01 - Confiança.mp3
-198:Nenhum de Nós/Pequeno Universo/02 - Dança Do Tempo.mp3
-199:Nenhum de Nós/Pequeno Universo/03 - Feedback.mp3
-200:Nenhum de Nós/Pequeno Universo/04 - Cada Lugar.mp3
-201:Nenhum de Nós/Pequeno Universo/05 - Simples.mp3
-202:Nenhum de Nós/Pequeno Universo/06 - Divididos.mp3
-203:Nenhum de Nós/Pequeno Universo/07 - Raquel.mp3
-204:Nenhum de Nós/Pequeno Universo/08 - Esperanças Perdidas.mp3
-205:Nenhum de Nós/Pequeno Universo/09 - Incrível.mp3
-206:Nenhum de Nós/Pequeno Universo/10 - Monstrinhos.mp3
-207:Nenhum de Nós/Pequeno Universo/11 - Igual A Você.mp3
-208:Nenhum de Nós/Pequeno Universo/12 - Eu E Você Sempre.mp3
-209:Nenhum de Nós/Pequeno Universo/13 - Sempre Sim.mp3
-210:Ney Matogrosso/Canta Cartola/01-O sol nascerá (a Sorrir).mp3
-211:Ney Matogrosso/Canta Cartola/02-Sim.mp3
-212:Ney Matogrosso/Canta Cartola/03-Cordas de aço.mp3
-213:Ney Matogrosso/Canta Cartola/04-Corra e olhe o céu.mp3
-214:Ney Matogrosso/Canta Cartola/05-As Rosas não falam.mp3
-215:Ney Matogrosso/Canta Cartola/06-Acontece.mp3
-216:Ney Matogrosso/Canta Cartola/07-Basta de clamares inocência.mp3
-217:Ney Matogrosso/Canta Cartola/08-Autonomia.mp3
-218:Ney Matogrosso/Canta Cartola/09-Tive sim.mp3
-219:Ney Matogrosso/Canta Cartola/10-O mundo é um moinho.mp3
-220:Ney Matogrosso/Canta Cartola/11-Amor proíbido.mp3
-221:Ney Matogrosso/Canta Cartola/12-Peito Vazio.mp3
-222:Ney Matogrosso/Canta Cartola/13-Senões.mp3
-223:Ney Matogrosso/Canta Cartola/14-Ensaboa.mp3
-224:Ney Matogrosso/Canta Cartola/15-Desfigurado.mp3
-225:Ney Matogrosso/Canta Cartola/16-Não quero mais amar a ninguém.mp3
-226:Ney Matogrosso/Canta Cartola/17-Preciso me encontrar.mp3
-227:Ney Matogrosso/Canta Cartola/18-Peito vazio.mp3
-228:Ney Matogrosso/Canta Cartola/19-Basta de clamares inocência.mp3
-229:Ney Matogrosso/Canta Cartola/20-O sol nascerá (a sorrir).mp3
-230:Sambinhas/Zeca Pagodinho - Pôxa.mp3
-231:Sambinhas/Alegria   Assis Valente.mp3
-232:Sambinhas/Jorge Ben Jor - Ive Brussel.mp3
-233:Sambinhas/Jorge Ben Jor - Taj Mahal.mp3
-234:Sambinhas/Martinho da Vila - Disritimia.mp3
-235:Sambinhas/Martinho da Vila e Simone - Ex-amor.mp3
-236:Sambinhas/Que pena (Ela já não gosta mais de mim).mp3
-237:Skank/2009 - Estandarte/01.Skank - Pára- Raio.mp3
-238:Skank/2009 - Estandarte/02.Skank - Ainda Gosto Dela.mp3
-239:Skank/2009 - Estandarte/03.Skank - Chão.mp3
-240:Skank/2009 - Estandarte/04.Skank - Canção Áspera.mp3
-241:Skank/2009 - Estandarte/05.Skank - Noites de Um Verão Qualquer.mp3
-242:Skank/2009 - Estandarte/06.Skank - Escravo.mp3
-243:Skank/2009 - Estandarte/07.Skank - Notícias do Submundo.mp3
-244:Skank/2009 - Estandarte/08.Skank - Sutilmente.mp3
-245:Skank/2009 - Estandarte/09.Skank - Um Gesto Qualquer.mp3
-246:Skank/2009 - Estandarte/10.Skank - Assim Sem Fim.mp3
-247:Skank/2009 - Estandarte/11.Skank - Saturação.mp3
-248:Skank/2009 - Estandarte/12.Skank - Renascença.mp3
-249:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 01 - Lifted.mp3
-250:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 02 - Ocean Drive.mp3
-251:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 03 - High.mp3
-252:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 04 - Rain Cloud.mp3
-253:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 05 - Lost In Space.mp3
-254:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 06 - Lovin Every Minute.mp3
-255:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 07 - (I Wish I Knew How It Would Feel To Be) Free, One.mp3
-256:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 07 - Question Of Faith.mp3
-257:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 09 - Aint No Sunshine.mp3
-258:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 10 - Goodbye Heartbreak.mp3
-259:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 11 - Run.mp3
-260:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 12 - Postcards From Heaven.mp3
-261:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 13 - Happy.mp3
-262:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 14 - I Could Have Loved You.mp3
-263:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 15 - Absolutely Everything.mp3
-264:U2/LightHouse Family - Greatest Hits/Lighthouse Family - 16 - Lifted [Linslee 7 inch Mix].mp3
-265:U2/LightHouse Family - Greatest Hits/Lighthouse Family - End Of The Sky [7' mix].mp3
-266:U2/Live Under A Blood Red Sky/01-u2-live_under_a_blood_red_sky.mp3
-267:U2/Stadio Olimpico/06 - Magnificent.mp3
-268:U2/Stadio Olimpico/07 - Mysterious Ways.mp3
-269:U2/Stadio Olimpico/08 - Elevation.mp3
-270:U2/Stadio Olimpico/09 - Until The End Of The World.mp3
-271:U2/Stadio Olimpico/10 - Band Introduction.mp3
-272:U2/Stadio Olimpico/11 - I Still Haven't Found What I'm Looking For.mp3
-273:U2/Stadio Olimpico/12 - Bad - All I Want Is You.mp3
-274:U2/Stadio Olimpico/13 - Mercy.mp3
-275:U2/Stadio Olimpico/14 - In a Little While.mp3
-276:U2/Stadio Olimpico/15 - Miss Sarajevo.mp3
-277:U2/Stadio Olimpico/16 - City of Blinding Lights.mp3
-278:U2/Stadio Olimpico/17 - Vertigo.mp3
-279:U2/Stadio Olimpico/18 - I'll Go Crazy If I Don't Go Crazy Tonight (Remix).mp3
-280:U2/Stadio Olimpico/19 - Sunday Bloody Sunday - Get Up Stand Up.mp3
-281:U2/Stadio Olimpico/20 - MLK.mp3
-282:U2/Stadio Olimpico/21 - Walk On - You'll Never Walk Alone.mp3
-283:U2/Stadio Olimpico/22 - Desmond Tutu Speech.mp3
-284:U2/Stadio Olimpico/23 - One.mp3
-285:U2/Stadio Olimpico/24 - Amazing Grace - Where The Streets Have No Name.mp3
-286:U2/Stadio Olimpico/25 - Spaceship Intro.mp3
-287:U2/Stadio Olimpico/26 - Hold Me, Thrill Me, Kiss Me, Kill Me.mp3
-288:U2/Stadio Olimpico/27 - With or Without You.mp3
-289:U2/Stadio Olimpico/28 - Bono Speech.mp3
-290:U2/Stadio Olimpico/29 - Moment of Surrender.mp3
-291:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/01. Deixa a vida me levar.mp3
-292:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/02. â€œta povo pra lutar.mp3
-293:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/03. Uma prova de amor.mp3
-294:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/04. Lama nas ruas (com Almir Guineto).mp3
-295:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/05. Seu balancaÌ€.mp3
-296:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/06. Nâˆ†o sou mais disso.mp3
-297:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/07. Entâˆ†o leva.mp3
-298:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/08. Faixa amarela.mp3
-299:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/09. Vai vadiar.mp3
-300:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/10. Patota de Cosme.mp3
-301:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/11. Ogum.mp3
-302:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/12. Taj mahal.mp3
-303:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/13. Minha fCÌ§.mp3
-304:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/14. Se ela nâˆ†o gosta de mim.mp3
-305:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/15. Esta melodia.mp3
-306:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/16. Isolado do mundo.mp3
-307:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/17. Jura.mp3
-308:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/18. AliÌ€ mundo.mp3
-309:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/19. Maneiras.mp3
-310:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/20. Normas da casa.mp3
-311:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/21. RatatÂ£ia.mp3
-312:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/22. Quando a gira girou.mp3
-313:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/23. CoraaÌâˆ†o em desalinho.mp3
-314:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/24. Verdade.mp3
-315:Zeca Pagodinho/Zeca Pagodinho - 2009 - Uma Uma Prova de amor_www.BaixarMp3.net_/25. SeleaÌâˆ†o de partidos.mp3
-316:1982 - A Arte de Raul Seixas/01 - Ouro de Tolo.mp3
-317:Bartok_Violin_Concerto_No_2_Rhapsodies_1_e_2/01 Concerto pr vn n°2_Allegro non tr.mp3
-318:BB King/1960 - King Of The Blues/01. I´ve Got Right To Love My Baby.mp3
+0:Cd 01 - Poemas Antológicos/01 - Chico Beleza.mp3
+1:Cd 01 - Poemas Antológicos/02 - Resposta do Jeca Tatu.mp3
+2:Cd 01 - Poemas Antológicos/03 - A Flor do Maracujá.mp3
+3:Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3
+4:Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3
+5:Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3
+6:Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3
+7:Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3
+8:Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3
+9:Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3
+10:Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3
+11:Cd 02 - Modas Caipiras/03 - Goianinha.mp3
+12:Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3
+13:Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3
+14:Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3
+15:Cd 02 - Modas Caipiras/07 - Ingratidão.mp3
+16:Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3
+17:Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3
+18:Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3
+19:Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3
+20:Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3
+21:Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3
+22:Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3
+23:Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3
+24:Cd 03 - Sambas Históricos/02 - O Glosador.mp3
+25:Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3
+26:Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3
+27:Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3
+28:Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3
+29:Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3
+30:Cd 03 - Sambas Históricos/08 - Provérbios.mp3
+31:Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3
+32:Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3
+33:Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3
+34:Cd 03 - Sambas Históricos/12 - Porta 33.mp3
+35:Cd 03 - Sambas Históricos/13 - Best Selller.mp3
+36:Cd 03 - Sambas Históricos/14 - Que Morena.mp3
+37:Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3
+38:Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3
+39:Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3
+40:Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3
+41:Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3
+42:Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3
+43:Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3
+44:Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3
+45:Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3
+46:Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3
+47:Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3
+48:Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3
+49:Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3
+50:Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3
 playlist_end

@@ -34,6 +34,7 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
+telescope.load_extension("git_worktree")
 
 global.telescope = {
     -- try git_files and fall back to find_files

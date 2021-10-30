@@ -40,6 +40,7 @@ cmp.setup({
         { name = "buffer", keyword_length = 3 },
         { name = "vsnip", priority = 9999 },
         { name = "path" },
+        { name = "spell"},
     },
       formatting = {
     -- Youtube: How to set up nice formatting for your sources.
@@ -62,6 +63,10 @@ cmp.setup({
 
     -- Let's play with this for a day or two
     ghost_text = true,
+  },
+  documentation = {
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+
   },
 })
 

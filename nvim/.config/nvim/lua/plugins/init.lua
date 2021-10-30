@@ -33,6 +33,7 @@ return require("packer").startup(function()
       keys = "<Plug>(git-messenger)",
       config = config("gitmessenger"),
     })
+    use("mbbill/undotree")
 
 
     -- text objects
@@ -51,6 +52,8 @@ return require("packer").startup(function()
     use_with_config("svermeulen/vim-subversive", "subversive") -- adds substitute operator
     use_with_config("svermeulen/vim-cutlass", "cutlass") -- separates cut and delete operations
     use_with_config("tversteeg/registers.nvim", "registers") -- shows register contents intelligently
+    use_with_config("svermeulen/vim-yoink", "yoink") -- improves paste
+
 
     -- additional functionality
     use_with_config("justinmk/vim-sneak", "sneak") -- motion
@@ -101,6 +104,7 @@ return require("packer").startup(function()
         })
       end,
     })
+    use('williamboman/nvim-lsp-installer')
 
     use_with_config("RRethy/vim-illuminate", "illuminate") -- highlights and allows moving between variable references
     use("jose-elias-alvarez/null-ls.nvim") -- allows using neovim as language server
@@ -147,8 +151,7 @@ return require("packer").startup(function()
 
     -- visual
     use({ -- themes
-        "sainnhe/sonokai",
-        "shaunsingh/nord.nvim",
+        "arcticicestudio/nord-vim",
         "RRethy/nvim-base16",
     })
     use_with_config("lukas-reineke/indent-blankline.nvim", "indent-blankline") -- show indentation guides

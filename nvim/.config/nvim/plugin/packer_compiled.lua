@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/luizcorreia/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/luizcorreia/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/luizcorreia/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/luizcorreia/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/luizcorreia/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/luizcorreia/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/luizcorreia/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/luizcorreia/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/luizcorreia/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/luizcorreia/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -141,7 +141,7 @@ _G.packer_plugins = {
   },
   ["lsp-trouble.nvim"] = {
     commands = { "LspTrouble" },
-    config = { "\27LJ\2\2U\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\2\14auto_fold\2\17auto_preview\1\nsetup\ftrouble\frequire\0" },
+    config = { "\27LJ\1\2U\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\2\14auto_fold\2\17auto_preview\1\nsetup\ftrouble\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -164,9 +164,9 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim"
   },
-  ["nord.nvim"] = {
+  ["nord-vim"] = {
     loaded = true,
-    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/nord.nvim"
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/nord-vim"
   },
   ["nui.nvim"] = {
     loaded = true,
@@ -190,6 +190,10 @@ _G.packer_plugins = {
     config = { "require('plugins.cmp')" },
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/nvim-cmp"
+  },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer"
   },
   ["nvim-lsp-ts-utils"] = {
     loaded = true,
@@ -265,10 +269,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/registers.nvim"
   },
-  sonokai = {
-    loaded = true,
-    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/sonokai"
-  },
   ["targets.vim"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/targets.vim"
@@ -285,6 +285,10 @@ _G.packer_plugins = {
   ["twilight.nvim"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/twilight.nvim"
+  },
+  undotree = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/undotree"
   },
   ["vim-boxdraw"] = {
     loaded = true,
@@ -392,6 +396,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-wakatime"
   },
+  ["vim-yoink"] = {
+    config = { "require('plugins.yoink')" },
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-yoink"
+  },
   ["zen-mode.nvim"] = {
     config = { "require('plugins.zen')" },
     loaded = true,
@@ -400,66 +409,58 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('plugins.telescope')
-time([[Config for telescope.nvim]], false)
--- Config for: refactoring.nvim
-time([[Config for refactoring.nvim]], true)
-require('plugins.refactoring')
-time([[Config for refactoring.nvim]], false)
--- Config for: nvim-notify
-time([[Config for nvim-notify]], true)
-require('plugins.notify')
-time([[Config for nvim-notify]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('plugins.lualine')
-time([[Config for lualine.nvim]], false)
--- Config for: vim-sneak
-time([[Config for vim-sneak]], true)
-require('plugins.sneak')
-time([[Config for vim-sneak]], false)
--- Config for: vim-vsnip
-time([[Config for vim-vsnip]], true)
-require('plugins.vsnip')
-time([[Config for vim-vsnip]], false)
--- Config for: vim-matchup
-time([[Config for vim-matchup]], true)
-require('plugins.matchup')
-time([[Config for vim-matchup]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('plugins.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: vim-cutlass
+time([[Config for vim-cutlass]], true)
+require('plugins.cutlass')
+time([[Config for vim-cutlass]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
 require('plugins.indent-blankline')
 time([[Config for indent-blankline.nvim]], false)
--- Config for: git-worktree.nvim
-time([[Config for git-worktree.nvim]], true)
-require('plugins.git-worktree')
-time([[Config for git-worktree.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('plugins.git')
-time([[Config for gitsigns.nvim]], false)
--- Config for: zen-mode.nvim
-time([[Config for zen-mode.nvim]], true)
-require('plugins.zen')
-time([[Config for zen-mode.nvim]], false)
 -- Config for: registers.nvim
 time([[Config for registers.nvim]], true)
 require('plugins.registers')
 time([[Config for registers.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('plugins.lualine')
+time([[Config for lualine.nvim]], false)
 -- Config for: vim-subversive
 time([[Config for vim-subversive]], true)
 require('plugins.subversive')
 time([[Config for vim-subversive]], false)
+-- Config for: vim-matchup
+time([[Config for vim-matchup]], true)
+require('plugins.matchup')
+time([[Config for vim-matchup]], false)
+-- Config for: vim-yoink
+time([[Config for vim-yoink]], true)
+require('plugins.yoink')
+time([[Config for vim-yoink]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('plugins.telescope')
+time([[Config for telescope.nvim]], false)
+-- Config for: vim-vsnip
+time([[Config for vim-vsnip]], true)
+require('plugins.vsnip')
+time([[Config for vim-vsnip]], false)
+-- Config for: refactoring.nvim
+time([[Config for refactoring.nvim]], true)
+require('plugins.refactoring')
+time([[Config for refactoring.nvim]], false)
 -- Config for: harpoon
 time([[Config for harpoon]], true)
 require('plugins.harpoon')
 time([[Config for harpoon]], false)
--- Config for: vim-illuminate
-time([[Config for vim-illuminate]], true)
-require('plugins.illuminate')
-time([[Config for vim-illuminate]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require('plugins.luasnip')
+time([[Config for LuaSnip]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('plugins.cmp')
@@ -468,27 +469,39 @@ time([[Config for nvim-cmp]], false)
 time([[Config for nvim-autopairs]], true)
 require('plugins.autopairs')
 time([[Config for nvim-autopairs]], false)
--- Config for: vim-cutlass
-time([[Config for vim-cutlass]], true)
-require('plugins.cutlass')
-time([[Config for vim-cutlass]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require('plugins.luasnip')
-time([[Config for LuaSnip]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('plugins.treesitter')
-time([[Config for nvim-treesitter]], false)
+-- Config for: vim-illuminate
+time([[Config for vim-illuminate]], true)
+require('plugins.illuminate')
+time([[Config for vim-illuminate]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('plugins.git')
+time([[Config for gitsigns.nvim]], false)
 -- Config for: filetype.nvim
 time([[Config for filetype.nvim]], true)
 require('plugins.filetype')
 time([[Config for filetype.nvim]], false)
+-- Config for: vim-sneak
+time([[Config for vim-sneak]], true)
+require('plugins.sneak')
+time([[Config for vim-sneak]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+require('plugins.notify')
+time([[Config for nvim-notify]], false)
+-- Config for: zen-mode.nvim
+time([[Config for zen-mode.nvim]], true)
+require('plugins.zen')
+time([[Config for zen-mode.nvim]], false)
+-- Config for: git-worktree.nvim
+time([[Config for git-worktree.nvim]], true)
+require('plugins.git-worktree')
+time([[Config for git-worktree.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file LspTrouble lua require("packer.load")({'lsp-trouble.nvim'}, { cmd = "LspTrouble", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file MarkdownPreview lua require("packer.load")({'markdown-preview.nvim'}, { cmd = "MarkdownPreview", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file LspTrouble lua require("packer.load")({'lsp-trouble.nvim'}, { cmd = "LspTrouble", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
@@ -501,10 +514,10 @@ vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
 vim.cmd [[au FileType lua ++once lua require("packer.load")({'nvim-treesitter-textsubjects'}, { ft = "lua" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-treesitter-textsubjects', 'nvim-ts-context-commentstring', 'nvim-ts-autotag'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescript ++once lua require("packer.load")({'nvim-treesitter-textsubjects', 'nvim-ts-context-commentstring', 'nvim-ts-autotag'}, { ft = "typescript" }, _G.packer_plugins)]]
-vim.cmd [[au FileType json ++once lua require("packer.load")({'package-info.nvim'}, { ft = "json" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescript ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag', 'nvim-treesitter-textsubjects'}, { ft = "typescript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-ts-autotag', 'nvim-treesitter-textsubjects'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType json ++once lua require("packer.load")({'package-info.nvim'}, { ft = "json" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

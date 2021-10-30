@@ -13,9 +13,9 @@ end
 require("lualine").setup({
   options = {
     icons_enabled = true,
-    theme = "auto",
-    component_separators = { " ", " " },
-    section_separators = { " ", "" },
+    theme = "nord",
+    component_separators = { left = " ", right = " " },
+    section_separators = { left = " ", right = "" },
     disabled_filetypes = {},
   },
   sections = {
@@ -59,5 +59,5 @@ require("lualine").setup({
     lualine_z = {},
   },
   tabline = {},
-  extensions = { "fugitive", "nvim-tree" },
+  extensions = { "fugitive", "nvim-tree", "quickfix" },
 })

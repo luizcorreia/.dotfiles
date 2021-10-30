@@ -5,7 +5,7 @@ npairs.setup({
     fast_wrap = {},
 })
 
-require("nvim-autopairs.completion.cmp").setup({
+require("cmp").setup({
     map_complete = false,
     insert = true,
 })

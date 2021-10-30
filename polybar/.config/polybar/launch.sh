@@ -18,7 +18,7 @@ else
 	pkill -USR1 polybar
 fi
 
-if $NOTE; then
+if [ ! -z "$NOTE" ]; then
 	polybar note &
 fi
 

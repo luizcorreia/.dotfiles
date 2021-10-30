@@ -423,6 +423,7 @@ exec --no-startup-id xsetroot -cursor_name left_ptr
 exec --no-startup-id xset r rate 250 50
 exec --no-startup-id xrandr --output DP-0 --primary
 exec --no-startup-id xrandr --output HDMI-0 --left-of DP-0
+exec ~/bin/lock.sh
 
 exec --no-startup-id discord
 exec --no-startup-id discord-ptb

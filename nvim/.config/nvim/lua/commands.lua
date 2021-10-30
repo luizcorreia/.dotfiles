@@ -90,4 +90,25 @@ u.command("Remove", "call delete(expand('%')) | bdelete")
 -- get help for word under cursor
 u.command("Help", 'execute ":help" expand("<cword>")')
 
+-- Make visual yanks place the cursor back where started
+u.map("v", "y", "ygv<Esc>")
+
+-- Insert a newline in normal mode
+u.map("n", "<leader>o", "m`o<Esc>``")
+
+-- Keep search results centred
+u.map("n", "n", "nzzzv")
+u.map("n", "N", "Nzzzv")
+u.map("n", "J", "mzJ`z")
+
+-- Toggle netrw
+u.map("n", "<Leader>e", ":Lexplore<CR>", { silent = true })
+-- Open split terminal
+u.map("n", "<Leader>t", ":split | resize 15 | term<CR>", { silent = true })
+
+u.map("x", "<Leader>p", '"_dP')
+u.map("n", "<Leader>y", '"+y')
+u.map("v", "<Leader>y", '"+y')
+u.map("n", "<Leader>Y", 'gg"+yG')
+
 return commands
