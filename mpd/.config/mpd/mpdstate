@@ -3,9 +3,8 @@ audio_device_state:1:My ALSA Device
 audio_device_state:1:My HTTP Stream
 audio_device_state:1:pulse audio
 audio_device_state:1:my_fifo
-state: pause
+state: stop
 current: 4
-time: 74.935000
 random: 0
 repeat: 0
 single: 0

@@ -11381,3 +11381,5 @@ Oct 29 18:42 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antol�
 Oct 29 18:42 : player: played "Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3"
 Oct 29 18:42 : config: option 'device' on line 380 was not recognized
 Oct 29 18:42 : server_socket: bind to '0.0.0.0:8001' failed (continuing anyway, because binding to '[::]:8001' succeeded): Failed to bind socket: Address already in use
+Oct 30 18:59 : config: option 'device' on line 380 was not recognized
+Oct 31 16:12 : config: option 'device' on line 380 was not recognized
