@@ -4,6 +4,10 @@ audio_device_state:1:My HTTP Stream
 audio_device_state:1:pulse audio
 audio_device_state:1:my_fifo
 state: stop
+<<<<<<< HEAD
+=======
+current: 4
+>>>>>>> beb0d47ed4c1f94fa536736c4bfade605c51ef13
 random: 0
 repeat: 0
 single: 0

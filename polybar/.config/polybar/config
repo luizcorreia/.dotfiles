@@ -9,10 +9,6 @@
 ;
 ;
 ; polybar configuration file
-;
-; Version: 0.14.0 - 2021/10/17
-; Maintainer: Brainf+ck
-; Website: https://github.com/brainfucksec/dotfiles
 ;==========================================================
 
 
@@ -60,9 +56,10 @@ font-1 = "Iosevka Nerd Font:pixelsize=10;1"
 font-2 = "Material Icons:pixelsize=10;2"
 font-3 = "FontAwesome:pixelsize=8;1"
 modules-left = i3
-modules-right = volume cpu temperature memory wired-network date powermenu
+modules-right = volume gpu cpu temperature memory wired-network date powermenu
 
 wm-name = i3
+click-right = kitty -e nvim ~/.config/polybar/config
 
 locale = en_US.UTF-8
 
@@ -108,10 +105,6 @@ wm-name = i3
 
 locale = en_US.UTF-8
 
-tray-position = right
-tray-detached = false
-tray-background = ${colors.background}
-tray-padding = 0
 
 ;;;;;; BAR NOTE
 [bar/note]
@@ -420,3 +413,12 @@ bar-volume-empty-font = 2
 	label-song-foreground = ${xrdb:color7}
 
 	format-online-prefix-padding = 0
+
+[module/gpu]
+    type = custom/script
+    interval = 2
+    ;format-underline = ${colors.gpuAccent}
+    format-prefix = "%{F#98c379}%{F} "
+    exec = system-nvidia-smi.sh
+    format-suffix = ""
+    click-left = kitty -e watch nvidia-smi
