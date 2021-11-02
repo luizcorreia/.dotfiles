@@ -97,7 +97,7 @@ bindsym $mod+r mode "resize"
 set $mod Mod4
 set $alt Mod1
 
-set $terminal kitty
+set $terminal alacritty
 
 # default file manager
 set $file_manager thunar
