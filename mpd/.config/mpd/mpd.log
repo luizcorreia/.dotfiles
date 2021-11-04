@@ -11383,3 +11383,450 @@ Oct 29 18:42 : config: option 'device' on line 380 was not recognized
 Oct 29 18:42 : server_socket: bind to '0.0.0.0:8001' failed (continuing anyway, because binding to '[::]:8001' succeeded): Failed to bind socket: Address already in use
 Oct 30 18:59 : config: option 'device' on line 380 was not recognized
 Oct 31 16:12 : config: option 'device' on line 380 was not recognized
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/03 - Goianinha.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/03 - Goianinha.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/03 - Goianinha.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/07 - Ingratidão.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/07 - Ingratidão.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/07 - Ingratidão.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/02 - O Glosador.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/02 - O Glosador.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/02 - O Glosador.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/08 - Provérbios.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/08 - Provérbios.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/08 - Provérbios.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/12 - Porta 33.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/12 - Porta 33.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/12 - Porta 33.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/13 - Best Selller.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/13 - Best Selller.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/13 - Best Selller.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/14 - Que Morena.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/14 - Que Morena.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/14 - Que Morena.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/01 - Chico Beleza.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/01 - Chico Beleza.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/01 - Chico Beleza.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/02 - Resposta do Jeca Tatu.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/02 - Resposta do Jeca Tatu.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/02 - Resposta do Jeca Tatu.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/03 - A Flor do Maracujá.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/03 - A Flor do Maracujá.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/03 - A Flor do Maracujá.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/03 - Goianinha.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/03 - Goianinha.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/03 - Goianinha.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/07 - Ingratidão.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/07 - Ingratidão.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/07 - Ingratidão.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3': No such file or directory
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3': No such file or directory
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/02 - O Glosador.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/02 - O Glosador.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/02 - O Glosador.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/08 - Provérbios.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/08 - Provérbios.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/08 - Provérbios.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3': No such file or directory
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/12 - Porta 33.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/12 - Porta 33.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/12 - Porta 33.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/12 - Porta 33.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/12 - Porta 33.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/13 - Best Selller.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/13 - Best Selller.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/13 - Best Selller.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/14 - Que Morena.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/14 - Que Morena.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/14 - Que Morena.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3"
+Oct 31 16:48 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3': No such file or directory
+Oct 31 16:48 : player: played "Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3"
+Nov 01 09:15 : config: option 'device' on line 380 was not recognized
+Nov 01 18:20 : server_socket: bind to '0.0.0.0:8001' failed (continuing anyway, because binding to '[::]:8001' succeeded): Failed to bind socket: Address already in use
+Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+Nov 01 18:20 : exception: Failed to open "My ALSA Device" (alsa); Failed to open ALSA device "default": No such file or directory
+Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+Nov 03 09:59 : exception: Failed to open "My ALSA Device" (alsa); Failed to open ALSA device "default": No such file or directory
+Nov 03 10:02 : player: played "Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3"
+Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+Nov 03 10:02 : exception: Failed to open "My ALSA Device" (alsa); Failed to open ALSA device "default": No such file or directory
+Nov 03 10:06 : player: played "Cd 01 - Poemas Antológicos/01 - Chico Beleza.mp3"
+Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+Nov 03 10:06 : exception: Failed to open "My ALSA Device" (alsa); Failed to open ALSA device "default": No such file or directory
+Nov 03 10:13 : player: played "Cd 01 - Poemas Antológicos/02 - Resposta do Jeca Tatu.mp3"
+Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+Nov 03 10:13 : exception: Failed to open "My ALSA Device" (alsa); Failed to open ALSA device "default": No such file or directory
+Nov 03 10:15 : player: played "Cd 01 - Poemas Antológicos/03 - A Flor do Maracujá.mp3"
+Cannot connect to server socket err = No such file or directory
+Cannot connect to server request channel
+jack server is not running or cannot be started
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+JackShmReadWritePtr::~JackShmReadWritePtr - Init not done for -1, skipping unlock
+Nov 03 10:15 : exception: Failed to open "My ALSA Device" (alsa); Failed to open ALSA device "default": No such file or directory
+Nov 03 10:16 : player: played "Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3"
+Nov 03 10:17 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3': No such file or directory
+Nov 03 10:17 : player: played "Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3"
+Nov 03 10:17 : config: option 'device' on line 380 was not recognized
+Nov 03 10:17 : server_socket: bind to '0.0.0.0:8001' failed (continuing anyway, because binding to '[::]:8001' succeeded): Failed to bind socket: Address already in use
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/03 - Goianinha.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/03 - Goianinha.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/03 - Goianinha.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/07 - Ingratidão.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/07 - Ingratidão.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/07 - Ingratidão.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/02 - O Glosador.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/02 - O Glosador.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/02 - O Glosador.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/08 - Provérbios.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/08 - Provérbios.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/08 - Provérbios.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/12 - Porta 33.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/12 - Porta 33.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/12 - Porta 33.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/13 - Best Selller.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/13 - Best Selller.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/13 - Best Selller.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/14 - Que Morena.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/14 - Que Morena.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/14 - Que Morena.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/01 - Chico Beleza.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/01 - Chico Beleza.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/01 - Chico Beleza.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/02 - Resposta do Jeca Tatu.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/02 - Resposta do Jeca Tatu.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/02 - Resposta do Jeca Tatu.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/03 - A Flor do Maracujá.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/03 - A Flor do Maracujá.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/03 - A Flor do Maracujá.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/04 - Crônica do Natal Caipira- Milenium; Uma Canção-Ranulpho.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/05 - Homem Não Chora.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/06 - Meu Melhor Amigo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/07 - O Sem Rumo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/08 - Jangadeiro Abandonado.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3; Failed to open '/nfs/home/music/Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 01 - Poemas Antológicos/09 - Final de Ato.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/01 - Moda do Fim do Mundo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/02 - Cabocla Teresa.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/03 - Goianinha.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/03 - Goianinha.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/03 - Goianinha.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/04 - Coração de Violeiro.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/05 - Amanheceu Peguei a Viola.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/06 - Destinos Iguais.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/07 - Ingratidão.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/07 - Ingratidão.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/07 - Ingratidão.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/08 - Moda do Dente.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/09 - Vaca Estrela Boi Fubá.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/10 - Herói Sem Medalha.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/11 - Moda do Jogo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/12 - Morena Por Mal dos Pecados.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/13 - Rancho da Serra.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/14 - O Casamento da Maria Branca.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3; Failed to open '/nfs/home/music/Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 02 - Modas Caipiras/15 - Acorda Maria Bonita.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/02 - O Glosador.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/02 - O Glosador.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/02 - O Glosador.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/03 - Bola na Rede.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/04 - Terno de Missa.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/05 - Na Aldeia.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/06 - Não Manche o Meu Panamá.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/07 - Você Já Foi a São Paulo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/08 - Provérbios.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/08 - Provérbios.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/08 - Provérbios.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/09 - Eu Quero Ver Quem Pode Mais.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/10 - Quanto Vale Uma Criança.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/11 - O Sapo do Saco.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/12 - Porta 33.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/12 - Porta 33.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/12 - Porta 33.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/13 - Best Selller.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/13 - Best Selller.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/13 - Best Selller.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/14 - Que Morena.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/14 - Que Morena.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/14 - Que Morena.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/15 - Pé de Vento.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3; Failed to open '/nfs/home/music/Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 03 - Sambas Históricos/01 - Cabelos Brancos.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/01 - Meu Caboclo.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/02 - Zé Ponte.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/03 - Novo Amanhecer.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/04 - Dona Divergência.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/05 - Guardiões da Floresta.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/06 - Toada da Revolução.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/07 - Eu, a Viola e Deus.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/08 - Amor de Violeiro.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/09 - Calmaria.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/10 - A Minha Moda.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/11 - Adeus Nhô Pai.mp3"
+Nov 03 10:22 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3': No such file or directory
+Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3"
+Nov 03 10:38 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3': No such file or directory
+Nov 03 10:38 : player: played "Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3"
+Nov 03 18:31 : config: option 'device' on line 380 was not recognized

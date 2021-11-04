@@ -3,15 +3,14 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
+# TERM variable
+#
+# This value is used to set the `$TERM` environment variable for
+# each instance of Alacritty. If it is not present, alacritty will
+# check the local terminfo database and use `alacritty` if it is
+# available, otherwise `xterm-256color` is used.
 #env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
-  #TERM: xterm-256color
-
+#  TERM: xterm-256color
 window:
   # Window dimensions (changes require restart)
   #
@@ -20,7 +19,6 @@ window:
   #dimensions:
   #  columns: 0
   #  lines: 0
-
   # Window position (changes require restart)
   #
   # Specified in number of pixels.
@@ -28,7 +26,6 @@ window:
   #position:
   #  x: 0
   #  y: 0
-
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is scaled
@@ -50,7 +47,6 @@ window:
   #     - transparent: Title bar, ransparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
   #decorations: full
-
   # Startup Mode (changes require restart)
   #
   # Values for `startup_mode`:
@@ -61,7 +57,6 @@ window:
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
   #startup_mode: Windowed
-
   # Window title
   title: Alacritty
 
@@ -71,22 +66,18 @@ window:
     instance: Alacritty
     # General application class
     general: Alacritty
-
   # GTK theme variant (Linux/BSD only)
   #
   # Override the variant of the GTK theme. Commonly supported values are `dark` and `light`.
   # Set this to `None` to use the default theme variant.
   #gtk_theme_variant: None
-
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
   history: 5000
-
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
   #multiplier: 3
-
   # Scroll to the bottom when new text is written to the terminal.
   #auto_scroll: false
 
@@ -98,7 +89,6 @@ scrolling:
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
 #tabspaces: 8
-
 # Font configuration
 font:
   # Normal (roman) font face
@@ -118,7 +108,6 @@ font:
     # family: Monofur Nerd Font
     family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
-
     # The `style` can be specified to pick a specific face.
     style: Regular
 
@@ -137,7 +126,6 @@ font:
     # family: Monofur Nerd Font
     family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
-
     # The `style` can be specified to pick a specific face.
     style: Bold
 
@@ -156,7 +144,6 @@ font:
     # family: Monofuritalic Nerd Font Mono
     family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
-
     # The `style` can be specified to pick a specific face.
     style: Italic
 
@@ -175,7 +162,6 @@ font:
     # family: Monofuritalic Nerd Font Mono
     family: TerminessTTF Nerd Font
     # family: Mononoki Nerd Font
-
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
@@ -187,14 +173,12 @@ font:
   offset:
     x: -1
     y: -1
-
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
   # increasing `y` moves the glyph upwards.
   #glyph_offset:
   #  x: 0
   #  y: 0
-
   # Thin stroke font rendering (macOS only)
   #
   # Thin strokes are suitable for retina displays, but for non-retina screens
@@ -210,7 +194,6 @@ font:
   # This is a global setting and will require a log out or restart to take
   # effect.
   #use_thin_strokes: true
-
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
@@ -219,71 +202,71 @@ schemes:
   # Doom One
   doom-one: &doom-one
     primary:
-      background: '#282c34'
-      foreground: '#bbc2cf'
+      background: "#282c34"
+      foreground: "#bbc2cf"
     cursor:
       text: CellBackground
-      cursor: '#528bff'
+      cursor: "#528bff"
     selection:
       text: CellForeground
-      background: '#3e4451'
+      background: "#3e4451"
     normal:
-      black:   '#1c1f24'
-      red:     '#ff6c6b'
-      green:   '#98be65'
-      yellow:  '#da8548'
-      blue:    '#51afef'
-      magenta: '#c678dd'
-      cyan:    '#5699af'
-      white:   '#202328'
+      black: "#1c1f24"
+      red: "#ff6c6b"
+      green: "#98be65"
+      yellow: "#da8548"
+      blue: "#51afef"
+      magenta: "#c678dd"
+      cyan: "#5699af"
+      white: "#202328"
     bright:
-      black:   '#5b6268'
-      red:     '#da8548'
-      green:   '#4db5bd'
-      yellow:  '#ecbe7b'
-      blue:    '#3071db'   # This is 2257a0 in Doom Emacs but I lightened it.
-      magenta: '#a9a1e1'
-      cyan:    '#46d9ff'
-      white:   '#dfdfdf'
+      black: "#5b6268"
+      red: "#da8548"
+      green: "#4db5bd"
+      yellow: "#ecbe7b"
+      blue: "#3071db" # This is 2257a0 in Doom Emacs but I lightened it.
+      magenta: "#a9a1e1"
+      cyan: "#46d9ff"
+      white: "#dfdfdf"
 
   # Gruvbox dark colors
   gruvbox: &gruvbox
     primary:
       # hard contrast:
-      background: '0x1d2021'
+      background: "0x1d2021"
       #background: '0x282828'
       # soft contrast: background = '0x32302f'
-      foreground: '0xebdbb2'
+      foreground: "0xebdbb2"
     cursor:
       text: CellBackground
-      cursor: '#528bff'
+      cursor: "#528bff"
     selection:
       text: CellForeground
-      background: '#3e4451'
-      normal:
-      black:   '0x282828'
-      red:     '0xcc241d'
-      green:   '0x98971a'
-      yellow:  '0xd79921'
-      blue:    '0x458588'
-      magenta: '0xb16286'
-      cyan:    '0x689d6a'
-      white:   '0xa89984'
+      background: "#3e4451"
+      normal: null
+      black: "0x282828"
+      red: "0xcc241d"
+      green: "0x98971a"
+      yellow: "0xd79921"
+      blue: "0x458588"
+      magenta: "0xb16286"
+      cyan: "0x689d6a"
+      white: "0xa89984"
     bright:
-      black:   '0x928374'
-      red:     '0xfb4934'
-      green:   '0xb8bb26'
-      yellow:  '0xfabd2f'
-      blue:    '0x83a598'
-      magenta: '0xd3869b'
-      cyan:    '0x8ec07c'
-      white:   '0xebdbb2'
+      black: "0x928374"
+      red: "0xfb4934"
+      green: "0xb8bb26"
+      yellow: "0xfabd2f"
+      blue: "0x83a598"
+      magenta: "0xd3869b"
+      cyan: "0x8ec07c"
+      white: "0xebdbb2"
   # Dracula
   dracula: &dracula
     colors:
       primary:
-        background: '#282a36'
-        foreground: '#f8f8f2'
+        background: "#282a36"
+        foreground: "#f8f8f2"
       cursor:
         text: CellBackground
         cursor: CellForeground
@@ -292,50 +275,125 @@ schemes:
         cursor: CellForeground
       search:
         matches:
-          foreground: '#44475a'
-          background: '#50fa7b'
+          foreground: "#44475a"
+          background: "#50fa7b"
         focused_match:
-          foreground: '#44475a'
-          background: '#ffb86c'
+          foreground: "#44475a"
+          background: "#ffb86c"
         bar:
-          background: '#282a36'
-          foreground: '#f8f8f2'
+          background: "#282a36"
+          foreground: "#f8f8f2"
       line_indicator:
         foreground: None
         background: None
       selection:
         text: CellForeground
-        background: '#44475a'
+        background: "#44475a"
       normal:
-        black:   '#000000'
-        red:     '#ff5555'
-        green:   '#50fa7b'
-        yellow:  '#f1fa8c'
-        blue:    '#bd93f9'
-        magenta: '#ff79c6'
-        cyan:    '#8be9fd'
-        white:   '#bfbfbf'
+        black: "#000000"
+        red: "#ff5555"
+        green: "#50fa7b"
+        yellow: "#f1fa8c"
+        blue: "#bd93f9"
+        magenta: "#ff79c6"
+        cyan: "#8be9fd"
+        white: "#bfbfbf"
       bright:
-        black:   '#4d4d4d'
-        red:     '#ff6e67'
-        green:   '#5af78e'
-        yellow:  '#f4f99d'
-        blue:    '#caa9fa'
-        magenta: '#ff92d0'
-        cyan:    '#9aedfe'
-        white:   '#e6e6e6'
+        black: "#4d4d4d"
+        red: "#ff6e67"
+        green: "#5af78e"
+        yellow: "#f4f99d"
+        blue: "#caa9fa"
+        magenta: "#ff92d0"
+        cyan: "#9aedfe"
+        white: "#e6e6e6"
       dim:
-        black:   '#14151b'
-        red:     '#ff2222'
-        green:   '#1ef956'
-        yellow:  '#ebf85b'
-        blue:    '#4d5b86'
-        magenta: '#ff46b0'
-        cyan:    '#59dffc'
-        white:   '#e6e6d1'
+        black: "#14151b"
+        red: "#ff2222"
+        green: "#1ef956"
+        yellow: "#ebf85b"
+        blue: "#4d5b86"
+        magenta: "#ff46b0"
+        cyan: "#59dffc"
+        white: "#e6e6d1"
+  nord: &nord
+    colors:
+  primary:
+    background: "#2e3440"
+    foreground: "#d8dee9"
+    dim_foreground: "#a5abb6"
+  cursor:
+    text: "#2e3440"
+    cursor: "#d8dee9"
+  vi_mode_cursor:
+    text: "#2e3440"
+    cursor: "#d8dee9"
+  selection:
+    text: CellForeground
+    background: "#4c566a"
+  search:
+    matches:
+      foreground: CellBackground
+      background: "#88c0d0"
+    bar:
+      background: "#434c5e"
+      foreground: "#d8dee9"
+  normal:
+    black: "#3b4252"
+    red: "#bf616a"
+    green: "#a3be8c"
+    yellow: "#ebcb8b"
+    blue: "#81a1c1"
+    magenta: "#b48ead"
+    cyan: "#88c0d0"
+    white: "#e5e9f0"
+  bright:
+    black: "#4c566a"
+    red: "#bf616a"
+    green: "#a3be8c"
+    yellow: "#ebcb8b"
+    blue: "#81a1c1"
+    magenta: "#b48ead"
+    cyan: "#8fbcbb"
+    white: "#eceff4"
+  dim:
+    black: "#373e4d"
+    red: "#94545d"
+    green: "#809575"
+    yellow: "#b29e75"
+    blue: "#68809a"
+    magenta: "#8c738c"
+    cyan: "#6d96a5"
+    white: "#aeb3bb"
 
 # Choose ONE color scheme from those available in the above list.
-colors: *gruvbox
+colors:
+  # Default colors
+  primary:
+    background: "#2E3440"
+    foreground: "#D8DEE9"
+
+  # Normal colors
+  normal:
+    black: "#3B4252"
+    red: "#BF616A"
+    green: "#A3BE8C"
+    yellow: "#EBCB8B"
+    blue: "#81A1C1"
+    magenta: "#B48EAD"
+    cyan: "#88C0D0"
+    white: "#E5E9F0"
+
+  # Bright colors
+  bright:
+    black: "#4C566A"
+    red: "#BF616A"
+    green: "#A3BE8C"
+    yellow: "#EBCB8B"
+    blue: "#81A1C1"
+    magenta: "#B48EAD"
+    cyan: "#8FBCBB"
+    white: "#ECEFF4"
 
 # Visual Bell
 #
@@ -362,14 +420,12 @@ colors: *gruvbox
 #  animation: EaseOutExpo
 #  duration: 0
 #  color: '#ffffff'
-
 # Background opacity
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
 #background_opacity: 0.92
 # background_opacity: 0.80
-
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
@@ -378,23 +434,19 @@ selection:
 
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
-
 #cursor:
-  # Cursor style
-  #
-  # Values for `style`:
-  #   - ▇ Block
-  #   - _ Underline
-  #   - | Beam
-  #style: Block
-
-  # If this is `true`, the cursor will be rendered as a hollow box when the
-  # window is not focused.
-  #unfocused_hollow: true
-
+# Cursor style
+#
+# Values for `style`:
+#   - ▇ Block
+#   - _ Underline
+#   - | Beam
+#style: Block
+# If this is `true`, the cursor will be rendered as a hollow box when the
+# window is not focused.
+#unfocused_hollow: true
 # Live config reload (changes require restart)
 #live_config_reload: true
-
 # Shell
 #
 # You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
@@ -414,7 +466,6 @@ shell:
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
 #working_directory: None
-
 # WinPTY backend (Windows only)
 #
 # Alacritty defaults to using the newer ConPTY backend if it is available,
@@ -424,68 +475,57 @@ shell:
 # Setting this option to `true` makes Alacritty use the legacy WinPTY backend,
 # even if the ConPTY backend is available.
 #winpty_backend: false
-
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
-
 #debug:
-  # Display the time it takes to redraw each frame.
-  #render_timer: false
-
-  # Keep the log file after quitting Alacritty.
-  #persistent_logging: false
-
-  # Log level
-  #
-  # Values for `log_level`:
-  #   - None
-  #   - Error
-  #   - Warn
-  #   - Info
-  #   - Debug
-  #   - Trace
-  #log_level: Warn
-
-  # Print all received window events.
-  #print_events: false
-
-  # Record all characters and escape sequences as test data.
-  #ref_test: false
-
+# Display the time it takes to redraw each frame.
+#render_timer: false
+# Keep the log file after quitting Alacritty.
+#persistent_logging: false
+# Log level
+#
+# Values for `log_level`:
+#   - None
+#   - Error
+#   - Warn
+#   - Info
+#   - Debug
+#   - Trace
+#log_level: Warn
+# Print all received window events.
+#print_events: false
+# Record all characters and escape sequences as test data.
+#ref_test: false
 #mouse:
-  # Click settings
-  #
-  # The `double_click` and `triple_click` settings control the time
-  # alacritty should wait for accepting multiple clicks as one double
-  # or triple click.
-  #double_click: { threshold: 300 }
-  #triple_click: { threshold: 300 }
-
-  # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
-
-  #url:
-    # URL launcher
-    #
-    # This program is executed when clicking on a text which is recognized as a URL.
-    # The URL is always added to the command as the last parameter.
-    #
-    # When set to `None`, URL launching will be disabled completely.
-    #
-    # Default:
-    #   - (macOS) open
-    #   - (Linux/BSD) xdg-open
-    #   - (Windows) explorer
-    #launcher:
-    #  program: xdg-open
-    #  args: []
-
-    # URL modifiers
-    #
-    # These are the modifiers that need to be held down for opening URLs when clicking
-    # on them. The available modifiers are documented in the key binding section.
-    #modifiers: None
-
+# Click settings
+#
+# The `double_click` and `triple_click` settings control the time
+# alacritty should wait for accepting multiple clicks as one double
+# or triple click.
+#double_click: { threshold: 300 }
+#triple_click: { threshold: 300 }
+# If this is `true`, the cursor is temporarily hidden when typing.
+#hide_when_typing: false
+#url:
+# URL launcher
+#
+# This program is executed when clicking on a text which is recognized as a URL.
+# The URL is always added to the command as the last parameter.
+#
+# When set to `None`, URL launching will be disabled completely.
+#
+# Default:
+#   - (macOS) open
+#   - (Linux/BSD) xdg-open
+#   - (Windows) explorer
+#launcher:
+#  program: xdg-open
+#  args: []
+# URL modifiers
+#
+# These are the modifiers that need to be held down for opening URLs when clicking
+# on them. The available modifiers are documented in the key binding section.
+#modifiers: None
 # Mouse bindings
 #
 # Mouse bindings are specified as a list of objects, much like the key
@@ -507,7 +547,6 @@ shell:
 # - `mods` (see key bindings)
 #mouse_bindings:
 #  - { mouse: Middle, action: PasteSelection }
-
 # Key bindings
 #
 # Key bindings are specified as a list of objects. For example, this is the
@@ -609,21 +648,20 @@ shell:
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
 key_bindings:
-    # (Windows, Linux, and BSD only)
-  - { key: V,         mods: Control|Shift, action: Paste                       }
-  - { key: C,         mods: Control|Shift, action: Copy                        }
-  - { key: Insert,    mods: Shift,         action: PasteSelection              }
-  - { key: Key0,      mods: Control,       action: ResetFontSize               }
-  - { key: Equals,    mods: Control,       action: IncreaseFontSize            }
-  - { key: Plus,      mods: Control,       action: IncreaseFontSize            }
-  - { key: Minus,     mods: Control,       action: DecreaseFontSize            }
-  - { key: F11,       mods: None,          action: ToggleFullscreen            }
-  - { key: Paste,     mods: None,          action: Paste                       }
-  - { key: Copy,      mods: None,          action: Copy                        }
-  - { key: L,         mods: Control,       action: ClearLogNotice              }
-  - { key: L,         mods: Control,       chars: "\x0c"                       }
-  - { key: PageUp,    mods: None,          action: ScrollPageUp,   mode: ~Alt  }
-  - { key: PageDown,  mods: None,          action: ScrollPageDown, mode: ~Alt  }
-  - { key: Home,      mods: Shift,         action: ScrollToTop,    mode: ~Alt  }
-  - { key: End,       mods: Shift,         action: ScrollToBottom, mode: ~Alt  }
-
+  # (Windows, Linux, and BSD only)
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Insert, mods: Shift, action: PasteSelection }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Plus, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
+  - { key: F11, mods: None, action: ToggleFullscreen }
+  - { key: Paste, mods: None, action: Paste }
+  - { key: Copy, mods: None, action: Copy }
+  - { key: L, mods: Control, action: ClearLogNotice }
+  - { key: L, mods: Control, chars: "\f" }
+  - { key: PageUp, mods: None, action: ScrollPageUp, mode: ~Alt }
+  - { key: PageDown, mods: None, action: ScrollPageDown, mode: ~Alt }
+  - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
+  - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }

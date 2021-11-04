@@ -11,22 +11,19 @@ alias cclip="xclip -selection clipboard"
 alias pclip="xclip -selection clipboard"
 alias timeplus="~/dotfiles/apps/time_plus_30"
 alias echotime="~/dotfiles/apps/echo_time"
-alias livestream_screenkey="screenkey -s large --scr 2 -p bottom --geometry 1210x300+712+810";
-alias yt_screenkey="screenkey -s large --scr 1 -p bottom --geometry 510x300+1412+850";
+alias livestream_screenkey="screenkey -s large --scr 2 -p bottom --geometry 1210x300+712+810"
+alias yt_screenkey="screenkey -s large --scr 1 -p bottom --geometry 510x300+1412+850"
 alias lua=/usr/local/bin/lua
 alias vi=/usr/bin/nvim
 # Taskwarrior GTD alias
 alias in='task add +in'
-tickle () {
-    deadline=$1
-    shift
-    in +tickle wait:$deadline $@
+tickle() {
+	deadline=$1
+	shift
+	in +tickle wait:$deadline $@
 }
 alias tick=tickle
 alias think='tickle +1d'
-alias icat="kitty +kitten icat --align=left"
-alias theme-reset="kitty @ --to unix:/tmp/kitty set-colors --reset"
-alias theme="cd ~/.config/kitty/kitty-themes/themes && fzf --preview 'head -n 40 {} && kitty @ --to unix:/tmp/kitty set-colors -a -c {}'; cd -"
 alias lc='colorls -lA --sd'
 alias lt='colorls -lA --tree'
 alias lg='colorls -A --sd --gs'

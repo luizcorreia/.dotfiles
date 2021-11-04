@@ -168,6 +168,7 @@ return require("packer").startup(function()
     use_with_config("nathom/filetype.nvim", "filetype") -- greatly reduce startup time
     -- Undo helper
     use("sjl/gundo.vim")
+    use('norcalli/nvim-colorizer.lua')
 
     -- Crazy good box drawing
     use("gyim/vim-boxdraw")
@@ -197,5 +198,8 @@ return require("packer").startup(function()
 
     -- Wakatime
     use("wakatime/vim-wakatime")
+
+    -- i3 Hight
+    use('mboughaba/i3config.vim')
 
 end)

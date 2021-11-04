@@ -97,7 +97,7 @@ bindsym $mod+r mode "resize"
 set $mod Mod4
 set $alt Mod1
 
-set $terminal kitty
+set $terminal alacritty
 
 # default file manager
 set $file_manager thunar
@@ -204,7 +204,7 @@ set $exec_pavucontrol pavucontrol
 
 # Terminal
 for_window [title="^tscratchpad"] floating enable, resize set 1920 1080, move scratchpad
-exec --no-startup-id $terminal --title tscratchpad zsh
+exec --no-startup-id $terminal -t tscratchpad -e zsh
 
 # Pavucontrol
 for_window [class="Pavucontrol"] floating enable, resize set 1920 1080, move scratchpad
@@ -212,11 +212,11 @@ exec --no-startup-id pavucontrol
 
 # Tasks
 for_window [title="^tasks"] floating enable, resize set 3648 2052, move position center move scratchpad
-exec --no-startup-id $terminal --title tasks tmux_start
+exec --no-startup-id $terminal -t tasks -e tmux_start
 
 # Taskwarrior
 for_window [title="^taskwarrior"] floating enable, resize set 1920 1080, move scratchpad
-exec --no-startup-id $terminal --title taskwarrior tasksh
+exec --no-startup-id $terminal -t taskwarrior -e tasksh
 
 # Qalculate-gtk
 for_window [class="^Qalculate-gtk"] floating enable, resize set 1920 1080, move scratchpad
@@ -352,6 +352,7 @@ assign [class="Slack"]                      $ws3
 assign [class="Thunderbird"]                $ws4
 assign [class="brave-browser"]              $ws11
 assign [class="mpv"]                        $ws13
+assign [class="Evernote"]                   $ws6
 
 # QEMU virt-manager
 assign [class="Virt-manager"]               $ws7
@@ -429,6 +430,7 @@ exec --no-startup-id discord
 exec --no-startup-id discord-ptb
 exec --no-startup-id slack
 exec --no-startup-id thunderbird
+exec --no-startup-id Evernote-Beta
 
 ## Base16ish Breeze dark
 # Author: rtxx

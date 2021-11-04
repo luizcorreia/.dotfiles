@@ -3,7 +3,6 @@ require("options")
 
 -- initialize global object for config
 global = {}
-
 -- maps
 -- \ to go to previous match
 u.nmap("\\", ",")
@@ -43,13 +42,12 @@ u.xmap("<", "<gv")
 
 u.nmap("n", "nzz")
 u.nmap("N", "Nzz")
-
 -- automatically add jumps > 1 to jump list
 u.nmap("k", [[(v:count > 1 ? "m'" . v:count : '') . 'k'"]], { expr = true })
 u.nmap("j", [[(v:count > 1 ? "m'" . v:count : '') . 'j'"]], { expr = true })
 -- source remaining config
+require("theme")
 require("tmux")
 require("commands")
-require("theme")
 require("plugins")
 require("lsp")
