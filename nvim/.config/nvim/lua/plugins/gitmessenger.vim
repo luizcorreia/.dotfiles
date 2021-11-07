@@ -1,5 +1,4 @@
 nmap <leader>cm <Plug>(git-messenger)
-nmap <space>cm <Plug>(git-messenger)
 
 function! s:setup_git_messenger_popup() abort
   call nvim_win_set_option(0, 'winhl', 'Normal:NormalFloat')

@@ -7,6 +7,22 @@ _G.inspect = function(...)
     print(vim.inspect(...))
 end
 
+ commands.change_line_up = function()
+    if vim.opt.diff:get() then
+      vim.cmd [[normal! [c]]
+    else
+      vim.cmd [[m .-2<CR>==]]
+    end
+  end
+
+commands.change_line_down = function()
+    if vim.opt.diff:get() then
+      vim.cmd [[normal! ]c]]
+    else
+      vim.cmd [[m .+1<CR>==]]
+    end
+  end
+
 commands.edit_test_file = function(cmd)
     cmd = cmd or "edit"
 
@@ -67,6 +83,7 @@ commands.edit_test_file = function(cmd)
     scandir(vim.fn.expand("%:p:h"), 1, function()
         scandir(vim.fn.getcwd(), 5)
     end)
+
 end
 
 vim.cmd("command! -complete=command -nargs=* TestFile lua global.commands.edit_test_file(<f-args>)")
@@ -110,5 +127,10 @@ u.map("x", "<Leader>p", '"_dP')
 u.map("n", "<Leader>y", '"+y')
 u.map("v", "<Leader>y", '"+y')
 u.map("n", "<Leader>Y", 'gg"+yG')
+
+u.lua_command("LineUp", "global.commands.change_line_up()")
+u.lua_command("LineDown", "global.commands.change_line_down()")
+u.map("n", "<M-j>", "<cmd>LineDown<CR>")
+u.map("n", "<M-k>", "<cmd>LineUp<CR>")
 
 return commands

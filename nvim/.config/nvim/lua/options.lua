@@ -9,7 +9,7 @@ opt.wildignore = opt.wildignore + { "*.o", "*~", "*.pyc", "*pycache*" }
 opt.wildmode = { "longest", "list", "full" }
 
 -- Map leader to space
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 opt.background = 'dark'
 vim.g.t_Co = 256
@@ -28,7 +28,7 @@ opt.cursorline = true -- Highlight the current line
 opt.equalalways = false -- I don't like my windows changing all the time
 opt.splitright = true -- Put new windows right of current
 opt.splitbelow = true -- Put new windows below current
-opt.updatetime = 1000 -- Make updates happen faster
+opt.updatetime = 100 -- Make updates happen faster
 opt.hlsearch = true -- Highlight found searches
 opt.scrolloff = 8 -- Lines of context
 
@@ -56,7 +56,6 @@ opt.belloff = "all" -- Just turn the dang bell off
 
 opt.inccommand = "split"
 opt.swapfile = false -- Living on the edge
-opt.shada = { "!", "'1000", "<50", "s10", "h" }
 
 opt.mouse = "n"
 
