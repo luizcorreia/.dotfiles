@@ -11,6 +11,9 @@ opt.wildmode = { "longest", "list", "full" }
 -- Map leader to space
 vim.g.mapleader = ","
 
+opt.background = 'dark'
+vim.g.t_Co = 256
+
 opt.showmode = false -- Don't display mode
 opt.showcmd = true
 opt.cmdheight = 1 -- More space for displaying messages
