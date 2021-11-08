@@ -1,7 +1,6 @@
 
 local lspconfig = require("lspconfig")
 
-local u = require("utils")
 local settings = {
       filetypes = {
     "javascript",

@@ -50,9 +50,9 @@ return require("packer").startup(function()
 
     -- registers
     use_with_config("svermeulen/vim-subversive", "subversive") -- adds substitute operator
-    use_with_config("svermeulen/vim-cutlass", "cutlass") -- separates cut and delete operations
+    -- use_with_config("svermeulen/vim-cutlass", "cutlass") -- separates cut and delete operations
     use_with_config("tversteeg/registers.nvim", "registers") -- shows register contents intelligently
-    use_with_config("svermeulen/vim-yoink", "yoink") -- improves paste
+    -- use_with_config("svermeulen/vim-yoink", "yoink") -- improves paste
 
 
     -- additional functionality

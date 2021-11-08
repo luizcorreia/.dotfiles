@@ -200,7 +200,8 @@ draw_bold_text_with_bright_colors: true
 # COLOR SCHEMES
 schemes:
   # Doom One
-  doom-one: &doom-one
+  doom-one:
+    &doom-one
     primary:
       background: "#282c34"
       foreground: "#bbc2cf"
@@ -230,7 +231,8 @@ schemes:
       white: "#dfdfdf"
 
   # Gruvbox dark colors
-  gruvbox: &gruvbox
+  gruvbox:
+    &gruvbox
     primary:
       # hard contrast:
       background: "0x1d2021"
@@ -262,7 +264,8 @@ schemes:
       cyan: "0x8ec07c"
       white: "0xebdbb2"
   # Dracula
-  dracula: &dracula
+  dracula:
+    &dracula
     colors:
       primary:
         background: "#282a36"
@@ -370,30 +373,30 @@ schemes:
 colors:
   # Default colors
   primary:
-    background: "#2E3440"
-    foreground: "#D8DEE9"
+    background: '#2E3440'
+    foreground: '#D8DEE9'
 
   # Normal colors
   normal:
-    black: "#3B4252"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#88C0D0"
-    white: "#E5E9F0"
+    black: '#3B4252'
+    red: '#BF616A'
+    green: '#A3BE8C'
+    yellow: '#EBCB8B'
+    blue: '#81A1C1'
+    magenta: '#B48EAD'
+    cyan: '#88C0D0'
+    white: '#E5E9F0'
 
   # Bright colors
   bright:
-    black: "#4C566A"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#8FBCBB"
-    white: "#ECEFF4"
+    black: '#4C566A'
+    red: '#BF616A'
+    green: '#A3BE8C'
+    yellow: '#EBCB8B'
+    blue: '#81A1C1'
+    magenta: '#B48EAD'
+    cyan: '#8FBCBB'
+    white: '#ECEFF4'
 
 # Visual Bell
 #
@@ -661,7 +664,27 @@ key_bindings:
   - { key: Copy, mods: None, action: Copy }
   - { key: L, mods: Control, action: ClearLogNotice }
   - { key: L, mods: Control, chars: "\f" }
-  - { key: PageUp, mods: None, action: ScrollPageUp, mode: ~Alt }
-  - { key: PageDown, mods: None, action: ScrollPageDown, mode: ~Alt }
-  - { key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt }
-  - { key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt }
+  - {
+      key: PageUp,
+      mods: None,
+      action: ScrollPageUp,
+      mode: ~Alt
+    }
+  - {
+      key: PageDown,
+      mods: None,
+      action: ScrollPageDown,
+      mode: ~Alt
+    }
+  - {
+      key: Home,
+      mods: Shift,
+      action: ScrollToTop,
+      mode: ~Alt
+    }
+  - {
+      key: End,
+      mods: Shift,
+      action: ScrollToBottom,
+      mode: ~Alt
+    }
