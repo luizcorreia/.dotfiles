@@ -64,7 +64,7 @@ require("gitsigns").setup({
     enable = false,
   },
 })
-u.nmap("<Leader>g", ":tab Git<CR>")
-u.nmap("<Leader>G", ":Git ", { silent = false })
+-- u.nmap("<Leader>g", ":tab Git<CR>")
+-- u.nmap("<Leader>G", ":Git ", { silent = false })
 
 vim.cmd("autocmd FileType fugitive nmap <buffer> <Tab> =")

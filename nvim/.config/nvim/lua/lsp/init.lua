@@ -5,6 +5,7 @@ local tsserver = require("lsp.tsserver")
 local gopls = require("lsp.gopls")
 -- local diagnosticls = require("lsp.diagnosticls")
 local yamlls = require("lsp.yamlls")
+local pyright = require("lsp.pyright")
 
 local lsp = vim.lsp
 local protocol = lsp.protocol
@@ -130,3 +131,4 @@ null_ls.setup(on_attach)
 gopls.setup(on_attach, capabilities)
 -- diagnosticls.setup(on_attach, capabilities)
 yamlls.setup(on_attach, capabilities)
+pyright.setup(on_attach, capabilities)

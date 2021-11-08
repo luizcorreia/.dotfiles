@@ -4,9 +4,6 @@ require("options")
 -- initialize global object for config
 global = {}
 -- maps
--- \ to go to previous match
-u.nmap("\\", ",")
-
 -- make useless keys useful
 u.nmap("<BS>", "<C-^>")
 
@@ -26,9 +23,6 @@ u.nmap("L", "$")
 u.omap("L", "$")
 u.xmap("L", "$")
 
-u.nmap("<Space>", ":", { silent = false })
-u.xmap("<Space>", ":", { silent = false })
-
 -- tabs and splits
 u.nmap("<Leader>cn", ":tabnew<CR>")
 u.nmap("<Leader>ce", ":tabedit %<CR>")
@@ -47,7 +41,7 @@ u.nmap("k", [[(v:count > 1 ? "m'" . v:count : '') . 'k'"]], { expr = true })
 u.nmap("j", [[(v:count > 1 ? "m'" . v:count : '') . 'j'"]], { expr = true })
 -- source remaining config
 require("theme")
-require("tmux")
+ require("tmux")
 require("commands")
 require("plugins")
 require("lsp")

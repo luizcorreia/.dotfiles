@@ -9,7 +9,7 @@ opt.wildignore = opt.wildignore + { "*.o", "*~", "*.pyc", "*pycache*" }
 opt.wildmode = { "longest", "list", "full" }
 
 -- Map leader to space
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 opt.background = 'dark'
 vim.g.t_Co = 256

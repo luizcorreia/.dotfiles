@@ -11830,3 +11830,5 @@ Nov 03 10:22 : player: played "Cd 04 - Canções Inesquecíveis/12 - Vide, Vida 
 Nov 03 10:38 : exception: Failed to decode /nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3; Failed to open '/nfs/home/music/Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3': No such file or directory
 Nov 03 10:38 : player: played "Cd 04 - Canções Inesquecíveis/12 - Vide, Vida Marvada.mp3"
 Nov 03 18:31 : config: option 'device' on line 380 was not recognized
+Nov 04 11:06 : config: option 'device' on line 380 was not recognized
+Nov 08 09:38 : config: option 'device' on line 380 was not recognized
