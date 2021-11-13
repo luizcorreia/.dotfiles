@@ -1,6 +1,6 @@
 local u = require("utils")
 local sumneko = require("lsp.sumneko")
-local null_ls = require("lsp.null-ls")
+-- local null_ls = require("lsp.null-ls")
 local tsserver = require("lsp.tsserver")
 local gopls = require("lsp.gopls")
 local diagnosticls = require("lsp.diagnosticls")
@@ -127,7 +127,7 @@ lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_pub
 
 tsserver.setup(on_attach, capabilities)
 sumneko.setup(on_attach, capabilities)
-null_ls.setup(on_attach)
+-- null_ls.setup(on_attach)
 gopls.setup(on_attach, capabilities)
 diagnosticls.setup(on_attach, capabilities)
 yamlls.setup(on_attach, capabilities)
