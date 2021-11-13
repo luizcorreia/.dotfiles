@@ -66,9 +66,13 @@ return require("packer").startup(function()
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-vsnip",
             "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
         },
         config = config("cmp"),
     })
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'ray-x/lsp_signature.nvim'
+    use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
     use({
         "windwp/nvim-autopairs", -- autocomplete pairs
         config = config("autopairs"),
