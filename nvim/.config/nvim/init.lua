@@ -1,11 +1,9 @@
 local u = require("utils")
 require("options")
 
-
 -- initialize global object for config
 global = {}
--- mapneDownneDownks
-
+-- maps
 -- make useless keys useful
 u.nmap("<BS>", "<C-^>")
 
