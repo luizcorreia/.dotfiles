@@ -26,7 +26,7 @@ local sources = {
 	-- return utils.root_has_file(".git") or utils.root_has_file(".eslintrc")
 	-- end,
 	-- }),
-    
+
 	b.formatting.trim_whitespace.with({ filetypes = { "tmux", "teal", "zsh" } }),
 	b.formatting.shfmt,
 	b.diagnostics.write_good,

@@ -40,13 +40,13 @@ protocol.CompletionItemKind = {
 -- LSP Prevents inline buffer annotations
 lsp.diagnostic.show_line_diagnostics()
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  signs = true,
-  -- This sets the spacing and the prefix, obviously.
-  virtual_text = {
-    spacing = 4,
-    prefix = "",
-  },
+	underline = true,
+	signs = true,
+	-- This sets the spacing and the prefix, obviously.
+	virtual_text = {
+		spacing = 4,
+		prefix = "",
+	},
 })
 lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
 	underline = true,
@@ -98,24 +98,14 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-	properties = {
-		"documentation",
-		"detail",
-		"additionalTextEdits",
-	},
-}
--- LSP Prevents inline buffer annotations
-lsp.diagnostic.show_line_diagnostics()
-lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
-	underline = true,
-	-- This sets the spacing and the prefix, obviously.
-	virtual_text = {
-		spacing = 4,
-		prefix = "",
-	},
-})
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities.textDocument.completion.completionItem.resolveSupport = {
+-- 	properties = {
+-- 		"documentation",
+-- 		"detail",
+-- 		"additionalTextEdits",
+-- 	},
+-- }
 
 require("lsp.tsserver").setup(on_attach, capabilities)
 require("lsp.sumneko").setup(on_attach, capabilities)
@@ -125,4 +115,4 @@ require("lsp.pyright").setup(on_attach, capabilities)
 require("lsp.cssls").setup(on_attach, capabilities)
 require("lsp.yamlls").setup(on_attach, capabilities)
 -- require("lsp.diagnosticls").setup(on_attach, capabilities)
--- require("lsp.eslint").setup(on_attach, capabilities)
+require("lsp.eslint").setup(on_attach, capabilities)

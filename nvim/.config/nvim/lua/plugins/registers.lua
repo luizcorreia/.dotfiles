@@ -1,1 +1,1 @@
-vim.g.registers_window_border = "single"
+-- vim.g.registers_window_border = "single"

@@ -11,7 +11,7 @@ opt.wildmode = { "longest", "list", "full" }
 -- Map leader to space
 vim.g.mapleader = " "
 
-opt.background = 'dark'
+opt.background = "dark"
 vim.g.t_Co = 256
 
 opt.showmode = false -- Don't display mode
@@ -43,12 +43,13 @@ opt.softtabstop = 4
 opt.expandtab = true
 
 opt.breakindent = true
-opt.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
+-- opt.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
 opt.linebreak = true
 
-opt.foldmethod = "marker"
-opt.foldlevel = 0
-opt.modelines = 1
+-- opt.foldmethod = "expr"
+-- opt.foldlevel = 99
+-- opt.foldexpr = vim.cmd("nvim_treesitter#foldexpr()")
+-- opt.modelines = 1
 
 opt.belloff = "all" -- Just turn the dang bell off
 
@@ -65,15 +66,15 @@ opt.mouse = "n"
 --
 -- TODO: w, {v, b, l}
 opt.formatoptions = opt.formatoptions
-  - "a" -- Auto formatting is BAD.
-  - "t" -- Don't auto format my code. I got linters for that.
-  + "c" -- In general, I like it when comments respect textwidth
-  + "q" -- Allow formatting comments w/ gq
-  - "o" -- O and o, don't continue comments
-  + "r" -- But do continue when pressing enter.
-  + "n" -- Indent past the formatlistpat, not underneath it.
-  + "j" -- Auto-remove comments if possible.
-  - "2" -- I'm not in gradeschool anymore
+	- "a" -- Auto formatting is BAD.
+	- "t" -- Don't auto format my code. I got linters for that.
+	+ "c" -- In general, I like it when comments respect textwidth
+	+ "q" -- Allow formatting comments w/ gq
+	- "o" -- O and o, don't continue comments
+	+ "r" -- But do continue when pressing enter.
+	+ "n" -- Indent past the formatlistpat, not underneath it.
+	+ "j" -- Auto-remove comments if possible.
+	- "2" -- I'm not in gradeschool anymore
 
 -- set joinspaces
 opt.joinspaces = false -- Two spaces and grade school, we're done

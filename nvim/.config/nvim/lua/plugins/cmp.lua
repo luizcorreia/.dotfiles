@@ -11,6 +11,7 @@ local source_mapping = {
 	cmp_tabnine = "💡 Tabnine",
 	path = "🚧 Path",
 	luasnip = "🌜 LuaSnip",
+	vsnip = " Vsnip",
 }
 
 cmp.setup({

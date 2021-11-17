@@ -69,12 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    config = { "require('plugins.luasnip')" },
-    loaded = true,
-    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -100,10 +94,20 @@ _G.packer_plugins = {
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["cmp-spell"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/cmp-spell",
+    url = "https://github.com/f3fora/cmp-spell"
+  },
   ["cmp-tabnine"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/cmp-tabnine",
     url = "https://github.com/tzachar/cmp-tabnine"
+  },
+  ["cmp-treesitter"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/cmp-treesitter",
+    url = "https://github.com/ray-x/cmp-treesitter"
   },
   ["cmp-vsnip"] = {
     loaded = true,
@@ -115,10 +119,20 @@ _G.packer_plugins = {
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["crates.nvim"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/crates.nvim",
+    url = "https://github.com/Saecki/crates.nvim"
+  },
   ["dial.nvim"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/dial.nvim",
     url = "https://github.com/monaqa/dial.nvim"
+  },
+  ["emmet-vim"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/emmet-vim",
+    url = "https://github.com/mattn/emmet-vim"
   },
   ["filetype.nvim"] = {
     config = { "require('plugins.filetype')" },
@@ -176,7 +190,7 @@ _G.packer_plugins = {
   },
   ["lsp-trouble.nvim"] = {
     commands = { "LspTrouble" },
-    config = { "\27LJ\1\2U\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\2\14auto_fold\2\17auto_preview\1\nsetup\ftrouble\frequire\0" },
+    config = { "\27LJ\1\2U\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\2\14auto_fold\1\17auto_preview\1\nsetup\ftrouble\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -361,6 +375,11 @@ _G.packer_plugins = {
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/twilight.nvim",
     url = "https://github.com/folke/twilight.nvim"
   },
+  ["typescript-vim"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/typescript-vim",
+    url = "https://github.com/leafgarland/typescript-vim"
+  },
   undotree = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/undotree",
@@ -376,6 +395,11 @@ _G.packer_plugins = {
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
+  ["vim-css3-syntax"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-css3-syntax",
+    url = "https://github.com/hail2u/vim-css3-syntax"
+  },
   ["vim-devicons"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-devicons",
@@ -385,6 +409,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-go"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-go",
+    url = "https://github.com/fatih/vim-go"
+  },
+  ["vim-haml"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-haml",
+    url = "https://github.com/tpope/vim-haml"
+  },
+  ["vim-hexokinase"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-hexokinase",
+    url = "https://github.com/rrethy/vim-hexokinase"
   },
   ["vim-illuminate"] = {
     config = { "require('plugins.illuminate')" },
@@ -397,10 +436,20 @@ _G.packer_plugins = {
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-indent-object",
     url = "https://github.com/michaeljsmith/vim-indent-object"
   },
+  ["vim-javascript-syntax"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-javascript-syntax",
+    url = "https://github.com/jelera/vim-javascript-syntax"
+  },
   ["vim-json"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-json",
     url = "https://github.com/elzr/vim-json"
+  },
+  ["vim-livedown"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-livedown",
+    url = "https://github.com/shime/vim-livedown"
   },
   ["vim-markdown"] = {
     loaded = true,
@@ -486,10 +535,20 @@ _G.packer_plugins = {
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
   },
+  ["vim-vsnip-integ"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
+    url = "https://github.com/hrsh7th/vim-vsnip-integ"
+  },
   ["vim-wakatime"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-wakatime",
     url = "https://github.com/wakatime/vim-wakatime"
+  },
+  ["yats.vim"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/yats.vim",
+    url = "https://github.com/HerringtonDarkholme/yats.vim"
   },
   ["zen-mode.nvim"] = {
     config = { "require('plugins.zen')" },
@@ -508,10 +567,10 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for nvim-cmp]], true)
 require('plugins.cmp')
 time([[Config for nvim-cmp]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require('plugins.indent-blankline')
-time([[Config for indent-blankline.nvim]], false)
+-- Config for: harpoon
+time([[Config for harpoon]], true)
+require('plugins.harpoon')
+time([[Config for harpoon]], false)
 -- Config for: registers.nvim
 time([[Config for registers.nvim]], true)
 require('plugins.registers')
@@ -544,10 +603,6 @@ time([[Config for vim-vsnip]], false)
 time([[Config for refactoring.nvim]], true)
 require('plugins.refactoring')
 time([[Config for refactoring.nvim]], false)
--- Config for: harpoon
-time([[Config for harpoon]], true)
-require('plugins.harpoon')
-time([[Config for harpoon]], false)
 -- Config for: git-worktree.nvim
 time([[Config for git-worktree.nvim]], true)
 require('plugins.git-worktree')
@@ -576,10 +631,10 @@ time([[Config for nvim-notify]], false)
 time([[Config for zen-mode.nvim]], true)
 require('plugins.zen')
 time([[Config for zen-mode.nvim]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require('plugins.luasnip')
-time([[Config for LuaSnip]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require('plugins.indent-blankline')
+time([[Config for indent-blankline.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -597,9 +652,9 @@ vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
 vim.cmd [[au FileType lua ++once lua require("packer.load")({'nvim-treesitter-textsubjects'}, { ft = "lua" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-treesitter-textsubjects', 'nvim-ts-autotag'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescript ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-treesitter-textsubjects', 'nvim-ts-autotag'}, { ft = "typescript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'nvim-ts-context-commentstring', 'nvim-treesitter-textsubjects', 'nvim-ts-autotag'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
 vim.cmd [[au FileType json ++once lua require("packer.load")({'package-info.nvim'}, { ft = "json" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
