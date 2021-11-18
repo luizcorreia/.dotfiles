@@ -13,7 +13,7 @@ vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-opt.background = "dark"
+opt.background = 'dark'
 vim.g.t_Co = 256
 
 opt.showmode = false -- Don't display mode

@@ -360,6 +360,11 @@ _G.packer_plugins = {
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/registers.nvim",
     url = "https://github.com/tversteeg/registers.nvim"
   },
+  tabular = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/tabular",
+    url = "https://github.com/godlygeek/tabular"
+  },
   ["targets.vim"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/targets.vim",
@@ -452,12 +457,8 @@ _G.packer_plugins = {
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-json",
     url = "https://github.com/elzr/vim-json"
   },
-  ["vim-livedown"] = {
-    loaded = true,
-    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-livedown",
-    url = "https://github.com/shime/vim-livedown"
-  },
   ["vim-markdown"] = {
+    config = { "require('plugins.vim-markdown')" },
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-markdown",
     url = "https://github.com/plasticboy/vim-markdown"
@@ -573,10 +574,10 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for nvim-cmp]], true)
 require('plugins.cmp')
 time([[Config for nvim-cmp]], false)
--- Config for: harpoon
-time([[Config for harpoon]], true)
-require('plugins.harpoon')
-time([[Config for harpoon]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require('plugins.indent-blankline')
+time([[Config for indent-blankline.nvim]], false)
 -- Config for: registers.nvim
 time([[Config for registers.nvim]], true)
 require('plugins.registers')
@@ -613,10 +614,14 @@ time([[Config for refactoring.nvim]], false)
 time([[Config for LuaSnip]], true)
 require('plugins.luasnip')
 time([[Config for LuaSnip]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require('plugins.indent-blankline')
-time([[Config for indent-blankline.nvim]], false)
+-- Config for: git-worktree.nvim
+time([[Config for git-worktree.nvim]], true)
+require('plugins.git-worktree')
+time([[Config for git-worktree.nvim]], false)
+-- Config for: harpoon
+time([[Config for harpoon]], true)
+require('plugins.harpoon')
+time([[Config for harpoon]], false)
 -- Config for: vim-illuminate
 time([[Config for vim-illuminate]], true)
 require('plugins.illuminate')
@@ -641,10 +646,10 @@ time([[Config for nvim-notify]], false)
 time([[Config for zen-mode.nvim]], true)
 require('plugins.zen')
 time([[Config for zen-mode.nvim]], false)
--- Config for: git-worktree.nvim
-time([[Config for git-worktree.nvim]], true)
-require('plugins.git-worktree')
-time([[Config for git-worktree.nvim]], false)
+-- Config for: vim-markdown
+time([[Config for vim-markdown]], true)
+require('plugins.vim-markdown')
+time([[Config for vim-markdown]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

@@ -1,13 +1,69 @@
-if vim.g.snippets ~= "luasnip" then
-	return
+local util = require 'luasnip.util.util'
+
+require('luasnip').config.setup {
+  parser_nested_assembler = function(_, snippet)
+    local select = function(snip, no_move)
+      snip.parent:enter_node(snip.indx)
+      -- upon deletion, extmarks of inner nodes should shift to end of
+      -- placeholder-text.
+      for _, node in ipairs(snip.nodes) do
+        node:set_mark_rgrav(true, true)
+      end
+
+      -- SELECT all text inside the snippet.
+      if not no_move then
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n', true)
+        local pos_begin, pos_end = snip.mark:pos_begin_end()
+        util.normal_move_on(pos_begin)
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('v', true, false, true), 'n', true)
+        util.normal_move_before(pos_end)
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('o<C-G>', true, false, true), 'n', true)
+      end
+    end
+    function snippet:jump_into(dir, no_move)
+      if self.active then
+        -- inside snippet, but not selected.
+        if dir == 1 then
+          self:input_leave()
+          return self.next:jump_into(dir, no_move)
+        else
+          select(self, no_move)
+          return self
+        end
+      else
+        -- jumping in from outside snippet.
+        self:input_enter()
+        if dir == 1 then
+          select(self, no_move)
+          return self
+        else
+          return self.inner_last:jump_into(dir, no_move)
+        end
+      end
+    end
+    -- this is called only if the snippet is currently selected.
+    function snippet:jump_from(dir, no_move)
+      if dir == 1 then
+        return self.inner_first:jump_into(dir, no_move)
+      else
+        self:input_leave()
+        return self.prev:jump_into(dir, no_move)
+      end
+    end
+    return snippet
+  end,
+}
+
+if vim.g.snippets ~= 'luasnip' then
+  return
 end
 
-local ls = require("luasnip")
+local ls = require 'luasnip'
 
-ls.config.set_config({
-	history = true,
-	updateevents = "TextChanged,TextChangedI",
-})
+ls.config.set_config {
+  history = true,
+  updateevents = 'TextChanged,TextChangedI',
+}
 
 -- create snippet
 -- s(context, nodes, condition, ...)
@@ -29,42 +85,42 @@ local t = ls.t -- text node
 local d = ls.d -- dynamic node
 
 local str = function(text)
-	return t({ text })
+  return t { text }
 end
 
 local newline = function(text)
-	return t({ "", text })
+  return t { '', text }
 end
 
 local str_snip = function(trig, expanded)
-	return ls.parser.parse_snippet({ trig = trig }, expanded)
+  return ls.parser.parse_snippet({ trig = trig }, expanded)
 end
 
 local tbl_snip = function(t)
-	return snippet({ trig = t.trig, dscr = t.desc }, { unpack(t) })
+  return snippet({ trig = t.trig, dscr = t.desc }, { unpack(t) })
 end
 
 local function char_count_same(c1, c2)
-	local line = vim.api.nvim_get_current_line()
-	local _, ct1 = string.gsub(line, c1, "")
-	local _, ct2 = string.gsub(line, c2, "")
-	return ct1 == ct2
+  local line = vim.api.nvim_get_current_line()
+  local _, ct1 = string.gsub(line, c1, '')
+  local _, ct2 = string.gsub(line, c2, '')
+  return ct1 == ct2
 end
 
 local function neg(fn, ...)
-	return not fn(...)
+  return not fn(...)
 end
 
 -- {{{ Go stuff
-local ts_locals = require("nvim-treesitter.locals")
-local ts_utils = require("nvim-treesitter.ts_utils")
+local ts_locals = require 'nvim-treesitter.locals'
+local ts_utils = require 'nvim-treesitter.ts_utils'
 
 local get_node_text = vim.treesitter.get_node_text
 
 vim.treesitter.set_query(
-	"go",
-	"LuaSnip_Result",
-	[[
+  'go',
+  'LuaSnip_Result',
+  [[
   [
     (method_declaration result: (*) @id)
     (function_declaration result: (*) @id)
@@ -74,98 +130,98 @@ vim.treesitter.set_query(
 )
 
 local transform = function(text, info)
-	if text == "int" then
-		return str("0")
-	elseif text == "error" then
-		if info then
-			info.index = info.index + 1
+  if text == 'int' then
+    return str '0'
+  elseif text == 'error' then
+    if info then
+      info.index = info.index + 1
 
-			return c(info.index, {
-				str(string.format('errors.Wrap(%s, "%s")', info.err_name, info.func_name)),
-				str(info.err_name),
-			})
-		else
-			return str("err")
-		end
-	elseif text == "bool" then
-		return str("false")
-	elseif string.find(text, "*", 1, true) then
-		return str("nil")
-	end
+      return c(info.index, {
+        str(string.format('errors.Wrap(%s, "%s")', info.err_name, info.func_name)),
+        str(info.err_name),
+      })
+    else
+      return str 'err'
+    end
+  elseif text == 'bool' then
+    return str 'false'
+  elseif string.find(text, '*', 1, true) then
+    return str 'nil'
+  end
 
-	return str(text)
+  return str(text)
 end
 
 local handlers = {
-	["parameter_list"] = function(node, info)
-		local result = {}
+  ['parameter_list'] = function(node, info)
+    local result = {}
 
-		local count = node:named_child_count()
-		for i = 0, count - 1 do
-			table.insert(result, transform(get_node_text(node:named_child(i), 0), info))
-			if i ~= count - 1 then
-				table.insert(result, t({ ", " }))
-			end
-		end
+    local count = node:named_child_count()
+    for i = 0, count - 1 do
+      table.insert(result, transform(get_node_text(node:named_child(i), 0), info))
+      if i ~= count - 1 then
+        table.insert(result, t { ', ' })
+      end
+    end
 
-		return result
-	end,
+    return result
+  end,
 
-	["type_identifier"] = function(node, info)
-		local text = get_node_text(node, 0)
-		return { transform(text, info) }
-	end,
+  ['type_identifier'] = function(node, info)
+    local text = get_node_text(node, 0)
+    return { transform(text, info) }
+  end,
 }
 
 local function go_result_type(info)
-	local cursor_node = ts_utils.get_node_at_cursor()
-	local scope = ts_locals.get_scope_tree(cursor_node, 0)
+  local cursor_node = ts_utils.get_node_at_cursor()
+  local scope = ts_locals.get_scope_tree(cursor_node, 0)
 
-	local function_node
-	for _, v in ipairs(scope) do
-		if v:type() == "function_declaration" or v:type() == "method_declaration" or v:type() == "func_literal" then
-			function_node = v
-			break
-		end
-	end
+  local function_node
+  for _, v in ipairs(scope) do
+    if v:type() == 'function_declaration' or v:type() == 'method_declaration' or v:type() == 'func_literal' then
+      function_node = v
+      break
+    end
+  end
 
-	local query = vim.treesitter.get_query("go", "LuaSnip_Result")
-	for id, node in query:iter_captures(function_node, 0) do
-		if handlers[node:type()] then
-			return handlers[node:type()](node, info)
-		end
-	end
+  local query = vim.treesitter.get_query('go', 'LuaSnip_Result')
+  for id, node in query:iter_captures(function_node, 0) do
+    if handlers[node:type()] then
+      return handlers[node:type()](node, info)
+    end
+  end
 end
 -- }}}
 local shortcut = function(val)
-	if type(val) == "string" then
-		return { t({ val }), i(0) }
-	end
+  if type(val) == 'string' then
+    return { t { val }, i(0) }
+  end
 
-	if type(val) == "table" then
-		for k, v in ipairs(val) do
-			if type(v) == "string" then
-				val[k] = t({ v })
-			end
-		end
-	end
+  if type(val) == 'table' then
+    for k, v in ipairs(val) do
+      if type(v) == 'string' then
+        val[k] = t { v }
+      end
+    end
+  end
 
-	return val
+  return val
 end
 
 local make = function(tbl)
-	local result = {}
-	for k, v in pairs(tbl) do
-		table.insert(result, (snippet({ trig = k, desc = v.desc }, shortcut(v))))
-	end
+  local result = {}
+  for k, v in pairs(tbl) do
+    table.insert(result, (snippet({ trig = k, desc = v.desc }, shortcut(v))))
+  end
 
-	return result
+  return result
 end
 
 local same = function(index)
-	return f(function(args)
-		return args[1]
-	end, { index })
+  return f(function(args)
+    return args[1]
+  end, { index })
 end
 
 local snippets = {}
@@ -199,8 +255,8 @@ snippets.lua = make {
 }
 
 local go_ret_vals = function(args, old_state)
-	local info = { index = 0, err_name = args[1][1], func_name = args[2][1] }
-	return snippet_from_nodes(nil, go_result_type(info))
+  local info = { index = 0, err_name = args[1][1], func_name = args[2][1] }
+  return snippet_from_nodes(nil, go_result_type(info))
 end
 
 --stylua: ignore
@@ -242,55 +298,47 @@ snippets.go = make {
   ie = { "if err != nil {", "\treturn err", i(0), "}" },
 }
 
-snippets.rust = make({
-	modtest = {
-		t({
-			"#[cfg(test)]",
-			"mod test {",
-			"    use super::*;",
-			"    ",
-		}),
-		i(0),
-		t({
-			"",
-			"}",
-		}),
-	},
+snippets.rust = make {
+  modtest = {
+    t {
+      '#[cfg(test)]',
+      'mod test {',
+      '    use super::*;',
+      '    ',
+    },
+    i(0),
+    t {
+      '',
+      '}',
+    },
+  },
 
-	test = {
-		t({
-			"#[test]",
-			"fn ",
-		}),
-		i(1, "testname"),
-		t({ "() {", "    " }),
-		i(0),
-		t({ "", "}" }),
-	},
+  test = {
+    t {
+      '#[test]',
+      'fn ',
+    },
+    i(1, 'testname'),
+    t { '() {', '    ' },
+    i(0),
+    t { '', '}' },
+  },
 
-	enum = {
-		t({ "#[derive(Debug, PartialEq)]", "enum " }),
-		i(1, "Name"),
-		t({ " {", "  " }),
-		i(0),
-		t({ "", "}" }),
-	},
+  enum = {
+    t { '#[derive(Debug, PartialEq)]', 'enum ' },
+    i(1, 'Name'),
+    t { ' {', '  ' },
+    i(0),
+    t { '', '}' },
+  },
 
-	struct = {
-		t({ "#[derive(Debug, PartialEq)]", "struct " }),
-		i(1, "Name"),
-		t({ " {", "    " }),
-		i(0),
-		t({ "", "}" }),
-	},
-})
+  struct = {
+    t { '#[derive(Debug, PartialEq)]', 'struct ' },
+    i(1, 'Name'),
+    t { ' {', '    ' },
+    i(0),
+    t { '', '}' },
+  },
+}
 
 ls.snippets = snippets
-
-vim.cmd([[
-  imap <silent><expr> <c-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<c-k>'
-  inoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
-  imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-  snoremap <silent> <c-k> <cmd>lua require('luasnip').jump(1)<CR>
-  snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
-]])
