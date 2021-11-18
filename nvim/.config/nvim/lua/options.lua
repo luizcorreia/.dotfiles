@@ -3,13 +3,15 @@ vim.g.loaded_matchparen = 1
 local opt = vim.opt -- to set options
 
 -- Ignore compiled files
-opt.wildignore = "__pycache__"
-opt.wildignore = opt.wildignore + { "*.o", "*~", "*.pyc", "*pycache*" }
+opt.wildignore = '__pycache__'
+opt.wildignore = opt.wildignore + { '*.o', '*~', '*.pyc', '*pycache*' }
 
-opt.wildmode = { "longest", "list", "full" }
+opt.wildmode = { 'longest', 'list', 'full' }
 
--- Map leader to space
-vim.g.mapleader = " "
+--Remap space as leader key
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 opt.background = "dark"
 vim.g.t_Co = 256
@@ -43,22 +45,21 @@ opt.softtabstop = 4
 opt.expandtab = true
 
 opt.breakindent = true
--- opt.showbreak = string.rep(" ", 3) -- Make it so that long lines wrap smartly
+opt.showbreak = string.rep(' ', 3) -- Make it so that long lines wrap smartly
 opt.linebreak = true
 
--- opt.foldmethod = "expr"
--- opt.foldlevel = 99
--- opt.foldexpr = vim.cmd("nvim_treesitter#foldexpr()")
--- opt.modelines = 1
+opt.foldmethod = 'marker'
+opt.foldlevel = 0
+opt.modelines = 1
 
-opt.belloff = "all" -- Just turn the dang bell off
+opt.belloff = 'all' -- Just turn the dang bell off
 
 -- opt.clipboard = "unnamedplus"
 
-opt.inccommand = "split"
+opt.inccommand = 'split'
 opt.swapfile = false -- Living on the edge
 
-opt.mouse = "n"
+opt.mouse = 'n'
 
 -- Helpful related items:
 --   1. :center, :left, :right
@@ -66,35 +67,35 @@ opt.mouse = "n"
 --
 -- TODO: w, {v, b, l}
 opt.formatoptions = opt.formatoptions
-	- "a" -- Auto formatting is BAD.
-	- "t" -- Don't auto format my code. I got linters for that.
-	+ "c" -- In general, I like it when comments respect textwidth
-	+ "q" -- Allow formatting comments w/ gq
-	- "o" -- O and o, don't continue comments
-	+ "r" -- But do continue when pressing enter.
-	+ "n" -- Indent past the formatlistpat, not underneath it.
-	+ "j" -- Auto-remove comments if possible.
-	- "2" -- I'm not in gradeschool anymore
+  - 'a' -- Auto formatting is BAD.
+  - 't' -- Don't auto format my code. I got linters for that.
+  + 'c' -- In general, I like it when comments respect textwidth
+  + 'q' -- Allow formatting comments w/ gq
+  - 'o' -- O and o, don't continue comments
+  + 'r' -- But do continue when pressing enter.
+  + 'n' -- Indent past the formatlistpat, not underneath it.
+  + 'j' -- Auto-remove comments if possible.
+  - '2' -- I'm not in gradeschool anymore
 
 -- set joinspaces
 opt.joinspaces = false -- Two spaces and grade school, we're done
 
 -- set fillchars=eob:~
-opt.fillchars = { eob = "~" }
+opt.fillchars = { eob = '~' }
 
-opt.completeopt = { "menuone", "noinsert", "noselect" }
-opt.encoding = "utf-8" -- Set default encoding to UTF-8
+opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
+opt.encoding = 'utf-8' -- Set default encoding to UTF-8
 opt.linebreak = true -- Stop words being broken on wrap
 opt.list = false -- Show some invisible characters
 opt.numberwidth = 5 -- Make the gutter wider by default
-opt.spelllang = "en_us,pt_br"
+opt.spelllang = 'en_us,pt_br'
 opt.termguicolors = true -- You will have bad experience for diagnostic messages when it's default 4000.
-opt.cc = "80"
+opt.cc = '80'
 opt.backup = false
 vim.g.netrw_liststyle = 3 -- Tree style netrw_liststyle
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 vim.g.netrw_browse_split = 4
 vim.g.netrw_winsize = 15
-opt.undodir = vim.fn.getenv("HOME") .. "/.vim/undodir"
+opt.undodir = vim.fn.getenv 'HOME' .. '/.vim/undodir'
 opt.undofile = true

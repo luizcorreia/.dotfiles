@@ -56,7 +56,6 @@ return require("packer").startup(function()
 	-- additional functionality
 	use_with_config("justinmk/vim-sneak", "sneak") -- motion
 	use_with_config("hrsh7th/vim-vsnip", "vsnip") -- snippets
-
 	-- Completion Engine
 	use({
 		"hrsh7th/nvim-cmp",
@@ -98,7 +97,7 @@ return require("packer").startup(function()
 		config = config("autopairs"),
 		wants = "nvim-cmp",
 	})
-	-- use_with_config("L3MON4D3/LuaSnip", "luasnip")
+	use_with_config("L3MON4D3/LuaSnip", "luasnip")
 
 	-- integrationso
 	use("nvim-lua/popup.nvim")
@@ -123,7 +122,7 @@ return require("packer").startup(function()
 			-- Can use P to toggle auto movement
 			require("trouble").setup({
 				auto_preview = false,
-				auto_fold = false,
+				auto_fold = true,
 			})
 		end,
 	})

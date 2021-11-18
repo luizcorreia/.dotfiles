@@ -1,4 +1,4 @@
-require'colorizer'.setup()
+require('colorizer').setup()
+vim.o.termguicolors = true
 -- Load the colorscheme
-vim.cmd([[colorscheme nord]])
-
+vim.cmd [[colorscheme nord]]
