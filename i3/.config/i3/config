@@ -21,11 +21,20 @@
 # For colors see: `~/.Xresources`
 #
 # Class                  border  backgr  text     indicator child_border
-client.focused           #4a697d #4a697d #bdcfe3  #4a697d   #4a697d
-client.focused_inactive  #263640 #263640 #141c21  #263640   #263640
-client.unfocused         #263640 #263640 #141c21  #263640   #263640
-client.urgent            #4a697d #4a697d #bdcfe3  #4a697d   #4a697d
+# client.focused           #4a697d #4a697d #bdcfe3  #4a697d   #4a697d
+# client.focused_inactive  #263640 #263640 #141c21  #263640   #263640
+# client.unfocused         #263640 #263640 #141c21  #263640   #263640
+# client.urgent            #4a697d #4a697d #bdcfe3  #4a697d   #4a697d
 
+    ##START THEMING WM
+
+    # Window color settings
+    # class                 border  backgr. text    indicator
+    client.focused          #81a1c1 #81a1c1 #ffffff #81a1c1
+    client.unfocused        #4a697d #4a697d #888888 #4a697d
+    client.focused_inactive #4a697d #4a697d #888888 #4a697d
+    client.placeholder      #4a697d #4a697d #888888 #4a697d
+    client.urgent           #900000 #900000 #ffffff #900000
 # =========================================================
 # Windows style
 # =========================================================
