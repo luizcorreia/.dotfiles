@@ -54,8 +54,8 @@ return require('packer').startup(function()
   -- use_with_config("svermeulen/vim-yoink", "yoink") -- improves paste
 
   -- additional functionality
-  use_with_config('justinmk/vim-sneak', 'sneak') -- motion
-  use_with_config('hrsh7th/vim-vsnip', 'vsnip') -- snippets
+  -- use_with_config('justinmk/vim-sneak', 'sneak') -- motion
+  -- use_with_config('hrsh7th/vim-vsnip', 'vsnip') -- snippets
   -- Completion Engine
   use {
     'hrsh7th/nvim-cmp',
@@ -66,16 +66,19 @@ return require('packer').startup(function()
       { 'hrsh7th/cmp-path' },
       { 'hrsh7th/cmp-nvim-lua' },
       { 'ray-x/cmp-treesitter' },
+      { 'saadparwaiz1/cmp_luasnip' },
       { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-vsnip' },
-      { 'hrsh7th/vim-vsnip' },
-      { 'hrsh7th/vim-vsnip-integ' },
+      -- { 'hrsh7th/cmp-vsnip' },
+      -- { 'hrsh7th/vim-vsnip' },
+      -- { 'hrsh7th/vim-vsnip-integ' },
       { 'Saecki/crates.nvim' },
       { 'f3fora/cmp-spell' },
       { 'hrsh7th/cmp-cmdline' },
       { 'tzachar/cmp-tabnine', run = './install.sh' },
     },
   }
+  use_with_config('L3MON4D3/LuaSnip', 'luasnip')
+  use 'rafamadriz/friendly-snippets'
 
   -- use({
   -- 	"hrsh7th/nvim-cmp", -- completion
@@ -89,15 +92,13 @@ return require('packer').startup(function()
   -- 	},
   -- 	config = config("cmp"),
   -- })
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'ray-x/lsp_signature.nvim'
+  -- use 'ray-x/lsp_signature.nvim'
   -- use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
   use {
     'windwp/nvim-autopairs', -- autocomplete pairs
     config = config 'autopairs',
     wants = 'nvim-cmp',
   }
-  use_with_config('L3MON4D3/LuaSnip', 'luasnip')
 
   -- integrationso
   use 'nvim-lua/popup.nvim'
@@ -113,7 +114,7 @@ return require('packer').startup(function()
 
   -- lsp
   use 'neovim/nvim-lspconfig'
-  use 'wbthomason/lsp-status.nvim'
+  -- use 'wbthomason/lsp-status.nvim'
   use 'onsails/lspkind-nvim'
   use {
     'folke/lsp-trouble.nvim',
@@ -126,19 +127,19 @@ return require('packer').startup(function()
       }
     end,
   }
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+  use 'jose-elias-alvarez/null-ls.nvim'
   use 'williamboman/nvim-lsp-installer'
 
   use_with_config('RRethy/vim-illuminate', 'illuminate') -- highlights and allows moving between variable references
-  use 'jose-elias-alvarez/null-ls.nvim'
 
   -- development
-  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
-  use {
-    'vuki656/package-info.nvim', -- manage package.json
-    config = config 'package-info',
-    requires = 'MunifTanjim/nui.nvim',
-    ft = { 'json' },
-  }
+  -- use {
+  --   'vuki656/package-info.nvim', -- manage package.json
+  --   config = config 'package-info',
+  --   requires = 'MunifTanjim/nui.nvim',
+  --   ft = { 'json' },
+  -- }
   use_with_config('rcarriga/nvim-notify', 'notify')
   -- Status Line and Bufferline
   use_with_config('hoob3rt/lualine.nvim', 'lualine')

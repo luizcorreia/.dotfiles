@@ -1,8 +1,7 @@
 local u = require 'utils'
 require 'options'
-
 -- initialize global object for config
-global = {}
+    global = {}
 -- maps
 -- make useless keys useful
 u.nmap('<BS>', '<C-^>')

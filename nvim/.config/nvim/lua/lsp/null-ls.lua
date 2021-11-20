@@ -23,10 +23,10 @@ local sources = {
       'json',
       'yaml',
       'markdown',
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
+      'javascript',
+      'javascriptreact',
+      'typescript',
+      'typescriptreact',
     },
   },
   -- b.formatting.stylua.with({
@@ -34,7 +34,7 @@ local sources = {
   --         return utils.root_has_file("stylua.toml")
   --     end,
   -- }),
-  b.formatting.stylua,
+  -- b.formatting.stylua,
   -- b.formatting.eslint_d.with({
   -- 	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
   -- condition = function(utils)
