@@ -40,7 +40,12 @@ protocol.CompletionItemKind = {
 lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
   underline = true,
   signs = true,
-  virtual_text = false,
+  update_in_insert = true,
+  virtual_text = {
+      true,
+      spacing = 6,
+      --severity_limit='Error'  -- Only show virtual text on error
+    },
 })
 
 local border_opts = { border = 'single', focusable = false, scope = 'line' }

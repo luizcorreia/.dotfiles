@@ -1,4 +1,11 @@
-vim.cmd 'packadd packer.nvim'
+local execute = vim.api.nvim_command
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+  execute 'packadd packer.nvim'
+end
+
 local is_wsl = (function()
   local output = vim.fn.systemlist 'uname -r'
   return not not string.find(output[1] or '', 'WSL')
@@ -68,6 +75,7 @@ return require('packer').startup(function()
       { 'ray-x/cmp-treesitter' },
       { 'saadparwaiz1/cmp_luasnip' },
       { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-calc' },
       -- { 'hrsh7th/cmp-vsnip' },
       -- { 'hrsh7th/vim-vsnip' },
       -- { 'hrsh7th/vim-vsnip-integ' },
@@ -77,23 +85,14 @@ return require('packer').startup(function()
       { 'tzachar/cmp-tabnine', run = './install.sh' },
     },
   }
-  use_with_config('L3MON4D3/LuaSnip', 'luasnip')
-  use 'rafamadriz/friendly-snippets'
 
-  -- use({
-  -- 	"hrsh7th/nvim-cmp", -- completion
-  -- 	requires = {
-  -- 		"hrsh7th/cmp-nvim-lsp",
-  -- 		"hrsh7th/cmp-nvim-lua",
-  -- 		"hrsh7th/cmp-buffer",
-  -- 		"hrsh7th/cmp-vsnip",
-  -- 		"hrsh7th/cmp-path",
-  -- 		"hrsh7th/cmp-cmdline",
-  -- 	},
-  -- 	config = config("cmp"),
-  -- })
-  -- use 'ray-x/lsp_signature.nvim'
-  -- use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+  use{'L3MON4D3/LuaSnip',
+    config = config 'luasnip',
+    requires = {
+      'rafamadriz/friendly-snippets'
+    }
+  }
+
   use {
     'windwp/nvim-autopairs', -- autocomplete pairs
     config = config 'autopairs',
@@ -114,8 +113,12 @@ return require('packer').startup(function()
 
   -- lsp
   use 'neovim/nvim-lspconfig'
-  -- use 'wbthomason/lsp-status.nvim'
-  use 'onsails/lspkind-nvim'
+  use {'wbthomason/lsp-status.nvim',
+    config = config 'lspstatus'
+  }
+  use {'onsails/lspkind-nvim',
+    config = config 'lspkind'
+  }
   use {
     'folke/lsp-trouble.nvim',
     cmd = 'LspTrouble',
@@ -243,4 +246,8 @@ return require('packer').startup(function()
   use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
   use 'tpope/vim-haml'
   use 'mattn/emmet-vim'
+
+  -- vimwiki
+  use 'vimwiki/vimwiki'
+
 end)

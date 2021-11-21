@@ -7,6 +7,7 @@ opt.wildignore = '__pycache__'
 opt.wildignore = opt.wildignore + { '*.o', '*~', '*.pyc', '*pycache*' }
 
 opt.wildmode = { 'longest', 'list', 'full' }
+opt.guifont = 'DroidSansMono Nerd Font 11'
 
 --Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
@@ -79,14 +80,27 @@ opt.formatoptions = opt.formatoptions
 
 -- set joinspaces
 opt.joinspaces = false -- Two spaces and grade school, we're done
+opt.list = false -- Show some invisible characters
+opt.listchars = {
+         nbsp       = '⦸',      -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+         extends    = '»',      -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+         precedes   = '«',      -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+         tab        = '▷─',     -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
+         trail      = '•',      -- BULLET (U+2022, UTF-8: E2 80 A2)
+         space      = ' ',
+}
 
 -- set fillchars=eob:~
-opt.fillchars = { eob = '~' }
+opt.fillchars = {
+  diff = '∙', -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99)
+  eob = ' ', -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer
+  fold = '·', -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
+  vert = ' ', -- remove ugly vertical lines on window division
+}
 
 opt.completeopt = { 'menuone', 'noinsert', 'noselect' }
 opt.encoding = 'utf-8' -- Set default encoding to UTF-8
 opt.linebreak = true -- Stop words being broken on wrap
-opt.list = false -- Show some invisible characters
 opt.numberwidth = 5 -- Make the gutter wider by default
 opt.spelllang = 'en_us,pt_br'
 opt.termguicolors = true -- You will have bad experience for diagnostic messages when it's default 4000.
@@ -99,3 +113,4 @@ vim.g.netrw_browse_split = 4
 vim.g.netrw_winsize = 15
 opt.undodir = vim.fn.getenv 'HOME' .. '/.vim/undodir'
 opt.undofile = true
+opt.shell = 'zsh' -- shell to use for `!`, `:!`, `system()` etc.
