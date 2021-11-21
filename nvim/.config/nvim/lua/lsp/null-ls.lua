@@ -29,11 +29,11 @@ local sources = {
       'typescriptreact',
     },
   },
-  -- b.formatting.stylua.with({
-  --     condition = function(utils)
-  --         return utils.root_has_file("stylua.toml")
-  --     end,
-  -- }),
+  b.formatting.stylua.with({
+      condition = function(utils)
+          return utils.root_has_file("stylua.toml")
+      end,
+  }),
   -- b.formatting.stylua,
   -- b.formatting.eslint_d.with({
   -- 	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
@@ -45,7 +45,7 @@ local sources = {
   b.formatting.trim_whitespace.with { filetypes = { 'tmux', 'teal', 'zsh' } },
   b.formatting.shfmt,
   b.diagnostics.write_good,
-  b.diagnostics.markdownlint,
+  b.diagnostics.markdownlint.with { filetypes = { 'markdown', 'vimwiki' }},
   b.diagnostics.teal,
   b.diagnostics.shellcheck.with { diagnostics_format = '#{m} [#{c}]' },
   b.code_actions.gitsigns,

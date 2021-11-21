@@ -359,6 +359,11 @@ _G.packer_plugins = {
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/targets.vim",
     url = "https://github.com/wellle/targets.vim"
   },
+  taskwiki = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/taskwiki",
+    url = "https://github.com/tbabej/taskwiki"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -524,6 +529,12 @@ _G.packer_plugins = {
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vim-wakatime",
     url = "https://github.com/wakatime/vim-wakatime"
   },
+  vimwiki = {
+    config = { "require('plugins.vimwiki')" },
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/vimwiki",
+    url = "https://github.com/vimwiki/vimwiki"
+  },
   ["yats.vim"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/yats.vim",
@@ -546,10 +557,10 @@ time([[Config for LuaSnip]], false)
 time([[Config for nvim-cmp]], true)
 require('plugins.cmp')
 time([[Config for nvim-cmp]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-require('plugins.indent-blankline')
-time([[Config for indent-blankline.nvim]], false)
+-- Config for: harpoon
+time([[Config for harpoon]], true)
+require('plugins.harpoon')
+time([[Config for harpoon]], false)
 -- Config for: registers.nvim
 time([[Config for registers.nvim]], true)
 require('plugins.registers')
@@ -574,6 +585,10 @@ time([[Config for nvim-autopairs]], false)
 time([[Config for telescope.nvim]], true)
 require('plugins.telescope')
 time([[Config for telescope.nvim]], false)
+-- Config for: vimwiki
+time([[Config for vimwiki]], true)
+require('plugins.vimwiki')
+time([[Config for vimwiki]], false)
 -- Config for: refactoring.nvim
 time([[Config for refactoring.nvim]], true)
 require('plugins.refactoring')
@@ -586,10 +601,10 @@ time([[Config for git-worktree.nvim]], false)
 time([[Config for lsp-status.nvim]], true)
 require('plugins.lspstatus')
 time([[Config for lsp-status.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('plugins.treesitter')
-time([[Config for nvim-treesitter]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require('plugins.indent-blankline')
+time([[Config for indent-blankline.nvim]], false)
 -- Config for: lspkind-nvim
 time([[Config for lspkind-nvim]], true)
 require('plugins.lspkind')
@@ -606,10 +621,10 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for filetype.nvim]], true)
 require('plugins.filetype')
 time([[Config for filetype.nvim]], false)
--- Config for: harpoon
-time([[Config for harpoon]], true)
-require('plugins.harpoon')
-time([[Config for harpoon]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('plugins.treesitter')
+time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-notify
 time([[Config for nvim-notify]], true)
 require('plugins.notify')

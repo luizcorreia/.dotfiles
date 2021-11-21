@@ -4,7 +4,7 @@ local opt = vim.opt -- to set options
 
 -- Ignore compiled files
 opt.wildignore = '__pycache__'
-opt.wildignore = opt.wildignore + { '*.o', '*~', '*.pyc', '*pycache*' }
+opt.wildignore = opt.wildignore + { '*.o', '*~', '*.pyc', '*pycache*', '**/node_modules/**' }
 
 opt.wildmode = { 'longest', 'list', 'full' }
 opt.guifont = 'DroidSansMono Nerd Font 11'
@@ -82,12 +82,12 @@ opt.formatoptions = opt.formatoptions
 opt.joinspaces = false -- Two spaces and grade school, we're done
 opt.list = false -- Show some invisible characters
 opt.listchars = {
-         nbsp       = '⦸',      -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-         extends    = '»',      -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
-         precedes   = '«',      -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
-         tab        = '▷─',     -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
-         trail      = '•',      -- BULLET (U+2022, UTF-8: E2 80 A2)
-         space      = ' ',
+  nbsp = '⦸', -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
+  extends = '»', -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+  precedes = '«', -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
+  tab = '▷─', -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
+  trail = '•', -- BULLET (U+2022, UTF-8: E2 80 A2)
+  space = ' ',
 }
 
 -- set fillchars=eob:~
@@ -114,3 +114,25 @@ vim.g.netrw_winsize = 15
 opt.undodir = vim.fn.getenv 'HOME' .. '/.vim/undodir'
 opt.undofile = true
 opt.shell = 'zsh' -- shell to use for `!`, `:!`, `system()` etc.
+
+-- Disable Buitin
+vim.g.loaded_gzip = 1
+vim.g.loaded_zip = 1
+vim.g.loaded_zipPlugin = 1
+vim.g.loaded_tar = 1
+vim.g.loaded_tarPlugin = 1
+
+vim.g.loaded_getscript = 1
+vim.g.loaded_getscriptPlugin = 1
+vim.g.loaded_vimball = 1
+vim.g.loaded_vimballPlugin = 1
+vim.g.loaded_2html_plugin = 1
+
+vim.g.loaded_matchit = 1
+vim.g.loaded_matchparen = 1
+vim.g.loaded_logiPat = 1
+vim.g.loaded_rrhelper = 1
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrwSettings = 1

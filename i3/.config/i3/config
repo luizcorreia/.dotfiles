@@ -1,3 +1,4 @@
+# vim: set filetype=i3config
 # =========================================================
 #
 #   ██╗██████╗ ██╗    ██╗███╗   ███╗
@@ -215,6 +216,10 @@ set $exec_pavucontrol pavucontrol
 for_window [title="^tscratchpad"] floating enable, resize set 1920 1080, move scratchpad
 exec --no-startup-id $terminal -t tscratchpad -e zsh
 
+# VimWiki
+for_window [title="^diaryNote"] floating enable, resize set 1920 1080, move scratchpad
+exec --no-startup-id $terminal -t diaryNote -e "nvim '+VimwikiMakeDiaryNote'
+
 # Pavucontrol
 for_window [class="Pavucontrol"] floating enable, resize set 1920 1080, move scratchpad
 exec --no-startup-id pavucontrol
@@ -236,6 +241,7 @@ set $mode_launcher Launch: scratchpads
 bindsym $mod+s mode "$mode_launcher"
 mode "$mode_launcher" {
     bindsym t [title="^tscratchpad"] scratchpad show, mode "default"
+    bindsym n [title="^diaryNote"] scratchpad show, mode "default"
     bindsym p [class="Pavucontrol"] scratchpad show, mode "default"
     bindsym w [title="^taskwarrior"] scratchpad show, mode "default"
     bindsym s [title="^tasks"] scratchpad show, mode "default"
@@ -390,10 +396,10 @@ for_window [class="Yad"]                    $float, position center
 # Start Up commands
 # ===================================================================
 # keyboard layout
-exec --no-startup-id setxkbmap -model abnt2 -layout br
+# exec --no-startup-id setxkbmap -model abnt2 -layout br
 
 # xscreensaver
-exec --no-startup-id xscreensaver -nosplash
+# exec --no-startup-id xscreensaver -nosplash
 
 # picom
 exec --no-startup-id picom --config ~/.config/picom/picom.conf

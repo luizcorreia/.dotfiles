@@ -1,8 +1,8 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+  fn.system { 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path }
   execute 'packadd packer.nvim'
 end
 
@@ -86,12 +86,9 @@ return require('packer').startup(function()
     },
   }
 
-  use{'L3MON4D3/LuaSnip',
-    config = config 'luasnip',
-    requires = {
-      'rafamadriz/friendly-snippets'
-    }
-  }
+  use { 'L3MON4D3/LuaSnip', config = config 'luasnip', requires = {
+    'rafamadriz/friendly-snippets',
+  } }
 
   use {
     'windwp/nvim-autopairs', -- autocomplete pairs
@@ -113,12 +110,8 @@ return require('packer').startup(function()
 
   -- lsp
   use 'neovim/nvim-lspconfig'
-  use {'wbthomason/lsp-status.nvim',
-    config = config 'lspstatus'
-  }
-  use {'onsails/lspkind-nvim',
-    config = config 'lspkind'
-  }
+  use { 'wbthomason/lsp-status.nvim', config = config 'lspstatus' }
+  use { 'onsails/lspkind-nvim', config = config 'lspkind' }
   use {
     'folke/lsp-trouble.nvim',
     cmd = 'LspTrouble',
@@ -248,6 +241,6 @@ return require('packer').startup(function()
   use 'mattn/emmet-vim'
 
   -- vimwiki
-  use 'vimwiki/vimwiki'
-
+  use { 'vimwiki/vimwiki', config = config 'vimwiki' }
+  use 'tbabej/taskwiki'
 end)
