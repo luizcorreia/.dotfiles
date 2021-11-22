@@ -13,6 +13,7 @@ end)()
 
 return require('packer').startup(function()
   use { 'wbthomason/packer.nvim', opt = true }
+  use 'lewis6991/impatient.nvim'
 
   local config = function(name)
     return string.format("require('plugins.%s')", name)

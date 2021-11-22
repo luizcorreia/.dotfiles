@@ -1,7 +1,13 @@
+pcall(require, 'impatient')
+
 local u = require 'utils'
 require 'options'
+
+if require 'lcee.first_load'() then
+  return
+end
 -- initialize global object for config
-    global = {}
+global = {}
 -- maps
 -- make useless keys useful
 u.nmap('<BS>', '<C-^>')
@@ -37,6 +43,8 @@ u.nmap('N', 'Nzz')
 -- automatically add jumps > 1 to jump list
 -- u.nmap("k", [[(v:count > 1 ? "m'" . v:count : '') . 'k'"]], { expr = true }) u.nmap("j", [[(v:count > 1 ? "m'" . v:count : '') . 'j'"]], { expr = true })
 -- source remaining config
+-- Turn off builtin plugins I do not use.
+require 'lcee.disable_builtin'
 require 'theme'
 -- require("tmux")
 require 'commands'
