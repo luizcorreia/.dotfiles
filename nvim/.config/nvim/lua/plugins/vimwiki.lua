@@ -1,9 +1,10 @@
 local u = require 'utils'
+local wiki = require 'lcee.wiki'
 
-u.lua_command('MakeDiaryEntry', 'lcee.make_diary_entry()')
-u.lua_command('MakeTodo', 'lcee.make_todo()')
+u.lua_command('MakeDiaryEntry', 'wiki.make_diary_entry()')
+u.lua_command('MakeTodo', 'wiki.make_todo()')
 u.map('n', '<Leader>wd', '<cmd>MakeDiaryEntry<CR>')
-u.map('n', '<Leader>wt', '<cmd>MakeTodo<CR>')
+u.map('n', '<Leader>t', '<cmd>MakeTodo<CR>')
 
 -- vim.api.nvim_set_keymap("n", "<leader>wd", '<cmd>lua R("wiki").make_diary_entry()<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<leader>wt", '<cmd>lua R("wiki").make_todo()<CR>', { noremap = true })

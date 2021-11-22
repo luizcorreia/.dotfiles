@@ -44,9 +44,9 @@ u.nmap('N', 'Nzz')
 -- u.nmap("k", [[(v:count > 1 ? "m'" . v:count : '') . 'k'"]], { expr = true }) u.nmap("j", [[(v:count > 1 ? "m'" . v:count : '') . 'j'"]], { expr = true })
 -- source remaining config
 -- Turn off builtin plugins I do not use.
+require 'plugins'
 require 'lcee.disable_builtin'
 require 'theme'
 -- require("tmux")
 require 'commands'
-require 'plugins'
 require 'lsp'

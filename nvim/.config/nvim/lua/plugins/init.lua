@@ -1,10 +1,11 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
-local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system { 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path }
-  execute 'packadd packer.nvim'
-end
+-- _ = vim.cmd [[packadd packer.nvim]]
+-- _ = vim.cmd [[packadd vimball]]
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]]
 
 local is_wsl = (function()
   local output = vim.fn.systemlist 'uname -r'
@@ -12,7 +13,7 @@ local is_wsl = (function()
 end)()
 
 return require('packer').startup(function()
-  use { 'wbthomason/packer.nvim', opt = true }
+  use 'wbthomason/packer.nvim'
   use 'lewis6991/impatient.nvim'
 
   local config = function(name)
@@ -36,11 +37,7 @@ return require('packer').startup(function()
   -- Git worktree utility
   use_with_config('ThePrimeagen/git-worktree.nvim', 'git-worktree')
   -- Floating windows are awesome :)
-  use {
-    'rhysd/git-messenger.vim',
-    keys = '<Plug>(git-messenger)',
-    config = config 'gitmessenger',
-  }
+  use 'rhysd/git-messenger.vim'
   use 'mbbill/undotree'
 
   -- text objects
@@ -161,6 +158,7 @@ return require('packer').startup(function()
     run = ':TSUpdate',
     config = config 'treesitter',
   }
+  use 'nvim-treesitter/playground'
   use {
     'RRethy/nvim-treesitter-textsubjects', -- adds smart text objects
     ft = { 'lua', 'typescript', 'typescriptreact' },
