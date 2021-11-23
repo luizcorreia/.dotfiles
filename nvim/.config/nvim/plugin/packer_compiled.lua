@@ -152,12 +152,8 @@ _G.packer_plugins = {
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["git-messenger.vim"] = {
-    config = { "require('plugins.gitmessenger')" },
-    keys = { { "", "<Plug>(git-messenger)" } },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/opt/git-messenger.vim",
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/git-messenger.vim",
     url = "https://github.com/rhysd/git-messenger.vim"
   },
   ["git-worktree.nvim"] = {
@@ -187,6 +183,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/i3config.vim",
     url = "https://github.com/mboughaba/i3config.vim"
+  },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["indent-blankline.nvim"] = {
     config = { "require('plugins.indent-blankline')" },
@@ -263,6 +264,12 @@ _G.packer_plugins = {
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
+  ["nvim-lightbulb"] = {
+    config = { "require('plugins.lightbulb')" },
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/nvim-lightbulb",
+    url = "https://github.com/kosayoda/nvim-lightbulb"
+  },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
@@ -322,10 +329,14 @@ _G.packer_plugins = {
     url = "https://github.com/yamatsum/nvim-web-nonicons"
   },
   ["packer.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/opt/packer.nvim",
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  playground = {
+    loaded = true,
+    path = "/home/luizcorreia/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -585,6 +596,10 @@ time([[Config for nvim-autopairs]], false)
 time([[Config for telescope.nvim]], true)
 require('plugins.telescope')
 time([[Config for telescope.nvim]], false)
+-- Config for: git-worktree.nvim
+time([[Config for git-worktree.nvim]], true)
+require('plugins.git-worktree')
+time([[Config for git-worktree.nvim]], false)
 -- Config for: vimwiki
 time([[Config for vimwiki]], true)
 require('plugins.vimwiki')
@@ -593,10 +608,10 @@ time([[Config for vimwiki]], false)
 time([[Config for refactoring.nvim]], true)
 require('plugins.refactoring')
 time([[Config for refactoring.nvim]], false)
--- Config for: git-worktree.nvim
-time([[Config for git-worktree.nvim]], true)
-require('plugins.git-worktree')
-time([[Config for git-worktree.nvim]], false)
+-- Config for: nvim-lightbulb
+time([[Config for nvim-lightbulb]], true)
+require('plugins.lightbulb')
+time([[Config for nvim-lightbulb]], false)
 -- Config for: lsp-status.nvim
 time([[Config for lsp-status.nvim]], true)
 require('plugins.lspstatus')
@@ -643,11 +658,6 @@ time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file MarkdownPreview lua require("packer.load")({'markdown-preview.nvim'}, { cmd = "MarkdownPreview", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file LspTrouble lua require("packer.load")({'lsp-trouble.nvim'}, { cmd = "LspTrouble", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
-
--- Keymap lazy-loads
-time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> <Plug>(git-messenger) <cmd>lua require("packer.load")({'git-messenger.vim'}, { keys = "<lt>Plug>(git-messenger)", prefix = "" }, _G.packer_plugins)<cr>]]
-time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]

@@ -74,9 +74,6 @@ return require('packer').startup(function()
       { 'saadparwaiz1/cmp_luasnip' },
       { 'hrsh7th/nvim-cmp' },
       { 'hrsh7th/cmp-calc' },
-      -- { 'hrsh7th/cmp-vsnip' },
-      -- { 'hrsh7th/vim-vsnip' },
-      -- { 'hrsh7th/vim-vsnip-integ' },
       { 'Saecki/crates.nvim' },
       { 'f3fora/cmp-spell' },
       { 'hrsh7th/cmp-cmdline' },
@@ -135,6 +132,7 @@ return require('packer').startup(function()
   --   ft = { 'json' },
   -- }
   use_with_config('rcarriga/nvim-notify', 'notify')
+
   -- Status Line and Bufferline
   use_with_config('hoob3rt/lualine.nvim', 'lualine')
 
@@ -183,6 +181,8 @@ return require('packer').startup(function()
   -- misc
   use 'teal-language/vim-teal'
   use_with_config('nathom/filetype.nvim', 'filetype') -- greatly reduce startup time
+  use_with_config('kosayoda/nvim-lightbulb', 'lightbulb')
+
   -- Undo helper
   use 'sjl/gundo.vim'
   use 'norcalli/nvim-colorizer.lua'
