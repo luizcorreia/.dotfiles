@@ -38,7 +38,6 @@ require('lualine').setup {
       { harpoonStatus },
       'encoding',
       'filetype',
-      { vim.api.nvim_command_output 'WakaTimeToday' },
     },
     lualine_y = {
       {

@@ -13,5 +13,5 @@ vim.g.vimwiki_list = { { path = '~/Dropbox/wiki', syntax = 'markdown', ext = '.w
 -- vim.g.vimwiki_ext2syntax = { '.md': 'markdown' }
 vim.g.vimwiki_markdown_link_ext = 1
 
-vim.g.taskwiki_markup_syntax = 'markdown'
+-- vim.g.taskwiki_markup_syntax = 'markdown'
 vim.g.markdown_folding = 1
