@@ -22,7 +22,8 @@ let nested_syntaxes = {
             \ 'mumps': 'mumps',
             \ }
 
-let g:vimwiki_path = expand('~/wiki/')
+let g:vimwiki_path = expand('~/Dropbox/wiki/')
+
 " let g:wiki_root = g:vimwiki_path
 
 let g:export_path = expand('~/vimwiki-export/')

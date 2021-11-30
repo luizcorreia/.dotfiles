@@ -30,6 +30,7 @@ require("gitsigns").setup({
     ["n <leader>hS"] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
     ["n <leader>hU"] = '<cmd>lua require"gitsigns".reset_buffer_index()<CR>',
 
+
     -- Text objects
     ["o ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
     ["x ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
@@ -66,5 +67,7 @@ require("gitsigns").setup({
 })
 -- u.nmap("<Leader>g", ":tab Git<CR>")
 -- u.nmap("<Leader>G", ":Git ", { silent = false })
+u.nmap('<Leader>gf', ':diffget //2<CR>')
+u.nmap('<Leader>gj', ':diffget //3<CR>')
 
 vim.cmd("autocmd FileType fugitive nmap <buffer> <Tab> =")

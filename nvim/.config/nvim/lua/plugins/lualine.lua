@@ -26,7 +26,7 @@ require('lualine').setup {
       { 'diff', color_added = '#a7c080', color_modified = '#ffdf1b', color_removed = '#ff6666' },
     },
     lualine_c = {
-      { 'filename', path = 1 },
+      { 'filename',file_status = true, path = 1, shorting_target = 40 },
       { getWords },
     },
     lualine_x = {
@@ -35,6 +35,7 @@ require('lualine').setup {
         sources = { 'nvim_lsp' },
         symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
       },
+
       { harpoonStatus },
       'encoding',
       'filetype',
