@@ -8,15 +8,16 @@
  */
 
 configuration {
-	font:							"Iosevka Nerd Font 10";
+    modi:                           "window,drun,ssh,combi";
+    font:			    "Iosevka Nerd Font 10";
     show-icons:                     true;
-	icon-theme: 					"Papirus";
-    display-drun: 					"";
+    icon-theme: 		    "Papirus";
+    display-drun: 		    "";
     drun-display-format:            "{name}";
     disable-history:                false;
     fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
+    hide-scrollbar: 		    true;
+    sidebar-mode: 		    false;
 }
 
 @import "colors.rasi"

@@ -21,6 +21,27 @@ local set_prompt_to_entry_value = function(prompt_bufnr)
   action_state.get_current_picker(prompt_bufnr):reset_prompt(entry.ordinal)
 end
 
+local function generateOpts(opts)
+  local common_opts = {
+    layout_strategy = 'center',
+    sorting_strategy = 'ascending',
+    results_title = false,
+    preview_title = 'Preview',
+    previewer = false,
+    layout_config = {
+      width = 80,
+      height = 15,
+    },
+    borderchars = {
+      { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+      prompt = { '─', '│', ' ', '│', '╭', '╮', '│', '│' },
+      results = { '─', '│', '─', '│', '├', '┤', '╯', '╰' },
+      preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    },
+  }
+  return vim.tbl_extend('force', opts, common_opts)
+end
+
 telescope.setup {
   extensions = {
     fzf = { fuzzy = true, override_generic_sorter = true, override_file_sorter = true },
@@ -126,8 +147,13 @@ telescope.setup {
   },
 }
 
+-- telescope.load_extension 'fzy_native'
 telescope.load_extension 'fzf'
 telescope.load_extension 'git_worktree'
+telescope.load_extension 'gh'
+telescope.load_extension 'node_modules'
+telescope.load_extension 'packer'
+telescope.load_extension 'octo'
 
 global.telescope = {
   refactors = function()
@@ -161,7 +187,7 @@ global.telescope = {
       path = nil
     end
 
-    local width = 0.25
+    local width = 0.5
     if path and string.find(path, 'sourcegraph.*sourcegraph', 1, false) then
       width = 0.5
     end
@@ -200,7 +226,7 @@ global.telescope = {
       end,
     }
 
-    local is_git_project = pcall(global.telescope.git_files, opts)
+    local is_git_project = require('telescope.builtin').git_files(generateOpts(opts))
     if not is_git_project then
       builtin.find_files(opts)
     end
@@ -266,6 +292,8 @@ u.command('Commits', 'Telescope git_commits')
 u.command('GStatus', 'Telescope git_status')
 u.command('HelpTags', 'Telescope help_tags')
 u.command('ManPages', 'Telescope man_pages')
+u.command('Colors', 'Telescope colorscheme')
+u.command('Buffers', 'Telescope buffers')
 u.lua_command('GBranches', 'global.telescope.git_branches()')
 u.lua_command('Refactor', 'global.telescope.refactors()')
 
@@ -277,6 +305,7 @@ u.map('n', '<Leader>sb', '<cmd>BLines<CR>')
 u.map('n', '<Leader>fc', '<cmd>BCommits<CR>')
 u.map('n', '<Leader>fs', '<cmd>LspSym<CR>')
 u.map('n', '-', '<cmd>FileBrowser<CR>')
+u.map('n', '<Leader>c', '<cmd>Colors<CR>')
 
 -- Git
 u.map('n', '<Leader>gb', '<cmd>GBranches<CR>')

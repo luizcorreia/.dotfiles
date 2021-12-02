@@ -34,22 +34,21 @@ return require('packer').startup(function()
     { 'lewis6991/gitsigns.nvim', config = config 'git' },
     { 'tpope/vim-fugitive', requires = 'tpope/vim-rhubarb' },
   }
+  use {
+    'mattn/vim-gist',
+    requires = 'mattn/webapi-vim',
+  }
+  use { 'pwntester/octo.nvim' }
+
   -- Git worktree utility
   use_with_config('ThePrimeagen/git-worktree.nvim', 'git-worktree')
   -- Floating windows are awesome :)
   use 'rhysd/git-messenger.vim'
   use 'mbbill/undotree'
 
-  -- text objects
-  use 'wellle/targets.vim'
-  use {
-    'kana/vim-textobj-user',
-    {
-      'kana/vim-textobj-entire', -- ae/ie for entire buffer
-      'Julian/vim-textobj-variable-segment', -- av/iv for variable segment
-      'michaeljsmith/vim-indent-object', -- ai/ii for indentation area
-    },
-  }
+  -- Editor Config
+  use { 'editorconfig/editorconfig-vim' }
+
   use_with_config('andymass/vim-matchup', 'matchup') -- improves %, now with treesitter
 
   -- registers
@@ -58,9 +57,6 @@ return require('packer').startup(function()
   use_with_config('tversteeg/registers.nvim', 'registers') -- shows register contents intelligently
   -- use_with_config("svermeulen/vim-yoink", "yoink") -- improves paste
 
-  -- additional functionality
-  -- use_with_config('justinmk/vim-sneak', 'sneak') -- motion
-  -- use_with_config('hrsh7th/vim-vsnip', 'vsnip') -- snippets
   -- Completion Engine
   use {
     'hrsh7th/nvim-cmp',
@@ -97,10 +93,15 @@ return require('packer').startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     config = config 'telescope',
-    requires = { {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      run = 'make',
-    } },
+    requires = {
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        'nvim-telescope/telescope-github.nvim',
+        'nvim-telescope/telescope-packer.nvim',
+        'nvim-telescope/telescope-node-modules.nvim',
+        run = 'make',
+      },
+    },
   }
 
   -- lsp
@@ -125,16 +126,17 @@ return require('packer').startup(function()
   use_with_config('RRethy/vim-illuminate', 'illuminate') -- highlights and allows moving between variable references
 
   -- development
-  -- use {
-  --   'vuki656/package-info.nvim', -- manage package.json
-  --   config = config 'package-info',
-  --   requires = 'MunifTanjim/nui.nvim',
-  --   ft = { 'json' },
-  -- }
+  use {
+    'vuki656/package-info.nvim', -- manage package.json
+    config = config 'package-info',
+    requires = 'MunifTanjim/nui.nvim',
+    ft = { 'json' },
+  }
   use_with_config('rcarriga/nvim-notify', 'notify')
 
   -- Status Line and Bufferline
   use_with_config('hoob3rt/lualine.nvim', 'lualine')
+  use { 'akinsho/nvim-bufferline.lua' }
 
   -- Harpoon
   use 'mhinz/vim-rfc'
@@ -185,7 +187,6 @@ return require('packer').startup(function()
 
   -- Undo helper
   use 'sjl/gundo.vim'
-  use 'norcalli/nvim-colorizer.lua'
 
   -- Crazy good box drawing
   use 'gyim/vim-boxdraw'
@@ -201,8 +202,8 @@ return require('packer').startup(function()
   end
 
   -- Markdown
-  use 'godlygeek/tabular'
   use_with_config('plasticboy/vim-markdown', 'vim-markdown')
+  use { 'rhysd/vim-grammarous' }
   use {
     'iamcco/markdown-preview.nvim', -- preview markdown output in browser
     opt = true,
@@ -211,33 +212,49 @@ return require('packer').startup(function()
     run = 'cd app && yarn install',
     cmd = 'MarkdownPreview',
   }
-  -- use("shime/vim-livedown")
   use 'vim-pandoc/vim-pandoc-syntax'
-  use 'elzr/vim-json'
 
   -- Wakatime
   use 'wakatime/vim-wakatime'
 
   -- i3 Hight
   use 'mboughaba/i3config.vim'
+  -- Python
+  use { 'tmhedberg/SimpylFold', ft = 'python' }
+  -- JS/TS
+  use { 'othree/yajs.vim' }
+  use { 'MaxMEllon/vim-jsx-pretty' }
+  use { 'heavenshell/vim-jsdoc' }
+  use { 'elzr/vim-json' }
+  use { 'neoclide/jsonc.vim' }
+  use { 'HerringtonDarkholme/yats.vim' }
+  use { 'Quramy/vison' }
+  use { 'jxnblk/vim-mdx-js' }
+  -- HTML
+  use { 'othree/html5.vim' }
+  use { 'mattn/emmet-vim' }
+  use { 'posva/vim-vue' }
+  use { 'leafOfTree/vim-svelte-plugin' }
+  use { 'skwp/vim-html-escape' }
+  use { 'kana/vim-textobj-user' }
+  use { 'whatyouhide/vim-textobj-xmlattr' }
+  use { 'pedrohdz/vim-yaml-folds' }
+  -- CSS
+  use { 'hail2u/vim-css3-syntax' }
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup()
+    end,
+  }
 
-  -- JavaScript
-  use 'jelera/vim-javascript-syntax'
-
-  -- typescript
-  use 'leafgarland/typescript-vim'
-  use 'HerringtonDarkholme/yats.vim'
+  -- Rust
+  use { 'rust-lang/rust.vim' }
+  use { 'racer-rust/vim-racer' }
 
   -- go
   -- Go Lang Bundle
   use { 'fatih/vim-go', run = 'GoInstallBinaries' }
-
-  -- html
-  -- HTML Bundle
-  use 'hail2u/vim-css3-syntax'
-  use { 'rrethy/vim-hexokinase', run = 'make hexokinase' }
-  use 'tpope/vim-haml'
-  use 'mattn/emmet-vim'
 
   -- vimwiki
   use { 'vimwiki/vimwiki', config = config 'vimwiki' }

@@ -51,18 +51,18 @@ default_orientation auto
 for_window [class="^.*"] border pixel 3
 #new_window pixel 4
 
-gaps inner 16
-gaps outer 4
+gaps inner 8
+gaps outer 2
 
 # Toggle/reduce gaps on selected workspaces:
 # 2 web browser
 workspace 1 gaps inner 0
 workspace 1 gaps outer 0
-workspace 1 gaps top 12
+workspace 1 gaps top 6
 # 8 virtual machines
 workspace 8 gaps inner 0
 workspace 8 gaps outer 0
-workspace 8 gaps top 12
+workspace 8 gaps top 6
 
 # Only enable gaps on a workspace when there is at least one container
 #smart_gaps on
@@ -112,7 +112,7 @@ set $terminal alacritty
 # default file manager
 set $file_manager thunar
 # default web browser
-set $browser opera
+set $browser firefox
 # default media player
 set $media_player spotify
 # default chat app
@@ -213,27 +213,27 @@ bindsym $mod+minus scratchpad show
 set $exec_pavucontrol pavucontrol 
 
 # Terminal
-for_window [title="^tscratchpad"] floating enable, resize set 1920 1080, move scratchpad
+for_window [title="^tscratchpad$"] floating enable, resize set 1280 720, move scratchpad
 exec --no-startup-id $terminal -t tscratchpad -e zsh
 
 # VimWiki
-for_window [title="^diaryNote"] floating enable, resize set 1920 1080, move scratchpad
+for_window [title="^diaryNote"] floating enable, resize set 1280 720, move scratchpad
 exec --no-startup-id $terminal -t diaryNote -e "nvim '+VimwikiMakeDiaryNote'
 
 # Pavucontrol
-for_window [class="Pavucontrol"] floating enable, resize set 1920 1080, move scratchpad
+for_window [class="Pavucontrol"] floating enable, resize set 1280 720, move scratchpad
 exec --no-startup-id pavucontrol
 
 # Tasks
-for_window [title="^tasks"] floating enable, resize set 3648 2052, move position center move scratchpad
+for_window [title="^tasks$"] floating enable, resize set 1916 1040, move position center move scratchpad
 exec --no-startup-id $terminal -t tasks -e tmux_start
 
 # Taskwarrior
-for_window [title="^taskwarrior"] floating enable, resize set 1920 1080, move scratchpad
+for_window [title="^taskwarrior$"] floating enable, resize set 1280 720, move scratchpad
 exec --no-startup-id $terminal -t taskwarrior -e tasksh
 
 # Qalculate-gtk
-for_window [class="^Qalculate-gtk"] floating enable, resize set 1920 1080, move scratchpad
+for_window [class="^Qalculate-gtk"] floating enable, resize set 1280 720, move scratchpad
 exec --no-startup-id qalculate-gtk
 
 # Bindind mode for scratchpads
@@ -269,7 +269,7 @@ bindsym $mod+y  exec --no-startup-id youtube-watch.sh
 
 bindsym $mod+p exec --no-startup-id "dmenu_run -nf '$base04' -nb '$base00' -sb '$base04' -sf '$base00' -fn 'Fantasque Sans Mono-13' -p '>'"
 bindsym $mod+Shift+Return exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -dpi 192 -show run
+bindsym $mod+d exec rofi -show drun -drun-reload-desktop-cache -show-icons -terminal alacritty
 # urxvt -g = $float window geometry
 bindsym $mod+n exec --no-startup-id urxvt -g 95x15+20+60 -e ncmpcpp
 #bindsym $mod+x exec --no-startup-id ~/bin/lock
@@ -284,6 +284,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym $mod+g exec --no-startup-id pulseaudio-equalizer-gtk
 #bindsym $mod+p exec --no-startup-id pavucontrol
+bindsym XF86MonBrightnessUp exec --no-startup-id bl_up.sh 
+bindsym XF86MonBrightnessDown exec --no-startup-id bl_down.sh
 
 # ===================================================================
 # Workspaces
@@ -365,6 +367,7 @@ assign [class="Liferea"]                    $ws9
 assign [class="discord"]                    $ws3
 assign [class="Slack"]                      $ws3
 assign [class="Thunderbird"]                $ws4
+assign [class="Evolution"]                $ws4
 assign [class="brave-browser"]              $ws11
 assign [class="mpv"]                        $ws13
 assign [class="Evernote"]                   $ws6
@@ -408,7 +411,7 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/wallpaper-1_2048x1174.jpg
 
 # polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh --cuts
 
 #bar
 #bar {
@@ -432,20 +435,21 @@ exec --no-startup-id tmux new-session -s luizcorreia -d
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id volumeicon
 exec --no-startup-id pcmanfm -d
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id setxkbmap -layout us -variant intl
+# exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id setxkbmap -model thinkpad60 -layout br
 exec --no-startup-id xsetroot -cursor_name left_ptr
-exec --no-startup-id xset r rate 250 50
+exec_always --no-startup-id xset r rate 250 50
 exec --no-startup-id xrandr --output DP-0 --primary
 exec --no-startup-id xrandr --output HDMI-0 --left-of DP-0
-exec ~/bin/lock.sh
+# exec ~/bin/lock.sh
 
-exec --no-startup-id discord
-exec --no-startup-id discord-ptb
-exec --no-startup-id slack
-exec --no-startup-id thunderbird
+exec --no-startup-id Discord
+exec --no-startup-id Slack
+exec --no-startup-id evolution
 exec --no-startup-id Evernote-Beta
+exec --no-startup-id dropbox start
+
 
 ## Base16ish Breeze dark
 # Author: rtxx

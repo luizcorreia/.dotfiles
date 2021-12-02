@@ -7,8 +7,8 @@ opt.wildignore = '__pycache__'
 opt.wildignore = opt.wildignore + { '*.o', '*~', '*.pyc', '*pycache*', '**/node_modules/**' }
 
 opt.wildmode = { 'longest', 'list', 'full' }
-opt.guifont = 'DroidSansMono Nerd Font 11'
-
+-- opt.guifont = 'DroidSansMono Nerd Font 11'
+opt.guifont = 'VictorMono Nerd Font Mono 11'
 --Remap space as leader key
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
