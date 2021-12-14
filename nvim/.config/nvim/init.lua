@@ -6,6 +6,8 @@ end
 -- initialize global object for config
 global = {}
 
+-- Telescope 🔭
+require 'lcee.telescope'
 require 'options'
 require 'lcee.mappings'
 require 'plugins'

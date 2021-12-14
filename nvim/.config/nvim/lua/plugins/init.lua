@@ -28,7 +28,7 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
-  use 'tpope/vim-commentary'
+  -- use 'tpope/vim-commentary'
   use 'tpope/vim-sleuth'
   use {
     { 'lewis6991/gitsigns.nvim', config = config 'git' },
@@ -39,6 +39,12 @@ return require('packer').startup(function()
     requires = 'mattn/webapi-vim',
   }
   use { 'pwntester/octo.nvim' }
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end,
+  }
 
   -- Git worktree utility
   use_with_config('ThePrimeagen/git-worktree.nvim', 'git-worktree')
@@ -92,16 +98,22 @@ return require('packer').startup(function()
 
   use {
     'nvim-telescope/telescope.nvim',
-    config = config 'telescope',
     requires = {
       {
-        'nvim-telescope/telescope-fzf-native.nvim',
         'nvim-telescope/telescope-github.nvim',
-        'nvim-telescope/telescope-packer.nvim',
         'nvim-telescope/telescope-node-modules.nvim',
+        'cljoly/telescope-repo.nvim',
         run = 'make',
       },
     },
+  }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-file-browser.nvim' }
+  use {
+    'AckslD/nvim-neoclip.lua',
+    config = function()
+      require('neoclip').setup()
+    end,
   }
 
   -- lsp
