@@ -1,18 +1,36 @@
 local ls = require("luasnip")
+local extras = require 'luasnip.extras'
+local types = require 'luasnip.util.types'
+
 -- some shorthands...
-local s = ls.snippet
-local sn = ls.snippet_node
-local t = ls.text_node
-local i = ls.insert_node
+local snippet = ls.snippet
+local text = ls.text_node
 local f = ls.function_node
-local c = ls.choice_node
-local d = ls.dynamic_node
+local insert = ls.insert_node
+local l = extras.lambda
+local match = extras.match
 
 -- Every unspecified option will be set to the default.
 ls.config.set_config({
-	history = true,
-	-- Update more often, :h events for more info.
-	updateevents = "TextChanged,TextChangedI",
+    history = true,
+    region_check_events = 'CursorMoved,CursorHold,InsertEnter',
+    delete_check_events = 'InsertLeave',
+    ext_opts = {
+      [types.choiceNode] = {
+	active = {
+	  virt_text = { { '●', 'Operator'  }  },
+	},
+      },
+      [types.insertNode] = {
+	active = {
+	  virt_text = { { '●', 'Type'  }  },
+      }
+    }
+
+  },
+  enable_autosnippets = true,
+    -- Update more often, :h events for more info.
+    updateevents = "TextChanged,TextChangedI",
 })
 
 ls.snippets = {
