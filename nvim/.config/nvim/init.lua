@@ -22,7 +22,7 @@ end
 
 R 'lcee.globals'
 R 'lcee.settings'
-R 'options'
+-- R 'options'
 R 'lcee.mappings'
 R 'plugins'
 R 'lcee.disable_builtin'

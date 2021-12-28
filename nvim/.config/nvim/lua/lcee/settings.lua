@@ -1,4 +1,8 @@
 local fn = vim.fn
+--Remap space as leader key
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 -----------------------------------------------------------------------------//
 -- Message output on vim actions {{{1
 -----------------------------------------------------------------------------//
@@ -46,40 +50,35 @@ vim.opt.fillchars = {
 -- Diff {{{1
 -----------------------------------------------------------------------------//
 -- Use in vertical diff mode, blank lines to keep sides aligned, Ignore whitespace changes
-vim.opt.diffopt = vim.opt.diffopt
-  + {
-    'vertical',
-    'iwhite',
-    'hiddenoff',
-    'foldcolumn:0',
-    'context:4',
-    'algorithm:histogram',
-    'indent-heuristic',
-  }
+vim.opt.diffopt = vim.opt.diffopt + {
+  'vertical',
+  'iwhite',
+  'hiddenoff',
+  'foldcolumn:0',
+  'context:4',
+  'algorithm:histogram',
+  'indent-heuristic',
+}
 -----------------------------------------------------------------------------//
 -- Format Options {{{1
 -----------------------------------------------------------------------------//
-vim.opt.formatoptions = {
-  ['1'] = true,
-  ['2'] = true, -- Use indent from 2nd line of a paragraph
-  q = true, -- continue comments with gq"
-  c = true, -- Auto-wrap comments using textwidth
-  r = true, -- Continue comments when pressing Enter
-  n = true, -- Recognize numbered lists
-  t = false, -- autowrap lines using text width value
-  j = true, -- remove a comment leader when joining lines.
-  -- Only break if the line was not longer than 'textwidth' when the insert
-  -- started and only at a white character that has been entered during the
-  -- current insert command.
-  l = true,
-  v = true,
-}
+-- TODO: w, {v, b, l}
+vim.opt.formatoptions = vim.opt.formatoptions
+  - 'a' -- Auto formatting is BAD.
+  - 't' -- Don't auto format my code. I got linters for that.
+  + 'c' -- In general, I like it when comments respect textwidth
+  + 'q' -- Allow formatting comments w/ gq
+  - 'o' -- O and o, don't continue comments
+  + 'r' -- But do continue when pressing enter.
+  + 'n' -- Indent past the formatlistpat, not underneath it.
+  + 'j' -- Auto-remove comments if possible.
+  - '2' -- I'm not in gradeschool anymore
 -----------------------------------------------------------------------------//
 -- Folds {{{1
 -----------------------------------------------------------------------------//
 vim.opt.foldtext = 'v:lua.as.folds()'
 vim.opt.foldopen = vim.opt.foldopen + 'search'
-vim.opt.foldlevelstart = 3
+vim.opt.foldlevelstart = 5
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldmethod = 'expr'
 -----------------------------------------------------------------------------//
@@ -103,7 +102,7 @@ vim.opt.foldmethod = 'expr'
 -- Wild and file globbing stuff in command mode {{{1
 -----------------------------------------------------------------------------//
 -- vim.opt.wildcharm = fn.char2nr(lcee.replace_termcodes [[<Tab>]])
-vim.opt.wildmode = 'longest:full,full' -- Shows a menu bar as opposed to an enormous list
+vim.opt.wildmode = { 'longest', 'list', 'full' } -- Shows a menu bar as opposed to an enormous list
 vim.opt.wildignorecase = true -- Ignore case when completing file names and directories
 -- Binary
 vim.opt.wildignore = {
@@ -138,14 +137,19 @@ vim.opt.pumblend = 3 -- Make popup window translucent
 -- Display {{{1
 -----------------------------------------------------------------------------//
 vim.opt.conceallevel = 2
+vim.opt.cc = '80'
+vim.opt.equalalways = true
 vim.opt.breakindentopt = 'sbr'
 vim.opt.linebreak = true -- lines wrap at words rather than random characters
 vim.opt.synmaxcol = 1024 -- don't syntax highlight long lines
 -- FIXME: use 'auto:2-4' when the ability to set only a single lsp sign is restored
 --@see: https://github.com/neovim/neovim/issues?q=set_signs
+vim.opt.relativenumber = true -- Show line numbers
+vim.opt.number = true -- But show the actual number for the line we're on
 vim.opt.signcolumn = 'yes:2'
 vim.opt.ruler = false
-vim.opt.cmdheight = 2 -- Set command line height to two lines
+vim.opt.showcmd = true
+vim.opt.cmdheight = 1 -- Set command line height to two lines
 vim.opt.showbreak = [[↪ ]] -- Options include -> '…', '↳ ', '→','↪ '
 --- This is used to handle markdown code blocks where the language might
 --- be set to a value that isn't equivalent to a vim filetype
@@ -170,13 +174,15 @@ vim.opt.listchars = {
 -----------------------------------------------------------------------------//
 -- Indentation
 -----------------------------------------------------------------------------//
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.wrapmargin = 2
 vim.opt.textwidth = 80
 vim.opt.autoindent = true
+vim.opt.cindent = true
 vim.opt.shiftround = true
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 -----------------------------------------------------------------------------//
 -- vim.o.debug = "msg"
 --- NOTE: remove this once 0.6 lands, it is now default
@@ -187,7 +193,7 @@ vim.opt.confirm = true -- make vim prompt me to save before doing destructive th
 vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.opt.hlsearch = false
 vim.opt.autowriteall = true -- automatically :write before running commands and changing files
-vim.opt.clipboard = { 'unnamedplus' }
+-- vim.opt.clipboard = { 'unnamedplus' }
 vim.opt.laststatus = 2
 vim.opt.termguicolors = true
 vim.opt.guifont = 'Fira Code Regular Nerd Font Complete Mono:h14'
@@ -200,7 +206,7 @@ vim.opt.guifont = 'Fira Code Regular Nerd Font Complete Mono:h14'
 vim.opt.emoji = false
 -----------------------------------------------------------------------------//
 --- NOTE: remove this once 0.6 lands, it is now default
-vim.opt.inccommand = 'nosplit'
+vim.opt.inccommand = 'split'
 -----------------------------------------------------------------------------//
 -- Cursor {{{1
 -----------------------------------------------------------------------------//
@@ -210,6 +216,7 @@ vim.opt.guicursor = {
   [[a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor]],
   [[sm:block-blinkwait175-blinkoff150-blinkon175]],
 }
+vim.opt.cursorline = true
 
 -- vim.opt.cursorlineopt = 'screenline,number'
 -----------------------------------------------------------------------------//
@@ -233,6 +240,7 @@ vim.opt.sessionoptions = {
 }
 vim.opt.viewoptions = { 'cursor', 'folds' } -- save/restore just these (with `:{mk,load}view`)
 vim.opt.virtualedit = 'block' -- allow cursor to move where there is no text in visual block mode
+vim.opt.belloff = 'all' -- Just turn the dang bell off
 -----------------------------------------------------------------------------//
 -- Shada (Shared Data)
 -----------------------------------------------------------------------------//
@@ -247,9 +255,7 @@ vim.opt.shada = "!,'0,f0,<50,s10,h"
 -------------------------------------------------------------------------------
 vim.opt.backup = false
 vim.opt.writebackup = false
-if fn.isdirectory(vim.o.undodir) == 0 then
-  fn.mkdir(vim.o.undodir, 'p')
-end
+vim.opt.undodir = vim.fn.getenv 'HOME' .. '/.vim/undodir'
 vim.opt.undofile = true
 vim.opt.swapfile = false
 -- The // at the end tells Vim to use the absolute path to the file to create the swap file.
@@ -276,10 +282,11 @@ vim.opt.spellsuggest:prepend { 12 }
 vim.opt.spelloptions = 'camel'
 vim.opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
 vim.opt.fileformats = { 'unix', 'mac', 'dos' }
+vim.opt.spelllang = 'pt,en_us'
 -----------------------------------------------------------------------------//
 -- Mouse {{{1
 -----------------------------------------------------------------------------//
-vim.opt.mouse = 'a'
+vim.opt.mouse = 'n'
 vim.opt.mousefocus = true
 -----------------------------------------------------------------------------//
 -- these only read ".vim" files

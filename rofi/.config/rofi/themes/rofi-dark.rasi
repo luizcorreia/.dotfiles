@@ -4,7 +4,7 @@
  */
 
 * {
-    font: "Mononoki Nerd Font 10";
+    font: "Mononoki Nerd Font 16";
     background: #141c21;
     background-color: @background;
     foreground: #bdcfe3;
