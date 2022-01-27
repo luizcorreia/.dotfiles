@@ -367,7 +367,7 @@ assign [class="Liferea"]                    $ws9
 assign [class="discord"]                    $ws3
 assign [class="Slack"]                      $ws3
 assign [class="Thunderbird"]                $ws4
-assign [class="Evolution"]                $ws4
+assign [class="Evolution"]                  $ws4
 assign [class="brave-browser"]              $ws11
 assign [class="mpv"]                        $ws13
 assign [class="Evernote"]                   $ws6
@@ -408,7 +408,7 @@ for_window [class="Yad"]                    $float, position center
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/wallpaper-1_2048x1174.jpg
+# exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/wallpaper-1_2048x1174.jpg
 
 # polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh --cuts
@@ -446,12 +446,14 @@ exec --no-startup-id xrandr --output HDMI-0 --left-of DP-0 --rotate left
 exec ~/bin/lock.sh
 
 exec --no-startup-id discord
-exec --no-startup-id discord-ptb                                                                         │
+exec --no-startup-id opera
+exec --no-startup-id brave-browser
+# exec --no-startup-id discord-ptb                                                                         │
 exec --no-startup-id slack                                                                               │
-exec --no-startup-id thunderbird
 exec --no-startup-id Thunderbird
 exec --no-startup-id Evernote-Beta
 exec --no-startup-id dropbox start
+exec --no-startup-id nextcloud
 
 
 ## Base16ish Breeze dark
