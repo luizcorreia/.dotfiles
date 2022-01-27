@@ -5,9 +5,6 @@ vim.g.vim_dir = vim.g.dotfiles .. '/.config/nvim'
 
 pcall(require, 'impatient')
 
-if require 'lcee.first_load'() then
-  return
-end
 -- initialize global object for config
 global = {}
 
@@ -22,9 +19,11 @@ end
 
 R 'lcee.globals'
 R 'lcee.settings'
+R 'lcee.keymaps'
+R 'lcee.plugins'
 -- R 'options'
 R 'lcee.mappings'
-R 'plugins'
+-- R 'plugins'
 R 'lcee.disable_builtin'
 R 'theme'
 -- R("tmux")
