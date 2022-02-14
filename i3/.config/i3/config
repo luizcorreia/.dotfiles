@@ -59,6 +59,9 @@ gaps outer 2
 workspace 1 gaps inner 0
 workspace 1 gaps outer 0
 workspace 1 gaps top 6
+workspace 11 gaps inner 0
+workspace 11 gaps outer 0
+workspace 11 gaps top 6
 # 8 virtual machines
 workspace 8 gaps inner 0
 workspace 8 gaps outer 0
@@ -343,9 +346,9 @@ bindsym $alt+Shift+2 move container to workspace $ws12
 bindsym $alt+Shift+3 move container to workspace $ws13
 
 # Automatically putting workspaces on specific screens
-#workspace $ws11 output left
-#workspace $ws12 output left
-#workspace $ws13 output left
+workspace 11 output HDMI-0
+workspace 12 output HDMI-0
+workspace 13 output HDMI-0
 
 # ===================================================================
 # Workspaces Assignment
@@ -353,7 +356,7 @@ bindsym $alt+Shift+3 move container to workspace $ws13
 # Automatically make a specific window show up on a specific workspace
 # command for get window class name: xprop | awk '/WM_CLASS/{print $4}'
 #assign [class="URxvt"]                      $ws1
-assign [class="firefox"]                    $ws1
+assign [class="firefox"]                    $ws6
 assign [class="opera"]                      $ws1
 assign [class="Pcmanfm"]                    $ws7
 assign [class="Zathura"]                    $ws5
@@ -369,7 +372,8 @@ assign [class="Slack"]                      $ws3
 assign [class="Thunderbird"]                $ws4
 assign [class="Evolution"]                  $ws4
 assign [class="brave-browser"]              $ws11
-assign [class="mpv"]                        $ws13
+# assign [class="mpv"]                        $ws13
+assign [class="Microsoft Teams - Preview"]  $ws13
 assign [class="Evernote"]                   $ws6
 
 # QEMU virt-manager
@@ -394,6 +398,7 @@ for_window [class="pinentry-gtk-2"]         $float
 for_window [class="splash"]                 $float
 for_window [class="toolbar"]                $float
 for_window [class="Yad"]                    $float, position center
+for_window [class="mpv"]                    $float, position center
 
 # ===================================================================
 # Start Up commands
@@ -448,9 +453,10 @@ exec ~/bin/lock.sh
 exec --no-startup-id discord
 exec --no-startup-id opera
 exec --no-startup-id brave-browser
+exec --no-startup-id telegram-desktop
 # exec --no-startup-id discord-ptb                                                                         │
 exec --no-startup-id slack                                                                               │
-exec --no-startup-id Thunderbird
+exec --no-startup-id thunderbird
 exec --no-startup-id Evernote-Beta
 exec --no-startup-id dropbox start
 exec --no-startup-id nextcloud
