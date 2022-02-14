@@ -457,6 +457,8 @@ exec --no-startup-id telegram-desktop
 # exec --no-startup-id discord-ptb                                                                         │
 exec --no-startup-id slack                                                                               │
 exec --no-startup-id thunderbird
+# exec --no-startup-id discord-ptb                                                                         │
+exec --no-startup-id slack                                                                               │
 exec --no-startup-id Evernote-Beta
 exec --no-startup-id dropbox start
 exec --no-startup-id nextcloud
