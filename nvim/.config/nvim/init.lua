@@ -3,8 +3,6 @@ vim.g.open_command = vim.g.os == 'Darwin' and 'open' or 'xdg-open'
 vim.g.dotfiles = vim.env.DOTFILES or vim.fn.expand '~/.dotfiles'
 vim.g.vim_dir = vim.g.dotfiles .. '/.config/nvim'
 
-pcall(require, 'impatient')
-
 -- initialize global object for config
 global = {}
 

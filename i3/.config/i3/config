@@ -369,6 +369,7 @@ assign [class="vlc"]                        $ws6
 assign [class="Liferea"]                    $ws9
 assign [class="discord"]                    $ws3
 assign [class="Slack"]                      $ws3
+assign [class="TelegramDesktop"]            $ws3
 assign [class="Thunderbird"]                $ws4
 assign [class="Evolution"]                  $ws4
 assign [class="brave-browser"]              $ws11
