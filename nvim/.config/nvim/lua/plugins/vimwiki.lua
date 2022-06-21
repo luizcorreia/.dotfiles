@@ -8,9 +8,11 @@ u.map('n', '<Leader>t', '<cmd>MakeTodo()<CR>')
 
 -- vim.api.nvim_set_keymap("n", "<leader>wd", '<cmd>lua R("wiki").make_diary_entry()<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap("n", "<leader>wt", '<cmd>lua R("wiki").make_todo()<CR>', { noremap = true })
-vim.g.vimwiki_list = { { path = '~/Dropbox/wiki', syntax = 'markdown', ext = '.wiki' } }
+vim.g.vimwiki_list = { { path = '~/Documents/wiki', syntax = 'markdown', ext = '.wiki' } }
 vim.g.vimwiki_global_ext = 0
-
--- vim.g.vimwiki_markdown_link_ext = false
--- vim.g.taskwiki_markup_syntax = 'markdown'
--- vim.g.markdown_folding = 1
+vim.g.vimwiki_ext2syntax = {
+  ['.wiki'] = 'markdown',
+  ['.md'] = 'markdown',
+  ['.markdown'] = 'markdown',
+  ['.mdown'] = 'markdown',
+}

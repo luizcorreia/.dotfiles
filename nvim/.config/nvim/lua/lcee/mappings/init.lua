@@ -37,7 +37,7 @@ for i = 1, 9 do
   u.map('t', '<leader>' .. i, '<C-\\><C-n>:lua require"bufferline".go_to_buffer(' .. i .. ')<CR>')
 end
 
-u.map('n', '<Leader>u', '<cmd>PackerUpdate<cr>')
+u.map('n', '<Leader>up', '<cmd>PackerUpdate<cr>')
 
 u.command('Rg', 'Telescope live_grep')
 u.command('BLines', 'Telescope current_buffer_fuzzy_find')
@@ -56,6 +56,7 @@ u.map('n', '<Leader>ff', "<cmd>:lua require('lcee.telescope').project_files()<CR
 u.map('n', '<Leader>fg', '<cmd>Rg<CR>')
 u.map('n', '<Leader>fo', '<cmd>History<CR>')
 u.map('n', '<Leader>sb', '<cmd>BLines<CR>')
+u.map('n', '<Leader>pb', '<cmd>Buffers<CR>')
 u.map('n', '<Leader>fc', '<cmd>BCommits<CR>')
 u.map('n', '<Leader>fs', '<cmd>LspSym<CR>')
 u.map('n', '-', "<cmd>:lua require('lcee.telescope').file_browser()<CR>")

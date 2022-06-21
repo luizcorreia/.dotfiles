@@ -12,6 +12,9 @@ addToPath $HOME/.cargo/bin
 addToPath $HOME/.rustup
 addToPath $HOME/tools/lua-language-server/bin/Linux
 addToPath $HOME/.ebcli-virtual-env/executables
+addToPath $HOME/.config/rofi/bin
+addToPath $HOME/.cargo/env
+addToPath $HOME/.local/share/solana/install/active_release/bin
 # ccache
 addToPathFront /usr/lib/ccache
 addToPath /home/luizcorreia/.local/share/gem/ruby/3.0.0/bin

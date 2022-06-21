@@ -10,13 +10,13 @@ if not lspconfig[server_name] then
   configs[server_name] = {
     default_config = {
       cmd = { bin_name, '--stdio' },
-      filetypes = { 'yaml', 'json', 'yml' },
+      filetypes = { 'yaml', 'yml' },
       root_dir = util.root_pattern('.spectral.yaml', '.spectral.yml'),
       single_file_support = true,
       settings = {
         enable = true,
         run = 'onType',
-        validateLanguages = { 'yaml', 'json', 'yml' },
+        validateLanguages = { 'yaml', 'yml' },
       },
     },
     docs = {

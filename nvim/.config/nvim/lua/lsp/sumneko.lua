@@ -5,7 +5,7 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 local root = vim.fn.getenv("HOME") .. "/tools/lua-language-server/"
-local binary = root .. "bin/Linux/lua-language-server"
+local binary = root .. "bin/lua-language-server"
 local settings = {
     Lua = {
         runtime = { version = "LuaJIT", path = runtime_path },

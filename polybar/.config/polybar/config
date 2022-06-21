@@ -132,7 +132,8 @@ module-margin-right = 1
 font-0 = "Mononoki Nerd Font:pixelsize=10;1"
 font-1 = "Iosevka Nerd Font:pixelsize=10;1"
 font-2 = "Material Icons:pixelsize=10;2"
-font-3 = "FontAwesome:pixelsize=8;1"
+font-3 = "Mononoki Nerd Font:pixelsize=10;1"
+;font-3 = "Font Awesome 6 Free:pixelsize=8;1"
 
 
 modules-left = i3
@@ -217,7 +218,7 @@ label-warn-foreground = ${colors.alert}
 
 [module/wired-network]
 type = internal/network
-interface = bond0
+interface = enp37s0
 interval = 3.0
 
 format-connected = <label-connected>
@@ -243,7 +244,7 @@ label-foreground = ${colors.foreground}
 
 
 [module/powermenu]
-type = custom/menu
+type = custom/text
 format-spacing = 1
 
 label-open = "  "
@@ -252,14 +253,7 @@ label-close = " undo"
 label-close-foreground = ${colors.primary}
 label-separator = |
 label-separator-foreground = ${colors.primary}
-
-menu-0-0 = lock
-menu-0-0-exec = xscreensaver-command -lock
-menu-0-1 = reboot
-menu-0-1-exec = reboot
-menu-0-2 = poweroff
-menu-0-2-exec = poweroff
-
+click-left = ~/.config/rofi/applets/menu/powermenu.sh &
 
 [module/volume]
 type = internal/pulseaudio

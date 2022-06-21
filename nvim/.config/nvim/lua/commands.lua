@@ -115,6 +115,8 @@ u.map('v', 'y', 'ygv<Esc>')
 -- Insert a newline in normal mode
 u.map('n', '<leader>o', 'm`o<Esc>``')
 
+u.map('n', '<leader>u', 'UndotreeShow<CR>')
+
 -- Keep search results centred
 u.map('n', 'n', 'nzzzv')
 u.map('n', 'N', 'Nzzzv')
@@ -127,6 +129,9 @@ u.map('x', '<Leader>p', '"_dP')
 u.map('n', '<Leader>y', '"+y')
 u.map('v', '<Leader>y', '"+y')
 u.map('n', '<Leader>Y', 'gg"+yG')
+
+u.map('n', '<Leader>d', '"_d')
+u.map('v', '<Leader>d', '"_d')
 
 u.lua_command('LineUp', 'global.commands.change_line_up()')
 u.lua_command('LineDown', 'global.commands.change_line_down()')

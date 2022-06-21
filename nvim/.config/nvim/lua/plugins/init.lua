@@ -193,7 +193,7 @@ return require('packer').startup(function()
 
   -- misc
   use 'teal-language/vim-teal'
-  -- use_with_config('nathom/filetype.nvim', 'filetype') -- greatly reduce startup time
+  use_with_config('nathom/filetype.nvim', 'filetype') -- greatly reduce startup time
   use_with_config('kosayoda/nvim-lightbulb', 'lightbulb')
 
   -- Undo helper
@@ -270,4 +270,7 @@ return require('packer').startup(function()
   -- vimwiki
   use { 'vimwiki/vimwiki', config = config 'vimwiki' }
   use 'tbabej/taskwiki'
+
+  -- GraphQL
+  use { 'jparise/vim-graphql' }
 end)
