@@ -10,7 +10,10 @@ local settings = {
     Lua = {
         runtime = { version = "LuaJIT", path = runtime_path },
         workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
+            checkThirdParty = false,
+            library = {
+                ["${3rd}/love2d/library"] = true,
+            },
         },
         diagnostics = {
             enable = true,
@@ -30,15 +33,29 @@ local settings = {
 
 local M = {}
 M.setup = function(on_attach, capabilities)
-    lspconfig.sumneko_lua.setup({
-        on_attach = on_attach,
-        cmd = { binary, "-E", root .. "main.lua" },
-        settings = settings,
-        flags = {
-            debounce_text_changes = 150,
+    local luadev = require("lua-dev").setup({
+        lspconfig = {
+            on_attach = on_attach,
+            settings = settings,
+            flags = {
+                debounce_text_changes = 150,
+            },
+            capabilities = capabilities,
         },
-        capabilities = capabilities,
     })
+    require("lspconfig").sumneko_lua.setup(luadev)
 end
+-- M.setup = function(on_attach, capabilities)
+--     lspconfig.sumneko_lua.setup({
+--         on_attach = on_attach,
+--         cmd = { binary, "-E", root .. "main.lua" },
+--         settings = settings,
+--         flags = {
+--             debounce_text_changes = 150,
+--         },
+--         capabilities = capabilities,
+--     })
+-- end
 
 return M
+

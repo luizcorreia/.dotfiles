@@ -1,0 +1,4 @@
+#!/bin/bash
+xrandr --listmonitors | grep "^ " | cut -f 6 -d' ' | \
+xargs --replace=MONITOR xrandr --output MONITOR --brightness 1
+betterlockscreen -l dim

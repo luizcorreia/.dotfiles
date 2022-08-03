@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 #addToPathFront $DENO_INSTALL
-addToPath /home/luizcorreia/tools/lua-language-server/bin/Linux
 addToPath /usr/local/go/bin
 addToPath $HOME/go/bin
 addToPath $GOPATH/bin
@@ -10,11 +9,13 @@ addToPath $HOME/.yarn/bin
 addToPath /usr/lib/llvm-8/bin
 addToPath $HOME/.cargo/bin
 addToPath $HOME/.rustup
-addToPath $HOME/tools/lua-language-server/bin/Linux
+addToPath $HOME/tools/lua-language-server/bin
 addToPath $HOME/.ebcli-virtual-env/executables
 addToPath $HOME/.config/rofi/bin
 addToPath $HOME/.cargo/env
 addToPath $HOME/.local/share/solana/install/active_release/bin
+addToPath $HOME/Android/Sdk
+addToPath $HOME/Android/Sdk/platform-tools
 # ccache
 addToPathFront /usr/lib/ccache
 addToPath /home/luizcorreia/.local/share/gem/ruby/3.0.0/bin

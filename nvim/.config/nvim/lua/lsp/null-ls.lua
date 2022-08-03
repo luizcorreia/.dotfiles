@@ -1,7 +1,6 @@
 local null_ls = require 'null-ls'
+local h = require("null-ls.helpers")
 local b = null_ls.builtins
-
-local diagnostics_code_template = "#{m} [#{c}]"
 
 local with_root_file = function(...)
   local files = { ... }
@@ -10,61 +9,98 @@ local with_root_file = function(...)
   end
 end
 
-local sources = {
-  -- formatting
-  spectral = {
-    method = null_ls.methods.DIAGNOSTICS,
-    filetypes = {
-      'json',
-      'yaml',
-    },
-    generator = null_ls.formatter {
-      to_stdin = true,
-      ignore_stderr = true,
-      command = 'spectral',
-      args = {
-        'lint',
-      },
-    },
-  },
-  b.formatting.prettier,
-  b.formatting.stylua.with {
-    condition = function(utils)
-      return utils.root_has_file 'stylua.toml'
-    end,
-  },
-  b.formatting.trim_whitespace.with { filetypes = { 'tmux', 'teal', 'zsh' } },
-  b.formatting.shfmt,
-  -- b.formatting.stylua,
-  -- b.formatting.eslint_d.with({
-  -- 	filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-  -- condition = function(utils)
-  -- return utils.root_has_file(".git") or utils.root_has_file(".eslintrc")
-  -- end,
-  -- }),
+local spectral = {                                                
+  method = null_ls.methods.DIAGNOSTICS,                           
+  filetypes = {                                                   
+    'json',                                                       
+    'yaml',                                                       
+  },                                                              
+  id = 42,                                                        
+  generator = h.generator_factory {                               
+    to_stdin = true,                                              
+    ignore_stderr = true,                                         
+    command = 'spectral',                                         
+    args = {                                                      
+      'lint',                                                     
+      '--stdin-filepath',                                         
+      '-f',                                                       
+      'json',                                                     
+    },                                                            
+    format = 'json',                                              
+    asunc = true,                                                 
+    from_stderr = true,                                           
+    check_exit_code = function(code)                              
+        return code <= 1                                          
+    end,                                                          
+    on_output = function (params, done)                           
+      local diags = {}                                            
+      for _, d in ipairs(params.output) do                        
+        table.insert(diags, {                                     
+          row = d.range.start.line,                               
+          col = d.range.start.character,                          
+          -- end_row = d.range[1].line,                           
+          -- end_col = d.range[1].character,                      
+          source = "Spectral",                                    
+          message = d.message,                                    
+          severity = d.severity,                                  
+          code = d.code,                                          
+          path = d.path,                                          
+        })                                                        
+      end                                                         
+      return done(diags)                                          
+    end,                                                          
+    -- on_output = h.diagnostics.from_pattern(                    
+    --     {                                                      
+    --         pattern = "(%d+):(%d+)%s+(%w+)%s+([%w-]+)%s+(.*)", 
+    --         groups = { "row", "col", "severity", "message" },  
+    --     },                                                     
+    --     {                                                      
+    --         severities = {                                     
+    --             error = h.diagnostics.severities["error"],     
+    --             warning = h.diagnostics.severities["warning"], 
+    --         },                                                 
+    --     }                                                      
+    -- ),                                                         
+  },                                                              
+}                                                                 
+                                                                  
+require("null-ls").register(spectral)                             
 
-  -- diagnostics
-  b.diagnostics.write_good,
-  b.diagnostics.markdownlint.with { filetypes = { 'markdown', 'vimwiki' } },
-  b.diagnostics.teal,
-  b.diagnostics.shellcheck.with({
-    diagnostics_format = diagnostics_code_template,
-  }),
-  -- code actions
-  b.code_actions.gitsigns,
-  b.code_actions.gitrebase,
-  -- hover
-  b.hover.dictionary,
+
+local sources = {
+    -- formatting
+    b.formatting.prettier,
+    b.formatting.fish_indent,
+    b.formatting.shfmt,
+    b.formatting.clang_format,
+    b.formatting.trim_whitespace.with({
+        filetypes = { "tmux", "snippets" },
+    }),
+    b.formatting.stylua.with({
+        condition = with_root_file("stylua.toml"),
+    }),
+    -- diagnostics
+    b.diagnostics.selene.with({
+        condition = with_root_file("selene.toml"),
+    }),
+    b.diagnostics.write_good,
+    b.diagnostics.markdownlint,
+    -- code actions
+    b.code_actions.gitsigns,
+    b.code_actions.gitrebase,
+    -- hover
+    b.hover.dictionary,
 }
 
 local M = {}
 M.setup = function(on_attach)
-  null_ls.setup {
-    -- debug = true,
-    sources = sources,
-    on_attach = on_attach,
-  }
-  -- require('lspconfig')['null-ls'].setup { on_attach = on_attach }
+    if not vim.g.started_by_firenvim then
+        null_ls.setup({
+            -- debug = true,
+            sources = sources,
+            on_attach = on_attach,
+        })
+    end
 end
 
 return M

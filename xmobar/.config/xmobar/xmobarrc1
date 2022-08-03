@@ -24,7 +24,7 @@ Config { -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=t
                     -- Time and date
                     , Run Date "<fc=#83a598><fn=2>\xf017 </fn></fc>%b %d %Y - (%H:%M) " "date" 50
                       -- Network up and down
-                    , Run Network "enp43s0f3u2" ["-t", "<fc=#83a598><fn=2>\xf0ab </fn></fc><rx>kb  <fc=#83a598><fn=2>\xf0aa </fn></fc><tx>kb"] 20
+                    , Run Network "enp37s0" ["-t", "<fc=#83a598><fn=2>\xf0ab </fn></fc><rx>kb  <fc=#83a598><fn=2>\xf0aa </fn></fc><tx>kb"] 20
                       -- Cpu usage in percent
                     , Run Cpu ["-t", "<fc=#83a598><fn=2>\xf108 </fn></fc>cpu: (<total>%)","-H","50","--high","red"] 20
                       -- Ram used number and percent

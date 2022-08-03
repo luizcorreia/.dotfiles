@@ -63,7 +63,7 @@ Config {  -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=
                             , "--"
                               , "--used-icon-pattern" , "<icon=ram/ram_%%.xpm/>"
                             ] 10
-                   , Run Network "bond0" [ "--template" , "<txipat><rxipat>"
+                   , Run Network "enp37s0" [ "--template" , "<txipat><rxipat>"
                             , "--Low"      , "10000"   -- units: B/s
                             , "--High"     , "100000"  -- units: B/s
                             , "--low"      , "#b5bd68"
@@ -78,7 +78,7 @@ Config {  -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=
                          , ("us" , "<fc=#b5bd68>US</fc>")
                          ]
 
-                   , Run MPD [ "--template" , "<statei>"
+                   , Run MPD [ "--template" , "<statei> <title>"
                          , "--maxtwidth" , "0"
                          , "--"
                            , "--host" , "127.0.0.1"
@@ -87,10 +87,8 @@ Config {  -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=
                            , "-S" , "<icon=music/music_stopped.xpm/>" -- stopped
                          ] 10
 
-                   , Run Mail [ ("<fc=#a54242>Mail </fc>" , "~/.mail/gmail/Inbox")
-                          ] "mail"
                       -- Disk space free
-                   , Run WeatherX "SNDV" [ (""                        , "<fc=#5e8d87>?</fc>")
+                   , Run WeatherX "SBPR" [ (""                        , "<icon=weather/weather_mostly_sunny.xpm/>")
                          , ("clear"                   , "<icon=weather/weather_sunny.xpm/>")
                          , ("mostly clear"            , "<icon=weather/weather_mostly_sunny.xpm/>")
                          , ("sunny"                   , "<icon=weather/weather_sunny.xpm/>")
@@ -114,12 +112,12 @@ Config {  -- font    = "xft:Ubuntu Nerd Font:weight=bold:pixelsize=16:antialias=
                            , "--maxtwidth" , "18"
                            ] 36000
 
-                   , Run Date "%a %d/%m/%y <icon=seperators/seperator.xpm/> %T" "date" 10
+                   , Run Date "<fn=2>\xf017</fn> %a %d/%m/%y <icon=seperators/seperator.xpm/> %T" "date" 10
                       -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
                     , Run Com "/home/luizcorreia/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 24
                       -- The workspaces are 'clickable' in my configs.
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "  <fc=#83a598><icon=haskell_20.xpm/></fc> %UnsafeXMonadLog% }{<icon=seperators/seperator.xpm/> %cpu% <icon=seperators/seperator.xpm/> %multicoretemp% <icon=seperators/seperator.xpm/> %memory% <icon=seperators/seperator.xpm/> %bond0% <icon=seperators/seperator.xpm/> %kbd% <icon=seperators/seperator.xpm/>  %mail% <icon=seperators/seperator.xpm/> %mpd% <icon=seperators/seperator.xpm/> %SNDV% <icon=seperators/seperator.xpm/> %date% %trayerpad%"
+       , template = "  <fc=#83a598><icon=haskell_20.xpm/></fc> %UnsafeXMonadLog% }{<icon=seperators/seperator.xpm/> %cpu% <icon=seperators/seperator.xpm/> %multicoretemp% <icon=seperators/seperator.xpm/> %memory% <icon=seperators/seperator.xpm/> %enp37s0% <icon=seperators/seperator.xpm/> %kbd% <icon=seperators/seperator.xpm/>  %mpd% <icon=seperators/seperator.xpm/> %SBPR% <icon=seperators/seperator.xpm/> %date% %trayerpad%"
        }

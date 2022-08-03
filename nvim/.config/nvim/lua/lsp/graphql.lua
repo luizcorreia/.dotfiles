@@ -12,3 +12,4 @@ M.setup = function(on_attach, capabilities, root_pattern)
 end
 
 return M
+

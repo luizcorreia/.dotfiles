@@ -1,0 +1,5 @@
+require("lcee.set")
+require("lcee.packer")
+require("lcee.keymap")
+require("lcee.commands")
+require("lcee.colors")
