@@ -116,7 +116,7 @@ myBrowser :: String
 myBrowser = "opera"  -- Sets qutebrowser as browser
 
 myAltBrowser :: String
-myAltBrowser = "brave"  -- Sets qutebrowser as browser
+myAltBrowser = "google-chrome"  -- Sets qutebrowser as browser
 
 myEditor :: String
 myEditor = myTerminal ++ " -e nvim "    -- Sets nvim as editor
@@ -151,22 +151,23 @@ fixSupportedAtoms = withDisplay $ \dpy -> do
 
 myStartupHook :: X ()
 myStartupHook = do
+    spawnOnce "exec ~/init.sh" 
     spawn "killall trayer"  -- kill current trayer on each restart
-    spawnOnce "xrdb -merge -I $HOME ~/.Xresources"
-    spawnOnce "lxsession"
-    spawnOnce "picom --experimental-backends"
-    spawnOnce "nm-applet"
+    -- spawnOnce "xrdb -merge -I $HOME ~/.Xresources"
+    -- spawnOnce "lxsession"
+    -- spawnOnce "picom --experimental-backends"
+    -- spawnOnce "nm-applet"
 --    spawnOnce "volumeicon"
-    spawnOnce "pcmanfm -d"
+    -- spawnOnce "pcmanfm -d"
 
     spawn ("sleep 2 && trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 " ++ colorTrayer ++ " --height 40")
-    spawn "xsetroot -cursor_name left_ptr"
-    spawn "xmodmap -e 'pointer = 1 2 3'"
-    spawn "exec ~/.local/bin/lock"
-    spawnOnce "tmux new-session -s luizcorreia -d"
-    spawnOnce "tmux_start"
-    spawnOnce "dunst"
-    spawnOnce "nitrogen --restore"   -- if you prefer nitrogen to feh
+    -- spawn "xsetroot -cursor_name left_ptr"
+    -- spawn "xmodmap -e 'pointer = 1 2 3'"
+    -- spawn "exec ~/.local/bin/lock"
+    -- spawnOnce "tmux new-session -s luizcorreia -d"
+    -- spawnOnce "tmux_start"
+    -- spawnOnce "dunst"
+    -- spawnOnce "nitrogen --restore"   -- if you prefer nitrogen to feh
     spawnOnce "Discord"
     spawnOnce "telegram-desktop"
     spawnOnce "flatpak run com.slack.Slack"
@@ -417,10 +418,14 @@ myManageHook = (composeAll . concat $
      , [ className =? "pinentry-gtk-2"  --> doFloat                            ]
      , [ className =? "splash"          --> doFloat                            ]
      , [ className =? "toolbar"         --> doFloat                            ]
+     , [ className =? "scrcpy"          --> doFloat                            ]
+     , [ title =? "Picture-in-picture"  --> doFloat                            ]
      , [ className =? "Yad"             --> doCenterFloat                      ]
      , [ title =? "Oracle VM VirtualBox Manager"  --> doFloat                  ]
      , [ title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 0 )      ]
+     , [ className =? "Opera"           --> doShift ( myWorkspaces !! 0 )      ]
      , [ className =? "Pcmanfm"         --> doShift ( myWorkspaces !! 6 )      ]
+     , [ className =? "Thunar"         --> doShift ( myWorkspaces !! 6 )       ]
      , [ className =? "Google-chrome"   --> doShift ( myWorkspaces !! 8 )      ]
      , [ className =? "qutebrowser"     --> doShift ( myWorkspaces !! 8 )      ]
      , [ className =? "mpv"             --> doShift ( myWorkspaces !! 7 )      ]
