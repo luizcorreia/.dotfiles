@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 
-#addToPathFront $DENO_INSTALL
+### PATH
+if [ -d "$HOME/.bin" ]; then
+	addToPath $HOME/.bin
+fi
+
+if [ -d "$HOME/.local/bin" ]; then
+	addToPath $HOME/.local/bin
+fi
+
+if [ -d "$HOME/Applications" ]; then
+	addToPath $HOME/Applications
+fi
+
 addToPath /usr/local/go/bin
 addToPath $HOME/go/bin
 addToPath $GOPATH/bin

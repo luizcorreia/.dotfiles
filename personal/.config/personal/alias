@@ -3,6 +3,8 @@ alias vim="$VIM"
 alias work="cd ~/work"
 alias python=python3
 alias curl='noglob curl'
+alias cat=bat
+alias find=fd
 
 alias pjson="python -mjson.tool"
 alias killBT="rfkill block bluetooth"
@@ -14,16 +16,32 @@ alias echotime="~/dotfiles/apps/echo_time"
 alias livestream_screenkey="screenkey -s large --scr 2 -p bottom --geometry 1210x300+712+810"
 alias yt_screenkey="screenkey -s large --scr 1 -p bottom --geometry 510x300+1412+850"
 alias lua=/usr/local/bin/lua
-alias vi=/usr/bin/nvim
+alias vi=nvim
 # Taskwarrior GTD alias
-alias in='task add +in'
-tickle() {
-	deadline=$1
-	shift
-	in +tickle wait:$deadline $@
-}
-alias tick=tickle
-alias think='tickle +1d'
-alias lc='colorls -lA --sd'
-alias lt='colorls -lA --tree'
-alias lg='colorls -A --sd --gs'
+
+# Changing "ls" to "exa"
+alias ls='exa -al --color=always --group-directories-first' # my preferred listing
+alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first'  # long format
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias l.='exa -a | egrep "^\."'
+
+# Merge Xresources
+alias merge='xrdb -merge ~/.Xresources'
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
+# switch between shells
+# I do not recommend switching default SHELL from bash.
+alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
+alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
+alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
+
+# the terminal rickroll
+alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+
+# get error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
