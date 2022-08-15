@@ -187,6 +187,8 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "taskwarrior" spawnTaskwarrior findTaskwarrior manageTaskwarrior
                 , NS "tasks" spawnTasks findTasks manageTasks
                 , NS "pavucontrol" spawnPavucontrol findPavucontrol managePavucontrol
+                , NS "qutebrowser" spawnCalendar findCalendar manageCalendar
+                , NS "gcalcli" spawnGcalcli findGcalcli manageGcalcli
                 ]
   where
     role = stringProperty "WM_WINDOW_ROLE"
@@ -208,6 +210,24 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.9
                  t = 0.95 -h
                  l = 0.95 -w
+
+    spawnCalendar = "qutebrowser https://calendar.google.com/calendar"
+    findCalendar = className =? "qutebrowser"
+    manageCalendar = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.9
+                 w = 0.9
+                 t = 0.95 -h
+                 l = 0.95 -w
+
+    spawnGcalcli  = myTerminal ++ " --title gcalcli -e tmux attach-session -t gcalcli"
+    findGcalcli   = title =? "gcalcli"
+    manageGcalcli = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.5
+                 w = 0.4
+                 t = 0.75 -h
+                 l = 0.70 -w
 
     spawnTaskwarrior  = myTerminal ++ " --title taskwarrior -e tasksh"
     findTaskwarrior   = title =? "taskwarrior"
@@ -432,6 +452,7 @@ myManageHook = (composeAll . concat $
      , [ className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )      ]
      , [ className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )  ]
      , [ (className =? "firefox" <&&> resource =? "Dialog") --> doFloat        ] -- Float Firefox Dialog
+     , [ title =? "Bitwarden - Opera" --> doFloat  ] 
      , [ (className =? "thunar" <&&> resource =? "Dialog") --> doFloat         ] 
      , [ isFullscreen -->  doFullFloat                                         ]
      , [ className =? "discord"         --> doShift ( myWorkspaces !! 2 )      ]
@@ -450,9 +471,9 @@ myKeys =
         , ("M-S-/", spawn "~/.config/xmonad/xmonad_keys.sh")
 
     -- KB_GROUP Run Prompt
-        -- , ("M-S-<Return>", spawn "dmenu_run -i -p \"Run: \"") -- Dmenu
-        , ("M-p", spawn ("rofi -no-lazy-grab -show run -modi run -drun-reload-desktop-cache -show-icons -terminal alacritty"))
-        , ("M-d", spawn "rofi -no-lazy-grab -show drun -modi drun -drun-reload-desktop-cache -show-icons -terminal alacritty")
+        , ("M-d", spawn "dmenu_run -i -p \"Run: \"") -- Dmenu
+        , ("M-p", spawn ("rofi -no-lazy-grab -show drun -modi run -drun-reload-desktop-cache -show-icons -terminal alacritty"))
+        -- , ("M-d", spawn "rofi -no-lazy-grab -show drun -modi drun -drun-reload-desktop-cache -show-icons -terminal alacritty")
         -- , ("M-d", dmenuRun) 
     -- KB_GROUP Other Dmenu Prompts
     -- In Xmonad and many tiling window managers, M-p is the default keybinding to
@@ -564,6 +585,8 @@ myKeys =
         , ("M-s w", namedScratchpadAction myScratchPads "taskwarrior")
         , ("M-s s", namedScratchpadAction myScratchPads "tasks")
         , ("M-s p", namedScratchpadAction myScratchPads "pavucontrol")
+        , ("M-s a", namedScratchpadAction myScratchPads "gcalcli")
+        -- , ("M-s a", namedScratchpadAction myScratchPads "qutebrowser")
 
     -- KB_GROUP Controls for mocp music player (SUPER-u followed by a key)
         , ("M-u p", spawn "mocp --play")
