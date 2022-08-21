@@ -150,6 +150,7 @@ for _, server in ipairs({
     "pyright",
     "sumneko",
     "tsserver",
+    "rust_analyzer",
 }) do
     require("lsp." .. server).setup(on_attach, capabilities)
 end

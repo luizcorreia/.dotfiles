@@ -74,6 +74,32 @@ keymap('v', '<A-j>', ':m .+1<CR>==', opts)
 keymap('v', '<A-k>', ':m .-2<CR>==', opts)
 keymap('v', 'p', '"_dP', opts)
 
+vim.keymap.set(
+    'n',
+  "<M-j>",
+  function()
+    if vim.opt.diff:get() then
+      vim.cmd [[normal! ]c]]
+    else
+      vim.cmd [[m .+1<CR>==]]
+    end
+  end,
+    opts
+)
+
+vim.keymap.set(
+    'n',
+  "<M-k>",
+  function()
+    if vim.opt.diff:get() then
+      vim.cmd [[normal! [c]]
+    else
+      vim.cmd [[m .-2<CR>==]]
+    end
+  end,
+    opts
+)
+
 -- Visual Block --
 -- Move text up and down
 keymap('x', 'J', ":move '>+1<CR>gv-gv", opts)
