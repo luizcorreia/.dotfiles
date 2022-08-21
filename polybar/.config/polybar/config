@@ -27,9 +27,9 @@ alert = ${xrdb:color1:#3B4252}
 ; bar settings
 ;==========================================================
 [bar/base]
-dpi      = 192
+;dpi      = 192
 width = 100%
-height = 42
+height = 24
 offset-x = 0
 offset-y = 0
 fixed-center = false
@@ -59,9 +59,9 @@ modules-left = i3
 modules-right = volume gpu cpu temperature memory wired-network date powermenu
 
 wm-name = i3
-click-right = kitty -e nvim ~/.config/polybar/config
+click-right = alacritty -e nvim ~/.config/polybar/config
 
-locale = en_US.UTF-8
+;locale = en_US.UTF-8
 
 tray-position = right
 tray-detached = false
@@ -70,14 +70,14 @@ tray-padding = 0
 
 ;;;;; BAR MONITOR2
 [bar/bar2]
-dpi      = 192
+;dpi      = 192
 width = 100%
-height = 42
+height = 24
 offset-x = 0
 offset-y = 0
 fixed-center = false
 ;monitor = ${env:MONITOR:HDMI-1}
-monitor = HDMI-0
+;monitor = HDMI-0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -103,13 +103,13 @@ modules-right  = music previous playpause next paddinglite volume date
 
 wm-name = i3
 
-locale = en_US.UTF-8
+;locale = en_US.UTF-8
 
 
 ;;;;;; BAR NOTE
 [bar/note]
 width = 100%
-height = 28}
+height = 24
 offset-x = 0
 offset-y = 0
 fixed-center = false
@@ -140,8 +140,6 @@ modules-left = i3
 modules-right  = music previous playpause next paddinglite volume cpu temperature memory wired-network date powermenu 
 
 wm-name = i3
-
-locale = en_US.UTF-8
 
 tray-position = right
 tray-detached = false
