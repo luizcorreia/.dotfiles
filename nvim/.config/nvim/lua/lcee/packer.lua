@@ -34,6 +34,7 @@ return require("packer").startup(function()
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/nvim-cmp")
+    use 'hrsh7th/cmp-path'
     use("tzachar/cmp-tabnine", { run = "./install.sh" })
     use("onsails/lspkind-nvim")
     use("nvim-lua/lsp_extensions.nvim")
@@ -77,7 +78,7 @@ return require("packer").startup(function()
         config = 'vim.cmd[[doautocmd BufEnter]]',
         run = 'cd app && yarn install',
         cmd = 'MarkdownPreview',
-      }
+    }
     use("b0o/schemastore.nvim") -- simple access to json-language-server schemae
 
     use("nvim-treesitter/playground")
@@ -92,11 +93,11 @@ return require("packer").startup(function()
             require('colorizer').setup()
         end,
     }
-  -- go
-  -- Go Lang Bundle
-  use { 'fatih/vim-go', run = 'GoInstallBinaries' }
-  -- highlights and allows moving between variable references
-  use 'RRethy/vim-illuminate'
+    -- go
+    -- Go Lang Bundle
+    use { 'fatih/vim-go', run = 'GoInstallBinaries' }
+    -- highlights and allows moving between variable references
+    use 'RRethy/vim-illuminate'
 
 
 end)

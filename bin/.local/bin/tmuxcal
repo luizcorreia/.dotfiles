@@ -1,0 +1,23 @@
+#!/bin/sh
+case "$1" in
+"cmus")
+	tmux has-session -t cmus 2>/dev/null
+	if [ $? != 0 ]; then
+		tmux new-session -d -s cmus \; \
+			send-keys 'cmux' C-m
+	fi
+	tmux attach-session -t cmus
+	;;
+"cal")
+	tmux has-session -t tasks 2>/dev/null
+	if [ $? != 0 ]; then
+		tmux new-session -d -s cal \; \
+			send-keys 'while true;do clear; gcalcli agenda ;sleep 900;done' C-m\; \
+			split-window -v -p 75 \; \
+			split-window -h -p 35 \; \
+			send-keys 'while true;do clear; gcalcli calm;sleep 900;done' C-m\; \
+			select-pane -t 1 \;
+	fi
+	tmux attach-session -t cal
+	;;
+esac

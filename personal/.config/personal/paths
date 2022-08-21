@@ -28,6 +28,9 @@ addToPath $HOME/.cargo/env
 addToPath $HOME/.local/share/solana/install/active_release/bin
 addToPath $HOME/Android/Sdk
 addToPath $HOME/Android/Sdk/platform-tools
+addToPath $HOME/android-studio/bin
+addToPath $HOME/.cargo/env
+
 # ccache
 addToPathFront /usr/lib/ccache
 addToPath /home/luizcorreia/.local/share/gem/ruby/3.0.0/bin

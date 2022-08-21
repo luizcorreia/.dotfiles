@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find /home/lcee/repos/personal /home/lcee/repos/smiles /home/lcee/repos/smiles/poc -mindepth 1 -maxdepth 1 -type d | fzf)
+	selected=$(find /home/luizcorreia/go/src /home/luizcorreia/repos/personal /home/luizcorreia/repos/smiles /home/luizcorreia/repos/smiles/poc -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

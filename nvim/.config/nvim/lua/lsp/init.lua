@@ -1,9 +1,8 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local u = require 'lcee.utils'
-local lspconfig = require('lspconfig')
 local protocol = vim.lsp.protocol
-local opts = { noremap = true, silent = true }
+local lsp = vim.lsp
 -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 -- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -37,7 +36,6 @@ protocol.CompletionItemKind = {
     ' TypeParameter', -- TypeParameter
 }
 
-local lsp = vim.lsp
 local border_opts = { border = "single", focusable = false, scope = "line" }
 vim.diagnostic.config({ virtual_text = false, float = border_opts })
 
@@ -66,19 +64,21 @@ end
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-local lsp_formatting = function(bufnr)
-    vim.lsp.buf.format({
-        filter = function(client)
-            -- apply whatever logic you want (in this example, we'll only use null-ls)
-            return client.name == "null-ls"
-        end,
-        bufnr = bufnr,
-    })
-end
+-- local lsp_formatting = function(bufnr)
+--     vim.lsp.lsp_formatting({
+--     -- vim.lsp.buf.format({
+--         filter = function(client)
+--             -- apply whatever logic you want (in this example, we'll only use null-ls)
+--             return client.name == "null-ls"
+--         end,
+--         bufnr = bufnr,
+--     })
+-- end
 
 -- local lsp_formatting = function(bufnr)
 --     local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
---     lsp.buf.format({
+--     vim.lsp.lsp_formatting({
+--         -- vim.lsp.buf.format({
 --         bufnr = bufnr,
 --         filter = function(client)
 --             if client.name == "eslint" then
@@ -117,10 +117,21 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
     vim.keymap.set('n', '[a', vim.diagnostic.goto_prev, bufopts)
     vim.keymap.set('n', ']a', vim.diagnostic.goto_next, bufopts)
 
+    -- if client.supports_method("textDocument/formatting") then
+    --     u.buf_command(bufnr, "LspFormatting", function()
+    --         lsp_formatting(bufnr)
+    --     end)
+
+    --     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    --     vim.api.nvim_create_autocmd("BufWritePre", {
+    --         group = augroup,
+    --         buffer = bufnr,
+    --         command = "LspFormatting",
+    --     })
+    -- end
     if client.supports_method("textDocument/formatting") then
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
         vim.api.nvim_create_autocmd("BufWritePre", {
