@@ -62,7 +62,7 @@ lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, confi
     return lsp.diagnostic.on_publish_diagnostics(nil, result, ctx, config)
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
 
 -- local lsp_formatting = function(bufnr)
 --     vim.lsp.lsp_formatting({
