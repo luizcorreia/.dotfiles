@@ -10,7 +10,8 @@
 # check the local terminfo database and use `alacritty` if it is
 # available, otherwise `xterm-256color` is used.
 env:
-  TERM: xterm-256color
+  TERM: alacritty
+  # TERM: xterm-256color
 window:
   padding:
     x: 6
@@ -34,109 +35,24 @@ scrolling:
 #tabspaces: 8
 # Font configuration
 font:
-  # Normal (roman) font face
   normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
-    # family: Source Code Pro
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    # family: JetBrains Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    family: TerminessTTF Nerd Font
-    # family: Mononoki Nerd Font
-    # The `style` can be specified to pick a specific face.
-    style: Regular
+    family: VictorMono Nerd Font
+    style: Medium
 
-  # Bold font face
   bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: Source Code Pro
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    # family: JetBrains Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    family: TerminessTTF Nerd Font
-    # family: Mononoki Nerd Font
-    # The `style` can be specified to pick a specific face.
-    style: Bold
+    family: VictorMono Nerd Font
+    style: Black
 
-  # Italic font face
   italic:
-    # Font family
-    #
-    # If the italic amily is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: Source Code Pro
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    # family: JetBrains Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    family: TerminessTTF Nerd Font
-    # family: Mononoki Nerd Font
-    # The `style` can be specified to pick a specific face.
+    family: VictorMono Nerd Font
     style: Italic
-
-  # Bold italic font face
-  bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: Source Code Pro
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    # family: JetBrains Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    family: TerminessTTF Nerd Font
-    # family: Mononoki Nerd Font
-    # The `style` can be specified to pick a specific face.
-    style: Bold Italic
 
   # Point size
   size: 14.0
 
-  # Offset is the extra space around each character. `offset.y` can be thought of
-  # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: -1
     y: -1
-  # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom. Increasing `x` moves the glyph to the right,
-  # increasing `y` moves the glyph upwards.
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
-  # Thin stroke font rendering (macOS only)
-  #
-  # Thin strokes are suitable for retina displays, but for non-retina screens
-  # it is recommended to set `use_thin_strokes` to `false`
-  #
-  # macOS >= 10.14.x:
-  #
-  # If the font quality on non-retina display looks bad then set
-  # `use_thin_strokes` to `true` and enable font smoothing by running the
-  # following command:
-  #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
-  #
-  # This is a global setting and will require a log out or restart to take
-  # effect.
-  #use_thin_strokes: true
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
@@ -309,34 +225,89 @@ schemes:
     cyan: "#6d96a5"
     white: "#aeb3bb"
 
+  tokyo-night: &tokyo-night # Default colors
+    primary:
+      background: "0x1a1b26"
+      foreground: "0xa9b1d6"
+
+    # Normal colors
+    normal:
+      black: "0x32344a"
+      red: "0xf7768e"
+      green: "0x9ece6a"
+      yellow: "0xe0af68"
+      blue: "0x7aa2f7"
+      magenta: "0xad8ee6"
+      cyan: "0x449dab"
+      white: "0x787c99"
+
+    # Bright colors
+    bright:
+      black: "0x444b6a"
+      red: "0xff7a93"
+      green: "0xb9f27c"
+      yellow: "0xff9e64"
+      blue: "0x7da6ff"
+      magenta: "0xbb9af7"
+      cyan: "0x0db9d7"
+      white: "0xacb0d0"
+
+  tokyo-night-storm: &tokyo-night-storm # Default colors
+    primary:
+      background: "0x24283b"
+      foreground: "0xa9b1d6"
+
+    # Normal colors
+    normal:
+      black: "0x32344a"
+      red: "0xf7768e"
+      green: "0x9ece6a"
+      yellow: "0xe0af68"
+      blue: "0x7aa2f7"
+      magenta: "0xad8ee6"
+      cyan: "0x449dab"
+      white: "0x9699a8"
+
+    # Bright colors
+    bright:
+      black: "0x444b6a"
+      red: "0xff7a93"
+      green: "0xb9f27c"
+      yellow: "0xff9e64"
+      blue: "0x7da6ff"
+      magenta: "0xbb9af7"
+      cyan: "0x0db9d7"
+      white: "0xacb0d0"
+
+colors: *tokyo-night-storm
 # Choose ONE color scheme from those available in the above list.
-colors:
-  # Default colors
-  primary:
-    background: "#2E3440"
-    foreground: "#D8DEE9"
+# colors:
+#   # Default colors
+#   primary:
+#     background: "#2E3440"
+#     foreground: "#D8DEE9"
 
-  # Normal colors
-  normal:
-    black: "#3B4252"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#88C0D0"
-    white: "#E5E9F0"
+#   # Normal colors
+#   normal:
+#     black: "#3B4252"
+#     red: "#BF616A"
+#     green: "#A3BE8C"
+#     yellow: "#EBCB8B"
+#     blue: "#81A1C1"
+#     magenta: "#B48EAD"
+#     cyan: "#88C0D0"
+#     white: "#E5E9F0"
 
-  # Bright colors
-  bright:
-    black: "#4C566A"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#8FBCBB"
-    white: "#ECEFF4"
+#   # Bright colors
+#   bright:
+#     black: "#4C566A"
+#     red: "#BF616A"
+#     green: "#A3BE8C"
+#     yellow: "#EBCB8B"
+#     blue: "#81A1C1"
+#     magenta: "#B48EAD"
+#     cyan: "#8FBCBB"
+#     white: "#ECEFF4"
 
 # Visual Bell
 #
@@ -367,7 +338,8 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 0.92
+# window:
+#   opacity: 0.92
 # background_opacity: 0.80
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"

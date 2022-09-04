@@ -1,5 +1,7 @@
 local null_ls = require 'null-ls'
 local b = null_ls.builtins
+local u = require("null-ls.utils")
+local h = require("null-ls.helpers")
 
 local with_root_file = function(...)
   local files = { ... }
@@ -13,18 +15,18 @@ local severities = { 1, 2, 3, 4 }
 local spectral = {
   method = null_ls.methods.DIAGNOSTICS,
   filetypes = {
-    'json',
     'yaml',
   },
   id = 42,
   generator = null_ls.generator {
     to_stdin = true,
-    ignore_stderr = true,
-    use_cache = true,
+    -- ignore_stderr = true,
+    -- use_cache = true,
     command = 'spectral',
     args = {
       'lint',
       '--stdin-filepath',
+      '$FILENAME',
       '-f',
       'json',
     },
@@ -50,6 +52,13 @@ local spectral = {
       end
       return diags
     end,
+    cwd = h.cache.by_bufnr(function(params)
+      return u.root_pattern(
+        ".spectral.yaml",
+        ".spectral.yml",
+        ".spectral.json"
+      )(params.bufname)
+    end)
   },
 }
 

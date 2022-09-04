@@ -138,7 +138,8 @@ local on_attach = function(client, bufnr)
             group = augroup,
             buffer = bufnr,
             callback = function()
-                vim.lsp.buf.formatting_sync()
+                vim.lsp.buf.format({ bufnr = bufnr })
+                -- vim.lsp.buf.formatting_sync()
                 -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
                 -- lsp_formatting(bufnr)
             end,

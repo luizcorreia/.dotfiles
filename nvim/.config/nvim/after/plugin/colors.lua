@@ -1,9 +1,9 @@
 require('colorizer').setup()
 vim.o.termguicolors = true
 -- Load the colorscheme
-vim.cmd [[colorscheme nord]]
-vim.cmd 'hi Comment gui=italic'
-vim.cmd 'hi Keyword gui=italic'
+-- vim.cmd [[colorscheme nord]]
+-- vim.cmd 'hi Comment gui=italic'
+-- vim.cmd 'hi Keyword gui=italic'
 -- vim.cmd 'hi Identifier gui=italic'
 vim.cmd 'hi StorageClass gui=italic'
 vim.cmd 'hi jsLineComment gui=italic'

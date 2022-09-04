@@ -27,6 +27,18 @@ return require("packer").startup(function()
     use("nvim-lua/plenary.nvim")
     use("nvim-lua/popup.nvim")
     use("nvim-telescope/telescope.nvim")
+    use {
+        "AckslD/nvim-neoclip.lua",
+        requires = {
+            { 'kkharji/sqlite.lua', module = 'sqlite' },
+            -- you'll need at least one of these
+            { 'nvim-telescope/telescope.nvim' },
+            -- {'ibhagwan/fzf-lua'},
+        },
+        config = function()
+            require('neoclip').setup()
+        end,
+    }
 
     -- All the things
     -- Completion Engine
@@ -66,7 +78,10 @@ return require("packer").startup(function()
     })
 
     -- Status Line and Bufferline
-    use('hoob3rt/lualine.nvim')
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
     use 'akinsho/nvim-bufferline.lua'
 
     -- Markdown
@@ -98,6 +113,8 @@ return require("packer").startup(function()
     use { 'fatih/vim-go', run = 'GoInstallBinaries' }
     -- highlights and allows moving between variable references
     use 'RRethy/vim-illuminate'
+    use 'mhinz/vim-startify'
+    use "fladson/vim-kitty"
 
 
 end)

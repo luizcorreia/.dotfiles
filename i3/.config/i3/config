@@ -1,4 +1,4 @@
-# vim: set filetype=i3config
+## vim: set filetype=i3config
 # =========================================================
 #
 #   ██╗██████╗ ██╗    ██╗███╗   ███╗
@@ -22,13 +22,16 @@
 # include $HOME/.config/i3/theme.conf
 #nord
 # class                 border  backgr. text    indicator child_border
-client.focused          #8fbcbb #8fbcbb #1a1826 #8fbcbb   #8fbcbb
-client.focused_inactive #4c566a #4c566a #ffffff #4c566a   #4c566a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+# client.focused          #8fbcbb #8fbcbb #1a1826 #8fbcbb   #8fbcbb
+# client.focused_inactive #4c566a #4c566a #ffffff #4c566a   #4c566a
+# client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #cc241d #900000 #ffffff #cc241d   #cc241d
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
+client.focused           #9aa5ce #364A82 #c0caf5 #9aa5ce   #9aa5ce
+client.focused_inactive  #16161d #16161d #c0caf5 #16161d   #16161d
+client.unfocused         #16161d #16161d #c0caf5 #16161d   #16161d
 
 
 # For colors see: `~/.Xresources`
@@ -61,30 +64,37 @@ font xft:FantasqueSansMono Nerd Font 12
 default_orientation auto
 
 # i3-gaps settings
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 2
+default_border pixel 2
+default_floating_border pixel 2
+# for_window [class="^.*"] border_radius 10
 #new_window pixel 4
-
-gaps inner 4
+gaps inner 5
 gaps outer 2
+gaps top 2
+gaps bottom 2
 
 # Toggle/reduce gaps on selected workspaces:
 # 2 web browser
 workspace 1 gaps inner 0
 workspace 1 gaps outer 0
-workspace 1 gaps top 6
+workspace 1 gaps top 4
 workspace 11 gaps inner 0
 workspace 11 gaps outer 0
-workspace 11 gaps top 6
+workspace 11 gaps top 4
 # 8 virtual machines
 workspace 8 gaps inner 0
 workspace 8 gaps outer 0
-workspace 8 gaps top 6
+workspace 8 gaps top 4
 
 # Only enable gaps on a workspace when there is at least one container
-#smart_gaps on
+smart_gaps on
 
 # Activate smart borders (always)
-#smart_borders on
+smart_borders on
+
+# Only enable outer gaps when there is exactly one container
+smart_gaps inverse_outer
 
 # Back and forth workplace switching
 workspace_auto_back_and_forth yes
@@ -123,12 +133,13 @@ bindsym $mod+r mode "resize"
 set $mod Mod4
 set $alt Mod1
 
-set $terminal alacritty
+set $terminal kitty
+# set $terminal alacritty
 
 # default file manager
-set $file_manager nautilus
+set $file_manager pcmanfm
 # default web browser
-set $browser firefox
+set $browser opera
 # default media player
 set $media_player spotify
 # default chat app
@@ -240,29 +251,29 @@ bindsym $mod+minus scratchpad show
 set $exec_pavucontrol pavucontrol 
 
 # Terminal
-for_window [title="^tscratchpad$"] floating enable, resize set 640 480, move scratchpad
-# exec --no-startup-id $terminal -t tscratchpad -e zsh
-exec --no-startup-id $terminal -t tscratchpad -e tmux attach-session -t luizcorreia
+for_window [title="^tscratchpad$"] floating enable, resize set 1920 1080, move scratchpad
+exec --no-startup-id $terminal -t tscratchpad zsh
+# exec --no-startup-id $terminal -t tscratchpad -e tmux attach-session -t luizcorreia
 
 # VimWiki
-for_window [title="^diaryNote"] floating enable, resize set 640 480, move scratchpad
+for_window [title="^diaryNote"] floating enable, resize set 1920 1080, move scratchpad
 exec --no-startup-id $terminal -t diaryNote -e "nvim '+VimwikiMakeDiaryNote'"
 
 # Pavucontrol
-for_window [class="Pavucontrol"] floating enable, resize set 640 480, move scratchpad
+for_window [class="Pavucontrol"] floating enable, resize set 1920 1080, move scratchpad
 exec --no-startup-id pavucontrol
 
 # Tasks
-for_window [title="^tasks$"] floating enable, resize set 1280 720, move position center move scratchpad
+for_window [title="^tasks$"] floating enable, resize set 3648 2052, move position center move scratchpad
 exec --no-startup-id tmux_start
 exec --no-startup-id $terminal -t tasks -e tmux attach-session -t tasks
 
 # Taskwarrior
-for_window [title="^taskwarrior$"] floating enable, resize set 640 480, move scratchpad
+for_window [title="^taskwarrior$"] floating enable, resize set 1920 1080, move scratchpad
 exec --no-startup-id $terminal -t taskwarrior -e tasksh
 
 # Qalculate-gtk
-for_window [class="^Qalculate-gtk"] floating enable, resize set 640 480, move scratchpad
+for_window [class="^Qalculate-gtk"] floating enable, resize set 1920 1080, move scratchpad
 exec --no-startup-id qalculate-gtk
 
 # Bindind mode for scratchpads
@@ -296,14 +307,14 @@ bindsym $mod+F6 exec --no-startup-id gimp
 bindsym $mod+F7 exec --no-startup-id libreoffice
 bindsym $mod+y  exec --no-startup-id youtube-watch.sh
 
-bindsym $mod+p exec --no-startup-id j4-dmenu-desktop --dmenu "dmenu_run -nf '$base04' -nb '$base00' -sb '$base04' -sf '$base00' -fn 'Fantasque Sans Mono-10' -p '>'"
+bindsym $mod+p exec --no-startup-id "dmenu_run -nf '$base04' -nb '$base00' -sb '$base04' -sf '$base00' -fn 'Fantasque Sans Mono-13' -p '>'"
 bindsym $mod+Shift+Return exec --no-startup-id i3-dmenu-desktop
-# bindsym $mod+d exec rofi -show drun -drun-reload-desktop-cache -show-icons -terminal alacritty
+bindsym $mod+d exec rofi -show drun -drun-reload-desktop-cache -show-icons -terminal alacritty
 bindsym $mod+m exec --no-startup-id ~/.config/rofi/bin/menu_mpd
-bindsym $mod+n exec --no-startup-id ~/.config/rofi/bin/menu_network
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_misc
+# bindsym $mod+n exec --no-startup-id ~/.config/rofi/bin/menu_network
+# bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_misc
 # urxvt -g = $float window geometry
-# bindsym $mod+n exec --no-startup-id urxvt -g 95x15+20+60 -e ncmpcpp
+bindsym $mod+n exec --no-startup-id urxvt -g 95x15+20+60 -e ncmpcpp
 #bindsym $mod+x exec --no-startup-id ~/bin/lock
 
 # Screenshots
@@ -316,10 +327,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym $mod+g exec --no-startup-id pulseaudio-equalizer-gtk
 #bindsym $mod+p exec --no-startup-id pavucontrol
-# bindsym XF86MonBrightnessUp exec --no-startup-id bl_up.sh 
-# bindsym XF86MonBrightnessDown exec --no-startup-id bl_down.sh
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id bl_up.sh 
+bindsym XF86MonBrightnessDown exec --no-startup-id bl_down.sh
+
 # ===================================================================
 # Workspaces
 # ===================================================================
@@ -331,9 +341,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 # https://pictogrammers.github.io/@mdi/font/6.2.95/
 # https://fontawesome.com/v5/cheatsheet/free
 #
-# workspace 11 output HDMI-0
-# workspace 12 output HDMI-0
-# workspace 13 output HDMI-0
+workspace 11 output HDMI-0
+workspace 12 output HDMI-0
+workspace 13 output HDMI-0
 
 set $ws1 1:1 爵 
 set $ws2 2:2   
@@ -434,18 +444,21 @@ for_window [class="splash"]                 $float
 for_window [class="toolbar"]                $float
 for_window [class="Yad"]                    $float, position center
 for_window [class="mpv"]                    $float, position center
+for_window [title="^Bitwarden -"]           $float
+# Brave, chrome, chromium
+for_window [title="Picture-in-picture"]     $float
 
 # ===================================================================
 # Start Up commands
 # ===================================================================
 # keyboard layout
-exec --no-startup-id setxkbmap -model thinkpad60 -layout br
+# exec --no-startup-id setxkbmap -model abnt2 -layout br
 
 # xscreensaver
 # exec --no-startup-id xscreensaver -nosplash
 
 # picom
-# exec --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # wallpaper
 # exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/wallpaper-1_2048x1174.jpg
@@ -490,11 +503,12 @@ exec --no-startup-id pcmanfm -d
 # exec --no-startup-id thunar --daemon
 exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id setxkbmap -model thinkpad60 -layout br
+# exec_always --no-startup-id setxkbmap -model thinkpad60 -layout br
+exec_always --no-startup-id setxkbmap -layout us -variant intl
 exec --no-startup-id xsetroot -cursor_name left_ptr
 exec_always --no-startup-id xset r rate 250 50
-# exec --no-startup-id xrandr --output DP-0 --primary
-# exec --no-startup-id xrandr --output HDMI-0 --left-of DP-0
+exec --no-startup-id xrandr --output DP-0 --primary
+exec --no-startup-id xrandr --output HDMI-0 --left-of DP-0
 exec --no-startup-id /home/luizcorreia/.local/bin/lock
 
 exec --no-startup-id discord

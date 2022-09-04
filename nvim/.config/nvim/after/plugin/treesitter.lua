@@ -1,6 +1,16 @@
+local custom_captures = {
+  ["function.call.lua"] = "LuaFunctionCall",
+  ["function.bracket"] = "Type",
+  ["namespace.type"] = "TSNamespaceType",
+}
+
 require('nvim-treesitter.configs').setup {
   indent = { enable = true },
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    use_languagetree = false,
+    custom_captures = custom_captures,
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -11,6 +21,10 @@ require('nvim-treesitter.configs').setup {
     },
   },
   ensure_installed = {
+    'go',
+    'html',
+    'markdown',
+    'rust',
     'javascript',
     'typescript',
     'tsx',
@@ -21,13 +35,21 @@ require('nvim-treesitter.configs').setup {
   },
   -- plugins
   matchup = {
-    enable = true,              -- mandatory, false will disable the whole extension
-    disable = { "c", "ruby" },  -- optional, list of language that will be disabled
+    enable = true, -- mandatory, false will disable the whole extension
+    disable = { "c", "ruby" }, -- optional, list of language that will be disabled
     -- [options]
   },
   autopairs = { enable = true },
   context_commentstring = {
     enable = true,
+    -- With Comment.nvim, we don't need to run this on the autocmd.
+    -- Only run it in pre-hook
+    enable_autocmd = false,
+
+    config = {
+      c = "// %s",
+      lua = "-- %s",
+    },
   },
   textsubjects = {
     enable = true,
@@ -73,4 +95,3 @@ require('nvim-treesitter.configs').setup {
     },
   },
 }
-

@@ -86,13 +86,13 @@ vim.opt.formatoptions = vim.opt.formatoptions
 -----------------------------------------------------------------------------//
 --- FIXME: Need to use a lambda rather than a lua function directly
 --- @see https://github.com/neovim/neovim/pull/14886
--- vim.o.quickfixtextfunc = '{i -> v:lua.as.qftf(i)}'
+vim.o.quickfixtextfunc = '{i -> v:lua.as.qftf(i)}'
 -----------------------------------------------------------------------------//
 -- Grepprg {{{1
 -----------------------------------------------------------------------------//
 -- Use faster grep alternatives if possible
 -- if lcee.executable 'rg' then
---   vim.o.grepprg = [[rg --glob "!.git" --no-heading --vimgrep --follow $*]]
+vim.o.grepprg = [[rg --glob "!.git" --no-heading --vimgrep --follow $*]]
 --   vim.opt.grepformat = vim.opt.grepformat ^ { '%f:%l:%c:%m' }
 -- elseif lcee.executable 'ag' then
 --   vim.o.grepprg = [[ag --nogroup --nocolor --vimgrep]]
@@ -300,4 +300,3 @@ vim.opt.exrc = true -- Allow project local vimrc files example .nvimrc see :h ex
 --   vim.env.EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
 -- end
 -- vim:foldmethod=marker
-

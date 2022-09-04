@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-NOTE=true
 MAIN=maind
 BOTTOM=bottomd
 dir="$HOME/.config/polybar"

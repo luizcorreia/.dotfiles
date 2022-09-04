@@ -1,4 +1,5 @@
 local bufferline = require 'bufferline'
+local colors = require('lcee.colors')
 
 local function getWords()
   return tostring(vim.fn.wordcount().words)
@@ -46,7 +47,7 @@ end
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'nord',
+    theme = 'tokyonight',
     component_separators = { left = ' ', right = ' ' },
     section_separators = { left = ' ', right = '' },
     disabled_filetypes = {},
@@ -124,7 +125,11 @@ require('lualine').setup {
 bufferline.setup {
   options = {
     view = 'default',
-    numbers = 'ordinal',
+    -- numbers = 'ordinal',
+    -- For ⁸·₂
+    numbers = function(opts)
+      return string.format('%s·%s', opts.raise(opts.ordinal), opts.lower(opts.id))
+    end,
     buffer_close_icon = '',
     modified_icon = '•',
     close_icon = '',
@@ -132,29 +137,50 @@ bufferline.setup {
     right_trunc_marker = '',
     max_name_length = 18,
     max_prefix_length = 15,
-    show_buffer_close_icons = false,
+    show_buffer_close_icons = true,
     persist_buffer_sort = true,
-    separator_style = { '', '' },
+    diagnostics = "nvim_lsp",
+    separator_style = 'thin',
     enforce_regular_tabs = false,
     always_show_bufferline = true,
+    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      if context.buffer:current() then
+        return ''
+      end
+      local s = " "
+      for e, n in pairs(diagnostics_dict) do
+        local sym = e == "error" and " "
+            or (e == "warning" and " " or "")
+        s = s .. n .. sym
+      end
+      return s
+    end
+  },
+  highlights = {
+    buffer_selected = {
+      italic = false
+    },
+    indicator_selected = {
+      italic = false
+    }
   },
   -- highlights = {
-  --   modified = { guifg = colors.green, guibg = '#0F1E28' },
-  --   modified_visible = { guifg = '#3C706F', guibg = '#16242E' },
-  --   modified_selected = { guifg = colors.cyan, guibg = '#142832' },
-  --   fill = { guibg = '#0F1E28' },
-  --   background = { guibg = '#0F1E28', guifg = colors.base04 },
-  --   tab = { guibg = '#0F1E28', guifg = colors.base01 },
-  --   tab_selected = { guibg = '#142832' },
-  --   tab_close = { guibg = '#0F1E28' },
-  --   buffer_visible = { guibg = '#16242E' },
-  --   buffer_selected = { guibg = '#142832', guifg = colors.white, gui = 'NONE' },
-  --   indicator_selected = { guifg = colors.cyan, guibg = '#142832' },
-  --   separator = { guibg = '#62b3b2' },
-  --   separator_selected = { guifg = colors.cyan, guibg = '#142832' },
-  --   separator_visible = { guibg = colors.cyan },
-  --   duplicate = { guibg = '#0F1E28', guifg = colors.base04, gui = 'NONE' },
-  --   duplicate_selected = { guibg = '#142832', gui = 'NONE', guifg = colors.white },
-  --   duplicate_visible = { guibg = '#16242E', gui = 'NONE' },
+  --   modified = { fg = colors.green, bg = '#0F1E28' },
+  --   modified_visible = { fg = '#3C706F', bg = '#16242E' },
+  --   modified_selected = { fg = colors.cyan, bg = '#142832' },
+  --   fill = { bg = '#0F1E28' },
+  --   background = { bg = '#0F1E28', fg = colors.base04 },
+  --   tab = { bg = '#0F1E28', fg = colors.base01 },
+  --   tab_selected = { bg = '#142832' },
+  --   tab_close = { bg = '#0F1E28' },
+  --   buffer_visible = { bg = '#16242E' },
+  -- buffer_selected = { bg = '#142832', fg = colors.white }, -- , gui = 'NONE' },
+  -- indicator_selected = { fg = colors.cyan, bg = '#142832' },
+  -- separator = { bg = '#62b3b2' },
+  -- separator_selected = { fg = colors.cyan, bg = '#142832' },
+  -- separator_visible = { bg = colors.cyan },
+  -- duplicate = { bg = '#0F1E28', fg = colors.base04 }, -- gui = 'NONE' },
+  -- duplicate_selected = { bg = '#142832', fg = colors.white }, --, gui = 'NONE'
+  -- duplicate_visible = { bg = '#16242E' }, --, gui = 'NONE'
   -- },
 }
