@@ -1,0 +1,106 @@
+/**
+ * rofi color scheme
+ * rofi-dark
+ */
+
+* {
+    font: "Mononoki Nerd Font 16";
+    background: #141c21;
+    background-color: @background;
+    foreground: #bdcfe3;
+
+    normal-background: @background;
+    normal-foreground: @foreground;
+
+    alternate-normal-background: @background;
+    alternate-normal-foreground: @foreground;
+
+    selected-normal-background: #4a697d;
+    selected-normal-foreground: @foreground;
+    spacing: 6;
+}
+
+#window {
+    background-color: @background;
+    border: 3;
+    border-color: @selected-normal-background;
+    padding: 2ch;
+    width: 980;
+    height: 580;
+}
+
+#mainbox {
+    border: 3;
+    padding: 0;
+}
+
+#textbox {
+    text-color: @foreground;
+}
+
+#inputbar {
+    children: [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+
+#textbox-prompt-colon {
+    expand: false;
+    str: ":";
+    margin: 0px 0.3em 0em 0em;
+    text-color: @foreground;
+}
+
+#element {
+    border: 0;
+    padding: 1px;
+}
+
+#element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+#element.normal.normal {
+    background-color: @normal-background;
+    text-color: @normal-foreground;
+}
+
+
+#element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+
+#element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color: @alternate-normal-foreground;
+}
+
+#element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color: @alternate-active-foreground;
+}
+
+#scrollbar {
+    width: 2px;
+    border: 0px;
+    handle-width: 0px;
+    padding: 0px;
+}
+
+#inputbar {
+    spacing: 0;
+    text-color: @normal-foreground;
+    padding: 1px;
+}
+
+#entry {
+    spacing: 0;
+    text-color: @normal-foreground;
+}
+
+#prompt {
+    spacing: 0;
+    text-color: @normal-foreground;
+}
+

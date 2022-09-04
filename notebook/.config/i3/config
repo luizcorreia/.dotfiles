@@ -1,0 +1,532 @@
+# vim: set filetype=i3config
+# =========================================================
+#
+#   ██╗██████╗ ██╗    ██╗███╗   ███╗
+#   ██║╚════██╗██║    ██║████╗ ████║
+#   ██║ █████╔╝██║ █╗ ██║██╔████╔██║
+#   ██║ ╚═══██╗██║███╗██║██║╚██╔╝██║
+#   ██║██████╔╝╚███╔███╔╝██║ ╚═╝ ██║
+#   ╚═╝╚═════╝  ╚══╝╚══╝ ╚═╝     ╚═╝
+#
+#
+# i3 configuration file (i3-gaps)
+#
+# Website: https://github.com/luizcorreia/dotfiles
+#
+# =========================================================
+
+
+# =========================================================
+# Colors
+# =========================================================
+# include $HOME/.config/i3/theme.conf
+#nord
+# class                 border  backgr. text    indicator child_border
+client.focused          #8fbcbb #8fbcbb #1a1826 #8fbcbb   #8fbcbb
+client.focused_inactive #4c566a #4c566a #ffffff #4c566a   #4c566a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #cc241d #900000 #ffffff #cc241d   #cc241d
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+
+# For colors see: `~/.Xresources`
+#
+# Class                  border  backgr  text     indicator child_border
+# client.focused           #4a697d #4a697d #bdcfe3  #4a697d   #4a697d
+# client.focused_inactive  #263640 #263640 #141c21  #263640   #263640
+# client.unfocused         #263640 #263640 #141c21  #263640   #263640
+# client.urgent            #4a697d #4a697d #bdcfe3  #4a697d   #4a697d
+
+    ##START THEMING WM
+
+    # Window color settings
+    # class                 border  backgr. text    indicator
+    # client.focused          #81a1c1 #81a1c1 #ffffff #81a1c1
+    # client.unfocused        #4a697d #4a697d #888888 #4a697d
+    # client.focused_inactive #4a697d #4a697d #888888 #4a697d
+    # client.placeholder      #4a697d #4a697d #888888 #4a697d
+    # client.urgent           #900000 #900000 #ffffff #900000
+
+# =========================================================
+# Windows style
+# =========================================================
+# Font for window titles
+#font xft:Ohsnap 12
+font xft:FantasqueSansMono Nerd Font 12
+#font xft:Hack Nerd Font, FontAwesome 10
+
+# Set default orientation, <horizontal|vertical|auto>
+default_orientation auto
+
+# i3-gaps settings
+for_window [class="^.*"] border pixel 3
+#new_window pixel 4
+
+gaps inner 4
+gaps outer 2
+
+# Toggle/reduce gaps on selected workspaces:
+# 2 web browser
+workspace 1 gaps inner 0
+workspace 1 gaps outer 0
+workspace 1 gaps top 6
+workspace 11 gaps inner 0
+workspace 11 gaps outer 0
+workspace 11 gaps top 6
+# 8 virtual machines
+workspace 8 gaps inner 0
+workspace 8 gaps outer 0
+workspace 8 gaps top 6
+
+# Only enable gaps on a workspace when there is at least one container
+#smart_gaps on
+
+# Activate smart borders (always)
+#smart_borders on
+
+# Back and forth workplace switching
+workspace_auto_back_and_forth yes
+
+# Resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# ===================================================================
+# Keybindings
+# ===================================================================
+# Mod4 = Super Key
+set $mod Mod4
+set $alt Mod1
+
+set $terminal alacritty
+
+# default file manager
+set $file_manager nautilus
+# default web browser
+set $browser firefox
+# default media player
+set $media_player spotify
+# default chat app
+set $chat skypeforlinux
+set $editor nvim
+set $border_width 2
+set $norm_color "#474646"
+set $focus_color "#83a598"
+set $screenshot exec --no-startup-id "flameshot screen"
+set $region_screenshot exec --no-startup-id "flameshot gui"
+
+# Use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up l
+set $down k
+set $left j
+set $right semicolon
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id $terminal
+
+# kill focused window (default `$mod+Shift+q`)
+bindsym $mod+q kill
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+bindsym $mod+x [urgent=latest] focus
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+bindsym $mod+e move container to output left
+bindsym $mod+w move container to output right
+bindsym $mod+Shift+e move workspace to output left
+bindsym $mod+Shift+w move workspace to output right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# next/previous workspace
+
+bindsym Mod1+Tab workspace next
+bindsym Mod1+Shift+Tab workspace prev
+# bindsym $mod+Tab workspace back_and_forth
+
+#navigate workspaces next / previous
+bindsym Mod1+Ctrl+Right workspace next
+bindsym Mod1+Ctrl+Left workspace prev
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+bindsym $mod+F11 fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Tab layout toggle all
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindcode $mod+d focus child
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+q exec i3-msg exit
+
+# ===================================================================
+# Scratchpads
+# ===================================================================
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+set $exec_pavucontrol pavucontrol 
+
+# Terminal
+for_window [title="^tscratchpad$"] floating enable, resize set 640 480, move scratchpad
+# exec --no-startup-id $terminal -t tscratchpad -e zsh
+exec --no-startup-id $terminal -t tscratchpad -e tmux attach-session -t luizcorreia
+
+# VimWiki
+for_window [title="^diaryNote"] floating enable, resize set 640 480, move scratchpad
+exec --no-startup-id $terminal -t diaryNote -e "nvim '+VimwikiMakeDiaryNote'"
+
+# Pavucontrol
+for_window [class="Pavucontrol"] floating enable, resize set 640 480, move scratchpad
+exec --no-startup-id pavucontrol
+
+# Tasks
+for_window [title="^tasks$"] floating enable, resize set 1280 720, move position center move scratchpad
+exec --no-startup-id tmux_start
+exec --no-startup-id $terminal -t tasks -e tmux attach-session -t tasks
+
+# Taskwarrior
+for_window [title="^taskwarrior$"] floating enable, resize set 640 480, move scratchpad
+exec --no-startup-id $terminal -t taskwarrior -e tasksh
+
+# Qalculate-gtk
+for_window [class="^Qalculate-gtk"] floating enable, resize set 640 480, move scratchpad
+exec --no-startup-id qalculate-gtk
+
+# Bindind mode for scratchpads
+set $mode_launcher Launch: scratchpads
+bindsym $mod+s mode "$mode_launcher"
+mode "$mode_launcher" {
+    bindsym t [title="^tscratchpad"] scratchpad show, mode "default"
+    bindsym n [title="^diaryNote"] scratchpad show, mode "default"
+    bindsym p [class="Pavucontrol"] scratchpad show, mode "default"
+    bindsym w [title="^taskwarrior"] scratchpad show, mode "default"
+    bindsym s [title="^tasks"] scratchpad show, mode "default"
+    bindsym c [class="^Qalculate-gtk"] scratchpad show, mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+
+# ===================================================================
+# My Shortcuts
+# ===================================================================
+# Applications
+
+# Most used
+bindsym $mod+F1 exec $file_manager
+bindsym $mod+F2 exec $browser
+bindsym $mod+b  exec $browser
+bindsym $mod+F3 exec $media_player
+bindsym $mod+F4 exec $chat
+bindsym $mod+F5 exec --no-startup-id virt-manager
+bindsym $mod+F6 exec --no-startup-id gimp
+bindsym $mod+F7 exec --no-startup-id libreoffice
+bindsym $mod+y  exec --no-startup-id youtube-watch.sh
+
+bindsym $mod+p exec --no-startup-id j4-dmenu-desktop --dmenu "dmenu_run -nf '$base04' -nb '$base00' -sb '$base04' -sf '$base00' -fn 'Fantasque Sans Mono-10' -p '>'"
+bindsym $mod+Shift+Return exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec rofi -show drun -drun-reload-desktop-cache -show-icons -terminal alacritty
+bindsym $mod+m exec --no-startup-id ~/.config/rofi/bin/menu_mpd
+bindsym $mod+n exec --no-startup-id ~/.config/rofi/bin/menu_network
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_misc
+# urxvt -g = $float window geometry
+# bindsym $mod+n exec --no-startup-id urxvt -g 95x15+20+60 -e ncmpcpp
+#bindsym $mod+x exec --no-startup-id ~/bin/lock
+
+# Screenshots
+bindsym $mod+Print $screenshot
+bindsym $alt+Shift+p $region_screenshot
+
+# audio controls (PulseAudio)
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym $mod+g exec --no-startup-id pulseaudio-equalizer-gtk
+#bindsym $mod+p exec --no-startup-id pavucontrol
+# bindsym XF86MonBrightnessUp exec --no-startup-id bl_up.sh 
+# bindsym XF86MonBrightnessDown exec --no-startup-id bl_down.sh
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+# ===================================================================
+# Workspaces
+# ===================================================================
+# Customize workspace name
+# use variables to avoid repeating the names and for adding custom characters
+# or icons.  Insert and/or paste fonts and icons as variable values.
+#
+# See cheatsheets at:
+# https://pictogrammers.github.io/@mdi/font/6.2.95/
+# https://fontawesome.com/v5/cheatsheet/free
+#
+# workspace 11 output HDMI-0
+# workspace 12 output HDMI-0
+# workspace 13 output HDMI-0
+
+set $ws1 1:1 爵 
+set $ws2 2:2   
+set $ws3 3:3   
+set $ws4 4:4   
+set $ws5 5:5   
+set $ws6 6:6   
+set $ws7 7:7   
+set $ws8 8:8   
+set $ws9 9:9   
+set $ws10 10:10   
+set $ws11 11:11    
+set $ws12 12:12   
+set $ws13 13:13   
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $alt+1 workspace $ws11
+bindsym $alt+2 workspace $ws12
+bindsym $alt+3 workspace $ws13
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $alt+Shift+1 move container to workspace $ws11
+bindsym $alt+Shift+2 move container to workspace $ws12
+bindsym $alt+Shift+3 move container to workspace $ws13
+
+# Automatically putting workspaces on specific screens
+# workspace 11 output HDMI-0
+# workspace 12 output HDMI-0
+# workspace 13 output HDMI-0
+
+# ===================================================================
+# Workspaces Assignment
+# ===================================================================
+# Automatically make a specific window show up on a specific workspace
+# command for get window class name: xprop | awk '/WM_CLASS/{print $4}'
+#assign [class="URxvt"]                      $ws1
+# assign [class="firefox"]                    $ws6
+# assign [class="opera"]                      $ws1
+assign [class="Pcmanfm"]                    $ws7
+assign [class="Zathura"]                    $ws5
+assign [class="libreoffice-startcenter"]    $ws5
+assign [class="Gimp"]                       $ws5
+assign [class="Pulseaudio-equalizer"]       $ws6
+assign [class="Pavucontrol"]                $ws6
+assign [class="SimpleScreenRecorder"]       $ws6
+assign [class="vlc"]                        $ws6
+assign [class="Liferea"]                    $ws9
+assign [class="discord"]                    $ws3
+assign [class="Slack"]                      $ws3
+assign [class="TelegramDesktop"]            $ws3
+assign [class="Thunderbird"]                $ws4
+assign [class="Evolution"]                  $ws4
+assign [class="brave-browser"]              $ws11
+# assign [class="mpv"]                        $ws13
+assign [class="Microsoft Teams - Preview"]  $ws13
+assign [class="Evernote"]                   $ws6
+
+# QEMU virt-manager
+assign [class="Virt-manager"]               $ws7
+
+# enable floating mode for selected windows
+set $float floating enable border
+for_window [class="Bleachbit"]              $float
+for_window [class="Lxappearance"]           $float
+for_window [class="Pulseaudio-equalizer"]   $float
+for_window [class="Pavucontrol"]            $float
+for_window [class="SimpleScreenRecorder"]   $float
+for_window [class="vlc"]                    $float
+for_window [class="confirm"]                $float
+for_window [class="file_progress"]          $float
+for_window [class="dialog"]                 $float
+for_window [class="download"]               $float
+for_window [class="error"]                  $float
+# for_window [class="Gimp"]                   $float
+for_window [class="notification"]           $float
+for_window [class="pinentry-gtk-2"]         $float
+for_window [class="splash"]                 $float
+for_window [class="toolbar"]                $float
+for_window [class="Yad"]                    $float, position center
+for_window [class="mpv"]                    $float, position center
+
+# ===================================================================
+# Start Up commands
+# ===================================================================
+# keyboard layout
+exec --no-startup-id setxkbmap -model thinkpad60 -layout br
+
+# xscreensaver
+# exec --no-startup-id xscreensaver -nosplash
+
+# picom
+# exec --no-startup-id picom --config ~/.config/picom/picom.conf
+
+# wallpaper
+# exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/wallpaper-1_2048x1174.jpg
+
+# polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh --cuts
+
+# bar toggle, hide or show
+bindsym $mod+Shift+b bar mode toggle
+
+bindsym $mod+Shift+i bar mode invisible
+
+#bar {
+#    status_command i3status
+#    position top
+#    tray_output primary
+#    strip_workspace_numbers yes
+#    colors { background #2E3440 }
+#}
+#bar
+#bar {
+#	font pango:Mononoki Nerd Font 8
+#	position top
+#    output nonprimary
+#	tray_output primary
+#	status_command /usr/share/bumblebee-status/bumblebee-status \
+#        -m spotify network_traffic nvidiagpu cpu \
+#		memory timetz caffeine \
+#		-p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+#        nic.exclude="enp37s0,enp43s0f3u2,lo" \
+#		-t nord-powerline
+#}
+# dunst notification-daemon
+exec --no-startup-id dunst
+exec --no-startup-id nm-applet
+
+exec --no-startup-id xrdb -merge -I $HOME ~/.Xresources
+exec --no-startup-id tmux new-session -s luizcorreia -d
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id volumeicon
+exec --no-startup-id pcmanfm -d
+# exec --no-startup-id thunar --daemon
+exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id setxkbmap -model thinkpad60 -layout br
+exec --no-startup-id xsetroot -cursor_name left_ptr
+exec_always --no-startup-id xset r rate 250 50
+# exec --no-startup-id xrandr --output DP-0 --primary
+# exec --no-startup-id xrandr --output HDMI-0 --left-of DP-0
+exec --no-startup-id /home/luizcorreia/.local/bin/lock
+
+exec --no-startup-id discord
+exec --no-startup-id opera
+exec --no-startup-id brave-browser
+exec --no-startup-id telegram-desktop
+exec --no-startup-id flatpak run com.slack.Slack
+exec --no-startup-id thunderbird
+exec --no-startup-id Discord
+exec --no-startup-id Evernote
+exec --no-startup-id dropbox start
+exec --no-startup-id nextcloud
+
+
+## Base16ish Breeze dark
+# Author: rtxx
+#
+# You can use these variables anywhere in the i3 configuration file.
+
+set $base00 #31363b
+set $base01 #4d4d4d
+set $base02 #3daee9
+set $base03 #7f8c8d
+set $base04 #eff0f1
+set $base05 #fcfcfc
+set $base06 #fcfcfc
+set $base07 #fcfcfc
+set $base08 #da4453
+set $base09 #3daee9
+set $base0A #fdbc4b
+set $base0B #27ae60
+set $base0C #3daee9
+set $base0D #3daee9
+set $base0E #f47750
+set $base0F #3daee9
