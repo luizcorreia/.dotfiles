@@ -1,0 +1,416 @@
+;==========================================================
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+; polybar configuration file
+;==========================================================
+
+
+;==========================================================
+; colors
+;==========================================================
+[colors]
+foreground = ${xrdb:foreground:#D8DEE9}
+background = ${xrdb:background:#2E3440}
+primary = ${xrdb:color12:#81A1C1}
+secondary = ${xrdb:color8:#4C566A}
+alert = ${xrdb:color1:#3B4252}
+
+
+;==========================================================
+; bar settings
+;==========================================================
+[bar/base]
+;dpi      = 192
+width = 100%
+height = 24
+offset-x = 0
+offset-y = 0
+fixed-center = false
+;monitor = ${env:MONITOR:HDMI-1}
+;monitor = HDMI-1
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+underline-size = 4
+;underline-color = ${colors.primary}
+
+border-size = 3
+border-color = #4a697d
+
+padding-left = 2
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "Mononoki Nerd Font:pixelsize=7;1"
+font-1 = "Iosevka Nerd Font:pixelsize=10;1"
+font-2 = "Material Icons:pixelsize=10;2"
+font-3 = "FontAwesome:pixelsize=8;1"
+modules-left = i3
+modules-right = volume gpu cpu temperature memory wired-network date powermenu
+
+wm-name = i3
+click-right = alacritty -e nvim ~/.config/polybar/config
+
+;locale = en_US.UTF-8
+
+tray-position = right
+tray-detached = false
+tray-background = ${colors.background}
+tray-padding = 0
+
+;;;;; BAR MONITOR2
+[bar/bar2]
+;dpi      = 192
+width = 100%
+height = 24
+offset-x = 0
+offset-y = 0
+fixed-center = false
+;monitor = ${env:MONITOR:HDMI-1}
+;monitor = HDMI-0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+underline-size = 4
+;underline-color = ${colors.primary}
+
+border-size = 3
+border-color = #4a697d
+
+padding-left = 2
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "Mononoki Nerd Font:pixelsize=7;1"
+font-1 = "Iosevka Nerd Font:pixelsize=10;1"
+font-2 = "Material Icons:pixelsize=10;2"
+font-3 = "FontAwesome:pixelsize=8;1"
+modules-left = i3
+modules-right  = music previous playpause next paddinglite volume date 
+
+wm-name = i3
+
+;locale = en_US.UTF-8
+
+
+;;;;;; BAR NOTE
+[bar/note]
+width = 100%
+height = 24
+offset-x = 0
+offset-y = 0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+underline-size = 4
+;underline-color = ${colors.primary}
+
+border-size = 3
+border-color = #4a697d
+
+padding-left = 2
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "Mononoki Nerd Font:pixelsize=10;1"
+font-1 = "Iosevka Nerd Font:pixelsize=10;1"
+font-2 = "Material Icons:pixelsize=10;2"
+font-3 = "Mononoki Nerd Font:pixelsize=10;1"
+;font-3 = "Font Awesome 6 Free:pixelsize=8;1"
+
+
+modules-left = i3
+modules-right  = music previous playpause next paddinglite volume cpu temperature memory wired-network date powermenu 
+
+wm-name = i3
+
+tray-position = right
+tray-detached = false
+tray-background = ${colors.background}
+tray-padding = 0
+
+
+
+
+;==========================================================
+; global wm settings
+;==========================================================
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+
+;==========================================================
+; modules
+;==========================================================
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+enable-scroll = false
+
+label-focused = %name%
+label-focused-foreground = ${colors.primary}
+label-focused-padding = 1
+label-focused-underline = ${colors.primary}
+
+label-unfocused = %name%
+label-unfocused-padding = 1
+label-unfocused-foreground = ${colors.foreground}
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.alert}
+label-urgent-padding = 1
+
+label-visible = %name%
+label-visible-padding = 1
+
+
+[module/cpu]
+type = internal/cpu
+interval = 1.0
+format-prefix = "󰍛 "
+format-prefix-foreground = ${colors.primary}
+label = %percentage%%
+
+
+[module/memory]
+type = internal/memory
+interval = 1.0
+format-prefix = "󰍵 "
+format-prefix-foreground = ${colors.primary}
+;label = %percentage_used%%
+label = %gb_used%/%gb_total%
+
+
+[module/temperature]
+type = internal/temperature
+interval = 1.0
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+warn-temperature = 60
+
+format-prefix = "󱃃 "
+format-prefix-foreground = ${colors.primary}
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.alert}
+
+
+[module/wired-network]
+type = internal/network
+interface = enp37s0
+interval = 3.0
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected = %{F#2ca2f5}󰈀 %{F-}eth
+label-disconnected = [!] not connected
+label-disconnected-foreground = ${colors.alert}
+
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %a %d %b
+time = %H:%M
+date-alt = %Y/%m/%d %H:%M:%S
+
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+
+label = %date% %time%
+label-foreground = ${colors.foreground}
+
+
+[module/powermenu]
+type = custom/text
+format-spacing = 1
+
+label-open = "  "
+label-open-foreground = ${colors.primary}
+label-close = " undo"
+label-close-foreground = ${colors.primary}
+label-separator = |
+label-separator-foreground = ${colors.primary}
+click-left = ~/.config/rofi/applets/menu/powermenu.sh &
+
+[module/volume]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+interval = 1
+
+;format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
+label-volume = %{F#2ca2f5}󰕾%{F-} %percentage%%
+label-volume-foreground = ${colors.foreground}
+
+label-muted = "󰝟 mute"
+label-muted-foreground = "${colors.foreground}"
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.primary}
+bar-volume-foreground-1 = ${colors.primary}
+bar-volume-foreground-2 = ${colors.primary}
+bar-volume-foreground-3 = ${colors.primary}
+bar-volume-foreground-4 = ${colors.primary}
+bar-volume-foreground-5 = ${colors.primary}
+bar-volume-foreground-6 = ${colors.primary}
+bar-volume-foreground-7 = ${colors.primary}
+bar-volume-foreground-8 = ${colors.primary}
+bar-volume-foreground-9 = ${colors.alert}
+
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ━
+bar-volume-fill-font = 1
+bar-volume-empty = ━
+bar-volume-empty-font = 2
+
+[module/workspaces]
+
+	type            = internal/i3
+	format          = <label-state> <label-mode>
+	index-sort      = true
+	wrapping-scroll = false
+	strip-wsnumbers = true
+
+	label-mode-background = ${xrdb:color18}
+	label-mode-foreground = ${xrdb:color7}
+	label-mode-padding    = 1
+
+	label-focused            = +
+	label-focused-background = ${xrdb:color18}
+	label-focused-foreground = ${xrdb:color3}
+	label-focused-padding    = 1
+
+	label-unfocused            = -
+	label-unfocused-background = ${xrdb:color18}
+	label-unfocused-foreground = ${xrdb:color8}
+	label-unfocused-padding    = 1
+
+	label-visible            = -
+	label-visible-background = ${xrdb:color18}
+	label-visible-foreground = ${xrdb:color7}
+	label-visible-padding    = 1
+
+	label-urgent            = -
+	label-urgent-background = ${xrdb:color18}
+	label-urgent-foreground = ${xrdb:color1}
+	label-urgent-padding    = 1
+
+	pin-workspaces = true
+
+    [module/mon2]
+
+	type            = internal/i3
+	format          = <label-state><label-mode>
+	index-sort      = true
+	wrapping-scroll = false
+	strip-wsnumbers = true
+
+	label-mode-background = #000f0f0f
+	label-mode-foreground = ${xrdb:color7}
+	label-mode-padding    = 1
+
+	label-focused            = %name%
+	label-focused-background = #000f0f0f
+	label-focused-foreground = ${xrdb:color2}
+	label-focused-padding    = 1
+
+	label-unfocused            = %name%
+	label-unfocused-background = #000f0f0f
+	label-unfocused-foreground = ${xrdb:color7}
+	label-unfocused-padding    = 1
+
+	label-visible            = %name%
+	label-visible-background = #000f0f0f
+	label-visible-foreground = ${xrdb:color7}
+	label-visible-padding    = 1
+
+	label-urgent            = •
+	label-urgent-background = ${xrdb:color7}
+	label-urgent-foreground = ${xrdb:color1}
+	label-urgent-padding    = 1
+
+	pin-workspaces = true
+
+    [module/previous]
+	type = custom/text
+
+	content = "  "
+	content-background = ${xrdb:color0}
+	content-foreground = ${xrdb:color21}
+	content-padding = 0
+
+	click-left = mpc prev
+
+[module/playpause]
+	type = custom/script
+
+	exec = sh ~/.config/polybar/playpause.sh
+
+	interval= .5
+
+	label = %output%
+	label-background = ${xrdb:color0}
+	label-foreground = ${xrdb:color21}
+	label-padding = 2
+
+	click-left = mpc toggle
+
+[module/next]
+	type = custom/text
+
+	content = "  "
+
+	content-background = ${xrdb:color0}
+	content-foreground = ${xrdb:color21}
+	content-padding = 0
+
+	click-left = mpc next
+
+[module/music]
+	type = internal/mpd
+
+	host = 127.0.0.1
+	port = 6600
+
+	interval = 2
+
+	format-online = <label-song>
+
+	label-song         = "%artist% - %title% "
+	label-song-padding = 0
+	label-song-background = ${xrdb:color0}
+	label-song-foreground = ${xrdb:color7}
+
+	format-online-prefix-padding = 0
+
+[module/gpu]
+    type = custom/script
+    interval = 2
+    ;format-underline = ${colors.gpuAccent}
+    format-prefix = "%{F#98c379}%{F} "
+    exec = system-nvidia-smi.sh
+    format-suffix = ""
+    click-left = kitty -e watch nvidia-smi
