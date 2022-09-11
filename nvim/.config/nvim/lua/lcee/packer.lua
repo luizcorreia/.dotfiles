@@ -116,5 +116,8 @@ return require("packer").startup(function()
     use 'mhinz/vim-startify'
     use "fladson/vim-kitty"
 
+    -- latex
+    use 'lervag/vimtex'
+
 
 end)

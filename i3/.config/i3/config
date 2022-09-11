@@ -252,12 +252,12 @@ set $exec_pavucontrol pavucontrol
 
 # Terminal
 for_window [title="^tscratchpad$"] floating enable, resize set 1920 1080, move scratchpad
-exec --no-startup-id $terminal -t tscratchpad zsh
+exec --no-startup-id $terminal --title tscratchpad zsh
 # exec --no-startup-id $terminal -t tscratchpad -e tmux attach-session -t luizcorreia
 
 # VimWiki
 for_window [title="^diaryNote"] floating enable, resize set 1920 1080, move scratchpad
-exec --no-startup-id $terminal -t diaryNote -e "nvim '+VimwikiMakeDiaryNote'"
+exec --no-startup-id $terminal --title diaryNote -e "nvim '+VimwikiMakeDiaryNote'"
 
 # Pavucontrol
 for_window [class="Pavucontrol"] floating enable, resize set 1920 1080, move scratchpad
@@ -270,7 +270,7 @@ exec --no-startup-id $terminal -t tasks -e tmux attach-session -t tasks
 
 # Taskwarrior
 for_window [title="^taskwarrior$"] floating enable, resize set 1920 1080, move scratchpad
-exec --no-startup-id $terminal -t taskwarrior -e tasksh
+exec --no-startup-id $terminal --title taskwarrior -e tasksh
 
 # Qalculate-gtk
 for_window [class="^Qalculate-gtk"] floating enable, resize set 1920 1080, move scratchpad
@@ -496,7 +496,7 @@ exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 
 exec --no-startup-id xrdb -merge -I $HOME ~/.Xresources
-exec --no-startup-id tmux new-session -s luizcorreia -d
+# exec --no-startup-id tmux new-session -s luizcorreia -d
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id volumeicon
 exec --no-startup-id pcmanfm -d

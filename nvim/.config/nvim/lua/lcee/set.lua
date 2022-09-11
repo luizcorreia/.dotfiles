@@ -282,7 +282,7 @@ vim.opt.spellsuggest:prepend { 12 }
 vim.opt.spelloptions = 'camel'
 vim.opt.spellcapcheck = '' -- don't check for capital letters at start of sentence
 vim.opt.fileformats = { 'unix', 'mac', 'dos' }
-vim.opt.spelllang = 'pt,en_us'
+vim.opt.spelllang = 'pt_br,en_us'
 -----------------------------------------------------------------------------//
 -- Mouse {{{1
 -----------------------------------------------------------------------------//

@@ -30,6 +30,7 @@ addToPath $HOME/Android/Sdk
 addToPath $HOME/Android/Sdk/platform-tools
 addToPath $HOME/android-studio/bin
 addToPath $HOME/.cargo/env
+addToPath $HOME/bin/ltex-ls-15.2.0/bin
 
 # ccache
 addToPathFront /usr/lib/ccache
