@@ -1,123 +1,99 @@
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins/init.lua source <afile> | PackerCompile
-  augroup end
-]]
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
-return require("packer").startup(function()
-    use("wbthomason/packer.nvim")
-    use("sbdchd/neoformat")
+-- Only required if you have packer configured as `opt`
+vim.cmd.packadd('packer.nvim')
 
-    -- basic
-    use 'tpope/vim-repeat'
-    use 'tpope/vim-surround'
-    use 'tpope/vim-commentary'
-    use 'tpope/vim-sleuth'
-    use 'tpope/vim-fugitive'
-    use 'lewis6991/gitsigns.nvim'
+return require('packer').startup(function(use)
+	-- Packer can manage itself
+	use 'wbthomason/packer.nvim'
+	-- basic
+	use 'tpope/vim-repeat'
+	use 'tpope/vim-surround'
+	use 'tpope/vim-commentary'
+	use 'tpope/vim-sleuth'
+	use 'tpope/vim-fugitive'
+	use 'lewis6991/gitsigns.nvim'
 
-    -- improves %, now with treesitter
-    use 'andymass/vim-matchup'
+	use {
+		"windwp/nvim-autopairs",
+		config = function() require("nvim-autopairs").setup {} end
+	}
+	use {
+		'nvim-telescope/telescope.nvim', tag = '0.1.0',
+		-- or                            , branch = '0.1.x',
+		requires = { { 'nvim-lua/plenary.nvim' } }
+	}
 
-    -- Simple plugins can be specified as strings
-    use("TimUntersberger/neogit")
+	use({
+		'rose-pine/neovim',
+		as = 'rose-pine',
+		config = function()
+			vim.cmd('colorscheme rose-pine')
+		end
+	})
 
-    -- TJ created lodash of neovim
-    use("nvim-lua/plenary.nvim")
-    use("nvim-lua/popup.nvim")
-    use("nvim-telescope/telescope.nvim")
-    use {
-        "AckslD/nvim-neoclip.lua",
-        requires = {
-            { 'kkharji/sqlite.lua', module = 'sqlite' },
-            -- you'll need at least one of these
-            { 'nvim-telescope/telescope.nvim' },
-            -- {'ibhagwan/fzf-lua'},
-        },
-        config = function()
-            require('neoclip').setup()
-        end,
-    }
+	use({
+		"folke/trouble.nvim",
+		config = function()
+			require("trouble").setup {
+				icons = false,
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			}
+		end
+	})
 
-    -- All the things
-    -- Completion Engine
-    use("neovim/nvim-lspconfig")
-    use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/nvim-cmp")
-    use 'hrsh7th/cmp-path'
-    use("tzachar/cmp-tabnine", { run = "./install.sh" })
-    use("onsails/lspkind-nvim")
-    use("nvim-lua/lsp_extensions.nvim")
-    use("glepnir/lspsaga.nvim")
-    use("simrat39/symbols-outline.nvim")
-    use("L3MON4D3/LuaSnip")
-    use("saadparwaiz1/cmp_luasnip")
-    use 'rafamadriz/friendly-snippets'
-    use 'jose-elias-alvarez/null-ls.nvim'
-    use 'jose-elias-alvarez/typescript.nvim'
-    use 'folke/lua-dev.nvim'
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = function()
+			local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+			ts_update()
+		end, }
+	use("nvim-treesitter/playground")
+	use("theprimeagen/harpoon")
+	use("theprimeagen/refactoring.nvim")
+	use("mbbill/undotree")
+	use("nvim-treesitter/nvim-treesitter-context");
 
-    -- Autocomplete pairs
-    use 'windwp/nvim-autopairs'
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v1.x',
+		requires = {
+			-- LSP Support
+			{ 'neovim/nvim-lspconfig' },
+			{ 'williamboman/mason.nvim' },
+			{ 'williamboman/mason-lspconfig.nvim' },
 
-    -- Primeagen doesn"t create lodash
-    use("ThePrimeagen/git-worktree.nvim")
-    use("ThePrimeagen/harpoon")
-
-    use("mbbill/undotree")
-
-    -- Colorscheme section
-    use("gruvbox-community/gruvbox")
-    use("folke/tokyonight.nvim")
-    use('arcticicestudio/nord-vim')
-
-    use("nvim-treesitter/nvim-treesitter", {
-        run = ":TSUpdate"
-    })
-
-    -- Status Line and Bufferline
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
-    use 'akinsho/nvim-bufferline.lua'
-
-    -- Markdown
-    use("plasticboy/vim-markdown")
-    use {
-        'iamcco/markdown-preview.nvim', -- preview markdown output in browser
-        opt = true,
-        ft = { 'markdown' },
-        config = 'vim.cmd[[doautocmd BufEnter]]',
-        run = 'cd app && yarn install',
-        cmd = 'MarkdownPreview',
-    }
-    use("b0o/schemastore.nvim") -- simple access to json-language-server schemae
-
-    use("nvim-treesitter/playground")
-    use("romgrk/nvim-treesitter-context")
-
-    use("mfussenegger/nvim-dap")
-    use("rcarriga/nvim-dap-ui")
-    use("theHamsta/nvim-dap-virtual-text")
-    use {
-        'norcalli/nvim-colorizer.lua',
-        config = function()
-            require('colorizer').setup()
-        end,
-    }
-    -- go
-    -- Go Lang Bundle
-    use { 'fatih/vim-go', run = 'GoInstallBinaries' }
-    -- highlights and allows moving between variable references
-    use 'RRethy/vim-illuminate'
-    use 'mhinz/vim-startify'
-    use "fladson/vim-kitty"
-
-    -- latex
-    use 'lervag/vimtex'
-
-
+			-- Autocompletion
+			{ 'hrsh7th/nvim-cmp' },
+			{ 'hrsh7th/cmp-buffer' },
+			{ 'hrsh7th/cmp-path' },
+			{ 'saadparwaiz1/cmp_luasnip' },
+			{ 'hrsh7th/cmp-nvim-lsp' },
+			{ 'hrsh7th/cmp-nvim-lua' },
+			-- Snippets
+			{ 'L3MON4D3/LuaSnip' },
+			{ 'rafamadriz/friendly-snippets' },
+		}
+	}
+	use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
+	-- Status Line and Bufferline
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	}
+	use 'akinsho/nvim-bufferline.lua'
+	use {
+		'norcalli/nvim-colorizer.lua',
+		config = function()
+			require('colorizer').setup()
+		end,
+	}
+	use("folke/zen-mode.nvim")
+	use("github/copilot.vim")
+	use("eandrju/cellular-automaton.nvim")
+	use("laytan/cloak.nvim")
+	-- latex
+	use 'lervag/vimtex'
 end)

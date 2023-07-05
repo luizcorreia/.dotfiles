@@ -47,10 +47,9 @@ xset m 1/1 0 &
 xset r rate 250 50 &
 
 # Multiple monitor setting
-xrandr --output DP-0 --primary &
-xrandr --output HDMI-0 --left-of DP-0 --rotate right &
+xrandr --output DisplayPort-0 --primary &
+xrandr --output HDMI-A-0 --left-of DisplayPort-0 --rotate left &
 powerline-daemon -q
-powerline-config tmux setup
 tmux new-session -s luizcorreia -d
 # Java GUI rendering fix
 wmname compiz &

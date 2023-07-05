@@ -1,5 +1,4 @@
 local bufferline = require 'bufferline'
-local colors = require('lcee.colors')
 
 local function getWords()
   return tostring(vim.fn.wordcount().words)
@@ -47,7 +46,6 @@ end
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
     component_separators = { left = ' ', right = ' ' },
     section_separators = { left = ' ', right = '' },
     disabled_filetypes = {},

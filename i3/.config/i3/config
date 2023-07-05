@@ -57,8 +57,8 @@ client.unfocused         #16161d #16161d #c0caf5 #16161d   #16161d
 # =========================================================
 # Font for window titles
 #font xft:Ohsnap 12
-font xft:FantasqueSansMono Nerd Font 12
-#font xft:Hack Nerd Font, FontAwesome 10
+#font xft:FantasqueSansMono Nerd Font 12
+font xft:Hack Nerd Font, FontAwesome 10
 
 # Set default orientation, <horizontal|vertical|auto>
 default_orientation auto
@@ -137,7 +137,7 @@ set $terminal kitty
 # set $terminal alacritty
 
 # default file manager
-set $file_manager pcmanfm
+set $file_manager thunar
 # default web browser
 set $browser opera
 # default media player
@@ -148,8 +148,8 @@ set $editor nvim
 set $border_width 2
 set $norm_color "#474646"
 set $focus_color "#83a598"
-set $screenshot exec --no-startup-id "flameshot screen"
-set $region_screenshot exec --no-startup-id "flameshot gui"
+set $screenshot exec --no-startup-id "flatpak run org.flameshot.Flameshot screen"
+set $region_screenshot exec --no-startup-id "flatpak run org.flameshot.Flameshot gui"
 
 # Use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -248,12 +248,13 @@ bindsym $mod+Shift+q exec i3-msg exit
 bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
-set $exec_pavucontrol pavucontrol 
+set $exec_pavucontrol pavucontrol
 
 # Terminal
 for_window [title="^tscratchpad$"] floating enable, resize set 1920 1080, move scratchpad
-exec --no-startup-id $terminal --title tscratchpad zsh
-# exec --no-startup-id $terminal -t tscratchpad -e tmux attach-session -t luizcorreia
+exec --no-startup-id tmux new-session -s luizcorreia -d
+# exec --no-startup-id $terminal --title tscratchpad zsh
+exec --no-startup-id $terminal -t tscratchpad -e tmux attach-session -t luizcorreia
 
 # VimWiki
 for_window [title="^diaryNote"] floating enable, resize set 1920 1080, move scratchpad
@@ -310,6 +311,7 @@ bindsym $mod+y  exec --no-startup-id youtube-watch.sh
 bindsym $mod+p exec --no-startup-id "dmenu_run -nf '$base04' -nb '$base00' -sb '$base04' -sf '$base00' -fn 'Fantasque Sans Mono-13' -p '>'"
 bindsym $mod+Shift+Return exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec rofi -show drun -drun-reload-desktop-cache -show-icons -terminal alacritty
+bindsym $alt+space exec rofi -show drun -drun-reload-desktop-cache -show-icons -terminal alacritty
 bindsym $mod+m exec --no-startup-id ~/.config/rofi/bin/menu_mpd
 # bindsym $mod+n exec --no-startup-id ~/.config/rofi/bin/menu_network
 # bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_misc
@@ -327,8 +329,23 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym $mod+g exec --no-startup-id pulseaudio-equalizer-gtk
 #bindsym $mod+p exec --no-startup-id pavucontrol
-bindsym XF86MonBrightnessUp exec --no-startup-id bl_up.sh 
+bindsym XF86MonBrightnessUp exec --no-startup-id bl_up.sh
 bindsym XF86MonBrightnessDown exec --no-startup-id bl_down.sh
+
+mode "Exit" {
+	bindsym l exec i3-msg exit
+	bindsym r exec systemctl -i reboot
+	bindsym s exec systemctl -i poweroff
+	bindsym e mode "default"; exec pkill -15 nagbar
+	bindsym Escape mode "default"; exec pkill -15 nagbar
+}
+
+bindsym $mod+$alt+e mode "Exit"; exec i3-nagbar \
+	-t warning \
+	-m '❕ SESSION EXIT OPTIONS' \
+	-B '❌ [L]ogout' 	'i3-msg exit' \
+	-B '🌀️ [R]estart'	'systemctl -i reboot' \
+	-B '⚡️ [S]hutdown'	'systemctl -i poweroff'
 
 # ===================================================================
 # Workspaces
@@ -341,23 +358,24 @@ bindsym XF86MonBrightnessDown exec --no-startup-id bl_down.sh
 # https://pictogrammers.github.io/@mdi/font/6.2.95/
 # https://fontawesome.com/v5/cheatsheet/free
 #
-workspace 11 output HDMI-0
-workspace 12 output HDMI-0
-workspace 13 output HDMI-0
 
-set $ws1 1:1 爵 
-set $ws2 2:2   
-set $ws3 3:3   
-set $ws4 4:4   
-set $ws5 5:5   
-set $ws6 6:6   
-set $ws7 7:7   
-set $ws8 8:8   
-set $ws9 9:9   
-set $ws10 10:10   
-set $ws11 11:11    
-set $ws12 12:12   
-set $ws13 13:13   
+set $ws1 "1:1  "
+set $ws2 "2:2  "
+set $ws3 "3:3  "
+set $ws4 "4:4  "
+set $ws5 "5:5  "
+set $ws6 "6:6  "
+set $ws7 "7:7  "
+set $ws8 "8:8  "
+set $ws9 "9:9  "
+set $ws10 "10:10  "
+set $ws11 "11:11  "
+set $ws12 "12:12  "
+set $ws13 "13:13  "
+
+workspace "11:11  " output HDMI-A-0
+workspace "12:12  " output HDMI-A-0
+workspace "13:13  " output HDMI-A-0
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -403,6 +421,7 @@ bindsym $alt+Shift+3 move container to workspace $ws13
 # assign [class="firefox"]                    $ws6
 # assign [class="opera"]                      $ws1
 assign [class="Pcmanfm"]                    $ws7
+assign [class="Thunar"]                     $ws7
 assign [class="Zathura"]                    $ws5
 assign [class="libreoffice-startcenter"]    $ws5
 assign [class="Gimp"]                       $ws5
@@ -415,10 +434,13 @@ assign [class="discord"]                    $ws3
 assign [class="Slack"]                      $ws3
 assign [class="TelegramDesktop"]            $ws3
 assign [class="Thunderbird"]                $ws4
+assign [class="thunderbird-default"]        $ws4
+assign [class="Mail"]                       $ws4
 assign [class="Evolution"]                  $ws4
 assign [class="brave-browser"]              $ws11
 # assign [class="mpv"]                        $ws13
 assign [class="Microsoft Teams - Preview"]  $ws13
+assign [class="teams-for-linux"]            $ws13
 assign [class="Evernote"]                   $ws6
 
 # QEMU virt-manager
@@ -464,20 +486,24 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf
 # exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/wallpaper-1_2048x1174.jpg
 
 # polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh --cuts
+#exec_always --no-startup-id ~/.config/polybar/launch.sh --cuts
 
 # bar toggle, hide or show
 bindsym $mod+Shift+b bar mode toggle
 
 bindsym $mod+Shift+i bar mode invisible
 
-#bar {
-#    status_command i3status
-#    position top
-#    tray_output primary
-#    strip_workspace_numbers yes
-#    colors { background #2E3440 }
-#}
+exec --no-startup-id xfce4-panel --disable-wm-check &
+for_window [ class="Xfce4-panel" instance="xfce4-panel" ] floating enable
+exec --no-startup-id /usr/libexec/xfce-polkit &
+
+bar {
+    status_command i3status
+    position top
+    tray_output primary
+    strip_workspace_numbers yes
+    colors { background #2E3440 }
+}
 #bar
 #bar {
 #	font pango:Mononoki Nerd Font 8
@@ -495,32 +521,35 @@ bindsym $mod+Shift+i bar mode invisible
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 
-exec --no-startup-id xrdb -merge -I $HOME ~/.Xresources
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+
+# exec --no-startup-id xrdb -merge -I $HOME ~/.Xresources
 # exec --no-startup-id tmux new-session -s luizcorreia -d
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id volumeicon
-exec --no-startup-id pcmanfm -d
+#exec --no-startup-id pcmanfm -d
 # exec --no-startup-id thunar --daemon
-exec --no-startup-id xfce4-power-manager
+#exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec_always --no-startup-id setxkbmap -model thinkpad60 -layout br
 exec_always --no-startup-id setxkbmap -layout us -variant intl
 exec --no-startup-id xsetroot -cursor_name left_ptr
+exec_always --no-startup-id xset m 1/1 0
 exec_always --no-startup-id xset r rate 250 50
-exec --no-startup-id xrandr --output DP-0 --primary
-exec --no-startup-id xrandr --output HDMI-0 --left-of DP-0
-exec --no-startup-id /home/luizcorreia/.local/bin/lock
+exec --no-startup-id xrandr --output DisplayPort-0 --primary
+exec --no-startup-id xrandr --output HDMI-A-0 --rotate left --left-of DisplayPort-0
+#exec --no-startup-id /home/luizcorreia/.local/bin/lock
+# Java GUI rendering fix
+exec --no-startup-id wmname compiz
 
-exec --no-startup-id discord
-exec --no-startup-id opera
-exec --no-startup-id brave-browser
-exec --no-startup-id telegram-desktop
+
+exec --no-startup-id flatpak run org.telegram.desktop
 exec --no-startup-id flatpak run com.slack.Slack
-exec --no-startup-id thunderbird
+exec --no-startup-id flatpak run org.mozilla.Thunderbird
 exec --no-startup-id Discord
 exec --no-startup-id Evernote
-exec --no-startup-id dropbox start
-exec --no-startup-id nextcloud
+exec --no-startup-id flatpak run com.nextcloud.desktopclient.nextcloud
 
 
 ## Base16ish Breeze dark

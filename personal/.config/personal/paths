@@ -14,7 +14,7 @@ if [ -d "$HOME/Applications" ]; then
 fi
 
 addToPath /usr/local/go/bin
-addToPath $HOME/go/bin
+addToPath /usr/local/go/bin
 addToPath $GOPATH/bin
 addToPath $HOME/work/wrapper
 addToPath $HOME/.yarn/bin
