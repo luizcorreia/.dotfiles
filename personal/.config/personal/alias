@@ -4,7 +4,7 @@ alias work="cd ~/work"
 alias python=python3
 alias curl='noglob curl'
 alias cat=bat
-alias find=fd
+alias find=fdfind
 
 alias pjson="python -mjson.tool"
 alias killBT="rfkill block bluetooth"

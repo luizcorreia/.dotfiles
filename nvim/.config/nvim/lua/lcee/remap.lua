@@ -1,3 +1,5 @@
+local opts = { noremap = true, silent = true }
+local term_opts = { silent = true }
 
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
@@ -53,3 +55,59 @@ for i = 1, 9 do
     vim.keymap.set('n', '<leader>' .. i, ':lua require"bufferline".go_to_buffer(' .. i .. ')<CR>')
     vim.keymap.set('t', '<leader>' .. i, '<C-\\><C-n>:lua require"bufferline".go_to_buffer(' .. i .. ')<CR>')
 end
+
+-- Vsual --
+vim.keymap.set(
+    'n',
+  "<M-j>",
+  function()
+    if vim.opt.diff:get() then
+      vim.cmd [[normal! ]c]]
+    else
+      vim.cmd [[m .+1<CR>==]]
+    end
+  end,
+    opts
+)
+
+vim.keymap.set(
+    'n',
+  "<M-k>",
+  function()
+    if vim.opt.diff:get() then
+      vim.cmd [[normal! [c]]
+    else
+      vim.cmd [[m .-2<CR>==]]
+    end
+  end,
+    opts
+)
+
+-- Visual Block --
+-- Move text up and down
+vim.keymap.set('x', 'J', ":move '>+1<CR>gv-gv", opts)
+vim.keymap.set('x', 'K', ":move '<-2<CR>gv-gv", opts)
+vim.keymap.set('x', '<A-j>', ":move '>+1<CR>gv-gv", opts)
+vim.keymap.set('x', '<A-k>', ":move '<-2<CR>gv-gv", opts)
+
+-- Make visual yanks place the cursor back where started
+vim.keymap.set('v', 'y', 'ygv<Esc>', opts)
+-- Misc
+vim.keymap.set('x', '>', '>gv', opts)
+vim.keymap.set('x', '<', '<gv', opts)
+
+-- Terminal --
+-- Better terminal navigation
+vim.keymap.set('t', '<C-h>', '<C-\\><C-N><C-w>h', term_opts)
+vim.keymap.set('t', '<C-j>', '<C-\\><C-N><C-w>j', term_opts)
+vim.keymap.set('t', '<C-k>', '<C-\\><C-N><C-w>k', term_opts)
+vim.keymap.set('t', '<C-l>', '<C-\\><C-N><C-w>l', term_opts)
+
+-- MISC --
+vim.keymap.set('x', '<Leader>p', '"_dP',opts)
+vim.keymap.set('n', '<Leader>y', '"+y',opts)
+vim.keymap.set('v', '<Leader>y', '"+y',opts)
+vim.keymap.set('n', '<Leader>Y', 'gg"+yG',opts)
+
+vim.keymap.set('n', '<Leader>d', '"_d',opts)
+vim.keymap.set('v', '<Leader>d', '"_d',opts)

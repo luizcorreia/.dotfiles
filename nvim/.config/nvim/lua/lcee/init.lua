@@ -1,13 +1,12 @@
 require("lcee.set")
 require("lcee.remap")
-require("lcee.packer")
 
 -- DO NOT INCLUDE THIS
 vim.opt.rtp:append("~/personal/streamer-tools")
 -- DO NOT INCLUDE THIS
 
 local augroup = vim.api.nvim_create_augroup
-local ThePrimeagenGroup = augroup('ThePrimeagen', {})
+local LceeGroup = augroup('Lcee', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
@@ -28,7 +27,7 @@ autocmd('TextYankPost', {
 })
 
 autocmd({"BufWritePre"}, {
-    group = ThePrimeagenGroup,
+    group = LceeGroup,
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
